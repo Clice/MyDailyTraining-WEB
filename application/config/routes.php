@@ -52,7 +52,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  */
 
 // ROTA PARA O CONTROLLER INICIAL
-$route['default_controller'] = 'welcome';
+$route['default_controller'] = 'apresentacao';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
