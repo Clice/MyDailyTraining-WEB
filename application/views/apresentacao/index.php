@@ -35,7 +35,10 @@
                 <div class="collapse navbar-collapse text-uppercase" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item mx-0 mx-lg-1">
-                            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger text-white" href="#equaltech">EqualTech</a>
+                            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger text-white" href="#recursos">Recursos</a>
+                        </li>
+                        <li class="nav-item mx-0 mx-lg-1">
+                            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger text-white" href="<?php echo base_url('quem-somos.php'); ?>">EqualTech</a>
                         </li>
                         <li class="nav-item mx-0 mx-lg-1">
                             <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger text-white" href="#planos">Planos</a>
@@ -46,27 +49,41 @@
                         <li class="nav-item mx-0 mx-lg-1">
                             <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger text-white" href="#sobre">Sobre</a>
                         </li>
-                        <li class="nav-item mx-0 mx-lg-1">
-                            <div class="fa fa-user"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger text-white" href="login.php">Área do Cliente</a></div>
-                        </li>
                     </ul>
                 </div>
             </div>
         </nav>
 
         <!-- PÁGINA INICIAL -->
-        <section id="home">
-            <div class="container text-white">
-                <label style="text-align: justify;">O MyDailyTraining busca inovar na forma que os alunos 
-                    praticam atividades físicas dentro da academia, que podem encontrar dificuldade na comunicação com os 
-                    instrutores e em receber auxílio deles durante a realização dos exercícios, além de precisarem acompanhar 
-                    os seus treinos, trazendo mais comodidade e praticidade a vida dos alunos. </label>
-
-                <img style="float: right; height: 50%;" src="<?php echo base_url('assets/imagens/monitor.png'); ?>">
+        <header id="home">
+            <div class="container h-100">
+                <div class="row h-100">
+                    <div class="col-lg-7 my-auto">
+                        <div class="header-content mx-auto">
+                            <br>
+                            <h4 style="text-align: justify; color: #007bff;" class="mb-10">O MyDailyTraining busca inovar na forma que os 
+                                alunos praticam atividades físicas dentro da academia, que podem encontrar dificuldade na 
+                                comunicação com os instrutores e em receber auxílio deles durante a realização dos 
+                                exercícios, além de precisarem acompanhar os seus treinos, trazendo mais comodidade e 
+                                praticidade a vida dos alunos.</h4>
+                            <br>
+                            <a href="<?php echo base_url('sistema/login.php'); ?>" class="btn btn-danger btn-xl">Acesse a plataforma</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 my-auto">
+                        <div class="device-container">
+                            <div class="device-mockup galaxy_s5 portrait white">
+                                <div class="device">
+                                    <div class="screen">
+                                        <img style="float: right; height: 50%;" src="<?php echo base_url('assets/imagens/monitor.png'); ?>"  class="img-fluid" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-
-            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-        </section>
+        </header>
 
         <!-- About Section 
         <section class="bg-primary text-white mb-0" id="equaltech">
@@ -89,6 +106,17 @@
                 </div>
             </div>
         </section> -->
+        
+        <section class="text-secondary bg-primary" id="recursos">
+            
+            <div class="text-white text-center">
+                <h3>Ficha de Treinamento</h3>
+                <p>Não perca tempo na sala de musculação. Monte, imprima e acompanhe facilmente a ficha de treinamento dos 
+                    alunos pelo computador.<p>
+            </div>
+            
+            
+        </section>
 
         <!-- PLANOS -->
         <section id="planos">
@@ -245,7 +273,7 @@
             </div>
         </section>
 
-        
+
         <!-- CONTATOS -->
         <section class="contact bg-primary text-center" id="contatos">
             <div class="container">
@@ -324,11 +352,10 @@
         <!-- RODAPÉ -->
         <div class="copyright py-4 text-center text-white">
             <div class="container">
-                <small>Copyright &copy; EqualTech 2017</small>
+                <p>Copyright &copy; EqualTech 2017 - <?php echo date('Y') ?> . Todos os direitos reservados.</p>
+                <p>Desenvolvido por EqualTech</p>
             </div>
         </div>
-
-
 
         <!-- SCRIPTS -->
         <script src="<?php echo base_url('assets/layout/vendor/jquery/jquery.min.js'); ?>"></script>
