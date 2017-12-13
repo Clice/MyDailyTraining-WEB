@@ -1,4 +1,4 @@
-<html lang="en" data-textdirection="ltr" class="loading">
+<html lang="pt-br" data-textdirection="ltr" class="loading">
     <head>
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -8,11 +8,11 @@
 
         <title>MyDailyTraining - Login</title>
 
-        <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/login/app-assets/css/bootstrap.css'); ?>">
-        <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/login/app-assets/fonts/icomoon.css'); ?>">
-        <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/login/app-assets/css/bootstrap-extended.css'); ?>">
-        <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/login/app-assets/css/app.css'); ?>">
-        <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/login/app-assets/css/colors.css'); ?>">
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/login/bootstrap.css'); ?>">
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/fonts/fonts/icomoon.css'); ?>">
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/login/bootstrap-extended.css'); ?>">
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/login/app.css'); ?>">
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/login/colors.css'); ?>">
 
     </head>
 
@@ -38,14 +38,14 @@
                                     <div class="card-block">
                                         <?php
                                         echo validation_errors('<div class="alert alert-danger">', '</div>');
-                                        echo form_open('apresentacao/cLogarUsuario');
+                                        echo form_open('sistema/LoginController/cLogarUsuario');
                                         ?>
                                         <div class="form-body">
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <div class="form-group">
                                                         <label>Login:</label>
-                                                        <input type="text" class="form-control" placeholder="Digite o login" id="loginUsuario" 
+                                                        <input type="text" class="form-control" placeholder="Digite o login" id="loginUsuario" autofocus=""  
                                                                name="loginUsuario">                                          
                                                     </div>
                                                 </div>
@@ -79,17 +79,9 @@
         </div> 
 
         <!-- BEGIN VENDOR JS-->
-        <script src="<?php echo base_url('assets/css/login/app-assets/js/core/libraries/jquery.min.js'); ?>" type="text/javascript"></script>
-        <script src="<?php echo base_url('assets/css/login/app-assets/vendors/js/ui/tether.min.js'); ?>" type="text/javascript"></script>
-        <script src="<?php echo base_url('assets/css/login/app-assets/js/core/libraries/bootstrap.min.js'); ?>" type="text/javascript"></script>
-        <script src="<?php echo base_url('assets/css/login/app-assets/vendors/js/ui/perfect-scrollbar.jquery.min.js'); ?>" type="text/javascript"></script>
-        <script src="<?php echo base_url('assets/css/login/app-assets/vendors/js/ui/unison.min.js'); ?>" type="text/javascript"></script>
-        <script src="<?php echo base_url('assets/css/login/app-assets/vendors/js/ui/blockUI.min.js'); ?>" type="text/javascript"></script>
-        <script src="<?php echo base_url('assets/css/login/app-assets/vendors/js/ui/jquery.matchHeight-min.js'); ?>" type="text/javascript"></script>
-        <script src="<?php echo base_url('assets/css/login/app-assets/vendors/js/ui/screenfull.min.js'); ?>" type="text/javascript"></script>
-        <script src="<?php echo base_url('assets/css/login/app-assets/vendors/js/extensions/pace.min.js'); ?>" type="text/javascript"></script>
-        <script src="<?php echo base_url('assets/css/login/app-assets/js/core/app-menu.js'); ?>" type="text/javascript"></script>
-        <script src="<?php echo base_url('assets/css/login/app-assets/js/core/app.js'); ?>" type="text/javascript"></script>
+        <script src="<?php echo base_url('assets/js/login/jquery.min.js'); ?>" type="text/javascript"></script>
+        <script src="<?php echo base_url('assets/js/login/bootstrap.min.js'); ?>" type="text/javascript"></script>
+        <script src="<?php echo base_url('assets/js/login/app.js'); ?>" type="text/javascript"></script>
 
     </body>
 </html>
