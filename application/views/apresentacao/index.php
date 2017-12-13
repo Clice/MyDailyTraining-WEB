@@ -27,9 +27,9 @@
             <div class="container">
                 <img src="<?php echo base_url('assets/imagens/Icon.png'); ?>" alt="" style="height: 80%;">
                 <a class="navbar-brand js-scroll-trigger" href="#home">&nbsp;&nbsp;MyDailyTraining</a>
-                <button class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    Menu
-                    <i class="fa fa-bars"></i>
+                <button class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded" type="button" 
+                        data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" 
+                        aria-label="Toggle navigation">Menu<i class="fa fa-bars"></i>
                 </button>
 
                 <div class="collapse navbar-collapse text-uppercase" id="navbarResponsive">
@@ -38,7 +38,7 @@
                             <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger text-white" href="#recursos">Recursos</a>
                         </li>
                         <li class="nav-item mx-0 mx-lg-1">
-                            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger text-white" href="<?php echo base_url('quem-somos.php'); ?>">EqualTech</a>
+                            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger text-white" href="<?php echo base_url('apresentacao/viewQuemSomos'); ?>">EqualTech</a>
                         </li>
                         <li class="nav-item mx-0 mx-lg-1">
                             <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger text-white" href="#planos">Planos</a>
@@ -67,7 +67,7 @@
                                 exercícios, além de precisarem acompanhar os seus treinos, trazendo mais comodidade e 
                                 praticidade a vida dos alunos.</h4>
                             <br>
-                            <a href="<?php echo base_url('sistema/login.php'); ?>" class="btn btn-danger btn-xl">Acesse a plataforma</a>
+                            <a href="<?php echo base_url('apresentacao/viewLogin'); ?>" class="btn btn-danger btn-xl">Acesse a plataforma</a>
                         </div>
                     </div>
                     <div class="col-lg-5 my-auto">

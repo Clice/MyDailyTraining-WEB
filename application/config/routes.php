@@ -57,4 +57,5 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 // ROTAS PARA OUTROS CONTROLLERS
-
+$route['apresentacao/login'] = 'apresentacao/viewLogin';
+$route['apresentacao/quem-somos'] = 'apresentacao/viewQuemSomos';
