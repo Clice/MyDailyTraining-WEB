@@ -7,13 +7,13 @@
         <title>MyDailyTraining - Sistema para Gerenciamento de Academias e Acompanhamento de Alunos</title>
 
         <!-- CSS -->
-        <link href="<?php echo base_url('assets/layout/vendor/bootstrap/css/bootstrap.min.css'); ?>" rel="stylesheet">      
-        <link href="<?php echo base_url('assets/css/apresentacao/planos.css'); ?>" rel="stylesheet">
-        <link href="<?php echo base_url('assets/css/apresentacao/apresentacao.css'); ?>" rel="stylesheet">
-        <link href="<?php echo base_url('assets/layout/vendor/font-awesome/css/font-awesome.min.css'); ?>" rel="stylesheet" type="text/css">
+        <link href="<?php echo base_url('assets/apresentacao/css/bootstrap.min.css'); ?>" rel="stylesheet">      
+        <link href="<?php echo base_url('assets/apresentacao/css/planos.css'); ?>" rel="stylesheet">
+        <link href="<?php echo base_url('assets/apresentacao/css/apresentacao.css'); ?>" rel="stylesheet">
+        <link href="<?php echo base_url('assets/apresentacao/css/font-awesome.min.css'); ?>" rel="stylesheet" type="text/css">
         <link href="<?php echo base_url('assets/layout/vendor/magnific-popup/magnific-popup.css'); ?>" rel="stylesheet" type="text/css">
-        <link href="<?php echo base_url('assets/layout/css/freelancer.min.css'); ?>" rel="stylesheet">
-        <link href="<?php echo base_url('assets/layout/css/freelancer.css'); ?>" rel="stylesheet">
+        <link href="<?php echo base_url('assets/apresentacao/css/freelancer.min.css'); ?>" rel="stylesheet">
+        <link href="<?php echo base_url('assets/apresentacao/css/freelancer.css'); ?>" rel="stylesheet">
 
         <!-- FONTES -->
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
@@ -38,9 +38,6 @@
                             <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger text-white" href="#recursos">Recursos</a>
                         </li>
                         <li class="nav-item mx-0 mx-lg-1">
-                            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger text-white" href="<?php echo base_url('apresentacao/viewQuemSomos'); ?>">EqualTech</a>
-                        </li>
-                        <li class="nav-item mx-0 mx-lg-1">
                             <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger text-white" href="#planos">Planos</a>
                         </li>
                         <li class="nav-item mx-0 mx-lg-1">
@@ -56,36 +53,28 @@
 
         <!-- PÁGINA INICIAL -->
         <header id="home">
-            <div class="container h-100">
-                <div class="row h-100">
-                    <div class="col-lg-7 my-auto">
-                        <div class="header-content mx-auto">
-                            <br>
-                            <h4 style="text-align: justify; color: #007bff;" class="mb-10">O MyDailyTraining busca inovar na forma que os 
-                                alunos praticam atividades físicas dentro da academia, que podem encontrar dificuldade na 
-                                comunicação com os instrutores e em receber auxílio deles durante a realização dos 
-                                exercícios, além de precisarem acompanhar os seus treinos, trazendo mais comodidade e 
-                                praticidade a vida dos alunos.</h4>
-                            <br>
-                            <a href="<?php echo base_url('apresentacao/viewLogin'); ?>" class="btn btn-danger btn-xl">Acesse a plataforma</a>
-                        </div>
+            <div class="row h-100">
+                <div class="col-lg-5 my-auto">
+                    <div class="device-container">
+                        <img style="float: right; height: 50%;" src="<?php echo base_url('assets/imagens/monitor.png'); ?>"  class="img-fluid" alt="">
                     </div>
-                    <div class="col-lg-5 my-auto">
-                        <div class="device-container">
-                            <div class="device-mockup galaxy_s5 portrait white">
-                                <div class="device">
-                                    <div class="screen">
-                                        <img style="float: right; height: 50%;" src="<?php echo base_url('assets/imagens/monitor.png'); ?>"  class="img-fluid" alt="">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                </div>
+                <div class="col-lg-6 my-auto"> 
+                    <div class="header-content mx-auto">
+                        <br>
+                        <h4 style="text-align: justify; color: #007bff;" class="mb-10">O MyDailyTraining busca inovar na forma que os 
+                            alunos praticam atividades físicas dentro da academia, que podem encontrar dificuldade na 
+                            comunicação com os instrutores e em receber auxílio deles durante a realização dos 
+                            exercícios, além de precisarem acompanhar os seus treinos, trazendo mais comodidade e 
+                            praticidade a vida dos alunos.</h4>
+                        <br>
+                        <a href="<?php echo base_url('apresentacao/viewLogin'); ?>" class="btn btn-danger btn-xl btn-right">Acesse a plataforma</a>
                     </div>
                 </div>
             </div>
         </header>
 
-        
+
 
         <!-- RECURSOS -->
         <section class="recursos bg-primary text-white mb-0" id="recursos">
@@ -111,7 +100,7 @@
                     <p>Gerencie seus treinos permitindo um melhor aproveitamento na academia, tudo isso na palma da sua mão.<p>
                 </div>
                 <div class="recursos-acompanhamento text-center pricing-grid1">
-                    <h3>Acompanhar do Desempenho</h3>
+                    <h3>Acompanhar Desempenho</h3>
                     <p>Acompanhe seus resultados a qualquer momento de forma fácil e simples.<p>
                 </div>
             </div>
@@ -216,7 +205,9 @@
                                     <li>Pacote C: 150 Licenças (R$ 25,00)</li>
                                     <li>Pacote D: 200 Licenças (R$ 30,00)</li>
                                 </ul>
-                                <br><br>
+                                <div style="height: 50px;">
+
+                                </div>
                                 <div class="cart4">
                                     <a class="popup-with-zoom-anim" href="#small-dialog">Fale Conosco</a>
                                 </div>
@@ -228,8 +219,24 @@
             </div>
         </section>
 
+        <!-- ---------- DOWNLOAD ---------- -->
+        <section class="download bg-primary text-center text-white" id="download">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 mx-auto ">
+                        <h2 class="section-heading text-uppercase">Baixe o aplicativo:</h2>
+                        <br><br>
+                        <h3>Nosso aplicativo já está disponível para download.</h3><br>
+                        <div>
+                            <a href="#"><img src="<?php echo base_url('assets/imagens/googleplay.png'); ?>" alt="" style="height: 18%;"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- CONTATOS -->
-        <section class="contact bg-primary text-center" id="contatos">
+        <section class="contact text-center" id="contatos">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 mx-auto text-center text-uppercase">
@@ -253,16 +260,20 @@
 
 
         <!-- SOBRE -->
-        <section class="mb-0" id="sobre">
+        <section class="bg-primary mb-0" id="sobre">
             <div class="container">
                 <h2 class="text-center text-uppercase">Sobre a EqualTech</h2>
                 <hr>
                 <div class="row">
                     <div class="col-lg-4 ml-auto">
-                        <p class="lead">Freelancer is a free bootstrap theme created by Start Bootstrap. The download includes the complete source files including HTML, CSS, and JavaScript as well as optional LESS stylesheets for easy customization.</p>
+                        <p class="lead">Freelancer is a free bootstrap theme created by Start Bootstrap. The download 
+                            includes the complete source files including HTML, CSS, and JavaScript as well as optional 
+                            LESS stylesheets for easy customization.</p>
                     </div>
                     <div class="col-lg-4 mr-auto">
-                        <p class="lead">Whether you're a student looking to showcase your work, a professional looking to attract clients, or a graphic artist looking to share your projects, this template is the perfect starting point!</p>
+                        <p class="lead">Whether you're a student looking to showcase your work, a professional looking to 
+                            attract clients, or a graphic artist looking to share your projects, this template is the 
+                            perfect starting point!</p>
                     </div>
                 </div>
                 <div class="text-center mt-4">
@@ -307,18 +318,18 @@
         <!-- RODAPÉ -->
         <div class="copyright py-4 text-center text-white">
             <div class="container">
-                <p>Copyright &copy; EqualTech 2017 - <?php echo date('Y') ?> . Todos os direitos reservados.</p>
+                <p>EqualTech &copy; 2017 - <?php echo date('Y') ?> . Todos os direitos reservados.</p>
                 <p>Desenvolvido por EqualTech</p>
             </div>
         </div>
 
         <!-- SCRIPTS -->
-        <script src="<?php echo base_url('assets/layout/vendor/jquery/jquery.min.js'); ?>"></script>
-        <script src="<?php echo base_url('assets/layout/vendor/bootstrap/js/bootstrap.bundle.min.js'); ?>"></script>
-        <script src="<?php echo base_url('assets/layout/vendor/jquery-easing/jquery.easing.min.js'); ?>"></script>
-        <script src="<?php echo base_url('assets/layout/vendor/magnific-popup/jquery.magnific-popup.min.js'); ?>"></script>
-        <script src="<?php echo base_url('assets/layout/js/jqBootstrapValidation.js'); ?>"></script>
-        <script src="<?php echo base_url('assets/layout/js/contact_me.js'); ?>"></script>
-        <script src="<?php echo base_url('assets/layout/js/freelancer.min.js'); ?>"></script>
+        <script src="<?php echo base_url('assets/apresentacao/js/jquery.min.js'); ?>"></script>
+        <script src="<?php echo base_url('assets/apresentacao/js/bootstrap.bundle.min.js'); ?>"></script>
+        <script src="<?php echo base_url('assets/apresentacao/js/jquery.easing.min.js'); ?>"></script>
+        <script src="<?php echo base_url('assets/apresentacao/js/jquery.magnific-popup.min.js'); ?>"></script>
+        <script src="<?php echo base_url('assets/apresentacao/js/jqBootstrapValidation.js'); ?>"></script>
+        <script src="<?php echo base_url('assets/apresentacao/js/contact_me.js'); ?>"></script>
+        <script src="<?php echo base_url('assets/apresentacao/js/freelancer.min.js'); ?>"></script>
     </body>
 </html>
