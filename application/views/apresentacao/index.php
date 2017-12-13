@@ -85,42 +85,41 @@
             </div>
         </header>
 
-        <!-- About Section 
-        <section class="bg-primary text-white mb-0" id="equaltech">
-            <div class="container">
-                <h2 class="text-center text-uppercase text-white">Sobre a EqualTech</h2>
-                <hr>
-                <div class="row">
-                    <div class="col-lg-4 text-center text-uppercase">
-                        <p class="lead">Missão</p><br>
-                        <p class="lead">Inovar por meio do desenvolvimento de aplicações tecnológicas, buscando trazer qualidade de vida e bom atendimento.</p>
-                    </div>
-                    <div class="col-lg-4 text-center text-uppercase">
-                        <p class="lead">Visão</p><br>
-                        <p class="lead">Estar ativo no mercado, sendo referência na promoção de soluções de software para academias.</p>
-                    </div>
-                    <div class="col-lg-4 text-center text-uppercase">
-                        <p class="lead">Valores</p><br>
-                        <p class="lead">Fornecer produtos de confiança aos clientes, com ética, honestidade, responsabilidade e compromisso para com eles e o mercado.</p>
-                    </div>
+        
+
+        <!-- RECURSOS -->
+        <section class="recursos bg-primary text-white mb-0" id="recursos">
+
+            <h4 class="text-center text-uppercase">Recursos</h4>
+            <br> 
+            <div class="col-lg-6 smartphone">
+                <img src="<?php echo base_url('assets/imagens/Smartphone.png'); ?>" alt="">
+            </div>
+
+            <div class="container-recursos text-white">
+                <div class="recursos-ficha text-center pricing-grid1">
+                    <h3>Ficha de Treinamento</h3>
+                    <p>Não perca tempo na sala de musculação. Monte, imprima e acompanhe facilmente a ficha de treinamento dos 
+                        alunos pelo computador.<p>
+                </div>
+                <div class="recursos-avaliacao text-center pricing-grid1">
+                    <h3>Avaliação Física</h3>
+                    <p>Faça as avaliações físicas, compare e gerencie a de todos os alunos da academia. <p>
+                </div>
+                <div class="recursos-gerenciamento text-center pricing-grid1">
+                    <h3>Gerenciamento do Treino</h3>
+                    <p>Gerencie seus treinos permitindo um melhor aproveitamento na academia, tudo isso na palma da sua mão.<p>
+                </div>
+                <div class="recursos-acompanhamento text-center pricing-grid1">
+                    <h3>Acompanhar do Desempenho</h3>
+                    <p>Acompanhe seus resultados a qualquer momento de forma fácil e simples.<p>
                 </div>
             </div>
-        </section> -->
-        
-        <section class="text-secondary bg-primary" id="recursos">
-            
-            <div class="text-white text-center">
-                <h3>Ficha de Treinamento</h3>
-                <p>Não perca tempo na sala de musculação. Monte, imprima e acompanhe facilmente a ficha de treinamento dos 
-                    alunos pelo computador.<p>
-            </div>
-            
-            
         </section>
 
         <!-- PLANOS -->
-        <section id="planos">
-            <h3 class="text-center text-uppercase text-secondary text-white">Planos</h3>
+        <section class="planos" id="planos">
+            <h4 class="text-center text-uppercase text-secondary text-white">Planos</h4>
             <br>
             <div class="pricing-plans">
                 <div class="wrap">
@@ -229,56 +228,11 @@
             </div>
         </section>
 
-        <!-- About Section -->
-        <section class="bg-primary text-white mb-0" id="sobre">
-            <div class="container">
-                <h2 class="text-center text-uppercase text-white">Sobre a EqualTech</h2>
-                <hr>
-                <div class="row">
-                    <div class="col-lg-4 ml-auto">
-                        <p class="lead">Freelancer is a free bootstrap theme created by Start Bootstrap. The download includes the complete source files including HTML, CSS, and JavaScript as well as optional LESS stylesheets for easy customization.</p>
-                    </div>
-                    <div class="col-lg-4 mr-auto">
-                        <p class="lead">Whether you're a student looking to showcase your work, a professional looking to attract clients, or a graphic artist looking to share your projects, this template is the perfect starting point!</p>
-                    </div>
-                </div>
-                <div class="text-center mt-4">
-                    <a class="btn btn-xl btn-outline-light" href="#">
-                        <i class="fa fa-download mr-2"></i>
-                        Download Now!
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- About Section -->
-        <section class="bg-white text-secondary mb-0" id="">
-            <div class="container">
-                <h2 class="text-center text-uppercase text-secondary">About</h2>
-                <hr class="star-dark mb-5">
-                <div class="row">
-                    <div class="col-lg-4 ml-auto">
-                        <p class="lead">Freelancer is a free bootstrap theme created by Start Bootstrap. The download includes the complete source files including HTML, CSS, and JavaScript as well as optional LESS stylesheets for easy customization.</p>
-                    </div>
-                    <div class="col-lg-4 mr-auto">
-                        <p class="lead">Whether you're a student looking to showcase your work, a professional looking to attract clients, or a graphic artist looking to share your projects, this template is the perfect starting point!</p>
-                    </div>
-                </div>
-                <div class="text-center mt-4">
-                    <a class="btn btn-xl btn-outline-light" href="#">
-                        <i class="fa fa-download mr-2"></i>
-                        Download Now!
-                    </a>
-                </div>
-            </div>
-        </section>
-
-
         <!-- CONTATOS -->
         <section class="contact bg-primary text-center" id="contatos">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-8 mx-auto text-center">
+                    <div class="col-lg-8 mx-auto text-center text-uppercase">
                         <h2 class="section-heading">Nossos contatos:</h2>
                     </div>
                 </div>
@@ -298,51 +252,52 @@
         </section>
 
 
+        <!-- SOBRE -->
+        <section class="mb-0" id="sobre">
+            <div class="container">
+                <h2 class="text-center text-uppercase">Sobre a EqualTech</h2>
+                <hr>
+                <div class="row">
+                    <div class="col-lg-4 ml-auto">
+                        <p class="lead">Freelancer is a free bootstrap theme created by Start Bootstrap. The download includes the complete source files including HTML, CSS, and JavaScript as well as optional LESS stylesheets for easy customization.</p>
+                    </div>
+                    <div class="col-lg-4 mr-auto">
+                        <p class="lead">Whether you're a student looking to showcase your work, a professional looking to attract clients, or a graphic artist looking to share your projects, this template is the perfect starting point!</p>
+                    </div>
+                </div>
+                <div class="text-center mt-4">
+                    <a class="btn btn-xl btn-outline-dark" href="#">
+                        <i class="fa fa-download mr-2"></i>
+                        Download Now!
+                    </a>
+                </div>
+            </div>
+        </section>
 
 
         <!-- Footer -->
         <footer class="footer text-center">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-4 mb-5 mb-lg-0">
-                        <h4 class="text-uppercase mb-4">Location</h4>
-                        <p class="lead mb-0">2215 John Daniel Drive
-                            <br>Clark, MO 65243</p>
-                    </div>
-                    <div class="col-md-4 mb-5 mb-lg-0">
-                        <h4 class="text-uppercase mb-4">Around the Web</h4>
+                    <div class="col-md-4 mb-5 mb-lg-0" style="margin-left: 33%;">
+                        <h4 class="text-uppercase mb-4">Siga a EqualTech</h4>
                         <ul class="list-inline mb-0">
                             <li class="list-inline-item">
                                 <a class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
-                                    <i class="fa fa-fw fa-facebook"></i>
+                                    <i class="fa fa-fw fa-facebook" style="margin-top: 8px;"></i>
                                 </a>
                             </li>
                             <li class="list-inline-item">
                                 <a class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
-                                    <i class="fa fa-fw fa-google-plus"></i>
+                                    <i class="fa fa-fw fa-google-plus" style="margin-top: 8px;"></i>
                                 </a>
                             </li>
                             <li class="list-inline-item">
                                 <a class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
-                                    <i class="fa fa-fw fa-twitter"></i>
-                                </a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
-                                    <i class="fa fa-fw fa-linkedin"></i>
-                                </a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
-                                    <i class="fa fa-fw fa-dribbble"></i>
+                                    <i class="fa fa-fw fa-twitter" style="margin-top: 8px;"></i>
                                 </a>
                             </li>
                         </ul>
-                    </div>
-                    <div class="col-md-4">
-                        <h4 class="text-uppercase mb-4">About Freelancer</h4>
-                        <p class="lead mb-0">Freelance is a free to use, open source Bootstrap theme created by
-                            <a href="http://startbootstrap.com">Start Bootstrap</a>.</p>
                     </div>
                 </div>
             </div>
