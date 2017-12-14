@@ -99,11 +99,11 @@ $db['default'] = array(
 
 // BANCO DE DADOS: CONFIGURAÇÃO PARA UTILIZAÇÃO NO SERVIDOR
 /*$db['default'] = array(
-    'dsn' => 'mysql:host=localhost;dbname=mydailytraining',
+    'dsn' => 'mysql:host=localhost;dbname=mydai319_mydailytraining_db',
     'hostname' => 'localhost',
-    'username' => 'root',
-    'password' => '',
-    'database' => 'mydailytraining',
+    'username' => 'mydai319_user_db',
+    'password' => '2TIUqR3K9L^^',
+    'database' => 'mydai319_mydailytraining_db',
     'dbdriver' => 'pdo',
     'dbprefix' => '',
     'pconnect' => FALSE,

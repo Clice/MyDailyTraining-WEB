@@ -1,4 +1,3 @@
-
 <!-- CABEÇALHO DA PÁGINA - BARRA DE MENU SUPERIOR -->
 <nav style="box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);" class="header-navbar navbar navbar-with-menu navbar-fixed-top navbar-semi-dark navbar-shadow">
     <div class="navbar-wrapper">
@@ -53,7 +52,7 @@
                     <li class="dropdown dropdown-user nav-item">
                         <a href="#" data-toggle="dropdown" class="dropdown-toggle nav-link dropdown-user-link">
                             <span class="avatar avatar-online">
-                                <img src="<?php echo base_url('assets/layout/robust-free-bootstrap-admin-template-master/app-assets/images/portrait/small/avatar-s-1.png'); ?>" alt="avatar"><i></i></span><span class="user-name">John Doe</span></a>
+                                <img src="<?php echo base_url('assets/imagens/avatar-s-1.png'); ?>" alt="avatar"><i></i></span><span class="user-name">John Doe</span></a>
                         <div class="dropdown-menu dropdown-menu-right">
                             <a href="<?php echo base_url('perfil'); ?>" class="dropdown-item"><i class="icon-head"></i> Perfil</a>
                             <div class="dropdown-divider"></div><a href="#" class="dropdown-item"><i class="icon-power3"></i> Sair</a>
