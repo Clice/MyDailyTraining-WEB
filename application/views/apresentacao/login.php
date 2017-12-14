@@ -8,11 +8,11 @@
 
         <title>MyDailyTraining - Login</title>
 
-        <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/login/bootstrap.css'); ?>">
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/sistema/bootstrap.css'); ?>">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/fonts/fonts/icomoon.css'); ?>">
-        <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/login/bootstrap-extended.css'); ?>">
-        <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/login/app.css'); ?>">
-        <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/login/colors.css'); ?>">
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/sistema/bootstrap-extended.css'); ?>">
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/sistema/app.css'); ?>">
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/sistema/colors.css'); ?>">
 
     </head>
 
@@ -79,9 +79,9 @@
         </div> 
 
         <!-- BEGIN VENDOR JS-->
-        <script src="<?php echo base_url('assets/js/login/jquery.min.js'); ?>" type="text/javascript"></script>
-        <script src="<?php echo base_url('assets/js/login/bootstrap.min.js'); ?>" type="text/javascript"></script>
-        <script src="<?php echo base_url('assets/js/login/app.js'); ?>" type="text/javascript"></script>
+        <script src="<?php echo base_url('assets/js/sistema/jquery.min.js'); ?>" type="text/javascript"></script>
+        <script src="<?php echo base_url('assets/js/sistema/bootstrap.min.js'); ?>" type="text/javascript"></script>
+        <script src="<?php echo base_url('assets/js/sistema/app.js'); ?>" type="text/javascript"></script>
 
     </body>
 </html>

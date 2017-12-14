@@ -28,9 +28,7 @@ body {
     background-color: #000;
 }
 
-
 /*///// SECTIONS /////////*/
-
 section.recursos{
     height: 1000px;
     position:relative;
@@ -45,7 +43,6 @@ section.planos h4{
     font-size: 45px;
     margin-top: -15px;
 }
-
 
 .planos {
 

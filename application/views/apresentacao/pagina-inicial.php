@@ -77,7 +77,7 @@
         </header>
 
         <!-- RECURSOS -->
-        <section class="recursos bg-primary text-white mb-0" id="recursos">
+        <section style="background-color: #209AED;" class="recursos text-white mb-0" id="recursos">
             <h4 class="text-center text-uppercase">Recursos</h4>
             <br> 
             <div class="col-lg-6 smartphone">
@@ -218,7 +218,7 @@
         </section>
 
         <!-- DOWNLOAD -->
-        <section class="download bg-primary text-center text-white" id="download">
+        <section style="background-color: #209AED;" class="download text-center text-white" id="download">
             <div class="container">
                 <div class="row">
                     <div class="col-md-8 mx-auto ">
@@ -257,7 +257,7 @@
         </section>
 
         <!-- SOBRE -->
-        <section class="bg-primary mb-0 text-white" id="sobre">
+        <section style="background-color: #209AED;" class="mb-0 text-white" id="sobre">
             <div class="container">
                 <h2 class="text-center text-uppercase">Sobre a EqualTech</h2>
                 <hr>
@@ -305,7 +305,7 @@
         </footer>
 
         <!-- RODAPÉ -->
-        <div class="copyright py-4 text-center text-white">
+        <div style="background-color: #0e456b;" class="copyright py-4 text-center text-white">
             <div class="container">
                 <p>EqualTech &copy; 2017 - <?php echo date('Y') ?> . Todos os direitos reservados.</p>
                 <p>Desenvolvido por EqualTech</p>
