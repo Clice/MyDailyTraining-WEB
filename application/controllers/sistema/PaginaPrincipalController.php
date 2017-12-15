@@ -5,7 +5,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class PaginaPrincipalController extends CI_Controller {
 
     public function index() {
-        $this->load->view('sistema/templates/html-header');
+        $dados['nomePagina'] = 'Página Principal';
+        $this->load->view('sistema/templates/html-header', $dados);
         $this->load->view('sistema/templates/header');
         $this->load->view('sistema/templates/side-menu');
         $this->load->view('sistema/telas/pagina-principal');
@@ -14,7 +15,8 @@ class PaginaPrincipalController extends CI_Controller {
     }
 
     public function viewPerfil() {
-        $this->load->view('sistema/templates/html-header');
+        $dados['nomePagina'] = 'Perfil';
+        $this->load->view('sistema/templates/html-header', $dados);
         $this->load->view('sistema/templates/header');
         $this->load->view('sistema/templates/side-menu');
         $this->load->view('sistema/telas/perfil');
@@ -23,7 +25,8 @@ class PaginaPrincipalController extends CI_Controller {
     }
 
     public function viewNotificacoes() {
-        $this->load->view('sistema/templates/html-header');
+        $dados['nomePagina'] = 'Notificações';
+        $this->load->view('sistema/templates/html-header', $dados);
         $this->load->view('sistema/templates/header');
         $this->load->view('sistema/templates/side-menu');
         $this->load->view('sistema/telas/notificacoes');

@@ -5,7 +5,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class AdministradorController extends CI_Controller {
 
     public function index() {
-        $this->load->view('sistema/templates/html-header');
+        $dados['nomePagina'] = 'Lista de Administradores';
+        $this->load->view('sistema/templates/html-header', $dados);
         $this->load->view('sistema/templates/header');
         $this->load->view('sistema/templates/side-menu');
         $this->load->view('sistema/telas/listas/lista-administradores');
@@ -13,11 +14,12 @@ class AdministradorController extends CI_Controller {
         $this->load->view('sistema/templates/html-footer');
     }
 
-    public function viewCadastrarAdministrador() {
-        $this->load->view('sistema/templates/html-header');
+    public function viewCadastrarEditarAdministrador() {
+        $dados['nomePagina'] = 'Cadastrar Administrador';
+        $this->load->view('sistema/templates/html-header', $dados);
         $this->load->view('sistema/templates/header');
         $this->load->view('sistema/templates/side-menu');
-        $this->load->view('sistema/telas/cadastros/cadastrar-administrador');
+        $this->load->view('sistema/telas/cadastros/cadastrar-editar-administrador');
         $this->load->view('sistema/templates/footer');
         $this->load->view('sistema/templates/html-footer');
     }

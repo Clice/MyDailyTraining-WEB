@@ -5,7 +5,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class EqualTechController extends CI_Controller {
 
     public function index() {
-        $this->load->view('sistema/templates/html-header');
+    	$dados['nomePagina'] = 'Lista de EqualTech';
+        $this->load->view('sistema/templates/html-header', $dados);
         $this->load->view('sistema/templates/header');
         $this->load->view('sistema/templates/side-menu');
         $this->load->view('sistema/telas/listas/lista-equaltech');

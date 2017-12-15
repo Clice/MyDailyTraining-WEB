@@ -2,11 +2,29 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class LoginController extends CI_Controller {  
+class LoginController extends CI_Controller {
+
+    public function __constructor() {
+        parent::__constructor();
+        $this->load->model('LoginModel');
+    }
 
     public function index() {
         $this->load->view('apresentacao/login');
     }
+
+    /* public function cLogarUsuario() {
+        // CAPTURANDO OS DADOS PASSADOS
+        $dadosLoginUsuario = array(
+            'loginUsuario' => $this->input->post('loginUsuario'),
+            'senhaUsuario' => $this->input->post('senhaUsuario')
+        );
+
+        // PASSANDO OS DADOS PARA O MODEL PARA LOGAR O USUÁRIO
+        if($this->LoginModel->mLogarUsuario($dadosLoginUsuario)) {
+            print_r($this->LoginModel->mLogarUsuario($dadosLoginUsuario));
+        }
+    }*/
 
     public function cLogarUsuario() {
         $this->load->library('form_validation');
@@ -17,7 +35,7 @@ class LoginController extends CI_Controller {
 
         // 
         if ($this->form_validation->run() == false) {
-            $this->viewLogin();
+            $this->index();
         } else {
             $loginUsuario = $this->input->post('loginUsuario');
             $senhaUsuario = $this->input->post('senhaUsuario');
@@ -33,7 +51,7 @@ class LoginController extends CI_Controller {
                 $dadosSessao['estaLogado'] = true;
                 $this->session->set_userdata($dadosSessao);
                 redirect(base_url('pagina-principal'));
-            }
+            } 
             // SE NÃO EXISTIR RETORNARÁ PARA A TELA DE LOGIN
             else {
                 $dadosSessao['usuarioLogado'] = NULL;
@@ -43,5 +61,4 @@ class LoginController extends CI_Controller {
             }
         }
     }
-
 }

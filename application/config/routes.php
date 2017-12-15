@@ -19,12 +19,12 @@ $route['lista-instrutores'] = 'sistema/InstrutorController';
 $route['lista-funcionarios'] = 'sistema/FuncionarioController';
 $route['lista-administradores'] = 'sistema/AdministradorController';
 
-$route['cadastrar-aluno'] = 'sistema/AlunoController/viewCadastrarAluno';
-$route['cadastrar-treino'] = 'sistema/TreinoController/viewCadastrarTreino';
-$route['cadastrar-academia'] = 'sistema/AcademiaController/viewCadastrarAcademia';
-$route['cadastrar-instrutor'] = 'sistema/InstrutorController/viewCadastrarInstrutor';
-$route['cadastrar-funcionario'] = 'sistema/FuncionarioController/viewCadastrarFuncionario';
-$route['cadastrar-administrador'] = 'sistema/AdministradorController/viewCadastrarAdministrador';
+$route['cadastrar-editar-aluno'] = 'sistema/AlunoController/viewCadastrarEditarAluno';
+$route['cadastrar-editar-treino'] = 'sistema/TreinoController/viewCadastrarEditarTreino';
+$route['cadastrar-editar-academia'] = 'sistema/AcademiaController/viewCadastrarEditarAcademia';
+$route['cadastrar-editar-instrutor'] = 'sistema/InstrutorController/viewCadastrarEditarInstrutor';
+$route['cadastrar-editar-funcionario'] = 'sistema/FuncionarioController/viewCadastrarEditarFuncionario';
+$route['cadastrar-editar-administrador'] = 'sistema/AdministradorController/viewCadastrarEditarAdministrador';
 
 $route['relatorio'] = 'sistema/AcademiaController/viewRelatorio';
 $route['perfil'] = 'sistema/PaginaPrincipalController/viewPerfil';

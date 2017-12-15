@@ -6,6 +6,7 @@
 <script src="<?php echo base_url('assets/js/sistema/app-menu.js'); ?>" type="text/javascript"></script>
 <script src="<?php echo base_url('assets/js/sistema/app.js'); ?>" type="text/javascript"></script>
 <script src="<?php echo base_url('assets/js/sistema/dashboard-2.js'); ?>" type="text/javascript"></script>
+<script src="<?php echo base_url('assets/js/sistema/academias.js'); ?>" type="text/javascript"></script>
 
 </body>
 </html>

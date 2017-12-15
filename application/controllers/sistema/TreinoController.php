@@ -5,7 +5,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class TreinoController extends CI_Controller {
 
     public function index() {
-        $this->load->view('sistema/templates/html-header');
+        $dados['nomePagina'] = 'Lista de Treinos';
+        $this->load->view('sistema/templates/html-header', $dados);
         $this->load->view('sistema/templates/header');
         $this->load->view('sistema/templates/side-menu');
         $this->load->view('sistema/telas/listas/lista-treinos');
@@ -13,11 +14,12 @@ class TreinoController extends CI_Controller {
         $this->load->view('sistema/templates/html-footer');
     }
 
-    public function viewCadastrarTreino() {
-        $this->load->view('sistema/templates/html-header');
+    public function viewCadastrarEditarTreino() {
+        $dados['nomePagina'] = 'Cadastrar Treino';
+        $this->load->view('sistema/templates/html-header', $dados);
         $this->load->view('sistema/templates/header');
         $this->load->view('sistema/templates/side-menu');
-        $this->load->view('sistema/telas/cadastros/cadastrar-treino');
+        $this->load->view('sistema/telas/cadastros/cadastrar-editar-treino');
         $this->load->view('sistema/templates/footer');
         $this->load->view('sistema/templates/html-footer');
     }

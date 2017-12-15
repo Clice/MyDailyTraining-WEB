@@ -8,8 +8,4 @@ class PaginaInicialController extends CI_Controller {
         $this->load->view('apresentacao/pagina-inicial');
     }
 
-    public function viewLogin() {
-        $this->load->view('apresentacao/login');
-    }
-
 }
