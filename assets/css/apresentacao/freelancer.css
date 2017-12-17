@@ -273,9 +273,11 @@ a {
 .btn-primary {
   background-color: #18BC9C;
   border-color: #18BC9C; }
-  .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
-    background-color: #128f76;
-    border-color: #128f76; }
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active {
+  background-color: #286090;
+  border-color: #204d74;
+}
 
 .btn-secondary {
   background-color: #2C3E50;

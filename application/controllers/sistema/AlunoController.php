@@ -10,9 +10,11 @@ class AlunoController extends CI_Controller {
     }
 
     public function index() {
-        $dados['nomePagina'] = 'Lista de Alunos';
-        $dados['alunoAtivos'] = $this->AlunoModel->listar_alunos_ativos();
-        $this->load->view('sistema/templates/html-header', $dados);
+        $dadosAluno['nomePagina'] = 'Lista de Alunos';
+        $dadosAluno['alunosAtivos'] = $this->AlunoModel->mListarAlunosAtivos();
+        $dadosAluno['alunosBloqueados'] = $this->AlunoModel->mListarAlunosBloqueados();
+        
+        $this->load->view('sistema/templates/html-header', $dadosAluno);
         $this->load->view('sistema/templates/header');
         $this->load->view('sistema/templates/side-menu');
         $this->load->view('sistema/telas/listas/lista-alunos');

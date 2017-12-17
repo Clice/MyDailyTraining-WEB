@@ -4,10 +4,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class InstrutorController extends CI_Controller {
 
-    public function index() {
-        $dados['nomePagina'] = 'Lista de Instrutores';
+    public function __construct() {
+        parent::__construct();
+        $this->load->model('InstrutorModel');
+    }
 
-        $this->load->view('sistema/templates/html-header', $dados);
+    public function index() {
+        $dadosInstrutor['nomePagina'] = 'Lista de Instrutores';
+        $dadosInstrutor['instrutoresAtivos'] = $this->InstrutorModel->mListarInstrutoresAtivos();
+        $dadosInstrutor['instrutoresBloqueados'] = $this->InstrutorModel->mListarInstrutoresBloqueados();
+
+        $this->load->view('sistema/templates/html-header', $dadosInstrutor);
         $this->load->view('sistema/templates/header');
         $this->load->view('sistema/templates/side-menu');
         $this->load->view('sistema/telas/listas/lista-instrutores');

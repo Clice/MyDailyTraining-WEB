@@ -474,9 +474,10 @@ input:focus ~ .bg-primary {
     color: #FFFFFF; }
 
 .btn-primary:hover {
-    border-color: #AC92EC;
-    background-color: #AC92EC;
-    color: #FFF !important; }
+  color: #fff;
+  background-color: #286090;
+  border-color: #204d74;
+}
 
 .btn-outline-primary {
     border-color: #967ADC;

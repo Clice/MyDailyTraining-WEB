@@ -1728,10 +1728,13 @@ fieldset[disabled] a.btn {
     color: #fff;
     background-color: #337ab7;
     border-color: #337ab7; }
+
 .btn-primary:hover {
-    color: #fff;
-    background-color: #7652d1;
-    border-color: #704acf; }
+  color: #fff;
+  background-color: #286090;
+  border-color: #204d74;
+}
+
 .btn-primary:focus, .btn-primary.focus {
     color: #fff;
     background-color: #7652d1;
@@ -3158,7 +3161,9 @@ tbody.collapse.in {
     border: 1px solid rgba(0, 0, 0, 0.06); }
 
 .card-block {
-    padding: 1.5rem; }
+    padding: 1.4rem;
+}
+
 .card-block::after {
     content: "";
     display: table;

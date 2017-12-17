@@ -3,10 +3,22 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class FuncionarioController extends CI_Controller {
+    
+    
+    public function __construct() {
+        parent::__construct();
+        $this->load->model('FuncionarioModel');
+    }
 
+    
+    // FUNÇÃO DE CARREGAMENTO DA VIEW LISTA-FUNCIONARIOS.PHP
     public function index() {
-        $dados['nomePagina'] = 'Lista de Funcionários';
-        $this->load->view('sistema/templates/html-header', $dados);
+        
+        $dadosFuncionario['nomePagina'] = 'Lista de Funcionários';
+        $dadosFuncionario['funcionariosAtivos'] = $this->FuncionarioModel->mListarFuncionariosAtivos();
+        $dadosFuncionario['funcionariosBloqueados'] = $this->FuncionarioModel->mListarFuncionariosBloqueados();
+        
+        $this->load->view('sistema/templates/html-header', $dadosFuncionario);
         $this->load->view('sistema/templates/header');
         $this->load->view('sistema/templates/side-menu');
         $this->load->view('sistema/telas/listas/lista-funcionarios');

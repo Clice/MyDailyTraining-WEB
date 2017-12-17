@@ -1728,10 +1728,13 @@ fieldset[disabled] a.btn {
   color: #fff;
   background-color: #967ADC;
   border-color: #967ADC; }
-  .btn-primary:hover {
-    color: #fff;
-    background-color: #7652d1;
-    border-color: #704acf; }
+
+.btn-primary:hover {
+  color: #fff;
+  background-color: #286090;
+  border-color: #204d74;
+}
+  
   .btn-primary:focus, .btn-primary.focus {
     color: #fff;
     background-color: #7652d1;

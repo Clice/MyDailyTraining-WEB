@@ -1355,9 +1355,8 @@ body.vertical-layout.vertical-menu.menu-expanded .main-menu-footer .content {
     touch-action: none;
     overflow: hidden !important;
     -ms-overflow-style: none; }
-@supports (-ms-overflow-style: none) {
-    .ps-container {
-        overflow: auto !important; } }
+
+
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
     .ps-container {
         overflow: auto !important; } }
@@ -1446,9 +1445,7 @@ body.vertical-layout.vertical-menu.menu-expanded .main-menu-footer .content {
     touch-action: none;
     overflow: hidden !important;
     -ms-overflow-style: none; }
-@supports (-ms-overflow-style: none) {
-    .ps-theme-dark {
-        overflow: auto !important; } }
+
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
     .ps-theme-dark {
         overflow: auto !important; } }
@@ -1537,9 +1534,7 @@ body.vertical-layout.vertical-menu.menu-expanded .main-menu-footer .content {
     touch-action: none;
     overflow: hidden !important;
     -ms-overflow-style: none; }
-@supports (-ms-overflow-style: none) {
-    .ps-theme-light {
-        overflow: auto !important; } }
+
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
     .ps-theme-light {
         overflow: auto !important; } }
@@ -1628,9 +1623,7 @@ body.vertical-layout.vertical-menu.menu-expanded .main-menu-footer .content {
     touch-action: none;
     overflow: hidden !important;
     -ms-overflow-style: none; }
-@supports (-ms-overflow-style: none) {
-    .menu-collapsed .ps-theme-dark {
-        overflow: auto !important; } }
+
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
     .menu-collapsed .ps-theme-dark {
         overflow: auto !important; } }
@@ -1719,9 +1712,7 @@ body.vertical-layout.vertical-menu.menu-expanded .main-menu-footer .content {
     touch-action: none;
     overflow: hidden !important;
     -ms-overflow-style: none; }
-@supports (-ms-overflow-style: none) {
-    .menu-collapsed ul.ps-theme-dark {
-        overflow: auto !important; } }
+
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
     .menu-collapsed ul.ps-theme-dark {
         overflow: auto !important; } }

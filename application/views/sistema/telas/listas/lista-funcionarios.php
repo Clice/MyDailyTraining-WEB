@@ -14,7 +14,7 @@
                                 <div class="col-lg-4">
                                     <div class="form-group">
                                         <div class="input-group">
-                                            <input type="text" class="form-control" placeholder="Digite o nome do funcionário" 
+                                            <input type="text" class="form-control" placeholder="Buscar funcionário..." 
                                                    name="pesquisarFuncionario" id="pesquisarFuncionario">
                                             <span class="input-group-btn">
                                                 <button class="btn btn-primary" type="button">
@@ -65,31 +65,34 @@
                                                             <table class="table table-hover mb-0">
                                                                 <thead>
                                                                     <tr>
-                                                                        <th>#</th>
-                                                                        <th>First Name</th>
-                                                                        <th>Last Name</th>
-                                                                        <th>Username</th>
+                                                                        <th>Nome</th>
+                                                                        <th>Telefone</th>
+                                                                        <th>Endereço</th>
+                                                                        <th style="text-align: center;">Opções</th>
+                                                                        <th style="text-align: center;">Bloqueado</th>
                                                                     </tr>
                                                                 </thead>
                                                                 <tbody>
-                                                                    <tr>
-                                                                        <th scope="row">1</th>
-                                                                        <td>Mark</td>
-                                                                        <td>Otto</td>
-                                                                        <td>@mdo</td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <th scope="row">2</th>
-                                                                        <td>Jacob</td>
-                                                                        <td>Thornton</td>
-                                                                        <td>@fat</td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <th scope="row">3</th>
-                                                                        <td>Larry</td>
-                                                                        <td>the Bird</td>
-                                                                        <td>@twitter</td>
-                                                                    </tr>
+                                                                    <?php foreach ($funcionariosAtivos as $funcionarioAtivo) { ?>   
+                                                                        <tr>
+                                                                            <td><?php echo $funcionarioAtivo->nomeUsuario; ?></td>
+                                                                            <td><?php echo $funcionarioAtivo->telefoneUsuario; ?></td>
+                                                                            <td><?php echo $funcionarioAtivo->enderecoUsuario; ?></td>
+                                                                            <td class="actions" style="text-align: center;">
+                                                                                <a href="<?php (base_url('funcionarios/alterar/' . md5($funcionarioAtivo->idUsuario))); ?>" 
+                                                                                   class="btn btn-success btn-sm"><i class="icon-eye"></i> Visualizar</a>
+                                                                                <a href="<?php (base_url('funcionarios/alterar/' . md5($funcionarioAtivo->idUsuario))); ?>" 
+                                                                                   class="btn btn-warning btn-sm"><i class="icon-edit"></i> Editar</a>
+                                                                                <a href="javascript:func()" 
+                                                                                   onclick="modalExcluirMotoboy(<?php echo $funcionarioAtivo->idUsuario; ?>)" 
+                                                                                   class="btn btn-danger btn-sm"><i class="icon-trash-o"></i> Excluir</a>
+                                                                            </td>
+                                                                            <td style="text-align: center;">
+                                                                                <input type="checkbox" onchange="desBloquearMotoboy(this,
+                                                                                       <?php echo $funcionarioAtivo->idUsuario; ?>, false);">
+                                                                            </td>
+                                                                        </tr>
+                                                                    <?php } ?> 
                                                                 </tbody>
                                                             </table>
                                                         </div>
@@ -107,31 +110,34 @@
                                                             <table class="table table-hover mb-0">
                                                                 <thead>
                                                                     <tr>
-                                                                        <th>#</th>
-                                                                        <th>First Name</th>
-                                                                        <th>Last Name</th>
-                                                                        <th>Username</th>
+                                                                        <th>Nome</th>
+                                                                        <th>Telefone</th>
+                                                                        <th>Endereço</th>
+                                                                        <th style="text-align: center;">Opções</th>
+                                                                        <th style="text-align: center;">Bloqueado</th>
                                                                     </tr>
                                                                 </thead>
                                                                 <tbody>
-                                                                    <tr>
-                                                                        <th scope="row">1</th>
-                                                                        <td>Mark</td>
-                                                                        <td>Otto</td>
-                                                                        <td>@mdo</td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <th scope="row">2</th>
-                                                                        <td>Jacob</td>
-                                                                        <td>Thornton</td>
-                                                                        <td>@fat</td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <th scope="row">3</th>
-                                                                        <td>Larry</td>
-                                                                        <td>the Bird</td>
-                                                                        <td>@twitter</td>
-                                                                    </tr>
+                                                                    <?php foreach ($funcionariosBloqueados as $funcionarioBloqueado) { ?>   
+                                                                        <tr>
+                                                                            <td><?php echo $funcionarioBloqueado->nomeUsuario; ?></td>
+                                                                            <td><?php echo $funcionarioBloqueado->telefoneUsuario; ?></td>
+                                                                            <td><?php echo $funcionarioBloqueado->enderecoUsuario; ?></td>
+                                                                            <td class="actions" style="text-align: center;">
+                                                                                <a href="<?php (base_url('funcionarios/alterar/' . md5($funcionarioAtivo->idUsuario))); ?>" 
+                                                                                   class="btn btn-success btn-sm"><i class="icon-eye"></i> Visualizar</a>
+                                                                                <a href="<?php (base_url('funcionarios/alterar/' . md5($funcionarioAtivo->idUsuario))); ?>" 
+                                                                                   class="btn btn-warning btn-sm"><i class="icon-edit"></i> Editar</a>
+                                                                                <a href="javascript:func()" 
+                                                                                   onclick="modalExcluirMotoboy(<?php echo $funcionarioAtivo->idUsuario; ?>)" 
+                                                                                   class="btn btn-danger btn-sm"><i class="icon-trash-o"></i> Excluir</a>
+                                                                            </td>
+                                                                            <td style="text-align: center">
+                                                                                <input type="checkbox" onchange="desBloquearMotoboy(this,
+                                                                                       <?php echo $funcionarioBloqueado->idUsuario; ?>, false);">
+                                                                            </td>
+                                                                        </tr>
+                                                                    <?php } ?> 
                                                                 </tbody>
                                                             </table>
                                                         </div>
