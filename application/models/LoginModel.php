@@ -8,10 +8,10 @@ class LoginModel extends CI_Model {
         parent::__construct();
     }
 
-	public function mLogarUsuario($dadosLoginUsuario) {
-		$this->db->select('idUsuario, statusUsuario, tipoConta');
-		$this->db->where('loginUsuario', $dadosLoginUsuario['loginUsuario']);
-        $this->db->where('senhaUsuario', $dadosLoginUsuario['senhaUsuario']);
+	public function mLogarUsuario($dadosLogin) {
+		$this->db->select('*');
+		$this->db->where('loginUsuario', $dadosLogin['loginUsuario']);
+        $this->db->where('senhaUsuario', base64_encode($dadosLogin['senhaUsuario']));
         return $this->db->get('usuarios')->result();
 	}
 

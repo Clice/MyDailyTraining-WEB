@@ -18,8 +18,7 @@
 
     </head>
 
-    <body style="background-color: #209AED;" data-open="click" data-menu="vertical-menu" data-col="1-column" 
-          class="vertical-layout vertical-menu 1-column blank-page blank-page">
+    <body style="background-color: #209AED;" data-open="click" data-menu="vertical-menu" data-col="1-column" class="vertical-layout vertical-menu 1-column blank-page blank-page">
         <!-- CORPO DA PÁGINA - LOGIN -->
         <div class="app-content content container-fluid">
             <div class="content-wrapper">
@@ -37,11 +36,7 @@
                                 <!-- CORPO DO LOGIN -->           
                                 <div class="card-body collapse in">
                                     <div class="card-block">
-                                        <?php
-                                        echo validation_errors('<div class="alert alert-danger">', '</div>');
-                                        echo form_open('sistema/LoginController/cLogarUsuario');
-                                        ?>
-                                        <!-- <form id="formLogin" name="formLogin"> -->
+                                        <form class="form" id="formLogin" name="formLogin">
                                             <div class="form-body">
                                                 <div class="row">
                                                     <div class="col-md-12">
@@ -66,9 +61,8 @@
                                                         <a class="blue" href="#">Esqueceu a senha?</a></div>
                                                 </div>
                                             </div>
-                                        <!-- </form> -->
-                                        <button type="submit" class="btn btn-blue btn-lg btn-block"><i class="icon-unlock2"></i> Login</button>
-                                        <?php echo form_close(); ?>
+                                        </form>
+                                        <button type="submit" class="btn btn-blue btn-lg btn-block" onclick="login();"><i class="icon-unlock2"></i> Login</button>
                                     </div>
                                 </div>
                                 <div class="card-footer hidden">
@@ -87,13 +81,10 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-body">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
                         <h4 class="modal-title text-xs-center">Login e/ou Senha Incorreto(s)</h4>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
                     </div>
                 </div>
             </div>
@@ -105,13 +96,10 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-body">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
                         <h4 class="modal-title text-xs-center">Usuário bloqueado! Por favor contate o(s) administrador(es) para mais informações</h4>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
                     </div>
                 </div>
             </div>
@@ -121,24 +109,24 @@
         <script src="<?php echo base_url('assets/js/sistema/jquery.min.js'); ?>" type="text/javascript"></script>
         <script src="<?php echo base_url('assets/js/sistema/bootstrap.min.js'); ?>" type="text/javascript"></script>
         <script src="<?php echo base_url('assets/js/sistema/app.js'); ?>" type="text/javascript"></script>
-
         <script type="text/javascript">
                                             function login() {
-                                                var dados = $('#formLogin').serialize();
+                                                var url = "<?php echo base_url('sistema/LoginController/cLogarUsuario') ?>";
+
                                                 $.ajax({
-                                                    type: 'POST',
-                                                    url: "<?php echo base_url('sistema/LoginController/cLogarUsuario'); ?>",
-                                                    dataType: 'json',
-                                                    data: dados,
+                                                    url: url,
+                                                    type: "POST",
+                                                    data: $('#formLogin').serialize(),
+                                                    dataType: "JSON",
                                                     success: function (data) {
                                                         if (data.success) {
-                                                            if (data.tipoConta) {
-                                                                window.location.href = 'lista-estabelecimentos.php';
-                                                            } else {
-                                                                window.location.href = 'selecionar-motoboy.php';
-                                                            }
+                                                            window.location.href = "<?php echo base_url('pagina-principal'); ?>";
                                                         } else {
-                                                            $('#bloqueado').modal('show');
+                                                            if (data.statusConta == false) {
+                                                                $('#bloqueado').modal('show');
+                                                            } else {
+                                                                $('#incorreto').modal('show');
+                                                            }
                                                         }
                                                     },
                                                     error: function (request, status, error) {

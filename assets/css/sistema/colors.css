@@ -438,6 +438,7 @@ input:focus ~ .bg-primary {
 
 .bg-primary {
     background-color: #967ADC !important; }
+
 .bg-primary .card-header, .bg-primary .card-footer {
     background-color: transparent; }
 
@@ -468,9 +469,10 @@ input:focus ~ .bg-primary {
     background-color: transparent; }
 
 .btn-primary {
-    border-color: #967ADC;
-    background-color: #967ADC;
+    border-color: #337ab7;
+    background-color: #337ab7;
     color: #FFFFFF; }
+
 .btn-primary:hover {
     border-color: #AC92EC;
     background-color: #AC92EC;

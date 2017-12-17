@@ -1726,8 +1726,8 @@ fieldset[disabled] a.btn {
 
 .btn-primary {
     color: #fff;
-    background-color: #967ADC;
-    border-color: #967ADC; }
+    background-color: #337ab7;
+    border-color: #337ab7; }
 .btn-primary:hover {
     color: #fff;
     background-color: #7652d1;
@@ -1749,9 +1749,11 @@ fieldset[disabled] a.btn {
     color: #fff;
     background-color: #6035ca;
     border-color: #502daa; }
+
 .btn-primary.disabled:focus, .btn-primary.disabled.focus, .btn-primary:disabled:focus, .btn-primary:disabled.focus {
     background-color: #967ADC;
     border-color: #967ADC; }
+
 .btn-primary.disabled:hover, .btn-primary:disabled:hover {
     background-color: #967ADC;
     border-color: #967ADC; }
@@ -3420,12 +3422,14 @@ tbody.collapse.in {
 .page-item:last-child .page-link {
     border-bottom-right-radius: 0.18rem;
     border-top-right-radius: 0.18rem; }
+
 .page-item.active .page-link, .page-item.active .page-link:focus {
     z-index: 2;
     color: #fff;
     cursor: default;
     background-color: #967ADC;
     border-color: #967ADC; }
+
 .page-item.active .page-link:hover {
     z-index: 2;
     color: #fff;

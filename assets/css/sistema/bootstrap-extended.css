@@ -409,7 +409,7 @@ Bootstrap Enhance */
     background-color: #cccccc; }
 
 .btn-primary ~ .dropdown-menu .dropdown-item.active {
-    background-color: #967ADC; }
+    background-color: #337ab7; }
 
 .btn-success ~ .dropdown-menu .dropdown-item.active {
     background-color: #37BC9B; }
