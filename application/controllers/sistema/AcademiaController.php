@@ -7,13 +7,15 @@ class AcademiaController extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->model('AcademiaModel');
-        // $this->categorias = $this->modelcategorias->listarCategorias();
     }
 
     // FUNÇÃO DE CARREGAMENTO DA VIEW LISTA-ACADEMIAS.PHP
     public function index() {
-        $dados['nomePagina'] = 'Lista de Academias';
-        $this->load->view('sistema/templates/html-header', $dados);
+        $dadosAcademia['nomePagina'] = 'Lista de Academias';
+        $dadosAcademia['academiasAtivas'] = $this->AcademiaModel->mListarAcademiasAtivas();
+        $dadosAcademia['academiasBloqueadas'] = $this->AcademiaModel->mListarAcademiasBloqueadas();
+
+        $this->load->view('sistema/templates/html-header', $dadosAcademia);
         $this->load->view('sistema/templates/header');
         $this->load->view('sistema/templates/side-menu');
         $this->load->view('sistema/telas/listas/lista-academias');
@@ -73,6 +75,18 @@ class AcademiaController extends CI_Controller {
         $this->load->view('sistema/templates/html-footer');
     }
 
+    // FUNÇÃO DE CARREGAMENTO DA VIEW PERFIL ACADEMIA.PHP
+    public function viewPerfilAcademia() {
+        $dados['nomePagina'] = 'Perfil Academia';
+        $this->load->view('sistema/templates/html-header', $dados);
+        $this->load->view('sistema/templates/header');
+        $this->load->view('sistema/templates/side-menu');
+        $this->load->view('sistema/telas/perfis/perfil-academia');
+        $this->load->view('sistema/templates/footer');
+        $this->load->view('sistema/templates/html-footer');
+    }
+
+    // FUNÇÃO CONTROLLER PARA CADASTRAR/EDITAR ACADEMIA
     public function cCadastrarEditarAcademia() {
         // PEGANDO OS VALORES PASSADOS PELO CADASTRAR-EDITAR-ACADEMIA.PHP     
         $dadosAcademia = array(
@@ -119,6 +133,59 @@ class AcademiaController extends CI_Controller {
         echo json_encode($resposta);
     }
 
+    // FUNÇÃO CONTROLLER PARA EXCLUIR ACADEMIA
+    public function cExcluirAcademia() {
+        $idAcademia = $this->input->post('idAcademia');
+
+        if ($this->AcademiaModel->mExcluirAcademia($idAcademia)) {
+            $resposta = array('success' => true);
+        } else {
+            $resposta = array('success' => false);
+        }
+
+        echo json_encode($resposta);
+    }
+
+    // FUNÇÃO CONTROLLER PARA BLOQUEAR ACADEMIA
+    public function cBloquearAcademia() {
+        $idAcademia = $this->input->post('idAcademia');
+
+        if ($this->AcademiaModel->mBloquearAcademia($idAcademia)) {
+            $resposta = array('success' => true);
+        } else {
+            $resposta = array('success' => false);
+        }
+
+        echo json_encode($resposta);
+    }
+
+    // FUNÇÃO CONTROLLER PARA DESBLOQUEAR ACADEMIA
+    public function cDesbloquearAcademia() {
+        $idAcademia = $this->input->post('idAcademia');
+
+        if ($this->AcademiaModel->mDesbloquearAcademia($idAcademia)) {
+            $resposta = array('success' => true);
+        } else {
+            $resposta = array('success' => false);
+        }
+
+        echo json_encode($resposta);
+    }
+
+    // FUNÇÃO CONTROLLER PARA VISUALIZAR OS DADOS DA ACADEMIA
+    public function cVisualizarPerfilAcademia() {
+        $idAcademia = $this->input->post('idAcademia');
+
+        if ($this->AcademiaModel->mVisualizarPerfilAcademia($idAcademia)) {
+            $resposta = array('success' => true);
+        } else {
+            $resposta = array('success' => false);
+        }
+
+        echo json_encode($resposta);
+    }
+
+    // FUNÇÃO CONTROLLER PARA VERIFICAR O CNPJ
     public function cVerificarCNPJ() {
         $cnpjAcademia = $this->input->post('cnpjAcademia');
 

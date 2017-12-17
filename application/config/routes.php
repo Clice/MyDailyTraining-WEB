@@ -11,6 +11,10 @@ $route['translate_uri_dashes'] = FALSE;
 $route['login'] = 'sistema/LoginController';
 $route['pagina-principal'] = 'sistema/PaginaPrincipalController';
 
+$route['relatorio'] = 'sistema/AcademiaController/viewRelatorio';
+$route['perfil'] = 'sistema/PaginaPrincipalController/viewPerfil';
+$route['notificacoes'] = 'sistema/PaginaPrincipalController/viewNotificacoes';
+
 $route['lista-alunos'] = 'sistema/AlunoController';
 $route['lista-treinos'] = 'sistema/TreinoController';
 $route['lista-academias'] = 'sistema/AcademiaController';
@@ -19,13 +23,16 @@ $route['lista-instrutores'] = 'sistema/InstrutorController';
 $route['lista-funcionarios'] = 'sistema/FuncionarioController';
 $route['lista-administradores'] = 'sistema/AdministradorController';
 
+$route['perfil-aluno'] = 'sistema/AlunoController/viewPerfilAluno';
+$route['perfil-academia'] = 'sistema/AcademiaController/viewPerfilAcademia';
+$route['perfil-equaltech'] = 'sistema/EqualTechController/viewPerfilEqualTech';
+$route['perfil-instrutor'] = 'sistema/InstrutorController/viewPerfilInstrutor';
+$route['perfil-funcionario'] = 'sistema/FuncionarioController/viewPerfilFuncionario';
+$route['perfil-administrador'] = 'sistema/AdministradorController/viewPerfilAdministrador';
+
 $route['cadastrar-editar-aluno'] = 'sistema/AlunoController/viewCadastrarEditarAluno';
 $route['cadastrar-editar-treino'] = 'sistema/TreinoController/viewCadastrarEditarTreino';
 $route['cadastrar-editar-academia'] = 'sistema/AcademiaController/viewCadastrarEditarAcademia';
 $route['cadastrar-editar-instrutor'] = 'sistema/InstrutorController/viewCadastrarEditarInstrutor';
 $route['cadastrar-editar-funcionario'] = 'sistema/FuncionarioController/viewCadastrarEditarFuncionario';
 $route['cadastrar-editar-administrador'] = 'sistema/AdministradorController/viewCadastrarEditarAdministrador';
-
-$route['relatorio'] = 'sistema/AcademiaController/viewRelatorio';
-$route['perfil'] = 'sistema/PaginaPrincipalController/viewPerfil';
-$route['notificacoes'] = 'sistema/PaginaPrincipalController/viewNotificacoes';

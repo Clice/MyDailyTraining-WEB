@@ -60,7 +60,7 @@
                                                 <div class="col-md-3">
                                                     <div class="form-group">
                                                         <label>Telefone:*</label>
-                                                        <input type="text" id="telefoneAcademia" class="form-control" 
+                                                        <input type="text" id="telefoneUsuario" class="form-control" 
                                                                placeholder="Digite o telefone" name="telefoneAcademia" maxlength="15" value="">
                                                     </div>
                                                 </div>
@@ -87,7 +87,7 @@
                                                             <option value="Minas Gerais">Minas Gerais</option>
                                                             <option value="Pará">Pará</option>
                                                             <option value="Paraíba">Paraíba</option>
-                                                            <option value=Paraná"">Paraná</option>
+                                                            <option value="Paraná">Paraná</option>
                                                             <option value="Pernambuco">Pernambuco</option>
                                                             <option value="Piauí">Piauí</option>
                                                             <option value="Rio de Janeiro">Rio de Janeiro</option>
@@ -152,7 +152,7 @@
                                                     <div class="form-group">
                                                         <label>Mensalidade da academia:*</label>
                                                         <input type="text" id="mensalidadeAcademia" class="form-control" 
-                                                               placeholder="Digite o endereço" name="mensalidadeAcademia" value="">
+                                                               placeholder="Digite a mensalidade" name="mensalidadeAcademia" value="">
                                                     </div>
                                                 </div>
                                             </div>
@@ -278,7 +278,7 @@
                                                     <div class="form-group">
                                                         <label>Dia do pagamento:*</label>
                                                         <input type="text" id="diaPagamentoAcademia" class="form-control" 
-                                                               placeholder="Digite o endereço" name="diaPagamentoAcademia" value="">
+                                                               placeholder="Digite o dia do pagamento" maxlength="2" name="diaPagamentoAcademia" value="">
                                                     </div>
                                                 </div>
                                             </div>                                      
@@ -286,7 +286,7 @@
                                     </form>
                                     <!-- BOTÕES -->
                                     <div style="float: right;" class="form-actions">
-                                        <button type="button" class="btn btn-secondary">
+                                        <button type="button" class="btn btn-secondary" onclick="window.location.href = '<?php echo base_url('lista-academias'); ?>'">
                                             <i class="icon-cross2"></i> Cancelar
                                         </button>
                                         <button type="submit" class="btn btn-success" onclick="verificarDadosAcademia();">
@@ -311,21 +311,6 @@
         <div class="modal-content">
             <div class="modal-body">
                 <h4 class="modal-title text-xs-center">Dados obrigatórios não informados</h4>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- MODAL - CNPJ INVÁLIDO -->
-<div class="modal fade text-xs-left" data-backdrop="static" id="cnpj-invalido" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
-     aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-body">
-                <h4 class="modal-title text-xs-center">CNPJ inválido</h4>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
@@ -382,21 +367,6 @@
 </div>
 
 <script type="text/javascript">
-    function verificarDadosAcademia() {
-        var nomeAcademia = $('#nomeAcademia').val();
-        var enderecoAcademia = $('#enderecoAcademia').val();
-        var cnpjAcademia = $('#cnpjAcademia').val();
-        var msnCNPJ = $('#msnCNPJ').val();
-
-        if ((nomeAcademia === "") || (enderecoAcademia === "")) {
-            $('#dados-obrigatorios-academia').modal('show');
-        } else if (msnCNPJ === "CNPJ inválido!") {
-            $('#cnpj-invalido').modal('show');
-        } else if (msnCNPJ === "CNPJ válido!") {
-            cnpjCadastrado(cnpjAcademia);
-        }
-    }
-
     function cnpjCadastrado(cnpjAcademia) {
         var dados = "cnpjAcademia=" + cnpjAcademia;
         $.ajax({
