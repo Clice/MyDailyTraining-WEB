@@ -15,7 +15,7 @@
                                 <div class="col-lg-4">
                                     <div class="form-group">
                                         <div class="input-group">
-                                            <input type="text" class="form-control" placeholder="Digite o nome do administrador" 
+                                            <input type="text" class="form-control" placeholder="Buscar administrador" 
                                                    name="pesquisarAdministrador" id="pesquisarAdministrador">
                                             <span class="input-group-btn">
                                                 <button class="btn btn-primary" type="button">
@@ -83,11 +83,11 @@
                                                                             <td><?php echo $academiaAtiva->telefoneAcademia; ?></td>
                                                                             <td style="text-align: center;">
                                                                                 <button type="button" class="btn mb-1 btn-success btn-sm" 
-                                                                                        onclick="window.location.href = '<?php echo base_url('perfil-academia'); ?>'">Ver</button>
+                                                                                        onclick="window.location.href = '<?php echo base_url('perfil-academia'); ?>'"><i class="icon-eye"></i> Ver</button>
                                                                                 <button type="button" class="btn mb-1 btn-warning btn-sm" 
-                                                                                        onclick="window.location.href = '<?php echo base_url('lista-academias'); ?>'">Editar</button>
+                                                                                        onclick="window.location.href = '<?php echo base_url('lista-academias'); ?>'"><i class="icon-edit"></i> Editar</button>
                                                                                 <button type="button" class="btn mb-1 btn-danger btn-sm" 
-                                                                                        onclick="modalExcluirAcademia(<?php echo $academiaAtiva->idAcademia; ?>);">Excluir</button>
+                                                                                        onclick="modalExcluirAcademia(<?php echo $academiaAtiva->idAcademia; ?>);"><i class="icon-trash-o"></i> Excluir</button>
                                                                             </td>
                                                                             <td style="text-align: center;">
                                                                                 <input type="checkbox" name="" onchange="modalDesBloquearAcademia(this, <?php echo $academiaAtiva->idAcademia; ?>, true);"></td>
@@ -125,11 +125,11 @@
                                                                             <td><?php echo $academiaBloqueada->telefoneAcademia; ?></td>
                                                                             <td style="text-align: center;">
                                                                                 <button type="button" class="btn mb-1 btn-success btn-sm" 
-                                                                                        onclick="window.location.href = '<?php echo base_url('perfil-academia'); ?>'">Ver</button>
+                                                                                        onclick="window.location.href = '<?php echo base_url('perfil-academia'); ?>'"><i class="icon-eye"></i> Ver</button>
                                                                                 <button type="button" class="btn mb-1 btn-warning btn-sm" 
-                                                                                        onclick="window.location.href = '<?php echo base_url('lista-academias'); ?>'">Editar</button>
+                                                                                        onclick="window.location.href = '<?php echo base_url('lista-academias'); ?>'"><i class="icon-edit"></i> Editar</button>
                                                                                 <button type="button" class="btn mb-1 btn-danger btn-sm" 
-                                                                                        onclick="modalExcluirAcademia(<?php echo $academiaBloqueada->idAcademia; ?>);">Excluir</button>
+                                                                                        onclick="modalExcluirAcademia(<?php echo $academiaAtiva->idAcademia; ?>);"><i class="icon-trash-o"></i> Excluir</button>
                                                                             </td>
                                                                             <td style="text-align: center;" class="">
                                                                                 <input type="checkbox" name="" checked="" onchange="modalDesBloquearAcademia(this, <?php echo $academiaBloqueada->idAcademia; ?>, false);"></td>
@@ -329,7 +329,7 @@
             }
         });
     }
-    
+
     function desbloquearAcademia(dados) {
         $.ajax({
             type: 'POST',

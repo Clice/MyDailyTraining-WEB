@@ -10,6 +10,7 @@
 	<script src="<?php echo base_url('assets/js/outros/valida-cpf-cnpj.js'); ?>" type="text/javascript"></script>
 	<script src="<?php echo base_url('assets/js/outros/valida-telefone.js'); ?>" type="text/javascript"></script>
 	<script src="<?php echo base_url('assets/js/outros/academias.js'); ?>" type="text/javascript"></script>
+        <script src="<?php echo base_url('assets/js/outros/alunos.js'); ?>" type="text/javascript"></script>
 
     </body>
 </html>

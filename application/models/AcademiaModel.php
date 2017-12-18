@@ -39,7 +39,7 @@ class AcademiaModel extends CI_Model {
     }
 
     public function mListarAcademiasAtivas() {
-        $this->db->select('idAcademia, nomeAcademia, enderecoAcademia, 
+        $this->db->select('idAluno, idAcademia, nomeAcademia, enderecoAcademia, 
             telefoneAcademia, cnpjAcademia');
         $this->db->from('academias');
         $this->db->where('statusAcademia', true);
@@ -47,7 +47,7 @@ class AcademiaModel extends CI_Model {
     }
 
     public function mListarAcademiasBloqueadas() {
-        $this->db->select('idAcademia, nomeAcademia, enderecoAcademia, 
+        $this->db->select('idAluno, idAcademia, nomeAcademia, enderecoAcademia, 
             telefoneAcademia, cnpjAcademia');
         $this->db->from('academias');
         $this->db->where('statusAcademia', false);
