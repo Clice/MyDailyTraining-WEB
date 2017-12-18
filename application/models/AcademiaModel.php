@@ -4,10 +4,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class AcademiaModel extends CI_Model {
 
-    public function __construct() {
-        parent::__construct();
-    }
-
     public function mCadastrarAcademia($dadosAcademia) {
         return $this->db->insert('academias', $dadosAcademia);
     }
@@ -34,12 +30,15 @@ class AcademiaModel extends CI_Model {
         return $this->db->update('academias', $dadosAcademia);
     }
 
-    public function mVisualizarPerfilAcademia() {
-
+    public function mVisualizarPerfilAcademia($idAcademia) {
+        $this->db->select('*');
+        $this->db->from('academias');
+        $this->db->where('idAcademia', $idAcademia);
+        return $this->db->get()->result();
     }
 
     public function mListarAcademiasAtivas() {
-        $this->db->select('idAluno, idAcademia, nomeAcademia, enderecoAcademia, 
+        $this->db->select('idAcademia, nomeAcademia, enderecoAcademia, 
             telefoneAcademia, cnpjAcademia');
         $this->db->from('academias');
         $this->db->where('statusAcademia', true);
@@ -47,7 +46,7 @@ class AcademiaModel extends CI_Model {
     }
 
     public function mListarAcademiasBloqueadas() {
-        $this->db->select('idAluno, idAcademia, nomeAcademia, enderecoAcademia, 
+        $this->db->select('idAcademia, nomeAcademia, enderecoAcademia, 
             telefoneAcademia, cnpjAcademia');
         $this->db->from('academias');
         $this->db->where('statusAcademia', false);

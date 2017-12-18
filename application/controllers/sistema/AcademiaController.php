@@ -76,8 +76,10 @@ class AcademiaController extends CI_Controller {
     }
 
     // FUNÇÃO DE CARREGAMENTO DA VIEW PERFIL ACADEMIA.PHP
-    public function viewPerfilAcademia() {
+    public function viewPerfilAcademia($idAcademia) {
         $dados['nomePagina'] = 'Perfil Academia';
+        $dados['perfilAcademia'] = $this->AcademiaModel->mVisualizarPerfilAcademia($idAcademia);
+
         $this->load->view('sistema/templates/html-header', $dados);
         $this->load->view('sistema/templates/header');
         $this->load->view('sistema/templates/side-menu');
@@ -164,19 +166,6 @@ class AcademiaController extends CI_Controller {
         $idAcademia = $this->input->post('idAcademia');
 
         if ($this->AcademiaModel->mDesbloquearAcademia($idAcademia)) {
-            $resposta = array('success' => true);
-        } else {
-            $resposta = array('success' => false);
-        }
-
-        echo json_encode($resposta);
-    }
-
-    // FUNÇÃO CONTROLLER PARA VISUALIZAR OS DADOS DA ACADEMIA
-    public function cVisualizarPerfilAcademia() {
-        $idAcademia = $this->input->post('idAcademia');
-
-        if ($this->AcademiaModel->mVisualizarPerfilAcademia($idAcademia)) {
             $resposta = array('success' => true);
         } else {
             $resposta = array('success' => false);

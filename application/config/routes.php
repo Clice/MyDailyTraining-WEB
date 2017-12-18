@@ -24,7 +24,7 @@ $route['lista-funcionarios'] = 'sistema/FuncionarioController';
 $route['lista-administradores'] = 'sistema/AdministradorController';
 
 $route['perfil-aluno'] = 'sistema/AlunoController/viewPerfilAluno';
-$route['perfil-academia'] = 'sistema/AcademiaController/viewPerfilAcademia';
+$route['perfil-academia/(:num)'] = 'sistema/AcademiaController/viewPerfilAcademia/$1';
 $route['perfil-equaltech'] = 'sistema/EqualTechController/viewPerfilEqualTech';
 $route['perfil-instrutor'] = 'sistema/InstrutorController/viewPerfilInstrutor';
 $route['perfil-funcionario'] = 'sistema/FuncionarioController/viewPerfilFuncionario';
