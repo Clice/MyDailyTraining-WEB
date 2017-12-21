@@ -15,7 +15,7 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-body collapse in">
-                                <div class="card-block">   
+                                <div class="card-block-container2">   
                                     <?php
                                     echo validation_errors('<div class="alert alert-danger">', '</div>');
                                     echo form_open('sistema/AcademiaController/cCadastrarEditarAcademia');

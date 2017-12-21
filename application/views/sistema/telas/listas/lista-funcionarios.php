@@ -10,6 +10,7 @@
                                     <h2 class="content-header-title">Lista de Funcionários</h2>
                                 </div>
                             </div>
+                            <input type="hidden" name="idUsuario" id="idUsuario">
                             <div class="row">
                                 <div class="col-lg-4">
                                     <div class="form-group">
@@ -78,18 +79,16 @@
                                                                             <td><?php echo $funcionarioAtivo->nomeUsuario; ?></td>
                                                                             <td><?php echo $funcionarioAtivo->telefoneUsuario; ?></td>
                                                                             <td><?php echo $funcionarioAtivo->enderecoUsuario; ?></td>
-                                                                            <td class="actions" style="text-align: center;">
-                                                                                <a href="<?php (base_url('funcionarios/alterar/' . md5($funcionarioAtivo->idUsuario))); ?>" 
-                                                                                   class="btn btn-success btn-sm"><i class="icon-eye"></i> Visualizar</a>
-                                                                                <a href="<?php (base_url('funcionarios/alterar/' . md5($funcionarioAtivo->idUsuario))); ?>" 
-                                                                                   class="btn btn-warning btn-sm"><i class="icon-edit"></i> Editar</a>
-                                                                                <a href="javascript:func()" 
-                                                                                   onclick="modalExcluirMotoboy(<?php echo $funcionarioAtivo->idUsuario; ?>)" 
-                                                                                   class="btn btn-danger btn-sm"><i class="icon-trash-o"></i> Excluir</a>
-                                                                            </td>
                                                                             <td style="text-align: center;">
-                                                                                <input type="checkbox" onchange="desBloquearMotoboy(this,
-                                                                                       <?php echo $funcionarioAtivo->idUsuario; ?>, false);">
+                                                                                <button type="button" class="btn mb-1 btn-success btn-sm" 
+                                                                                        onclick="window.location.href = '<?php echo base_url('perfil-funcionario'); ?>'"><i class="icon-eye"></i> Ver</button>
+                                                                                <button type="button" class="btn mb-1 btn-warning btn-sm" 
+                                                                                        onclick="window.location.href = '<?php echo base_url('lista-funcionarios'); ?>'"><i class="icon-edit"></i> Editar</button>
+                                                                                <button type="button" class="btn mb-1 btn-danger btn-sm" 
+                                                                                        onclick="modalExcluirFuncionario(<?php echo $funcionarioAtivo->idUsuario; ?>);"><i class="icon-trash-o"></i> Excluir</button>
+                                                                            </td>
+                                                                            <td style="text-align: center;" class="">
+                                                                                <input type="checkbox" name="" onchange="modalDesBloquearFuncionario(this, <?php echo $funcionarioAtivo->idUsuario; ?>, true);">
                                                                             </td>
                                                                         </tr>
                                                                     <?php } ?> 
@@ -123,18 +122,16 @@
                                                                             <td><?php echo $funcionarioBloqueado->nomeUsuario; ?></td>
                                                                             <td><?php echo $funcionarioBloqueado->telefoneUsuario; ?></td>
                                                                             <td><?php echo $funcionarioBloqueado->enderecoUsuario; ?></td>
-                                                                            <td class="actions" style="text-align: center;">
-                                                                                <a href="<?php (base_url('funcionarios/alterar/' . md5($funcionarioAtivo->idUsuario))); ?>" 
-                                                                                   class="btn btn-success btn-sm"><i class="icon-eye"></i> Visualizar</a>
-                                                                                <a href="<?php (base_url('funcionarios/alterar/' . md5($funcionarioAtivo->idUsuario))); ?>" 
-                                                                                   class="btn btn-warning btn-sm"><i class="icon-edit"></i> Editar</a>
-                                                                                <a href="javascript:func()" 
-                                                                                   onclick="modalExcluirMotoboy(<?php echo $funcionarioAtivo->idUsuario; ?>)" 
-                                                                                   class="btn btn-danger btn-sm"><i class="icon-trash-o"></i> Excluir</a>
+                                                                            <td style="text-align: center;">
+                                                                                <button type="button" class="btn mb-1 btn-success btn-sm" 
+                                                                                        onclick="window.location.href = '<?php echo base_url('perfil-funcionario'); ?>'"><i class="icon-eye"></i> Ver</button>
+                                                                                <button type="button" class="btn mb-1 btn-warning btn-sm" 
+                                                                                        onclick="window.location.href = '<?php echo base_url('lista-funcionarios'); ?>'"><i class="icon-edit"></i> Editar</button>
+                                                                                <button type="button" class="btn mb-1 btn-danger btn-sm" 
+                                                                                        onclick="modalExcluirFuncionario(<?php echo $funcionarioBloqueado->idUsuario; ?>);"><i class="icon-trash-o"></i> Excluir</button>
                                                                             </td>
-                                                                            <td style="text-align: center">
-                                                                                <input type="checkbox" onchange="desBloquearMotoboy(this,
-                                                                                       <?php echo $funcionarioBloqueado->idUsuario; ?>, false);">
+                                                                            <td style="text-align: center;" class="">
+                                                                                <input type="checkbox" name="" checked="" onchange="modalDesBloquearFuncionario(this, <?php echo $funcionarioBloqueado->idUsuario; ?>, false);">
                                                                             </td>
                                                                         </tr>
                                                                     <?php } ?> 
@@ -155,3 +152,202 @@
         </div>
     </div>
 </div>
+
+<!-- MODAL - DESEJA EXCLUIR O FUNCIONÁRIO? -->
+<div class="modal fade text-xs-left" id="excluir-funcionario" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title text-xs-center">Deseja excluir o funcionário?</h4>
+                <div class="modal-footer">                
+                    <button type="button" class="btn btn-primary" onclick="excluirFuncionario();">Sim</button>
+                    <button type="button" class="btn grey btn-secondary" data-dismiss="modal">Não</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL - FUNCIONÁRIO EXCLUÍDO COM SUCESSO -->
+<div class="modal fade text-xs-left" data-backdrop="static" id="excluir-sucesso-funcionario" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <h4 class="modal-title text-xs-center">Funcionário excluído com sucesso</h4>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="window.location.href = '<?php echo base_url('lista-funcionarios'); ?>'">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL - ERRO AO EXCLUIR O FUNCIONÁRIO -->
+<div class="modal fade text-xs-left" data-backdrop="static" id="excluir-erro-funcionario" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <h4 class="modal-title text-xs-center">Erro ao excluir o funcionário</h4>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL - DESEJA BLOQUEAR O FUNCIONÁRIO? -->
+<div class="modal fade text-xs-left" id="bloquear-funcionario" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title text-xs-center">Deseja bloquear o funcionário?</h4>
+                <div class="modal-footer">                
+                    <button type="button" class="btn btn-primary" id="bloqueia-funcionario">Sim</button>
+                    <button type="button" class="btn grey btn-secondary" data-dismiss="modal" id="nao-bloqueia-funcionario">Não</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL - FUNCIONÁRIO BLOQUEADO COM SUCESSO -->
+<div class="modal fade text-xs-left" data-backdrop="static" id="bloquear-sucesso-funcionario" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <h4 class="modal-title text-xs-center">Funcionário bloqueado com sucesso</h4>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="window.location.href = '<?php echo base_url('lista-funcionarios'); ?>'">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL - ERRO AO BLOQUEAR O FUNCIONÁRIO -->
+<div class="modal fade text-xs-left" data-backdrop="static" id="bloquear-erro-funcionario" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <h4 class="modal-title text-xs-center">Erro ao bloquear o funcionário</h4>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="window.location.href = '<?php echo base_url('lista-funcionarios'); ?>'">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL - DESEJA DESBLOQUEAR O FUNCIONÁRIO? -->
+<div class="modal fade text-xs-left" id="desbloquear-funcionario" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title text-xs-center">Deseja desbloquear o funcionário?</h4>
+                <div class="modal-footer">                
+                    <button type="button" class="btn btn-primary" id="desbloqueia-funcionario">Sim</button>
+                    <button type="button" class="btn grey btn-secondary" data-dismiss="modal" id="nao-desbloqueia-funcionario">Não</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL - FUNCIONÁRIO DESBLOQUEADO COM SUCESSO -->
+<div class="modal fade text-xs-left" data-backdrop="static" id="desbloquear-sucesso-funcionario" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <h4 class="modal-title text-xs-center">Funcionário desbloqueado com sucesso</h4>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="window.location.href = '<?php echo base_url('lista-funcionarios'); ?>'">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL - ERRO AO DESBLOQUEAR O FUNCIONÁRIO -->
+<div class="modal fade text-xs-left" data-backdrop="static" id="desbloquear-erro-funcionario" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <h4 class="modal-title text-xs-center">Erro ao desbloquear o funcionário</h4>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="window.location.href = '<?php echo base_url('lista-funcionarios'); ?>'">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- FUNÇÕES EM JAVASCRIPT -->
+<script type="text/javascript">
+    function excluirFuncionario() {
+        var dados = "idUsuario=" + $('#idUsuario').val();
+        $.ajax({
+            url: "<?php echo base_url('sistema/FuncionarioController/cExcluirFuncionario'); ?>",
+            type: "POST",
+            data: dados,
+            dataType: 'json',
+            success: function (data) {
+                $('#excluir-funcionario').modal('hide');
+                if (data.success) {
+                    $('#excluir-sucesso-funcionario').modal('show');
+                } else {
+                    $('#excluir-erro-funcionario').modal('show');
+                }
+            },
+            error: function (request, status, error) {
+                alert("Erro: " + request.responseText);
+            }
+        });
+    }
+
+    function bloquearFuncionario(dados) {
+        $.ajax({
+            type: 'POST',
+            url: "<?php echo base_url('sistema/FuncionarioController/cBloquearFuncionario'); ?>",
+            dataType: 'json',
+            data: dados,
+            success: function (data) {
+                $('#bloquear-funcionario').modal("hide");
+                if (data.success) {
+                    $('#bloquear-sucesso-funcionario').modal("show");
+                } else {
+                    $('#bloquear-erro-funcionario').modal("show");
+                }
+            },
+            error: function (request, status, error) {
+                alert("Erro: " + request.responseText);
+            }
+        });
+    }
+
+    function desbloquearFuncionario(dados) {
+        $.ajax({
+            type: 'POST',
+            url: "<?php echo base_url('sistema/FuncionarioController/cDesbloquearFuncionario'); ?>",
+            dataType: 'json',
+            data: dados,
+            success: function (data) {
+                $('#desbloquear-funcionario').modal("hide");
+                if (data.success) {
+                    $('#desbloquear-sucesso-funcionario').modal("show");
+                } else {
+                    $('#desbloquear-erro-funcionario').modal("show");
+                }
+            },
+            error: function (request, status, error) {
+                alert("Erro: " + request.responseText);
+            }
+        });
+    }
+</script>

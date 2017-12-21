@@ -3821,6 +3821,7 @@ tbody.collapse.in {
 .card-block {
   padding : 1.5rem;
 }
+
 .card-block::after {
   content : '';
   display : table;

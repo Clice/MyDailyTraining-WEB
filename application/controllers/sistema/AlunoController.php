@@ -126,7 +126,7 @@ class AlunoController extends CI_Controller {
     public function cVisualizarPerfilAluno() {
         $idAluno = $this->input->post('idAluno');
 
-        if ($this->AlunoModel->mVisualizarPerfilAlunoa($idAluno)) {
+        if ($this->AlunoModel->mVisualizarPerfilAluno($idAluno)) {
             $resposta = array('success' => true);
         } else {
             $resposta = array('success' => false);
