@@ -41,8 +41,8 @@ class FuncionarioController extends CI_Controller {
         $dadosFuncionario = array(
             'idAcademia' => $this->input->post('idAcademia'),
             'nomeUsuario' => $this->input->post('nomeUsuario'),
-            'loginUsuario' => $this->input->post('cpfUsuario'),
-            'senhaUsuario' => $this->input->post('cpfUsuario'),
+            'loginUsuario' => $this->input->post('loginUsuario'),
+            'senhaUsuario' => $this->input->post('senhaUsuario'),
             'emailUsuario' => $this->input->post('emailUsuario'),
             'cpfUsuario' => $this->input->post('cpfUsuario'),
             'rgUsuario' => $this->input->post('rgUsuario'),

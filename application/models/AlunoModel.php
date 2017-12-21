@@ -34,8 +34,11 @@ class AlunoModel extends CI_Model {
         return $this->db->update('alunos', $dadosAluno);
     }
 
-    public function mVisualizarPerfilAluno() {
-        
+    public function mVisualizarPerfilAluno($idAluno) {
+        $this->db->select('*');
+        $this->db->from('alunos');
+        $this->db->where('idAluno', $idAluno);
+        return $this->db->get()->result();
     }
 
     public function mListarAlunosAtivos() {
@@ -59,5 +62,4 @@ class AlunoModel extends CI_Model {
         $this->db->where('cpfAluno', $cpfAluno);
         return $this->db->get()->result();
     }
-
 }

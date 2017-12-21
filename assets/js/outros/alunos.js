@@ -28,3 +28,41 @@ function modalDesBloquearAluno(obj, idAluno, statusAluno) {
         });
     }
 }
+
+// FUNÇÃO PARA PESQUISAR OS ALUNOS CADASTRADOS
+function pesquisarAluno() {
+    var entrada, filtro, i;
+    var tabelaAlunosAtivos, trA, tdA;
+    var tabelaAlunosBloqueados, trB, tdB;
+
+    entrada = document.getElementById('pesquisarAluno');
+    filtro = entrada.value.toUpperCase();
+
+    // PESQUISA OS ALUNOS ATIVOS NA TABELA
+    tabelaAlunosAtivos = document.getElementById('tabelaAlunosAtivos');
+    trA = tabelaAlunosAtivos.getElementsByTagName('tr');
+    for (i = 0; i < trA.length; i++) {
+        tdA = trA[i].getElementsByTagName('td')[0];
+        if (tdA) {
+            if (tdA.innerHTML.toUpperCase().indexOf(filtro) > -1) {
+                trA[i].style.display = "";
+            } else {
+                trA[i].style.display = "none";
+            }
+        }
+    }
+
+    // PESQUISA OS ALUNOS BLOQUEADOS NA TABELA
+    tabelaAlunosBloqueados = document.getElementById('tabelaAlunosBloqueados');
+    trB = tabelaAlunosBloqueados.getElementsByTagName('tr');
+    for (i = 0; i < trB.length; i++) {
+        tdB = trB[i].getElementsByTagName('td')[0];
+        if (tdB) {
+            if (tdB.innerHTML.toUpperCase().indexOf(filtro) > -1) {
+                trB[i].style.display = "";
+            } else {
+                trB[i].style.display = "none";
+            }
+        }
+    }
+}

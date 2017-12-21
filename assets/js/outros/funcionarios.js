@@ -28,3 +28,41 @@ function modalDesBloquearFuncionario(obj, idUsuario, statusConta) {
         });
     }
 }
+
+// FUNÇÃO PARA PESQUISAR OS FUNCIONÁRIOS CADASTRADOS
+function pesquisarFuncionario() {
+    var entrada, filtro, i;
+    var tabelaFuncionariosAtivos, trA, tdA;
+    var tabelaFuncionariosBloqueados, trB, tdB;
+
+    entrada = document.getElementById('pesquisarFuncionario');
+    filtro = entrada.value.toUpperCase();
+
+    // PESQUISA OS FUNCIONÁRIOS ATIVOS NA TABELA
+    tabelaFuncionariosAtivos = document.getElementById('tabelaFuncionariosAtivos');
+    trA = tabelaFuncionariosAtivos.getElementsByTagName('tr');
+    for (i = 0; i < trA.length; i++) {
+        tdA = trA[i].getElementsByTagName('td')[0];
+        if (tdA) {
+            if (tdA.innerHTML.toUpperCase().indexOf(filtro) > -1) {
+                trA[i].style.display = "";
+            } else {
+                trA[i].style.display = "none";
+            }
+        }
+    }
+
+    // PESQUISA OS FUNCIONÁRIOS BLOQUEADOS NA TABELA
+    tabelaFuncionariosBloqueados = document.getElementById('tabelaFuncionariosBloqueados');
+    trB = tabelaFuncionariosBloqueados.getElementsByTagName('tr');
+    for (i = 0; i < trB.length; i++) {
+        tdB = trB[i].getElementsByTagName('td')[0];
+        if (tdB) {
+            if (tdB.innerHTML.toUpperCase().indexOf(filtro) > -1) {
+                trB[i].style.display = "";
+            } else {
+                trB[i].style.display = "none";
+            }
+        }
+    }
+}

@@ -48,8 +48,11 @@ class FuncionarioModel extends CI_Model {
         return $this->db->update('usuarios', $dadosFuncionario);
     }
 
-    public function mVisualizarPerfilAluno() {
-        
+    public function mVisualizarPerfilFuncionario($idFuncionario) {
+        $this->db->select('*');
+        $this->db->from('usuarios');
+        $this->db->where('idUsuario', $idFuncionario);
+        return $this->db->get()->result();
     }
 
     public function mListarFuncionariosAtivos() {

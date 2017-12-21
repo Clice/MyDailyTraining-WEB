@@ -1,21 +1,21 @@
 
-<!-- FORM DE CADASTRO DA ACADEMIA -->
+<!-- FORM DE CADASTRO DO ADMINISTRADOR -->
 <div class="app-content content container-fluid">
-    <div class="content-wrapper">
-        <!-- TÍTULO DA PÁGINA - CADASTRAR ACADEMIA -->
-        <div class="content-header row">
-            <div class="content-header-left col-md-6 col-xs-12 mb-1">
-                <h2 class="content-header-title">Cadastrar Academia</h2>
-            </div>
-        </div>
+    <div class="content-wrapper">      
         <!-- CONTEÚDO DA PÁGINA - CAMPOS DE PREENCHIMENTO -->
         <div class="content-body">
             <section id="basic-form-layouts">
                 <div class="row match-height">
-                    <div class="col-md-12">
+                    <div class="col-xl-12">
                         <div class="card">
                             <div class="card-body collapse in">
-                                <div class="card-block-container2">   
+                                <div class="card-block-cadastro">
+                                    <!-- TÍTULO DA PÁGINA - CADASTRAR ADMINISTRADOR -->
+                                    <div class="content-header row">
+                                        <div class="content-header-left col-md-6 col-xs-12 mb-1">
+                                            <h2 class="content-header-title">Cadastrar Administrador</h2>
+                                        </div>
+                                    </div>
                                     <?php
                                     echo validation_errors('<div class="alert alert-danger">', '</div>');
                                     echo form_open('sistema/AcademiaController/cCadastrarEditarAcademia');
@@ -23,7 +23,7 @@
                                     <!-- <form class="form" id="formCadEditAcademia" name="formCadEditAcademia"> -->
                                     <div class="form-body">
                                         <h4 class="form-section"></h4>
-                                        <input type="hidden" name="idAcademia" id="idAcademia" value="<?php echo $idAcademia; ?>">
+                                        <input type="hidden" name="idUsuario" id="idUsuario" value="<?php echo $idUsuario; ?>">
                                         <div class="row">
                                             <!-- NOME DA ACADEMIA -->
                                             <div class="col-md-9">

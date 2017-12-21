@@ -15,7 +15,7 @@
                                 <div class="col-lg-4">
                                     <div class="form-group">
                                         <div class="form-group position-relative">
-                                            <input type="text" class="form-control" placeholder="Buscar academia" 
+                                            <input type="text" class="form-control" placeholder="Buscar academia..." 
                                                    name="pesquisarAcademia" id="pesquisarAcademia" onkeyup="pesquisarAcademia();">
                                             <div class="form-control-position" style="margin-top: 7px;">
                                                 <i class="icon-search4 font-medium-4"></i>

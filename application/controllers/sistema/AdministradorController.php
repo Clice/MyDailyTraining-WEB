@@ -3,6 +3,11 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class AdministradorController extends CI_Controller {
+    
+    public function __construct() {
+        parent::__construct();
+        $this->load->model('AdministradorModel');
+    }
 
     public function index() {
         $dados['nomePagina'] = 'Lista de Administradores';
