@@ -13,6 +13,7 @@
         <script src="<?php echo base_url('assets/js/outros/alunos.js'); ?>" type="text/javascript"></script>
         <script src="<?php echo base_url('assets/js/outros/funcionarios.js'); ?>" type="text/javascript"></script>
         <script src="<?php echo base_url('assets/js/outros/instrutores.js'); ?>" type="text/javascript"></script>
+        <script src="<?php echo base_url('assets/js/outros/administradores.js'); ?>" type="text/javascript"></script>
 
     </body>
 </html>

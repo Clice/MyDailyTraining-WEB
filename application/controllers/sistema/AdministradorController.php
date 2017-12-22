@@ -3,15 +3,18 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class AdministradorController extends CI_Controller {
-    
+
     public function __construct() {
         parent::__construct();
         $this->load->model('AdministradorModel');
     }
 
     public function index() {
-        $dados['nomePagina'] = 'Lista de Administradores';
-        $this->load->view('sistema/templates/html-header', $dados);
+        $dadosAdministrador['nomePagina'] = 'Lista de Administradores';
+        $dadosAdministrador['administradoresAtivos'] = $this->AdministradorModel->mListarAdministradoresAtivos();
+        $dadosAdministrador['administradoresBloqueados'] = $this->AdministradorModel->mListarAdministradoresBloqueados();
+
+        $this->load->view('sistema/templates/html-header', $dadosAdministrador);
         $this->load->view('sistema/templates/header');
         $this->load->view('sistema/templates/side-menu');
         $this->load->view('sistema/telas/listas/lista-administradores');
@@ -20,13 +23,125 @@ class AdministradorController extends CI_Controller {
     }
 
     public function viewCadastrarEditarAdministrador() {
-        $dados['nomePagina'] = 'Cadastrar Administrador';
-        $this->load->view('sistema/templates/html-header', $dados);
+        $dadosAdministrador['nomePagina'] = 'Cadastrar Administrador';
+        $this->load->view('sistema/templates/html-header', $dadosAdministrador);
         $this->load->view('sistema/templates/header');
         $this->load->view('sistema/templates/side-menu');
         $this->load->view('sistema/telas/cadastros/cadastrar-editar-administrador');
         $this->load->view('sistema/templates/footer');
         $this->load->view('sistema/templates/html-footer');
+    }
+
+    // FUNÇÃO CONTROLLER PARA CADASTRAR/EDITAR ADMINISTRADOR
+    public function cCadastrarEditarAdministrador() {
+
+        // PEGANDO OS VALORES PASSADOS PELO CADASTRAR-EDITAR-ADMINISTRADOR.PHP     
+        $dadosAdministrador = array(
+            'idAcademia' => $this->input->post('idAcademia'),
+            'nomeUsuario' => $this->input->post('nomeUsuario'),
+            'loginUsuario' => $this->input->post('loginUsuario'),
+            'senhaUsuario' => $this->input->post('senhaUsuario'),
+            'emailUsuario' => $this->input->post('emailUsuario'),
+            'cpfUsuario' => $this->input->post('cpfUsuario'),
+            'rgUsuario' => $this->input->post('rgUsuario'),
+            'sexoUsuario' => $this->input->post('sexoUsuario'),
+            'dataNascimentoUsuario' => $this->input->post('dataNascimentoUsuario'),
+            'idadeUsuario' => $this->input->post('idadeUsuario'),
+            'enderecoUsuario' => $this->input->post('enderecoUsuario'),
+            'estadoUsuario' => $this->input->post('estadoUsuario'),
+            'cidadeUsuario' => $this->input->post('cidadeUsuario'),
+            'bairroUsuario' => $this->input->post('bairroUsuario'),
+            'cepUsuario' => $this->input->post('cepUsuario'),
+            'telefoneUsuario' => $this->input->post('telefoneUsuario'),
+            'tipoConta' => 2,
+            'statusConta' => true
+        );
+
+        // SE O ID USUARIO FOR NOVO, CADASTRAR UM NOVO ADMINISTRADOR
+        if ($dadosAdministrador['idUsuario'] == "novo") {
+            if ($this->AdministradorModel->mCadastrarAdministrador($dadosAdministrador)) {
+                $resposta = array('success' => true);
+            } else {
+                $resposta = array('success' => false);
+            }
+        }
+        // SE O ID USUARIO JÁ EXISTE, ALTERAR OS DADOS DO ADMINISTRADOR
+        else {
+            if ($this->AdministradorModel->mEditarAdministrador($dadosAdministrador)) {
+                $resposta = array('success' => true);
+            } else {
+                $resposta = array('success' => false);
+            }
+        }
+
+        echo json_encode($resposta);
+    }
+
+    // FUNÇÃO CONTROLLER PARA EXCLUIR ADMINISTRADOR
+    public function cExcluirAdministrador() {
+        $idAdministrador = $this->input->post('idUsuario');
+
+        if ($this->AdministradorModel->mExcluirAdministrador($idAdministrador)) {
+            $resposta = array('success' => true);
+        } else {
+            $resposta = array('success' => false);
+        }
+
+        echo json_encode($resposta);
+    }
+
+    // FUNÇÃO CONTROLLER PARA BLOQUEAR ADMINISTRADOR
+    public function cBloquearAdministrador() {
+        $idAdministrador = $this->input->post('idUsuario');
+
+        if ($this->AdministradorModel->mBloquearAdministrador($idAdministrador)) {
+            $resposta = array('success' => true);
+        } else {
+            $resposta = array('success' => false);
+        }
+
+        echo json_encode($resposta);
+    }
+
+    // FUNÇÃO CONTROLLER PARA DESBLOQUEAR ADMINISTRADOR
+    public function cDesbloquearAdministrador() {
+        $idAdministrador = $this->input->post('idUsuario');
+
+        if ($this->AdministradorModel->mDesbloquearAdministrador($idAdministrador)) {
+            $resposta = array('success' => true);
+        } else {
+            $resposta = array('success' => false);
+        }
+
+        echo json_encode($resposta);
+    }
+
+    // FUNÇÃO CONTROLLER PARA VISUALIZAR OS DADOS DO ADMINISTRADOR
+    public function cVisualizarPerfilAdministrador() {
+        $idAdministrador = $this->input->post('idUsuario');
+
+        if ($this->AdministradorModel->mVisualizarPerfilAdministrador($idAdministrador)) {
+            $resposta = array('success' => true);
+        } else {
+            $resposta = array('success' => false);
+        }
+
+        echo json_encode($resposta);
+    }
+
+    // FUNÇÃO CONTROLLER PARA VERIFICAR O CPF
+    public function cVerificarCPF() {
+        $cpfAdministrador = $this->input->post('cpfUsuario');
+
+        $dadosAdministrador = $this->AdministradorModel->mVerificarCPF($cpfAdministrador);
+
+        if (count($dadosAdministrador) === 1) {
+            $resposta = array('existe' => true);
+        } else {
+            $resposta = array('existe' => false);
+        }
+
+        echo json_encode($resposta);
     }
 
 }
