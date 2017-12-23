@@ -16,211 +16,207 @@
                                             <h2 class="content-header-title">Cadastrar Administrador</h2>
                                         </div>
                                     </div>
-                                    <?php
-                                    echo validation_errors('<div class="alert alert-danger">', '</div>');
-                                    echo form_open('sistema/AcademiaController/cCadastrarEditarAcademia');
-                                    ?>
-                                    <!-- <form class="form" id="formCadEditAcademia" name="formCadEditAcademia"> -->
-                                    <div class="form-body">
-                                        <h4 class="form-section"></h4>
-                                        <input type="hidden" name="idUsuario" id="idUsuario" value="<?php echo $idUsuario; ?>">
-                                        <div class="row">
-                                            <!-- NOME DA ACADEMIA -->
-                                            <div class="col-md-9">
-                                                <div class="form-group">
-                                                    <label>Nome da Academia:*</label>
-                                                    <input type="text" id="nomeAcademia" class="form-control" 
-                                                           placeholder="Digite o nome da academia" name="nomeAcademia">
+                                    <form class="form" id="formCadEditAdministrador" name="formCadEditAdministrador">
+                                        <div class="form-body">
+                                            <h4 class="form-section"></h4>
+                                            <input type="hidden" name="idAdministrador" id="idAdministrador" value="<?php echo $idAdministrador; ?>">
+                                            <input type="hidden" name="idAcademia" id="idAcademia" value="<?php echo $idAcademia; ?>">
+                                           
+                                            <div class="row">
+                                                <!-- NOME DO ADMINISTRADOR -->
+                                                <div class="col-md-7">
+                                                    <div class="form-group">
+                                                        <label><b>Nome do Administrador:*</b></label>
+                                                        <input type="text" id="nomeAdministrador" class="form-control" 
+                                                               placeholder="Digite o nome do administrador" name="nomeAdministrador" value="" minlength="5">
+                                                    </div>
+                                                </div>
+                                                <!-- E-MAIL DO ADMINISTRADOR -->
+                                                <div class="col-md-5">
+                                                    <div class="form-group">
+                                                        <label><b>E-mail:*</b></label>
+                                                        <input type="email" id="emailAdministrador" minlength="6" class="form-control" value="" 
+                                                               placeholder="Digite o e-mail" name="emailAdministrador">
+                                                    </div>                                                                
                                                 </div>
                                             </div>
-                                            <!-- CNPJ DA ACADEMIA -->
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <label>CNPJ:*</label>
-                                                    <input type="text" id="cnpjAcademia" class="form-control" 
-                                                           placeholder="Digite o CNPJ" name="cnpjAcademia">
+                                            <div class="row">
+                                                <!-- LOGIN DO ADMINISTRADOR -->
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label><b>Login:*</b></label>
+                                                        <input type="text" id="loginAdministrador" minlength="6" class="form-control" value="" 
+                                                               placeholder="Digite o login" name="loginAdministrador">
+                                                    </div>                                                                
+                                                </div>
+                                                <!-- SENHA DO ADMINISTRADOR -->
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label>Senha:*</label>
+                                                        <input type="password" id="senhaUsuario" minlength="6" class="form-control" value="" 
+                                                               placeholder="Digite a senha" name="senhaUsuario" onchange="verificarTamanhoSenha();">
+                                                        <small><span id='msnSenha'></span></small>
+                                                    </div>                                                                
+                                                </div>
+                                                <!-- CONFIRMA SENHA DO ADMINISTRADOR -->
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label>Confirme a Senha:*</label>
+                                                        <input type="password" id="confirmarSenha" minlength="6" class="form-control" value="" 
+                                                               placeholder="Digite a senha novamente" name="confirmarSenha" onchange="verificarSenhasIguais();">
+                                                        <small><span id='msnSenhasIguais'></span></small>
+                                                    </div>                                                                
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="row">
-                                            <!-- ENDEREÇO DA ACADEMIA -->
-                                            <div class="col-md-9">
-                                                <div class="form-group">
-                                                    <label>Endereço:*</label>
-                                                    <input type="text" id="enderecoAcademia" class="form-control" 
-                                                           placeholder="Digite o endereço" name="enderecoAcademia">
+                                            <div class="row">
+                                                <!-- CPF DO ADMINISTRADOR -->
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label>CPF:*</label>
+                                                        <input type="text" id="cpfUsuario" maxlength="11" class="form-control" value="" 
+                                                               placeholder="Digite o CPF" name="cpfUsuario" onchange="verificarCpf();">
+                                                        <small><span id='msnCPF'></span></small>
+                                                    </div>                                                                
                                                 </div>
-                                            </div>
-                                            <!-- TELEFONE DA ACADEMIA -->
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <label>Telefone:*</label>
-                                                    <input type="text" id="telefoneAcademia" class="form-control" 
-                                                           placeholder="Digite o telefone" name="telefoneAcademia">
+                                                <!-- RG DO ADMINISTRADOR -->
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label>RG:*</label>
+                                                        <input type="text" id="rgAdministrador" maxlength="18" class="form-control" value="" 
+                                                               placeholder="Digite o RG" name="rgAdministrador">
+                                                    </div>                                                                
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <!-- ESTADO DA ACADEMIA -->
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <label>Estado:*</label>
-                                                    <select id="estadoAcademia" name="estadoAcademia" class="form-control">
-                                                        <option value="" selected="" disabled="">Selecione o estado</option>
-                                                        <option value="">Acre</option>
-                                                        <option value="">Alagoas</option>
-                                                        <option value="">Amapá</option>
-                                                        <option value="">Amazonas</option>
-                                                        <option value="">Bahia</option>
-                                                        <option value="">Ceará</option>
-                                                        <option value="">Distrito Federal</option>
-                                                        <option value="">Espírito Santo</option>
-                                                        <option value="">Coiás</option>
-                                                        <option value="">Maranhão</option>
-                                                        <option value="">Mato Groso</option>
-                                                        <option value="">Mato Grosso do Sul</option>
-                                                        <option value="">Minas Gerais</option>
-                                                        <option value="">Pará</option>
-                                                        <option value="">Paraíba</option>
-                                                        <option value="">Paraná</option>
-                                                        <option value="">Pernambuco</option>
-                                                        <option value="">Piauí</option>
-                                                        <option value="">Rio de Janeiro</option>
-                                                        <option value="">Rio Grande do Norte</option>
-                                                        <option value="">Rio Grande do Sul</option>
-                                                        <option value="">Rondônia</option>
-                                                        <option value="">Roraima</option>
-                                                        <option value="">Santa Catarina</option>
-                                                        <option value="">São Paulo</option>
-                                                        <option value="">Sergipe</option>
-                                                        <option value="">Tocatins</option>
-                                                    </select>
+                                                <!-- DATA NASCIMENTO DO ADMINISTRADOR -->
+                                                <div class="col-md-3">
+                                                    <div class="form-group has-icon-left">
+                                                        <label>Data de Nascimento:*</b></label>
+                                                        <div class="position-relative has-icon-left">
+                                                            <input type="date" id="dataNascimentoAdministrador" name="dataNascimentoAdministrador" 
+                                                                   class="form-control" placeholder="Digite a data">
+                                                            <div class="form-control-position" style="margin-top: 11px;">
+                                                                <i class="icon-calendar5"></i>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <!-- CIDADE DA ACADEMIA -->
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <label>Cidade:*</label>
-                                                    <input type="text" id="cidadeAcademia" class="form-control" 
-                                                           placeholder="Digite a cidade" name="cidadeAcademia">
-                                                </div>
-                                            </div>
-                                            <!-- BAIRRO DA ACADEMIA -->
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <label>Bairro:*</label>
-                                                    <input type="text" id="bairroAcademia" class="form-control" 
-                                                           placeholder="Digite o bairro" name="bairroAcademia">
-                                                </div>
-                                            </div>
-                                            <!-- CEP DA ACADEMIA -->
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <label>CEP:*</label>
-                                                    <input type="text" id="cepAcademia" class="form-control" 
-                                                           placeholder="Digite o CEP" name="cepAcademia">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <!-- NOME DO RESPONSÁVEL -->
-                                            <div class="col-md-9">
-                                                <div class="form-group">
-                                                    <label for="projectinput3">Nome do Responsável:*</label>
-                                                    <input type="text" id="nomeResponsavelAcademia" class="form-control"                                                                
-                                                           placeholder="Digite o nome do responsável da academia" 
-                                                           name="nomeResponsavelAcademia">
-                                                </div>
-                                            </div>
-                                            <!-- E-MAIL DA ACADEMIA -->
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <label>E-mail:*</label>
-                                                    <input type="e-mail" id="emailAcademia" class="form-control" 
-                                                           placeholder="Digite o e-mail" name="emailAcademia">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <!-- PLANO DA ACADEMIA -->
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label>Planos:*</label>
-                                                    <div class="input-group">
-                                                        <!-- PLANO SIMPLES -->
+                                                <!-- SEXO DO ADMINISTRADOR -->
+                                                <div class="col-md-4"
+                                                     <label>Sexo:*</label>
+                                                    <div class="input-group" style="margin-top: 13px">
+                                                        <!-- FEMININO -->
                                                         <label class="display-inline-block custom-control custom-radio">
-                                                            <input checked="" type="radio" name="nomePlano" id="nomePlano" value="<?php echo 1; ?>" 
-                                                                   class="custom-control-input">
+                                                            <input type="radio" name="sexoFeminino" id="sexoFeminino" value="" onchange="verificarSexoAdministrador();" class="custom-control-input">
                                                             <span class="custom-control-indicator"></span>
-                                                            <span class="custom-control-description ml-0">Plano Simples</span>
+                                                            <span class="custom-control-description ml-0">Feminino</span>
                                                         </label>
-                                                        <!-- PLANO MÉDIO -->
+                                                        <!-- MASCULINO -->
                                                         <label class="display-inline-block custom-control custom-radio">
-                                                            <input type="radio" name="nomePlano" id="nomePlano" value="<?php echo 2; ?>" 
-                                                                   class="custom-control-input">
+                                                            <input type="radio" name="sexoMasculino" id="sexoMasculino" value="" onchange="verificarSexoAdministrador();" class="custom-control-input">
                                                             <span class="custom-control-indicator"></span>
-                                                            <span class="custom-control-description ml-0">Plano Médio</span>
+                                                            <span class="custom-control-description ml-0">Masculino</span>
                                                         </label>
-                                                        <!-- PLANO PRO -->
+                                                        <!-- OUTROS -->
                                                         <label class="display-inline-block custom-control custom-radio">
-                                                            <input type="radio" name="nomePlano" id="nomePlano" value="<?php echo 3; ?>" 
-                                                                   class="custom-control-input">
+                                                            <input type="radio" name="sexoOutros" id="sexoOutros" value="" onchange="verificarSexoAdministrador();" class="custom-control-input">
                                                             <span class="custom-control-indicator"></span>
-                                                            <span class="custom-control-description ml-0">Plano Pro</span>
+                                                            <span class="custom-control-description ml-0">Outros</span>
                                                         </label>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <!-- PACOTE DA ACADEMIA -->
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label>Pacotes:</label>
-                                                    <div class="input-group">
-                                                        <!-- PACOTE A -->
-                                                        <label class="display-inline-block custom-control custom-radio">
-                                                            <input checked="" type="radio" name="nomePacote" id="nomePacote" 
-                                                                   value="<?php echo 1; ?>" 
-                                                                   class="custom-control-input">
-                                                            <span class="custom-control-indicator"></span>
-                                                            <span class="custom-control-description ml-0">Pacote A</span>
-                                                        </label>
-                                                        <!-- PACOTE B -->
-                                                        <label class="display-inline-block custom-control custom-radio">
-                                                            <input type="radio" name="nomePacote" id="nomePacote" value="<?php echo 2; ?>" 
-                                                                   class="custom-control-input">
-                                                            <span class="custom-control-indicator"></span>
-                                                            <span class="custom-control-description ml-0">Pacote B</span>
-                                                        </label>
-                                                        <!-- PACOTE C -->
-                                                        <label class="display-inline-block custom-control custom-radio">
-                                                            <input type="radio" name="nomePacote" id="nomePacote" value="<?php echo 3; ?>" 
-                                                                   class="custom-control-input">
-                                                            <span class="custom-control-indicator"></span>
-                                                            <span class="custom-control-description ml-0">Pacote C</span>
-                                                        </label>
-                                                        <!-- PACOTE D -->
-                                                        <label class="display-inline-block custom-control custom-radio">
-                                                            <input type="radio" name="nomePacote" id="nomePacote" value="<?php echo 4; ?>" 
-                                                                   class="custom-control-input">
-                                                            <span class="custom-control-indicator"></span>
-                                                            <span class="custom-control-description ml-0">Pacote D</span>
-                                                        </label>
+                                            <div class="row">
+                                                <!-- ENDEREÇO DO ADMINISTRADOR -->
+                                                <div class="col-md-9">
+                                                    <div class="form-group">
+                                                        <label>Endereço:*</label>
+                                                        <input type="text" id="enderecoAdministrador" class="form-control" 
+                                                               placeholder="Digite o endereço" name="enderecoAdministrador" value="">
+                                                    </div>
+                                                </div>
+                                                <!-- TELEFONE DO ADMINISTRADOR -->
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label><b>Telefone:*</b></label>
+                                                        <input type="text" id="telefoneUsuario" class="form-control" maxlength="15"
+                                                               placeholder="Digite o telefone" name="telefoneUsuario" value="">
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>                                            
-                                    </div>
+                                            <div class="row">
+                                                <!-- ESTADO DO ADMINISTRADOR -->
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label>Estado:*</label>
+                                                        <select id="estadoAdministrador" name="estadoAdministrador" class="form-control">
+                                                            <option value="">Selecione o estado</option>
+                                                            <option value="Acre">Acre</option>
+                                                            <option value="Alagoas">Alagoas</option>
+                                                            <option value="Amapá">Amapá</option>
+                                                            <option value="Amazonas">Amazonas</option>
+                                                            <option value="Bahia">Bahia</option>
+                                                            <option value="Ceará">Ceará</option>
+                                                            <option value="Distrito Federal">Distrito Federal</option>
+                                                            <option value="Espírito Santo">Espírito Santo</option>
+                                                            <option value="Goiás">Goiás</option>
+                                                            <option value="Maranhão">Maranhão</option>
+                                                            <option value="Mato Grosso">Mato Grosso</option>
+                                                            <option value="Mato Grosso do Sul">Mato Grosso do Sul</option>
+                                                            <option value="Minas Gerais">Minas Gerais</option>
+                                                            <option value="Pará">Pará</option>
+                                                            <option value="Paraíba">Paraíba</option>
+                                                            <option value="Paraná">Paraná</option>
+                                                            <option value="Pernambuco">Pernambuco</option>
+                                                            <option value="Piauí">Piauí</option>
+                                                            <option value="Rio de Janeiro">Rio de Janeiro</option>
+                                                            <option value="Rio Grande do Norte">Rio Grande do Norte</option>
+                                                            <option value="Rio Grande do Sul">Rio Grande do Sul</option>
+                                                            <option value="Rondônia">Rondônia</option>
+                                                            <option value="Roraima">Roraima</option>
+                                                            <option value="Santa Catarina">Santa Catarina</option>
+                                                            <option value="São Paulo">São Paulo</option>
+                                                            <option value="Sergipe">Sergipe</option>
+                                                            <option value="Tocantins">Tocantins</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <!-- CIDADE DO ADMINISTRADOR -->
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label>Cidade:*</label>
+                                                        <input type="text" id="cidadeAdministrador" class="form-control" 
+                                                               placeholder="Digite a cidade" name="cidadeAdministrador" value="">
+                                                    </div>
+                                                </div>
+                                                <!-- BAIRRO DO ADMINISTRADOR -->
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label>Bairro:*</label>
+                                                        <input type="text" id="bairroAdministrador" class="form-control" 
+                                                               placeholder="Digite o bairro" name="bairroAdministrador" value="">
+                                                    </div>
+                                                </div>
+                                                <!-- CEP DO ADMINISTRADOR -->
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label>CEP:*</label>
+                                                        <input type="text" id="cepAdministrador" class="form-control" 
+                                                               placeholder="Digite o CEP" name="cepAdministrador" value="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <hr>
                                     <!-- BOTÕES -->
-                                    <div class="form-actions right">
-                                        <button type="button" class="btn btn-secondary">
+                                    <div style="float: right; margin-bottom: 15px;" class="form-actions">
+                                        <button type="button" class="btn btn-secondary" onclick="window.location.href = '<?php echo base_url('lista-administradores'); ?>'">
                                             <i class="icon-cross2"></i> Cancelar
                                         </button>
-                                        <button type="submit" class="btn btn-success">
+                                        <button type="submit" class="btn btn-success" onclick="verificarDadosAdministrador();">
                                             <i class="icon-check2"></i> Salvar
                                         </button>
                                     </div>
-                                    <!-- </form> -->
-                                    <?php echo form_close(); ?>
+                                    <br>
                                 </div>
                             </div>
                         </div>
@@ -231,20 +227,109 @@
     </div>
 </div>
 
-<div class="modal fade text-xs-left" data-backdrop="static" id="bloqueado" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
+<!-- MODAL - DADOS OBRIGATÓRIOS NÃO INFORMADOS -->
+<div class="modal fade text-xs-left" data-backdrop="static" id="dados-obrigatorios-administrador" tabindex="-1" role="dialog" 
+     aria-labelledby="myModalLabel1" 
      aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-body">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <h4 class="modal-title text-xs-center">Usuário bloqueado! Por favor contate o(s) administrador(es) para mais informações</h4>
+                <h4 class="modal-title text-xs-center">Dados obrigatórios não informados</h4>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" onclick="
-                        redirect(base_url("lista-academias"));" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
             </div>
         </div>
     </div>
 </div>
+
+<!-- MODAL - CPF CADASTRADO -->
+<div class="modal fade text-xs-left" data-backdrop="static" id="cpf-cadastrado" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <h4 class="modal-title text-xs-center">CPF já cadastrado</h4>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL - DADOS CADASTRADOS/ALTERADOS COM SUCESSO -->
+<div class="modal fade text-xs-left" data-backdrop="static" id="sucesso-administrador" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <h4 class="modal-title text-xs-center"><?php if (isset($idAdministrador)) { ?> Dados cadastrados com sucesso 
+                    <?php } else { ?> Erro ao cadastrar os dados <?php } ?></h4>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" onclick="window.location.href = '<?php echo base_url('lista-administradores'); ?>'">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL - ERRO AO CADASTRAR/ALTERAR OS DADOS -->
+<div class="modal fade text-xs-left" data-backdrop="static" id="erro-administrador" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <h4 class="modal-title text-xs-center"><?php if (isset($idAdministrador)) { ?> Erro ao cadastrar os dados 
+                    <?php } else { ?> Erro ao alterar os dados <?php } ?></h4>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    function cpfCadastrado(cpfUsuario) {
+        var dados = "cpfUsuario=" + cpfUsuario;
+        $.ajax({
+            url: "<?php echo base_url('sistema/AdministradorController/cVerificarCPF') ?>",
+            type: "POST",
+            data: dados,
+            dataType: "JSON",
+            success: function (data) {
+                if (data.existe) {
+                    $('#cpf-cadastrado').modal('show');
+                } else {
+                    cadEditAdministrador();
+                }
+            },
+            error: function (request, status, error) {
+                alert("Erro: " + request.responseText);
+            }
+        });
+    }
+
+    function cadEditAdministrador() {
+        $.ajax({
+            url: "<?php echo base_url('sistema/AdministradorController/cCadastrarEditarAdministrador') ?>",
+            type: "POST",
+            data: $('#formCadEditAdministrador').serialize(),
+            dataType: "JSON",
+            success: function (data) {
+                alert('entrou');
+                if (data.success) {
+                    alert('sucesso');
+                    $('#sucesso-administrador').modal('show');
+                } else {
+                    alert('erro');
+                    $('#erro-administrador').modal('show');
+                }
+            },
+            error: function (request, status, error) {
+                alert("Erro: " + request.responseText);
+            }
+        });
+    }
+</script>

@@ -1,3 +1,40 @@
+// FUNÇÕES PARA MANUTENÇÃO DO ADMINISTRADOR
+
+// FUNÇÃO PARA VERIFICAR OS DADOS DO ADMINISTRADOR
+// OS DADOS PASSADOS DEVERAM SER OBRIGATÓRIOS
+// O CPF TEM QUE SER VERIFICADO, PARA NÃO SER CADASTRADO DUAS VEZES
+function verificarDadosAdministrador() {
+    var idAdministrador = $('#idAdministrador').val();
+    var idAcademia = $('#idAcademia').val();
+    var nomeAdministrador = $('#nomeAdministrador').val();
+    var loginAdministrador = $('#loginAdministrador').val();
+    var senhaAdministrador = $('#senhaAdministrador').val();
+    var emailAdministrador = $('#emailAdministrador').val();
+    var cpfUsuario = $('#cpfUsuario').val();
+    var rgAdministrador = $('#rgAdministrador').val();
+    var sexoAdministrador = $('#sexoAdministrador').val();
+    var dataNascimentoAdministrador = $('#dataNascimentoAdministrador').val();
+    var idadeAdministrador = $('#idadeAdministrador').val();
+    var enderecoAdministrador = $('#enderecoAdministrador').val();
+    var estadoAdministrador = $('#estadoAdministrador').val();
+    var cidadeAdministrador = $('#cidadeAdministrador').val();
+    var bairroAdministrador = $('#bairroAdministrador').val();
+    var cepAdministrador = $('#cepAdministrador').val();
+    var telefoneUsuario = $('#telefoneUsuario').val();
+
+    var msnCPF = $('#msnCPF').val();
+
+    if ((idAdministrador === "") || (idAcademia === "") || (nomeAdministrador === "") || (loginAdministrador === "") ||
+            (senhaAdministrador === "") /*|| (emailAdministrador === "") || (cpfUsuario === "") || (rgAdministrador === "") || 
+             (dataNascimentoAdministrador === "") || (idadeAdministrador === "") || (enderecoAdministrador === "") || 
+             (estadoAdministrador === "") || (cidadeAdministrador === "") || (bairroAdministrador === "") || 
+             (sexoAdministrador === "") || (cepAdministrador === "") || (telefoneUsuario === "")*/) {
+        $('#dados-obrigatorios-administrador').modal('show');
+    } else if (msnCPF === "CPF válido!") {
+        cpfCadastrado(cpfUsuario);
+    }
+}
+
 // FUNÇÃO PARA ATIVAR O MODAL EXCLUIR ADMINISTRADOR
 function modalExcluirAdministrador(idUsuario) {
     $('#excluir-administrador').modal('show');
@@ -65,4 +102,30 @@ function pesquisarAdministrador() {
             }
         }
     }
+}
+
+// FUNÇÃO PARA CONTROLE DOS PLANOS E PACOTES DA EMPRESA
+// CONTROLANDO OS INPUTS RADIOS PARA QUE O USUÁRIO ESCOLHA CORRETAMENTE AS OPÇÕES 
+function verificarSexoAdministrador() {
+
+    var sexoAdministrador;
+
+    if (document.getElementById('sexoFeminino').checked) {
+        document.getElementById('sexoMasculino').disabled = false;
+        document.getElementById('sexoOutros').disabled = false;
+
+        document.getElementById('sexoFeminino').value = sexoAdministrador;
+    } else if (document.getElementById('sexoMasculino').checked) {
+        document.getElementById('sexoFeminino').disabled = false;
+        document.getElementById('sexoOutros').disabled = false;
+        
+        document.getElementById('sexoMasculino').value = sexoAdministrador;
+    } else if (document.getElementById('sexoOutros').checked) {
+        document.getElementById('sexoMasculino').disabled = false;
+        document.getElementById('sexoFeminino').disabled = false;
+        
+        document.getElementById('sexoFeminino').value = sexoAdministrador;
+    }
+    
+    return sexoAdministrador;
 }
