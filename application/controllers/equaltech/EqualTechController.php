@@ -9,6 +9,7 @@ class EqualTechController extends CI_Controller {
         $this->load->model('EqualTechModel');
     }
 
+    // FUNÇÃO DE CARREGAMENTO DA VIEW LISTA-EQUALTECH.PHP
     public function index() {
     	$dados['nomePagina'] = 'Lista de EqualTech';
         $this->load->view('sistema/templates/html-header', $dados);

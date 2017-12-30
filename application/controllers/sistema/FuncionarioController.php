@@ -11,7 +11,6 @@ class FuncionarioController extends CI_Controller {
 
     // FUNÇÃO DE CARREGAMENTO DA VIEW LISTA-FUNCIONARIOS.PHP
     public function index() {
-
         $dadosFuncionario['nomePagina'] = 'Lista de Funcionários';
         $dadosFuncionario['funcionariosAtivos'] = $this->FuncionarioModel->mListarFuncionariosAtivos();
         $dadosFuncionario['funcionariosBloqueados'] = $this->FuncionarioModel->mListarFuncionariosBloqueados();
@@ -26,6 +25,19 @@ class FuncionarioController extends CI_Controller {
 
     public function viewCadastrarEditarFuncionario() {
         $dadosFuncionario['nomePagina'] = 'Cadastrar Funcionário';
+        
+        // SE UM ID ADMINISTRADOR FOI PASSADO OU NÃO
+        // PARA REALIZAR A EDIÇÃO OU O CADASTRO DE UM ADMINISTRADOR
+        if (isset($idFuncionario)) {
+            $dadosFuncionario['idFuncionario'] = $idFuncionario;
+            $dadosFuncionario['idAcademia'] = $this->session->userdata('idAcademia');
+            // $dadosAdministrador['sexoUsuario'] = $this->session->userdata('idAcademia');
+        } else {
+            $dadosFuncionario['idFuncionario'] = "novo";
+            $dadosFuncionario['idAcademia'] = 1;
+            $dadosFuncionario['sexoUsuario'] = '';
+        }        
+        
         $this->load->view('sistema/templates/html-header', $dadosFuncionario);
         $this->load->view('sistema/templates/header');
         $this->load->view('sistema/templates/side-menu');
@@ -145,4 +157,5 @@ class FuncionarioController extends CI_Controller {
 
         echo json_encode($resposta);
     }
+
 }

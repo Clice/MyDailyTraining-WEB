@@ -4,8 +4,29 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class PaginaPrincipalController extends CI_Controller {
 
+    public function __construct() {
+        parent::__construct();
+        $this->load->model('AcademiaModel');
+        $this->load->model('AdministradorModel');
+        $this->load->model('FuncionarioModel');
+        $this->load->model('InstrutorModel');
+        $this->load->model('AlunoModel');
+    }
+
+    // FUNÇÃO DE CARREGAMENTO DA VIEW PAGINA-PRINCIPAL.PHP
     public function index() {
         $dados['nomePagina'] = 'Página Principal';
+        $dados['qtdAcademiasAtivas'] = count($this->AcademiaModel->mQtdAcademiasAtivas(0));
+        $dados['qtdAcademiasBloqueadas'] = count($this->AcademiaModel->mQtdAcademiasBloqueadas(0));
+        $dados['qtdAdminAtivos'] = count($this->AdministradorModel->mQtdAdminAtivos($this->session->userdata('idAcademia')));
+        $dados['qtdAdminBloqueados'] = count($this->AdministradorModel->mQtdAdminBloqueados($this->session->userdata('idAcademia')));
+        $dados['qtdFuncAtivos'] = count($this->FuncionarioModel->mQtdFuncAtivos($this->session->userdata('idAcademia')));
+        $dados['qtdFuncBloqueados'] = count($this->FuncionarioModel->mQtdFuncBloqueados($this->session->userdata('idAcademia')));
+        $dados['qtdInstAtivos'] = count($this->InstrutorModel->mQtdInstAtivos($this->session->userdata('idAcademia')));
+        $dados['qtdInstBloqueados'] = count($this->InstrutorModel->mQtdInstBloqueados($this->session->userdata('idAcademia')));
+        $dados['qtdAlunosAtivos'] = count($this->AlunoModel->mQtdAlunosAtivos($this->session->userdata('idAcademia')));
+        $dados['qtdAlunosBloqueados'] = count($this->AlunoModel->mQtdAlunosBloqueados($this->session->userdata('idAcademia')));
+
         $this->load->view('sistema/templates/html-header', $dados);
         $this->load->view('sistema/templates/header');
         $this->load->view('sistema/templates/side-menu');
@@ -14,6 +35,7 @@ class PaginaPrincipalController extends CI_Controller {
         $this->load->view('sistema/templates/html-footer');
     }
 
+    // FUNÇÃO DE CARREGAMENTO DA VIEW PERFIL.PHP
     public function viewPerfil() {
         $dados['nomePagina'] = 'Perfil';
         $this->load->view('sistema/templates/html-header', $dados);
@@ -24,6 +46,7 @@ class PaginaPrincipalController extends CI_Controller {
         $this->load->view('sistema/templates/html-footer');
     }
 
+    // FUNÇÃO DE CARREGAMENTO DA VIEW NOTIFICACOES.PHP
     public function viewNotificacoes() {
         $dados['nomePagina'] = 'Notificações';
         $this->load->view('sistema/templates/html-header', $dados);

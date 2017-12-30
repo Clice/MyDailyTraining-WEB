@@ -19,24 +19,26 @@
                                     <form class="form" id="formCadEditAdministrador" name="formCadEditAdministrador">
                                         <div class="form-body">
                                             <h4 class="form-section"></h4>
-                                            <input type="hidden" name="idAdministrador" id="idAdministrador" value="<?php echo $idAdministrador; ?>">
+                                            
+                                            <input type="hidden" name="idUsuario" id="idUsuario" value="<?php echo $idAdministrador; ?>">
                                             <input type="hidden" name="idAcademia" id="idAcademia" value="<?php echo $idAcademia; ?>">
-                                           
+                                            <input type="hidden" name="sexoUsuario" id="sexoUsuario" value="<?php echo $sexoUsuario; ?>">
+                                            
                                             <div class="row">
                                                 <!-- NOME DO ADMINISTRADOR -->
                                                 <div class="col-md-7">
                                                     <div class="form-group">
-                                                        <label><b>Nome do Administrador:*</b></label>
-                                                        <input type="text" id="nomeAdministrador" class="form-control" 
-                                                               placeholder="Digite o nome do administrador" name="nomeAdministrador" value="" minlength="5">
+                                                        <label>Nome do Administrador:*</label>
+                                                        <input type="text" id="nomeUsuario" class="form-control" 
+                                                               placeholder="Digite o nome do administrador" name="nomeUsuario" value="" minlength="5">
                                                     </div>
                                                 </div>
                                                 <!-- E-MAIL DO ADMINISTRADOR -->
                                                 <div class="col-md-5">
                                                     <div class="form-group">
-                                                        <label><b>E-mail:*</b></label>
-                                                        <input type="email" id="emailAdministrador" minlength="6" class="form-control" value="" 
-                                                               placeholder="Digite o e-mail" name="emailAdministrador">
+                                                        <label>E-mail:*</label>
+                                                        <input type="email" id="emailUsuario" minlength="6" class="form-control" value="" 
+                                                               placeholder="Digite o e-mail" name="emailUsuario">
                                                     </div>                                                                
                                                 </div>
                                             </div>
@@ -44,9 +46,9 @@
                                                 <!-- LOGIN DO ADMINISTRADOR -->
                                                 <div class="col-md-4">
                                                     <div class="form-group">
-                                                        <label><b>Login:*</b></label>
-                                                        <input type="text" id="loginAdministrador" minlength="6" class="form-control" value="" 
-                                                               placeholder="Digite o login" name="loginAdministrador">
+                                                        <label>Login:*</label>
+                                                        <input type="text" id="loginUsuario" minlength="6" class="form-control" value="" 
+                                                               placeholder="Digite o login" name="loginUsuario">
                                                     </div>                                                                
                                                 </div>
                                                 <!-- SENHA DO ADMINISTRADOR -->
@@ -82,16 +84,16 @@
                                                 <div class="col-md-3">
                                                     <div class="form-group">
                                                         <label>RG:*</label>
-                                                        <input type="text" id="rgAdministrador" maxlength="18" class="form-control" value="" 
-                                                               placeholder="Digite o RG" name="rgAdministrador">
+                                                        <input type="text" id="rgUsuario" maxlength="18" class="form-control" value="" 
+                                                               placeholder="Digite o RG" name="rgUsuario">
                                                     </div>                                                                
                                                 </div>
                                                 <!-- DATA NASCIMENTO DO ADMINISTRADOR -->
                                                 <div class="col-md-3">
                                                     <div class="form-group has-icon-left">
-                                                        <label>Data de Nascimento:*</b></label>
+                                                        <label>Data de Nascimento:*</label>
                                                         <div class="position-relative has-icon-left">
-                                                            <input type="date" id="dataNascimentoAdministrador" name="dataNascimentoAdministrador" 
+                                                            <input type="date" id="dataNascimentoUsuario" name="dataNascimentoUsuario" 
                                                                    class="form-control" placeholder="Digite a data">
                                                             <div class="form-control-position" style="margin-top: 11px;">
                                                                 <i class="icon-calendar5"></i>
@@ -105,19 +107,19 @@
                                                     <div class="input-group" style="margin-top: 13px">
                                                         <!-- FEMININO -->
                                                         <label class="display-inline-block custom-control custom-radio">
-                                                            <input type="radio" name="sexoFeminino" id="sexoFeminino" value="" onchange="verificarSexoAdministrador();" class="custom-control-input">
+                                                            <input type="radio" name="sexoUsuario" id="sexoFeminino" value="" onchange="verificarSexoAdministrador();" class="custom-control-input">
                                                             <span class="custom-control-indicator"></span>
                                                             <span class="custom-control-description ml-0">Feminino</span>
                                                         </label>
                                                         <!-- MASCULINO -->
                                                         <label class="display-inline-block custom-control custom-radio">
-                                                            <input type="radio" name="sexoMasculino" id="sexoMasculino" value="" onchange="verificarSexoAdministrador();" class="custom-control-input">
+                                                            <input type="radio" name="sexoUsuario" id="sexoMasculino" value="" onchange="verificarSexoAdministrador();" class="custom-control-input">
                                                             <span class="custom-control-indicator"></span>
                                                             <span class="custom-control-description ml-0">Masculino</span>
                                                         </label>
                                                         <!-- OUTROS -->
                                                         <label class="display-inline-block custom-control custom-radio">
-                                                            <input type="radio" name="sexoOutros" id="sexoOutros" value="" onchange="verificarSexoAdministrador();" class="custom-control-input">
+                                                            <input type="radio" name="sexoUsuario" id="sexoOutros" value="" onchange="verificarSexoAdministrador();" class="custom-control-input">
                                                             <span class="custom-control-indicator"></span>
                                                             <span class="custom-control-description ml-0">Outros</span>
                                                         </label>
@@ -129,14 +131,14 @@
                                                 <div class="col-md-9">
                                                     <div class="form-group">
                                                         <label>Endereço:*</label>
-                                                        <input type="text" id="enderecoAdministrador" class="form-control" 
-                                                               placeholder="Digite o endereço" name="enderecoAdministrador" value="">
+                                                        <input type="text" id="enderecoUsuario" class="form-control" 
+                                                               placeholder="Digite o endereço" name="enderecoUsuario" value="">
                                                     </div>
                                                 </div>
                                                 <!-- TELEFONE DO ADMINISTRADOR -->
                                                 <div class="col-md-3">
                                                     <div class="form-group">
-                                                        <label><b>Telefone:*</b></label>
+                                                        <label>Telefone:*</label>
                                                         <input type="text" id="telefoneUsuario" class="form-control" maxlength="15"
                                                                placeholder="Digite o telefone" name="telefoneUsuario" value="">
                                                     </div>
@@ -147,7 +149,7 @@
                                                 <div class="col-md-3">
                                                     <div class="form-group">
                                                         <label>Estado:*</label>
-                                                        <select id="estadoAdministrador" name="estadoAdministrador" class="form-control">
+                                                        <select id="estadoUsuario" name="estadoUsuario" class="form-control">
                                                             <option value="">Selecione o estado</option>
                                                             <option value="Acre">Acre</option>
                                                             <option value="Alagoas">Alagoas</option>
@@ -183,24 +185,24 @@
                                                 <div class="col-md-3">
                                                     <div class="form-group">
                                                         <label>Cidade:*</label>
-                                                        <input type="text" id="cidadeAdministrador" class="form-control" 
-                                                               placeholder="Digite a cidade" name="cidadeAdministrador" value="">
+                                                        <input type="text" id="cidadeUsuario" class="form-control" 
+                                                               placeholder="Digite a cidade" name="cidadeUsuario" value="">
                                                     </div>
                                                 </div>
                                                 <!-- BAIRRO DO ADMINISTRADOR -->
                                                 <div class="col-md-3">
                                                     <div class="form-group">
                                                         <label>Bairro:*</label>
-                                                        <input type="text" id="bairroAdministrador" class="form-control" 
-                                                               placeholder="Digite o bairro" name="bairroAdministrador" value="">
+                                                        <input type="text" id="bairroUsuario" class="form-control" 
+                                                               placeholder="Digite o bairro" name="bairroUsuario" value="">
                                                     </div>
                                                 </div>
                                                 <!-- CEP DO ADMINISTRADOR -->
                                                 <div class="col-md-3">
                                                     <div class="form-group">
                                                         <label>CEP:*</label>
-                                                        <input type="text" id="cepAdministrador" class="form-control" 
-                                                               placeholder="Digite o CEP" name="cepAdministrador" value="">
+                                                        <input type="text" id="cepUsuario" class="form-control" 
+                                                               placeholder="Digite o CEP" name="cepUsuario" value="">
                                                     </div>
                                                 </div>
                                             </div>
@@ -243,6 +245,21 @@
     </div>
 </div>
 
+<!-- MODAL - SENHAS DIFERENTES -->
+<div class="modal fade text-xs-left" data-backdrop="static" id="senhas-diferentes" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <h4 class="modal-title text-xs-center">Senhas diferentes</h4>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- MODAL - CPF CADASTRADO -->
 <div class="modal fade text-xs-left" data-backdrop="static" id="cpf-cadastrado" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
      aria-hidden="true">
@@ -250,6 +267,21 @@
         <div class="modal-content">
             <div class="modal-body">
                 <h4 class="modal-title text-xs-center">CPF já cadastrado</h4>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL - LOGIN CADASTRADO -->
+<div class="modal fade text-xs-left" data-backdrop="static" id="login-cadastrado" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <h4 class="modal-title text-xs-center">Login já cadastrado</h4>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
@@ -291,7 +323,7 @@
 </div>
 
 <script type="text/javascript">
-    function cpfCadastrado(cpfUsuario) {
+    function verificarCPF(cpfUsuario, loginUsuario) {
         var dados = "cpfUsuario=" + cpfUsuario;
         $.ajax({
             url: "<?php echo base_url('sistema/AdministradorController/cVerificarCPF') ?>",
@@ -301,6 +333,26 @@
             success: function (data) {
                 if (data.existe) {
                     $('#cpf-cadastrado').modal('show');
+                } else {
+                    verificarLogin(loginUsuario);
+                }
+            },
+            error: function (request, status, error) {
+                alert("Erro: " + request.responseText);
+            }
+        });
+    }
+
+    function verificarLogin(loginUsuario) {
+        var dados = 'loginUsuario=' + loginUsuario;
+        $.ajax({
+            url: "<?php echo base_url('sistema/AdministradorController/cVerificarLogin') ?>",
+            type: "POST",
+            data: dados,
+            dataType: "JSON",
+            success: function (data) {
+                if (data.existe) {
+                    $('#login-cadastrado').modal('show');
                 } else {
                     cadEditAdministrador();
                 }
@@ -318,12 +370,9 @@
             data: $('#formCadEditAdministrador').serialize(),
             dataType: "JSON",
             success: function (data) {
-                alert('entrou');
                 if (data.success) {
-                    alert('sucesso');
                     $('#sucesso-administrador').modal('show');
                 } else {
-                    alert('erro');
                     $('#erro-administrador').modal('show');
                 }
             },

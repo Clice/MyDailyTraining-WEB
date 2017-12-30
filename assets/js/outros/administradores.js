@@ -4,35 +4,38 @@
 // OS DADOS PASSADOS DEVERAM SER OBRIGATÓRIOS
 // O CPF TEM QUE SER VERIFICADO, PARA NÃO SER CADASTRADO DUAS VEZES
 function verificarDadosAdministrador() {
-    var idAdministrador = $('#idAdministrador').val();
-    var idAcademia = $('#idAcademia').val();
-    var nomeAdministrador = $('#nomeAdministrador').val();
-    var loginAdministrador = $('#loginAdministrador').val();
-    var senhaAdministrador = $('#senhaAdministrador').val();
-    var emailAdministrador = $('#emailAdministrador').val();
+    var idUsuario = $('#idUsuario').val();
+    //var idAcademia = $('#idAcademia').val();
+    var nomeUsuario = $('#nomeUsuario').val();
+    var loginUsuario = $('#loginUsuario').val();
+    var senhaUsuario = $('#senhaUsuario').val();
+    var confirmarSenha = $('#confirmarSenha').val();
+    var emailUsuario = $('#emailUsuario').val();
     var cpfUsuario = $('#cpfUsuario').val();
-    var rgAdministrador = $('#rgAdministrador').val();
-    var sexoAdministrador = $('#sexoAdministrador').val();
-    var dataNascimentoAdministrador = $('#dataNascimentoAdministrador').val();
-    var idadeAdministrador = $('#idadeAdministrador').val();
-    var enderecoAdministrador = $('#enderecoAdministrador').val();
-    var estadoAdministrador = $('#estadoAdministrador').val();
-    var cidadeAdministrador = $('#cidadeAdministrador').val();
-    var bairroAdministrador = $('#bairroAdministrador').val();
-    var cepAdministrador = $('#cepAdministrador').val();
+    var rgUsuario = $('#rgUsuario').val();
+    //var sexoUsuario = $('#sexoUsuario').val();
+    var dataNascimentoUsuario = $('#dataNascimentoUsuario').val();
+    var idadeUsuario = $('#idadeUsuario').val();
+    var enderecoUsuario = $('#enderecoUsuario').val();
+    var estadoUsuario = $('#estadoUsuario').val();
+    var cidadeUsuario = $('#cidadeUsuario').val();
+    //var bairroUsuario = $('#bairroUsuario').val();
+    var cepUsuario = $('#cepUsuario').val();
     var telefoneUsuario = $('#telefoneUsuario').val();
 
     var msnCPF = $('#msnCPF').val();
 
-    if ((idAdministrador === "") || (idAcademia === "") || (nomeAdministrador === "") || (loginAdministrador === "") ||
-            (senhaAdministrador === "") /*|| (emailAdministrador === "") || (cpfUsuario === "") || (rgAdministrador === "") || 
-             (dataNascimentoAdministrador === "") || (idadeAdministrador === "") || (enderecoAdministrador === "") || 
-             (estadoAdministrador === "") || (cidadeAdministrador === "") || (bairroAdministrador === "") || 
-             (sexoAdministrador === "") || (cepAdministrador === "") || (telefoneUsuario === "")*/) {
+    if ((idUsuario === "") || /*(idAcademia === "") ||*/ (nomeUsuario === "") || (loginUsuario === "") ||
+            (senhaUsuario === "") || (emailUsuario === "") || (cpfUsuario === "") || (rgUsuario === "") || 
+             (dataNascimentoUsuario === "") || (idadeUsuario === "") || (enderecoUsuario === "") || 
+             (estadoUsuario === "") || (cidadeUsuario === "") || /*(bairroAdministrador === "") || 
+             (sexoAdministrador === "") || */(cepUsuario === "") || (telefoneUsuario === "")) {
         $('#dados-obrigatorios-administrador').modal('show');
+    } else if (senhaUsuario !== confirmarSenha) {
+        $('#senhas-diferentes').modal('show');
     } else if (msnCPF === "CPF válido!") {
-        cpfCadastrado(cpfUsuario);
-    }
+        verificarCPF(cpfUsuario, loginUsuario);
+    } 
 }
 
 // FUNÇÃO PARA ATIVAR O MODAL EXCLUIR ADMINISTRADOR
@@ -107,25 +110,18 @@ function pesquisarAdministrador() {
 // FUNÇÃO PARA CONTROLE DOS PLANOS E PACOTES DA EMPRESA
 // CONTROLANDO OS INPUTS RADIOS PARA QUE O USUÁRIO ESCOLHA CORRETAMENTE AS OPÇÕES 
 function verificarSexoAdministrador() {
-
     var sexoAdministrador;
 
+    // SE O SEXO FOR FEMININO
     if (document.getElementById('sexoFeminino').checked) {
-        document.getElementById('sexoMasculino').disabled = false;
-        document.getElementById('sexoOutros').disabled = false;
-
-        document.getElementById('sexoFeminino').value = sexoAdministrador;
-    } else if (document.getElementById('sexoMasculino').checked) {
-        document.getElementById('sexoFeminino').disabled = false;
-        document.getElementById('sexoOutros').disabled = false;
-        
-        document.getElementById('sexoMasculino').value = sexoAdministrador;
-    } else if (document.getElementById('sexoOutros').checked) {
-        document.getElementById('sexoMasculino').disabled = false;
-        document.getElementById('sexoFeminino').disabled = false;
-        
-        document.getElementById('sexoFeminino').value = sexoAdministrador;
+        document.getElementById('sexoUsuario').value = 'Feminino';
+    } 
+    // SE O SEXO FOR MASCULINO
+    else if (document.getElementById('sexoMasculino').checked) {       
+        document.getElementById('sexoUsuario').value = 'Masculino';
+    } 
+    // SE O SEXO FOR OUTROS
+    else if (document.getElementById('sexoOutros').checked) {       
+        document.getElementById('sexoUsuario').value = 'Outros';
     }
-    
-    return sexoAdministrador;
 }

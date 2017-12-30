@@ -31,9 +31,11 @@ class AdministradorController extends CI_Controller {
         if (isset($idAdministrador)) {
             $dadosAdministrador['idAdministrador'] = $idAdministrador;
             $dadosAdministrador['idAcademia'] = $this->session->userdata('idAcademia');
+            // $dadosAdministrador['sexoUsuario'] = $this->session->userdata('idAcademia');
         } else {
             $dadosAdministrador['idAdministrador'] = "novo";
             $dadosAdministrador['idAcademia'] = $this->session->userdata('idAcademia');
+            $dadosAdministrador['sexoUsuario'] = '';
         }
 
         // CARREGANDO AS VIEWS PARA FORMAR A TELA DE CADASTRO/EDIÇÃO DO ADMINISTRADOR  
@@ -47,33 +49,31 @@ class AdministradorController extends CI_Controller {
 
     // FUNÇÃO CONTROLLER PARA CADASTRAR/EDITAR ADMINISTRADOR
     public function cCadastrarEditarAdministrador() {
-
         // PEGANDO OS VALORES PASSADOS PELO CADASTRAR-EDITAR-ADMINISTRADOR.PHP     
         $dadosAdministrador = array(
-            'idAdministrador' => $this->input->post('idAdministrador'),
+            'idUsuario' => $this->input->post('idUsuario'),
             'idAcademia' => $this->input->post('idAcademia'),
-            'nomeUsuario' => $this->input->post('nomeAdministrador'),
-            'loginUsuario' => $this->input->post('loginAdministrador'),
-            'senhaUsuario' => $this->input->post('senhaAdministrador'),
-            'emailUsuario' => $this->input->post('emailAdministrador'),
+            'nomeUsuario' => $this->input->post('nomeUsuario'),
+            'loginUsuario' => $this->input->post('loginUsuario'),
+            'senhaUsuario' => base64_encode($this->input->post('senhaUsuario')),
+            'emailUsuario' => $this->input->post('emailUsuario'),
             'cpfUsuario' => $this->input->post('cpfUsuario'),
-            'rgUsuario' => $this->input->post('rgAdministrador'),
-            'crefUsuario' => NULL,
-            'sexoUsuario' => $this->input->post('sexoAdministrador'),
-            'dataNascimentoUsuario' => $this->input->post('dataNascimentoAdministrador'),
-            'idadeUsuario' => date('d-m-Y') - 'dataNascimentoAdministrador',
-            'enderecoUsuario' => $this->input->post('enderecoAdministrador'),
-            'estadoUsuario' => $this->input->post('estadoAdministrador'),
-            'cidadeUsuario' => $this->input->post('cidadeAdministrador'),
-            'bairroUsuario' => $this->input->post('bairroAdministrador'),
-            'cepUsuario' => $this->input->post('cepAdministrador'),
+            'rgUsuario' => $this->input->post('rgUsuario'),
+            'sexoUsuario' => $this->input->post('sexoUsuario'),
+            'dataNascimentoUsuario' => $this->input->post('dataNascimentoUsuario'),
+            'idadeUsuario' => date('Y-m-d') - 'dataNascimentoUsuario',
+            'enderecoUsuario' => $this->input->post('enderecoUsuario'),
+            'estadoUsuario' => $this->input->post('estadoUsuario'),
+            'cidadeUsuario' => $this->input->post('cidadeUsuario'),
+            'bairroUsuario' => $this->input->post('bairroUsuario'),
+            'cepUsuario' => $this->input->post('cepUsuario'),
             'telefoneUsuario' => $this->input->post('telefoneUsuario'),
             'tipoConta' => 2,
             'statusConta' => true
         );
 
         // SE O ID USUARIO FOR NOVO, CADASTRAR UM NOVO ADMINISTRADOR
-        if ($dadosAdministrador['idAdministrador'] == "novo") {
+        if ($dadosAdministrador['idUsuario'] == "novo") {
             if ($this->AdministradorModel->mCadastrarAdministrador($dadosAdministrador)) {
                 $resposta = array('success' => true);
             } else {
@@ -149,6 +149,21 @@ class AdministradorController extends CI_Controller {
         $cpfAdministrador = $this->input->post('cpfUsuario');
 
         $dadosAdministrador = $this->AdministradorModel->mVerificarCPF($cpfAdministrador);
+
+        if (count($dadosAdministrador) === 1) {
+            $resposta = array('existe' => true);
+        } else {
+            $resposta = array('existe' => false);
+        }
+
+        echo json_encode($resposta);
+    }
+
+    // FUNÇÃO CONTROLLER PARA VERIFICAR O LOGIN
+    public function cVerificarLogin() {
+        $loginUsuario = $this->input->post('loginUsuario');
+
+        $dadosAdministrador = $this->AdministradorModel->mVerificarLogin($loginUsuario);
 
         if (count($dadosAdministrador) === 1) {
             $resposta = array('existe' => true);

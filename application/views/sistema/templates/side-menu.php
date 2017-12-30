@@ -5,16 +5,16 @@
         <ul id="main-menu-navigation" data-menu="menu-navigation" class="navigation navigation-main">
             <!-- LISTAS - VISUALIZANDO DOS OS CADASTROS REALIZADOS NO SISTEMA -->
             <li class=" nav-item"><a href="#"><i class="icon-table2"></i><span data-i18n="nav.listas.main" class="menu-title">Listas</span></a>
-                <ul class="menu-content">
+                <ul class="menu-content">        
                     <?php if ($this->session->userdata('tipoConta') == 1) { ?>
                         <li><a href="<?php echo base_url('lista-equaltech'); ?>" data-i18n="nav.listas.equaltech" class="menu-item">EqualTech</a>
                         </li>
                         <li><a href="<?php echo base_url('lista-academias'); ?>" data-i18n="nav.listas.academias" class="menu-item">Academias</a>
                         </li>
-                    <?php } ?>
+                    <?php } ?>                 
                     <li><a href="<?php echo base_url('lista-administradores'); ?>" data-i18n="nav.listas.administradores" class="menu-item">Administradores</a>
-                    </li>
-                    <?php if ($this->session->userdata('tipoConta') != 1) { ?>
+                    </li>  
+                    <?php if ($this->session->userdata('tipoConta') > 1) { ?>
                         <li><a href="<?php echo base_url('lista-funcionarios'); ?>" data-i18n="nav.listas.funcionarios" class="menu-item">Funcionários</a>
                         </li>
                         <li><a href="<?php echo base_url('lista-instrutores'); ?>" data-i18n="nav.listas.instrutores" class="menu-item">Instrutores</a>
@@ -22,7 +22,7 @@
                         <li><a href="<?php echo base_url('lista-alunos'); ?>" data-i18n="nav.listas.alunos" class="menu-item">Alunos</a>
                         </li>
                         <li><a href="<?php echo base_url('lista-treinos'); ?>" data-i18n="nav.listas.treinos" class="menu-item">Treinos</a>
-                        </li>
+                        </li>                        
                     <?php } ?>
                 </ul>
             </li>
@@ -34,8 +34,8 @@
                         </li>
                     <?php } ?>
                     <li><a href="<?php echo base_url('cadastrar-editar-administrador'); ?>" data-i18n="nav.page_layouts.main" class="menu-item">Administrador</a>
-                    </li>
-                    <?php if ($this->session->userdata('tipoConta') != 1) { ?>
+                    </li> 
+                    <?php if ($this->session->userdata('tipoConta') > 1) { ?>       
                         <li><a href="<?php echo base_url('cadastrar-editar-funcionario'); ?>" data-i18n="nav.page_layouts.main" class="menu-item">Funcionário</a>
                         </li>
                         <li><a href="<?php echo base_url('cadastrar-editar-instrutor'); ?>" data-i18n="nav.page_layouts.main" class="menu-item">Instrutor</a>
@@ -43,7 +43,7 @@
                         <li><a href="<?php echo base_url('cadastrar-editar-aluno'); ?>" data-i18n="nav.page_layouts.main" class="menu-item">Aluno</a>
                         </li>
                         <li><a href="<?php echo base_url('cadastrar-editar-treino'); ?>" data-i18n="nav.page_layouts.main" class="menu-item">Treino</a>
-                        </li>
+                        </li>                
                     <?php } ?>
                 </ul>
             </li>

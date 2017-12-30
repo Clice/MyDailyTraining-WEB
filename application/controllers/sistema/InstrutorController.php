@@ -9,6 +9,7 @@ class InstrutorController extends CI_Controller {
         $this->load->model('InstrutorModel');
     }
 
+    // FUNÇÃO DE CARREGAMENTO DA VIEW LISTA-INSTRUTOR.PHP
     public function index() {
         $dadosInstrutor['nomePagina'] = 'Lista de Instrutores';
         $dadosInstrutor['instrutoresAtivos'] = $this->InstrutorModel->mListarInstrutoresAtivos();

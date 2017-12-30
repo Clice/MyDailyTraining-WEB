@@ -4,10 +4,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class AlunoModel extends CI_Model {
 
-    public function __construct() {
-        parent::__construct();
-    }
-
     public function mCadastrarAluno($dadosAluno) {
         return $this->db->insert('alunos', $dadosAluno);
     }
@@ -62,4 +58,21 @@ class AlunoModel extends CI_Model {
         $this->db->where('cpfAluno', $cpfAluno);
         return $this->db->get()->result();
     }
+
+    public function mQtdAlunosAtivos($idAcademia) {
+        if ($idAcademia > 0) {
+            $this->db->where('idAcademia', $idAcademia);
+        }
+        $this->db->where('statusAluno', true);
+        return $this->db->get('alunos')->result();
+    }
+
+    public function mQtdAlunosBloqueados($idAcademia) {
+        if ($idAcademia > 0) {
+            $this->db->where('idAcademia', $idAcademia);
+        }
+        $this->db->where('statusAluno', false);
+        return $this->db->get('alunos')->result();
+    }
+
 }

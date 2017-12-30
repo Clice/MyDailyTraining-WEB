@@ -4,10 +4,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class InstrutorModel extends CI_Model {
 
-    public function __construct() {
-        parent::__construct();
-    }
-
     public function mCadastrarInstrutor($dadosInstrutor) {
         return $this->db->insert('usuarios', $dadosInstrutor);
     }
@@ -63,6 +59,24 @@ class InstrutorModel extends CI_Model {
         $this->db->from('usuarios');
         $this->db->where('cpfUsuario', $cpfInstrutor);
         return $this->db->get()->result();
+    }
+
+    public function mQtdInstAtivos($idAcademia) {
+        if ($idAcademia > 0) {
+            $this->db->where('idAcademia', $idAcademia);
+        }
+        $this->db->where('tipoConta', 4);
+        $this->db->where('statusConta', true);
+        return $this->db->get('usuarios')->result();
+    }
+    
+    public function mQtdInstBloqueados($idAcademia) {
+        if ($idAcademia > 0) {
+            $this->db->where('idAcademia', $idAcademia);
+        }
+        $this->db->where('tipoConta', 4);
+        $this->db->where('statusConta', false);
+        return $this->db->get('usuarios')->result();
     }
 
 }

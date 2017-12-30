@@ -9,6 +9,7 @@ class AlunoController extends CI_Controller {
         $this->load->model('AlunoModel');
     }
 
+    // FUNÇÃO DE CARREGAMENTO DA VIEW LISTA-ALUNOS.PHP
     public function index() {
         $dadosAluno['nomePagina'] = 'Lista de Alunos';
         $dadosAluno['alunosAtivos'] = $this->AlunoModel->mListarAlunosAtivos();
