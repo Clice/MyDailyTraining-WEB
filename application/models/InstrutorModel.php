@@ -60,6 +60,12 @@ class InstrutorModel extends CI_Model {
         $this->db->where('cpfUsuario', $cpfInstrutor);
         return $this->db->get()->result();
     }
+    
+    public function mVerificarLogin($loginUsuario) {
+        $this->db->from('usuarios');
+        $this->db->where('loginUsuario', $loginUsuario);
+        return $this->db->get()->result();
+    }
 
     public function mQtdInstAtivos($idAcademia) {
         if ($idAcademia > 0) {

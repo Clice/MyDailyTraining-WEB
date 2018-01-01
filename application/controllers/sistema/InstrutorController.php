@@ -24,9 +24,22 @@ class InstrutorController extends CI_Controller {
     }
 
     public function viewCadastrarEditarInstrutor() {
-        $dados['nomePagina'] = 'Cadastrar Instrutor';
+        $dadosInstrutor['nomePagina'] = 'Cadastrar Instrutor';
 
-        $this->load->view('sistema/templates/html-header', $dados);
+        // SE UM ID ADMINISTRADOR FOI PASSADO OU NÃO
+        // PARA REALIZAR A EDIÇÃO OU O CADASTRO DE UM ADMINISTRADOR
+        if (isset($idInstrutor)) {
+            $dadosInstrutor['idInstrutor'] = $idInstrutor;
+            $dadosInstrutor['idAcademia'] = $this->session->userdata('idAcademia');
+            // $dadosAdministrador['sexoUsuario'] = $this->session->userdata('idAcademia');
+        } else {
+            $dadosInstrutor['idInstrutor'] = "novo";
+            $dadosInstrutor['idAcademia'] = $this->session->userdata('idAcademia');
+            $dadosInstrutor['sexoUsuario'] = '';
+        }
+
+        // CARREGANDO AS VIEWS PARA FORMAR A TELA DE CADASTRO/EDIÇÃO DO INSTRUTOR  
+        $this->load->view('sistema/templates/html-header', $dadosInstrutor);
         $this->load->view('sistema/templates/header');
         $this->load->view('sistema/templates/side-menu');
         $this->load->view('sistema/telas/cadastros/cadastrar-editar-instrutor');
@@ -39,16 +52,18 @@ class InstrutorController extends CI_Controller {
 
         // PEGANDO OS VALORES PASSADOS PELO CADASTRAR-EDITAR-INSTRUTOR.PHP     
         $dadosInstrutor = array(
+            'idUsuario' => $this->input->post('idUsuario'),
             'idAcademia' => $this->input->post('idAcademia'),
             'nomeUsuario' => $this->input->post('nomeUsuario'),
             'loginUsuario' => $this->input->post('loginUsuario'),
             'senhaUsuario' => $this->input->post('senhaUsuario'),
             'emailUsuario' => $this->input->post('emailUsuario'),
+            'crefUsuario' => $this->input->post('crefUsuario'),
             'cpfUsuario' => $this->input->post('cpfUsuario'),
             'rgUsuario' => $this->input->post('rgUsuario'),
             'sexoUsuario' => $this->input->post('sexoUsuario'),
             'dataNascimentoUsuario' => $this->input->post('dataNascimentoUsuario'),
-            'idadeUsuario' => $this->input->post('idadeUsuario'),
+            'idadeUsuario' => date('Y-m-d') - 'dataNascimentoUsuario',
             'enderecoUsuario' => $this->input->post('enderecoUsuario'),
             'estadoUsuario' => $this->input->post('estadoUsuario'),
             'cidadeUsuario' => $this->input->post('cidadeUsuario'),
@@ -59,7 +74,7 @@ class InstrutorController extends CI_Controller {
             'statusConta' => true
         );
 
-        // SE O ID USUARIO FOR NOVO, CADASTRAR UM NOVO FUNCIONÁRIO
+        // SE O ID USUARIO FOR NOVO, CADASTRAR UM NOVO INSTRUTOR
         if ($dadosInstrutor['idUsuario'] == "novo") {
             if ($this->InstrutorModel->mCadastrarInstrutor($dadosInstrutor)) {
                 $resposta = array('success' => true);
@@ -67,7 +82,7 @@ class InstrutorController extends CI_Controller {
                 $resposta = array('success' => false);
             }
         }
-        // SE O ID USUARIO JÁ EXISTE, ALTERAR OS DADOS DO FUNCIONÁRIO
+        // SE O ID USUARIO JÁ EXISTE, ALTERAR OS DADOS DO INSTRUTOR
         else {
             if ($this->InstrutorModel->mEditarInstrutor($dadosInstrutor)) {
                 $resposta = array('success' => true);
@@ -136,6 +151,21 @@ class InstrutorController extends CI_Controller {
         $cpfInstrutor = $this->input->post('cpfUsuario');
 
         $dadosInstrutor = $this->InstrutorModel->mVerificarCPF($cpfInstrutor);
+
+        if (count($dadosInstrutor) === 1) {
+            $resposta = array('existe' => true);
+        } else {
+            $resposta = array('existe' => false);
+        }
+
+        echo json_encode($resposta);
+    }
+
+    // FUNÇÃO CONTROLLER PARA VERIFICAR O LOGIN
+    public function cVerificarLogin() {
+        $loginUsuario = $this->input->post('loginUsuario');
+
+        $dadosInstrutor = $this->InstrutorModel->mVerificarLogin($loginUsuario);
 
         if (count($dadosInstrutor) === 1) {
             $resposta = array('existe' => true);
