@@ -60,6 +60,12 @@ class FuncionarioModel extends CI_Model {
         $this->db->where('cpfUsuario', $cpfFuncionario);
         return $this->db->get()->result();
     }
+    
+    public function mVerificarLogin($loginUsuario) {
+        $this->db->from('usuarios');
+        $this->db->where('loginUsuario', $loginUsuario);
+        return $this->db->get()->result();
+    }
 
     public function mQtdFuncAtivos($idAcademia) {
         if ($idAcademia > 0) {

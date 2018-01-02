@@ -105,19 +105,19 @@
                                                     <div class="input-group" style="margin-top: 13px">
                                                         <!-- FEMININO -->
                                                         <label class="display-inline-block custom-control custom-radio">
-                                                            <input type="radio" name="sexoUsuario" id="sexoFeminino" value="" onchange="verificarSexoFuncionario();" class="custom-control-input">
+                                                            <input type="radio" name="sexoUsuario" id="sexoFeminino" value="Feminino" onchange="verificarSexoFuncionario();" class="custom-control-input">
                                                             <span class="custom-control-indicator"></span>
                                                             <span class="custom-control-description ml-0">Feminino</span>
                                                         </label>
                                                         <!-- MASCULINO -->
                                                         <label class="display-inline-block custom-control custom-radio">
-                                                            <input type="radio" name="sexoUsuario" id="sexoMasculino" value="" onchange="verificarSexoFuncionario();" class="custom-control-input">
+                                                            <input type="radio" name="sexoUsuario" id="sexoMasculino" value="Masculino" onchange="verificarSexoFuncionario();" class="custom-control-input">
                                                             <span class="custom-control-indicator"></span>
                                                             <span class="custom-control-description ml-0">Masculino</span>
                                                         </label>
                                                         <!-- OUTROS -->
                                                         <label class="display-inline-block custom-control custom-radio">
-                                                            <input type="radio" name="sexoUsuario" id="sexoOutros" value="" onchange="verificarSexoFuncionario();" class="custom-control-input">
+                                                            <input type="radio" name="sexoUsuario" id="sexoOutros" value="Outros" onchange="verificarSexoFuncionario();" class="custom-control-input">
                                                             <span class="custom-control-indicator"></span>
                                                             <span class="custom-control-description ml-0">Outros</span>
                                                         </label>
@@ -234,7 +234,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-body">
-                <h4 class="modal-title text-xs-center">Dados obrigatórios não informados</h4>
+                <h4 class="modal-title text-xs-center"><i class="icon-warning"></i> Dados obrigatórios não informados</h4>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
@@ -298,7 +298,7 @@
                     <?php } else { ?> Erro ao cadastrar os dados <?php } ?></h4>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" onclick="window.location.href = '<?php echo base_url('lista-funcionarioes'); ?>'">Fechar</button>
+                <button type="button" class="btn btn-secondary" onclick="window.location.href = '<?php echo base_url('lista-funcionarios'); ?>'">Fechar</button>
             </div>
         </div>
     </div>

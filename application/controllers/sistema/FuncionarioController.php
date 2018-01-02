@@ -34,9 +34,9 @@ class FuncionarioController extends CI_Controller {
             // $dadosAdministrador['sexoUsuario'] = $this->session->userdata('idAcademia');
         } else {
             $dadosFuncionario['idFuncionario'] = "novo";
-            $dadosFuncionario['idAcademia'] = 1;
+            $dadosFuncionario['idAcademia'] = $this->session->userdata('idAcademia');
             $dadosFuncionario['sexoUsuario'] = '';
-        }        
+        }
         
         $this->load->view('sistema/templates/html-header', $dadosFuncionario);
         $this->load->view('sistema/templates/header');
@@ -48,19 +48,23 @@ class FuncionarioController extends CI_Controller {
 
     // FUNÇÃO CONTROLLER PARA CADASTRAR/EDITAR FUNCIONÁRIO
     public function cCadastrarEditarFuncionario() {
-
+        
+        $dataAtual = date('Y-m-d');
+        
         // PEGANDO OS VALORES PASSADOS PELO CADASTRAR-EDITAR-FUNCIONARIO.PHP     
         $dadosFuncionario = array(
+            'idUsuario' => $this->input->post('idUsuario'),
             'idAcademia' => $this->input->post('idAcademia'),
             'nomeUsuario' => $this->input->post('nomeUsuario'),
             'loginUsuario' => $this->input->post('loginUsuario'),
             'senhaUsuario' => $this->input->post('senhaUsuario'),
             'emailUsuario' => $this->input->post('emailUsuario'),
+            'crefUsuario' => $this->input->post('crefUsuario'),
             'cpfUsuario' => $this->input->post('cpfUsuario'),
             'rgUsuario' => $this->input->post('rgUsuario'),
             'sexoUsuario' => $this->input->post('sexoUsuario'),
             'dataNascimentoUsuario' => $this->input->post('dataNascimentoUsuario'),
-            'idadeUsuario' => $this->input->post('idadeUsuario'),
+            'idadeUsuario' => $dataAtual - 'dataNascimentoUsuario',
             'enderecoUsuario' => $this->input->post('enderecoUsuario'),
             'estadoUsuario' => $this->input->post('estadoUsuario'),
             'cidadeUsuario' => $this->input->post('cidadeUsuario'),
@@ -148,6 +152,21 @@ class FuncionarioController extends CI_Controller {
         $cpfFuncionario = $this->input->post('cpfUsuario');
 
         $dadosFuncionario = $this->FuncionarioModel->mVerificarCPF($cpfFuncionario);
+
+        if (count($dadosFuncionario) === 1) {
+            $resposta = array('existe' => true);
+        } else {
+            $resposta = array('existe' => false);
+        }
+
+        echo json_encode($resposta);
+    }
+    
+    // FUNÇÃO CONTROLLER PARA VERIFICAR O LOGIN
+    public function cVerificarLogin() {
+        $loginUsuario = $this->input->post('loginUsuario');
+
+        $dadosFuncionario = $this->FuncionarioModel->mVerificarLogin($loginUsuario);
 
         if (count($dadosFuncionario) === 1) {
             $resposta = array('existe' => true);
