@@ -23,4 +23,8 @@ window.onload = function () {
     id('telefoneUsuario').onkeypress = function () {
         mascara(this, mtel);
     };
+    
+    id('telefoneResponsavelUsuario').onkeypress = function () {
+        mascara(this, mtel);
+    };
 };

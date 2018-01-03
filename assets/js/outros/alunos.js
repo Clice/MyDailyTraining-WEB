@@ -1,3 +1,40 @@
+// FUNÇÕES PARA MANUTENÇÃO DO ALUNO
+
+// FUNÇÃO PARA VERIFICAR OS DADOS DO ALUNO
+// OS DADOS PASSADOS DEVERAM SER OBRIGATÓRIOS
+// O CPF TEM QUE SER VERIFICADO, PARA NÃO SER CADASTRADO DUAS VEZES
+function verificarDadosAluno() {
+    var idAluno = $('#idUsuario').val();
+    var idAcademia = $('#idAcademia').val();
+    var nomeAluno = $('#nomeUsuario').val();
+    var dataNascimentoAluno = $('#dataNascimentoUsuario').val();
+    var cpfAluno = $('#cpfUsuario').val();
+    var rgAluno = $('#rgUsuario').val();
+    var emailAluno = $('#emailUsuario').val();
+    var sexoUsuario = $('#sexoUsuario').val();
+    var telefoneUsuario = $('#telefoneUsuario').val();
+    var enderecoUsuario = $('#enderecoUsuario').val();
+    var estadoUsuario = $('#estadoUsuario').val();
+    var cidadeUsuario = $('#cidadeUsuario').val();
+    var bairroUsuario = $('#bairroUsuario').val();
+    var cepUsuario = $('#cepUsuario').val();
+    var objetivoAluno = $('objetivoAluno').val();
+    var dataValidadeExame = $('dataValidadeExame').val();
+    var diaPagamentoAluno = $('diaPagamentoAluno').val();
+
+    var msnCPF = $('#msnCPF').val();
+
+    if ((idAluno === "") || (idAcademia === "") || (nomeAluno === "") || (dataNascimentoAluno === "") ||
+            (cpfAluno === "") || (rgAluno === "") || (emailAluno === "") || (sexoUsuario === "") ||
+            (telefoneUsuario === "") || (enderecoUsuario === "") || (estadoUsuario === "") || (cidadeUsuario === "") ||
+            (bairroUsuario === "") || (cepUsuario === "") || (objetivoAluno === "") || (dataValidadeExame === "") ||
+            (diaPagamentoAluno === "")) {
+        $('#dados-obrigatorios-aluno').modal('show');
+    } else if (msnCPF === "CPF válido!") {
+        verificarCPF(cpfAluno);
+    }
+}
+
 // FUNÇÃO PARA ATIVAR O MODAL EXCLUIR ALUNO
 function modalExcluirAluno(idAluno) {
     $('#excluir-aluno').modal('show');
@@ -17,7 +54,7 @@ function modalDesBloquearAluno(obj, idAluno, statusAluno) {
             obj.checked = false;
         });
     }
-    // SE O STATUS CONTA FOR FALSE - ALUNO BLOQUEADO - DESBLOQUEAR ALUNO
+// SE O STATUS CONTA FOR FALSE - ALUNO BLOQUEADO - DESBLOQUEAR ALUNO
     else {
         $('#desbloquear-aluno').modal('show');
         $('#desbloqueia-aluno').click(function () {
@@ -34,10 +71,8 @@ function pesquisarAluno() {
     var entrada, filtro, i;
     var tabelaAlunosAtivos, trA, tdA;
     var tabelaAlunosBloqueados, trB, tdB;
-
     entrada = document.getElementById('pesquisarAluno');
     filtro = entrada.value.toUpperCase();
-
     // PESQUISA OS ALUNOS ATIVOS NA TABELA
     tabelaAlunosAtivos = document.getElementById('tabelaAlunosAtivos');
     trA = tabelaAlunosAtivos.getElementsByTagName('tr');
@@ -52,7 +87,7 @@ function pesquisarAluno() {
         }
     }
 
-    // PESQUISA OS ALUNOS BLOQUEADOS NA TABELA
+// PESQUISA OS ALUNOS BLOQUEADOS NA TABELA
     tabelaAlunosBloqueados = document.getElementById('tabelaAlunosBloqueados');
     trB = tabelaAlunosBloqueados.getElementsByTagName('tr');
     for (i = 0; i < trB.length; i++) {
@@ -64,5 +99,68 @@ function pesquisarAluno() {
                 trB[i].style.display = "none";
             }
         }
+    }
+}
+
+// FUNÇÃO PARA CONTROLE DOS PLANOS E PACOTES DA EMPRESA
+// CONTROLANDO OS INPUTS RADIOS PARA QUE O USUÁRIO ESCOLHA CORRETAMENTE AS OPÇÕES 
+function verificarSexoAluno() {
+    var sexoAluno;
+    
+    // SE O SEXO FOR FEMININO
+    if (document.getElementById('sexoFeminino').checked) {
+        document.getElementById('sexoUsuario').value = 'Feminino';
+    }
+    // SE O SEXO FOR MASCULINO
+    else if (document.getElementById('sexoMasculino').checked) {
+        document.getElementById('sexoUsuario').value = 'Masculino';
+    }
+    // SE O SEXO FOR OUTROS
+    else if (document.getElementById('sexoOutros').checked) {
+        document.getElementById('sexoUsuario').value = 'Outros';
+    }
+}
+
+function responsaveisHabilitar() {
+    if (document.getElementById('responsavelSim').checked) {
+        document.getElementById('nomeResponsavelUsuario').disabled = false;
+        document.getElementById('telefoneResponsavelUsuario').disabled = false;
+        document.getElementById('responsavelNao').checked = false;
+    } else if (document.getElementById('responsavelNao').checked) {
+        document.getElementById('nomeResponsavelUsuario').disabled = true;
+        document.getElementById('telefoneResponsavelUsuario').disabled = true;
+        document.getElementById('responsavelSim').checked = false;
+    }
+}
+
+function verificarObjetivoAluno() {
+    if (document.getElementById('outros').checked) {
+        document.getElementById('outrosObjetivoAluno').disabled = false;
+    } else {
+        document.getElementById('outrosObjetivoAluno').disabled = true;
+    }
+}
+
+function cirurgiasHabilitar() {
+    if (document.getElementById('cirurgiasSim').checked) {
+        document.getElementById('cirurgiasUsuario').disabled = false;
+    } else if (document.getElementById('cirurgiasNao').checked) {
+        document.getElementById('cirurgiasUsuario').disabled = true;
+    }
+}
+
+function medicamentosHabilitar() {
+    if (document.getElementById('medicamentosSim').checked) {
+        document.getElementById('medicamentosUsuario').disabled = false;
+    } else if (document.getElementById('medicamentosNao').checked) {
+        document.getElementById('medicamentosUsuario').disabled = true;
+    }
+}
+
+function doencasFamiliaresHabilitar() {
+    if (document.getElementById('doencasFamiliaresSim').checked) {
+        document.getElementById('doencasFamiliaresUsuario').disabled = false;
+    } else if (document.getElementById('doencasFamiliaresNao').checked) {
+        document.getElementById('doencasFamiliaresUsuario').disabled = true;
     }
 }

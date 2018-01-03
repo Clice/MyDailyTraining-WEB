@@ -25,6 +25,19 @@ class AlunoController extends CI_Controller {
 
     public function viewCadastrarEditarAluno() {
         $dadosAluno['nomePagina'] = 'Cadastrar Aluno';
+
+        // SE UM ID ADMINISTRADOR FOI PASSADO OU NÃO
+        // PARA REALIZAR A EDIÇÃO OU O CADASTRO DE UM ADMINISTRADOR
+        if (isset($idAluno)) {
+            $dadosAluno['idAluno'] = $idAluno;
+            $dadosAluno['idAcademia'] = $this->session->userdata('idAcademia');
+            // $dadosAdministrador['sexoUsuario'] = $this->session->userdata('idAcademia');
+        } else {
+            $dadosAluno['idAluno'] = "novo";
+            $dadosAluno['idAcademia'] = $this->session->userdata('idAcademia');
+            $dadosAluno['sexoUsuario'] = '';
+        }
+
         $this->load->view('sistema/templates/html-header', $dadosAluno);
         $this->load->view('sistema/templates/header');
         $this->load->view('sistema/templates/side-menu');
@@ -35,33 +48,38 @@ class AlunoController extends CI_Controller {
 
     // FUNÇÃO CONTROLLER PARA CADASTRAR/EDITAR ALUNO
     public function cCadastrarEditarAluno() {
+        
+        $dataAtual = date ('Y-m-d');
+        $dataNascimento = $this->input->post('dataNascimentoUsuario');
+        $idadeAluno = $dataAtual - $dataNascimento;
 
         // PEGANDO OS VALORES PASSADOS PELO CADASTRAR-EDITAR-ALUNO.PHP     
         $dadosAluno = array(
+            'idAluno' => $this->input->post('idUsuario'),
             'idAcademia' => $this->input->post('idAcademia'),
-            'nomeAluno' => $this->input->post('nomeAluno'),
-            'dataNascimentoAluno' => $this->input->post('nomeAluno'),
-            'idadeAluno' => $this->input->post('nomeAluno'),
-            'cpfAluno' => $this->input->post('nomeAluno'),
-            'rgAluno' => $this->input->post('nomeAluno'),
-            'emailAluno' => $this->input->post('nomeAluno'),
-            'sexoAluno' => $this->input->post('nomeAluno'),
-            'senhaAluno' => $this->input->post('nomeAluno'),
-            'telefoneAluno' => $this->input->post('nomeAluno'),
-            'enderecoAluno' => $this->input->post('nomeAluno'),
-            'estadoAluno' => $this->input->post('nomeAluno'),
-            'cidadeAluno' => $this->input->post('nomeAluno'),
-            'bairroAluno' => $this->input->post('nomeAluno'),
-            'cepAluno' => $this->input->post('nomeAluno'),
-            'objetivoAluno' => $this->input->post('nomeAluno'),
-            'dataValidadeExame' => $this->input->post('nomeAluno'),
-            'nomeResponsavelAluno' => $this->input->post('nomeAluno'),
-            'telefoneResponsavelAluno' => $this->input->post('nomeAluno'),
+            'nomeAluno' => $this->input->post('nomeUsuario'),
+            'dataNascimentoAluno' => $this->input->post('dataNascimentoUsuario'),
+            'idadeAluno' => $idadeAluno,
+            'cpfAluno' => $this->input->post('cpfUsuario'),
+            'rgAluno' => $this->input->post('rgUsuario'),
+            'emailAluno' => $this->input->post('emailUsuario'),
+            'sexoAluno' => $this->input->post('sexoUsuario'),
+            'senhaAluno' => $this->input->post('cpfUsuario'),
+            'telefoneAluno' => $this->input->post('telefoneUsuario'),
+            'enderecoAluno' => $this->input->post('enderecoUsuario'),
+            'estadoAluno' => $this->input->post('estadoUsuario'),
+            'cidadeAluno' => $this->input->post('cidadeUsuario'),
+            'bairroAluno' => $this->input->post('bairroUsuario'),
+            'cepAluno' => $this->input->post('cepUsuario'),
+            'objetivoAluno' => $this->input->post('objetivoAluno'),
+            'dataValidadeExame' => $this->input->post('dataValidadeExame'),
+            'nomeResponsavelAluno' => $this->input->post('nomeResponsavelUsuario'),
+            'telefoneResponsavelAluno' => $this->input->post('telefoneResponsavelUsuario'),
             'statusAluno' => false,
-            'cirurgias' => $this->input->post('nomeAluno'),
-            'medicamentos' => $this->input->post('nomeAluno'),
-            'doencasFamiliaresAluno' => $this->input->post('nomeAluno'),
-            'diaPagamentoAluno' => $this->input->post('nomeAluno')
+            'cirurgias' => $this->input->post('cirurgiasUsuario'),
+            'medicamentos' => $this->input->post('medicamentosUsuario'),
+            'doencasFamiliaresAluno' => $this->input->post('doencasFamiliaresUsuario'),
+            'diaPagamentoAluno' => $this->input->post('diaPagamentoAluno')
         );
 
         // SE O IDALUNO FOR NOVO, CADASTRAR UM NOVO ALUNO
@@ -150,5 +168,4 @@ class AlunoController extends CI_Controller {
 
         echo json_encode($resposta);
     }
-
 }
