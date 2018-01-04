@@ -42,7 +42,7 @@ class AcademiaModel extends CI_Model {
     public function mVisualizarPerfilAcademia($idAcademia) {
         $this->db->select('*');
         $this->db->from('academias');
-        $this->db->where('idAcademia', $idAcademia);
+        $this->db->where('md5(idAcademia)', $idAcademia);
         return $this->db->get()->result();
     }
 

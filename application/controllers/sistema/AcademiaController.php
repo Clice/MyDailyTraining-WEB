@@ -25,11 +25,10 @@ class AcademiaController extends CI_Controller {
 
     // FUNÇÃO DE CARREGAMENTO DA VIEW CADASTRAR-EDITAR-ACADEMIA.PHP
     public function viewCadastrarEditarAcademia() {
-        $dados['nomePagina'] = 'Cadastrar Academia';
-
         // SE UM ID ACADEMIA FOI PASSADO OU NÃO
-        // PARA REALIZAR A EDIÇÃO OU O CADASTRO DE UMA ACADEMIA
+        // PARA REALIZAR O CADASTRO DE UMA ACADEMIA
         if (isset($idAcademia)) {
+            $dados['nomePagina'] = 'Editar Academia';
             $dados['idPlano'] = $idPlano;
             $dados['idPacote'] = $idPacote;
             $dados['valorPago'] = $valorPago;
@@ -41,7 +40,10 @@ class AcademiaController extends CI_Controller {
             $dados['qtdLicencasUsadas'] = $qtdLicencasUsadas;
             $dados['mensalidadeAcademia'] = $mensalidadeAcademia;
             $dados['diaPagamentoAcademia'] = $diaPagamentoAcademia;
-        } else {
+        }
+        // PARA REALIZAR A EDIÇÃO DE DADOS DE UMA ACADEMIA
+        else {
+            $dados['nomePagina'] = 'Cadastrar Academia';
             $dados['idPlano'] = 0;
             $dados['idPacote'] = 0;
             $dados['valorPago'] = 0;

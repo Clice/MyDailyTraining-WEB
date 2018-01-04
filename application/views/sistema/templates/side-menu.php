@@ -30,19 +30,19 @@
             <li class=" nav-item"><a href="#"><i class="icon-paper"></i><span data-i18n="nav.page_layouts.main" class="menu-title">Cadastros</span></a>
                 <ul class="menu-content">
                     <?php if ($this->session->userdata('tipoConta') == 1) { ?>
-                        <li><a href="<?php echo base_url('cadastrar-editar-academia'); ?>" data-i18n="nav.page_layouts.main" class="menu-item">Academia</a>
+                        <li><a href="<?php echo base_url('cadastrar-academia'); ?>" data-i18n="nav.page_layouts.main" class="menu-item">Academia</a>
                         </li>
                     <?php } ?>
-                    <li><a href="<?php echo base_url('cadastrar-editar-administrador'); ?>" data-i18n="nav.page_layouts.main" class="menu-item">Administrador</a>
+                    <li><a href="<?php echo base_url('cadastrar-administrador'); ?>" data-i18n="nav.page_layouts.main" class="menu-item">Administrador</a>
                     </li> 
                     <?php if ($this->session->userdata('tipoConta') > 1) { ?>       
-                        <li><a href="<?php echo base_url('cadastrar-editar-funcionario'); ?>" data-i18n="nav.page_layouts.main" class="menu-item">Funcionário</a>
+                        <li><a href="<?php echo base_url('cadastrar-funcionario'); ?>" data-i18n="nav.page_layouts.main" class="menu-item">Funcionário</a>
                         </li>
-                        <li><a href="<?php echo base_url('cadastrar-editar-instrutor'); ?>" data-i18n="nav.page_layouts.main" class="menu-item">Instrutor</a>
+                        <li><a href="<?php echo base_url('cadastrar-instrutor'); ?>" data-i18n="nav.page_layouts.main" class="menu-item">Instrutor</a>
                         </li>                    
-                        <li><a href="<?php echo base_url('cadastrar-editar-aluno'); ?>" data-i18n="nav.page_layouts.main" class="menu-item">Aluno</a>
+                        <li><a href="<?php echo base_url('cadastrar-aluno'); ?>" data-i18n="nav.page_layouts.main" class="menu-item">Aluno</a>
                         </li>
-                        <li><a href="<?php echo base_url('cadastrar-editar-treino'); ?>" data-i18n="nav.page_layouts.main" class="menu-item">Treino</a>
+                        <li><a href="<?php echo base_url('cadastrar-treino'); ?>" data-i18n="nav.page_layouts.main" class="menu-item">Treino</a>
                         </li>                
                     <?php } ?>
                 </ul>

@@ -32,14 +32,6 @@
                                             </li>                                            
                                         </ul>
                                     </div>
-                                    <div style="float: right; margin-right: 10px;">
-                                        <ul class="pl-0 list-unstyled right">
-                                            <li class="mb-1">
-                                                <button type="button" class="btn btn-primary btn-block" onclick="window.location.href = '<?php echo base_url('cadastrar-editar-equaltech'); ?>'">
-                                                    <i class="icon-plus2"></i> Novo Funcionário EqualTech</button>
-                                            </li>                                            
-                                        </ul>
-                                    </div>
                                 </div>                                
                             </div>
                         </div>
@@ -55,31 +47,26 @@
                                                             <table class="table table-hover mb-0">
                                                                 <thead>
                                                                     <tr>
-                                                                        <th>#</th>
-                                                                        <th>First Name</th>
-                                                                        <th>Last Name</th>
-                                                                        <th>Username</th>
+                                                                        <th>Nome</th>
+                                                                        <th>Telefone</th>
+                                                                        <th>Endereço</th>
+                                                                        <th style="text-align: center;">Opções</th>
                                                                     </tr>
                                                                 </thead>
                                                                 <tbody>
-                                                                    <tr>
-                                                                        <th scope="row">1</th>
-                                                                        <td>Mark</td>
-                                                                        <td>Otto</td>
-                                                                        <td>@mdo</td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <th scope="row">2</th>
-                                                                        <td>Jacob</td>
-                                                                        <td>Thornton</td>
-                                                                        <td>@fat</td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <th scope="row">3</th>
-                                                                        <td>Larry</td>
-                                                                        <td>the Bird</td>
-                                                                        <td>@twitter</td>
-                                                                    </tr>
+                                                                    <?php foreach ($equaltechs as $equaltech) { ?>   
+                                                                        <tr>
+                                                                            <td><?php echo $equaltech->nomeEqualTech; ?></td>
+                                                                            <td><?php echo $equaltech->telefoneEqualTech; ?></td>
+                                                                            <td><?php echo $equaltech->enderecoEqualTech; ?></td>
+                                                                            <td style="text-align: center;">
+                                                                                <button type="button" class="btn mb-1 btn-success btn-sm" 
+                                                                                        onclick="window.location.href = '<?php echo base_url('perfil-equaltech/' . md5($equaltech->idEqualTech)); ?>'"><i class="icon-eye"></i> Ver</button>
+                                                                                <button type="button" class="btn mb-1 btn-warning btn-sm" 
+                                                                                        onclick="window.location.href = '<?php echo base_url('editar-equaltech/' . md5($equaltech->idEqualTech)); ?>'"><i class="icon-edit"></i> Editar</button>
+                                                                            </td>
+                                                                        </tr>
+                                                                    <?php } ?> 
                                                                 </tbody>
                                                             </table>
                                                         </div>

@@ -13,7 +13,7 @@
                                     <!-- TÍTULO DA PÁGINA - CADASTRAR ADMINISTRADOR -->
                                     <div class="content-header row">
                                         <div class="content-header-left col-md-6 col-xs-12 mb-1">
-                                            <h2 class="content-header-title">Cadastrar Administrador</h2>
+                                            <h2 class="content-header-title"><?php echo $nomePagina ?></h2>
                                         </div>
                                     </div>
                                     <form class="form" id="formCadEditAdministrador" name="formCadEditAdministrador">
@@ -107,19 +107,19 @@
                                                     <div class="input-group" style="margin-top: 13px">
                                                         <!-- FEMININO -->
                                                         <label class="display-inline-block custom-control custom-radio">
-                                                            <input type="radio" name="sexoUsuario" id="sexoFeminino" value="" onchange="verificarSexoAdministrador();" class="custom-control-input">
+                                                            <input type="radio" name="sexoUsuario" id="sexoFeminino" value="Feminino" onchange="verificarSexoAdministrador();" class="custom-control-input">
                                                             <span class="custom-control-indicator"></span>
                                                             <span class="custom-control-description ml-0">Feminino</span>
                                                         </label>
                                                         <!-- MASCULINO -->
                                                         <label class="display-inline-block custom-control custom-radio">
-                                                            <input type="radio" name="sexoUsuario" id="sexoMasculino" value="" onchange="verificarSexoAdministrador();" class="custom-control-input">
+                                                            <input type="radio" name="sexoUsuario" id="sexoMasculino" value="Masculino" onchange="verificarSexoAdministrador();" class="custom-control-input">
                                                             <span class="custom-control-indicator"></span>
                                                             <span class="custom-control-description ml-0">Masculino</span>
                                                         </label>
                                                         <!-- OUTROS -->
                                                         <label class="display-inline-block custom-control custom-radio">
-                                                            <input type="radio" name="sexoUsuario" id="sexoOutros" value="" onchange="verificarSexoAdministrador();" class="custom-control-input">
+                                                            <input type="radio" name="sexoUsuario" id="sexoOutros" value="Outros" onchange="verificarSexoAdministrador();" class="custom-control-input">
                                                             <span class="custom-control-indicator"></span>
                                                             <span class="custom-control-description ml-0">Outros</span>
                                                         </label>

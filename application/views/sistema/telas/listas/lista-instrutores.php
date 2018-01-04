@@ -34,7 +34,7 @@
                                     <div style="float: right; margin-right: 10px;">
                                         <ul class="pl-0 list-unstyled right">
                                             <li class="mb-1">
-                                                <button type="button" class="btn btn-primary btn-block" onclick="window.location.href = '<?php echo base_url('cadastrar-editar-instrutor'); ?>'">
+                                                <button type="button" class="btn btn-primary btn-block" onclick="window.location.href = '<?php echo base_url('cadastrar-instrutor'); ?>'">
                                                     <i class="icon-plus2"></i> Novo Instrutor</button>
                                             </li>                                            
                                         </ul>
@@ -79,9 +79,9 @@
                                                                             <td><?php echo $instrutorAtivo->enderecoUsuario; ?></td>
                                                                             <td style="text-align: center;">
                                                                                 <button type="button" class="btn mb-1 btn-success btn-sm" 
-                                                                                        onclick="window.location.href = '<?php echo base_url('perfil-instrutor'); ?>'"><i class="icon-eye"></i> Ver</button>
+                                                                                        onclick="window.location.href = '<?php echo base_url('perfil-instrutor/' . md5($instrutorAtivo->idUsuario)); ?>'"><i class="icon-eye"></i> Ver</button>
                                                                                 <button type="button" class="btn mb-1 btn-warning btn-sm" 
-                                                                                        onclick="window.location.href = '<?php echo base_url('lista-instrutores'); ?>'"><i class="icon-edit"></i> Editar</button>
+                                                                                        onclick="window.location.href = '<?php echo base_url('editar-instrutor/' . md5($instrutorAtivo->idUsuario)); ?>'"><i class="icon-edit"></i> Editar</button>
                                                                                 <button type="button" class="btn mb-1 btn-danger btn-sm" 
                                                                                         onclick="modalExcluirInstrutor(<?php echo $instrutorAtivo->idUsuario; ?>);"><i class="icon-trash-o"></i> Excluir</button>
                                                                             </td>
@@ -121,9 +121,9 @@
                                                                             <td><?php echo $instrutorBloqueado->enderecoUsuario; ?></td>
                                                                             <td style="text-align: center;">
                                                                                 <button type="button" class="btn mb-1 btn-success btn-sm" 
-                                                                                        onclick="window.location.href = '<?php echo base_url('perfil-instrutor'); ?>'"><i class="icon-eye"></i> Ver</button>
+                                                                                        onclick="window.location.href = '<?php echo base_url('perfil-instrutor/' . md5($instrutorBloqueado->idUsuario)); ?>'"><i class="icon-eye"></i> Ver</button>
                                                                                 <button type="button" class="btn mb-1 btn-warning btn-sm" 
-                                                                                        onclick="window.location.href = '<?php echo base_url('lista-instrutores'); ?>'"><i class="icon-edit"></i> Editar</button>
+                                                                                        onclick="window.location.href = '<?php echo base_url('editar-instrutor/' . md5($instrutorBloqueado->idUsuario)); ?>'"><i class="icon-edit"></i> Editar</button>
                                                                                 <button type="button" class="btn mb-1 btn-danger btn-sm" 
                                                                                         onclick="modalExcluirInstrutor(<?php echo $instrutorBloqueado->idUsuario; ?>);"><i class="icon-trash-o"></i> Excluir</button>
                                                                             </td>

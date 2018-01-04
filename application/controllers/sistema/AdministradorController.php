@@ -6,6 +6,7 @@ class AdministradorController extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
+        $this->load->model('UsuarioModel');
         $this->load->model('AdministradorModel');
     }
 
@@ -24,15 +25,14 @@ class AdministradorController extends CI_Controller {
 
     // FUNÇÃO DE CARREGAMENTO DA VIEW CADASTRAR-EDITAR-ADMINISTRADOR.PHP
     public function viewCadastrarEditarAdministrador() {
-        $dadosAdministrador['nomePagina'] = 'Cadastrar Administrador';
-
         // SE UM ID ADMINISTRADOR FOI PASSADO OU NÃO
         // PARA REALIZAR A EDIÇÃO OU O CADASTRO DE UM ADMINISTRADOR
         if (isset($idAdministrador)) {
+            $dadosAdministrador['nomePagina'] = 'Editar Administrador';
             $dadosAdministrador['idAdministrador'] = $idAdministrador;
             $dadosAdministrador['idAcademia'] = $this->session->userdata('idAcademia');
-            // $dadosAdministrador['sexoUsuario'] = $this->session->userdata('idAcademia');
         } else {
+            $dadosAdministrador['nomePagina'] = 'Cadastrar Administrador';
             $dadosAdministrador['idAdministrador'] = "novo";
             $dadosAdministrador['idAcademia'] = $this->session->userdata('idAcademia');
             $dadosAdministrador['sexoUsuario'] = '';
@@ -43,6 +43,19 @@ class AdministradorController extends CI_Controller {
         $this->load->view('sistema/templates/header');
         $this->load->view('sistema/templates/side-menu');
         $this->load->view('sistema/telas/cadastros/cadastrar-editar-administrador');
+        $this->load->view('sistema/templates/footer');
+        $this->load->view('sistema/templates/html-footer');
+    }
+
+    // FUNÇÃO DE CARREGAMENTO DA VIEW PERFIL ADMINISTRADOR.PHP
+    public function viewPerfilAdministrador($idAdministrador) {
+        $dados['nomePagina'] = 'Perfil Administrador';
+        $dados['perfilAdministrador'] = $this->UsuarioModel->mVisualizarPerfilUsuario($idAdministrador);
+
+        $this->load->view('sistema/templates/html-header', $dados);
+        $this->load->view('sistema/templates/header');
+        $this->load->view('sistema/templates/side-menu');
+        $this->load->view('sistema/telas/perfis/perfil-administrador');
         $this->load->view('sistema/templates/footer');
         $this->load->view('sistema/templates/html-footer');
     }
@@ -61,7 +74,6 @@ class AdministradorController extends CI_Controller {
             'rgUsuario' => $this->input->post('rgUsuario'),
             'sexoUsuario' => $this->input->post('sexoUsuario'),
             'dataNascimentoUsuario' => $this->input->post('dataNascimentoUsuario'),
-            'idadeUsuario' => date('Y-m-d') - 'dataNascimentoUsuario',
             'enderecoUsuario' => $this->input->post('enderecoUsuario'),
             'estadoUsuario' => $this->input->post('estadoUsuario'),
             'cidadeUsuario' => $this->input->post('cidadeUsuario'),
@@ -72,9 +84,11 @@ class AdministradorController extends CI_Controller {
             'statusConta' => true
         );
 
+        $dadosAdministrador['idadeUsuario'] = calcularIdade($dadosAdministrador['dataNascimentoUsuario']);
+
         // SE O ID USUARIO FOR NOVO, CADASTRAR UM NOVO ADMINISTRADOR
         if ($dadosAdministrador['idUsuario'] == "novo") {
-            if ($this->AdministradorModel->mCadastrarAdministrador($dadosAdministrador)) {
+            if ($this->UsuarioModel->mCadastrarUsuario($dadosAdministrador)) {
                 $resposta = array('success' => true);
             } else {
                 $resposta = array('success' => false);
@@ -82,7 +96,7 @@ class AdministradorController extends CI_Controller {
         }
         // SE O ID USUARIO JÁ EXISTE, ALTERAR OS DADOS DO ADMINISTRADOR
         else {
-            if ($this->AdministradorModel->mEditarAdministrador($dadosAdministrador)) {
+            if ($this->UsuarioModel->mEditarUsuario($dadosAdministrador)) {
                 $resposta = array('success' => true);
             } else {
                 $resposta = array('success' => false);
@@ -96,7 +110,7 @@ class AdministradorController extends CI_Controller {
     public function cExcluirAdministrador() {
         $idAdministrador = $this->input->post('idUsuario');
 
-        if ($this->AdministradorModel->mExcluirAdministrador($idAdministrador)) {
+        if ($this->UsuarioModel->mExcluirUsuario($idAdministrador)) {
             $resposta = array('success' => true);
         } else {
             $resposta = array('success' => false);
@@ -109,7 +123,7 @@ class AdministradorController extends CI_Controller {
     public function cBloquearAdministrador() {
         $idAdministrador = $this->input->post('idUsuario');
 
-        if ($this->AdministradorModel->mBloquearAdministrador($idAdministrador)) {
+        if ($this->UsuarioModel->mBloquearUsuario($idAdministrador)) {
             $resposta = array('success' => true);
         } else {
             $resposta = array('success' => false);
@@ -122,7 +136,7 @@ class AdministradorController extends CI_Controller {
     public function cDesbloquearAdministrador() {
         $idAdministrador = $this->input->post('idUsuario');
 
-        if ($this->AdministradorModel->mDesbloquearAdministrador($idAdministrador)) {
+        if ($this->UsuarioModel->mDesbloquearUsuario($idAdministrador)) {
             $resposta = array('success' => true);
         } else {
             $resposta = array('success' => false);
@@ -135,7 +149,7 @@ class AdministradorController extends CI_Controller {
     public function cVisualizarPerfilAdministrador() {
         $idAdministrador = $this->input->post('idUsuario');
 
-        if ($this->AdministradorModel->mVisualizarPerfilAdministrador($idAdministrador)) {
+        if ($this->UsuarioModel->mVisualizarPerfilUsuario($idAdministrador)) {
             $resposta = array('success' => true);
         } else {
             $resposta = array('success' => false);
@@ -148,7 +162,7 @@ class AdministradorController extends CI_Controller {
     public function cVerificarCPF() {
         $cpfAdministrador = $this->input->post('cpfUsuario');
 
-        $dadosAdministrador = $this->AdministradorModel->mVerificarCPF($cpfAdministrador);
+        $dadosAdministrador = $this->UsuarioModel->mVerificarCPF($cpfAdministrador);
 
         if (count($dadosAdministrador) === 1) {
             $resposta = array('existe' => true);

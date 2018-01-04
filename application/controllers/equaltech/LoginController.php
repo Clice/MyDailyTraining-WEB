@@ -39,7 +39,7 @@ class LoginController extends CI_Controller {
         else if (count($dadosUsuario) === 1) {
             // PASSANDO AS INFORMAÇÕES DO USUÁRIO PARA UM VETOR
             $dadosUsuarioLogado = get_object_vars($dadosUsuario[0]);
-            
+
             // VERIFICANDO SE O STATUS DA ACADEMIA ESTÁ TRUE 
             // PARA QUE O USUÁRIO POSSA LOGAR
             $aux = $this->LoginModel->mVerificarStatusAcademia($dadosUsuarioLogado['idAcademia']);
@@ -55,13 +55,13 @@ class LoginController extends CI_Controller {
                 // SE A CONTA FO USUÁRIO ESTIVER FALSE, BLOQUEADA
                 else {
                     $resposta = array('success' => false, 'statusConta' => false);
-                } 
-            } 
+                }
+            }
             // SE O STATUS ACADEMIA FOR FALSE
             else {
                 $resposta = array('success' => false, 'statusAcademia' => false);
             }
-        } 
+        }
         // SE NÃO HOUVER NENHUM USUÁRIO COM AS INFORMAÇÕES PASSADAS
         else {
             $resposta = array('success' => false);
@@ -72,7 +72,7 @@ class LoginController extends CI_Controller {
     }
 
     // FUNÇÃO PARA REALIZAR O LOGOUT DO USUÁRIO
-    public function cLogoutUsuario () {
+    public function cLogoutUsuario() {
         $this->session->sess_destroy();
         redirect(base_url());
     }

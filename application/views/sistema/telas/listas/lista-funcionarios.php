@@ -34,7 +34,7 @@
                                     <div style="float: right; margin-right: 10px;">
                                         <ul class="pl-0 list-unstyled right">
                                             <li class="mb-1">
-                                                <button type="button" class="btn btn-primary btn-block" onclick="window.location.href = '<?php echo base_url('cadastrar-editar-funcionario'); ?>'">
+                                                <button type="button" class="btn btn-primary btn-block" onclick="window.location.href = '<?php echo base_url('cadastrar-funcionario'); ?>'">
                                                     <i class="icon-plus2"></i> Novo Funcionário</button>
                                             </li>                                            
                                         </ul>
@@ -79,9 +79,9 @@
                                                                             <td><?php echo $funcionarioAtivo->enderecoUsuario; ?></td>
                                                                             <td style="text-align: center;">
                                                                                 <button type="button" class="btn mb-1 btn-success btn-sm" 
-                                                                                        onclick="window.location.href = '<?php echo base_url('perfil-funcionario'); ?>'"><i class="icon-eye"></i> Ver</button>
+                                                                                        onclick="window.location.href = '<?php echo base_url('perfil-funcionario/' . md5($funcionarioAtivo->idUsuario)); ?>'"><i class="icon-eye"></i> Ver</button>
                                                                                 <button type="button" class="btn mb-1 btn-warning btn-sm" 
-                                                                                        onclick="window.location.href = '<?php echo base_url('lista-funcionarios'); ?>'"><i class="icon-edit"></i> Editar</button>
+                                                                                        onclick="window.location.href = '<?php echo base_url('editar-funcionario/' . md5($funcionarioAtivo->idUsuario)); ?>'"><i class="icon-edit"></i> Editar</button>
                                                                                 <button type="button" class="btn mb-1 btn-danger btn-sm" 
                                                                                         onclick="modalExcluirFuncionario(<?php echo $funcionarioAtivo->idUsuario; ?>);"><i class="icon-trash-o"></i> Excluir</button>
                                                                             </td>
@@ -122,9 +122,9 @@
                                                                             <td><?php echo $funcionarioBloqueado->enderecoUsuario; ?></td>
                                                                             <td style="text-align: center;">
                                                                                 <button type="button" class="btn mb-1 btn-success btn-sm" 
-                                                                                        onclick="window.location.href = '<?php echo base_url('perfil-funcionario'); ?>'"><i class="icon-eye"></i> Ver</button>
+                                                                                        onclick="window.location.href = '<?php echo base_url('perfil-funcionario/' . md5($funcionarioBloqueado->idUsuario)); ?>'"><i class="icon-eye"></i> Ver</button>
                                                                                 <button type="button" class="btn mb-1 btn-warning btn-sm" 
-                                                                                        onclick="window.location.href = '<?php echo base_url('lista-funcionarios'); ?>'"><i class="icon-edit"></i> Editar</button>
+                                                                                        onclick="window.location.href = '<?php echo base_url('editar-funcionario/' . md5($funcionarioBloqueado->idUsuario)); ?>'"><i class="icon-edit"></i> Editar</button>
                                                                                 <button type="button" class="btn mb-1 btn-danger btn-sm" 
                                                                                         onclick="modalExcluirFuncionario(<?php echo $funcionarioBloqueado->idUsuario; ?>);"><i class="icon-trash-o"></i> Excluir</button>
                                                                             </td>

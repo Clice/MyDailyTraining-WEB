@@ -13,7 +13,7 @@
                                     <!-- TÍTULO DA PÁGINA - CADASTRAR ACADEMIA -->
                                     <div class="content-header row">
                                         <div class="content-header-left col-md-6 col-xs-12 mb-1">
-                                            <h2 class="content-header-title">Cadastrar Academia</h2>
+                                            <h2 class="content-header-title"><?php echo $nomePagina ?></h2>
                                         </div>
                                     </div>
                                     <form class="form" id="formCadEditAcademia" name="formCadEditAcademia">

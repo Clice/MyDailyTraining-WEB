@@ -37,7 +37,9 @@ class PaginaPrincipalController extends CI_Controller {
 
     // FUNÇÃO DE CARREGAMENTO DA VIEW PERFIL.PHP
     public function viewPerfil() {
-        $dados['nomePagina'] = 'Perfil';
+        $dados['nomePagina'] = 'Perfil';        
+        $dados['perfilLogado'] = $this->EqualTechModel->mVisualizarPerfil($this->session->userdata('idUsuario'));
+        
         $this->load->view('sistema/templates/html-header', $dados);
         $this->load->view('sistema/templates/header');
         $this->load->view('sistema/templates/side-menu');

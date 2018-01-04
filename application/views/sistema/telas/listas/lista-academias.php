@@ -36,7 +36,7 @@
                                         <ul class="pl-0 list-unstyled right">
                                             <li class="mb-1">
                                                 <button type="button" class="btn btn-primary btn-block" 
-                                                        onclick="window.location.href = '<?php echo base_url('cadastrar-editar-academia'); ?>'">
+                                                        onclick="window.location.href = '<?php echo base_url('cadastrar-academia'); ?>'">
                                                     <i class="icon-plus2"></i> Nova Academia</button>
                                             </li>                                            
                                         </ul>
@@ -81,9 +81,9 @@
                                                                             <td><?php echo $academiaAtiva->telefoneAcademia; ?></td>
                                                                             <td style="text-align: center;">
                                                                                 <button type="button" class="btn mb-1 btn-success btn-sm" 
-                                                                                        onclick="window.location.href = '<?php echo base_url('perfil-academia/' . $academiaAtiva->idAcademia); ?>'"><i class="icon-eye"></i> Ver</button>
+                                                                                        onclick="window.location.href = '<?php echo base_url('perfil-academia/' . md5($academiaAtiva->idAcademia)); ?>'"><i class="icon-eye"></i> Ver</button>
                                                                                 <button type="button" class="btn mb-1 btn-warning btn-sm" 
-                                                                                        onclick="window.location.href = '<?php echo base_url('cadastrar-editar-academia/' . $academiaAtiva->idAcademia); ?>'"><i class="icon-edit"></i> Editar</button>
+                                                                                        onclick="window.location.href = '<?php echo base_url('editar-academia/' . md5($academiaAtiva->idAcademia)); ?>'"><i class="icon-edit"></i> Editar</button>
                                                                                 <button type="button" class="btn mb-1 btn-danger btn-sm" 
                                                                                         onclick="modalExcluirAcademia(<?php echo $academiaAtiva->idAcademia; ?>);"><i class="icon-trash-o"></i> Excluir</button>
                                                                             </td>
@@ -123,9 +123,9 @@
                                                                             <td><?php echo $academiaBloqueada->telefoneAcademia; ?></td>
                                                                             <td style="text-align: center;">
                                                                                 <button type="button" class="btn mb-1 btn-success btn-sm" 
-                                                                                        onclick="window.location.href = '<?php echo base_url('perfil-academia/' . $academiaBloqueada->idAcademia); ?>'"><i class="icon-eye"></i> Ver</button>
+                                                                                        onclick="window.location.href = '<?php echo base_url('perfil-academia/' . md5($academiaBloqueada->idAcademia)); ?>'"><i class="icon-eye"></i> Ver</button>
                                                                                 <button type="button" class="btn mb-1 btn-warning btn-sm" 
-                                                                                        onclick="window.location.href = '<?php echo base_url('cadastrar-editar-academia/' . $academiaBloqueada->idAcademia); ?>'"><i class="icon-edit"></i> Editar</button>
+                                                                                        onclick="window.location.href = '<?php echo base_url('editar-academia/' . md5($academiaBloqueada->idAcademia)); ?>'"><i class="icon-edit"></i> Editar</button>
                                                                                 <button type="button" class="btn mb-1 btn-danger btn-sm" 
                                                                                         onclick="modalExcluirAcademia(<?php echo $academiaBloqueada->idAcademia; ?>);"><i class="icon-trash-o"></i> Excluir</button>
                                                                             </td>

@@ -104,9 +104,7 @@ function pesquisarAluno() {
 
 // FUNÇÃO PARA CONTROLE DOS PLANOS E PACOTES DA EMPRESA
 // CONTROLANDO OS INPUTS RADIOS PARA QUE O USUÁRIO ESCOLHA CORRETAMENTE AS OPÇÕES 
-function verificarSexoAluno() {
-    var sexoAluno;
-    
+function verificarSexoAluno() {    
     // SE O SEXO FOR FEMININO
     if (document.getElementById('sexoFeminino').checked) {
         document.getElementById('sexoUsuario').value = 'Feminino';
@@ -127,6 +125,8 @@ function responsaveisHabilitar() {
         document.getElementById('telefoneResponsavelUsuario').disabled = false;
         document.getElementById('responsavelNao').checked = false;
     } else if (document.getElementById('responsavelNao').checked) {
+        document.getElementById('nomeResponsavelUsuario').value = "";
+        document.getElementById('telefoneResponsavelUsuario').value = "";
         document.getElementById('nomeResponsavelUsuario').disabled = true;
         document.getElementById('telefoneResponsavelUsuario').disabled = true;
         document.getElementById('responsavelSim').checked = false;
@@ -137,6 +137,7 @@ function verificarObjetivoAluno() {
     if (document.getElementById('outros').checked) {
         document.getElementById('outrosObjetivoAluno').disabled = false;
     } else {
+        document.getElementById('outrosObjetivoAluno').value = "";
         document.getElementById('outrosObjetivoAluno').disabled = true;
     }
 }
@@ -145,6 +146,7 @@ function cirurgiasHabilitar() {
     if (document.getElementById('cirurgiasSim').checked) {
         document.getElementById('cirurgiasUsuario').disabled = false;
     } else if (document.getElementById('cirurgiasNao').checked) {
+        document.getElementById('cirurgiasUsuario').value = "";
         document.getElementById('cirurgiasUsuario').disabled = true;
     }
 }
@@ -153,6 +155,7 @@ function medicamentosHabilitar() {
     if (document.getElementById('medicamentosSim').checked) {
         document.getElementById('medicamentosUsuario').disabled = false;
     } else if (document.getElementById('medicamentosNao').checked) {
+        document.getElementById('medicamentosUsuario').value = "";
         document.getElementById('medicamentosUsuario').disabled = true;
     }
 }
@@ -161,6 +164,7 @@ function doencasFamiliaresHabilitar() {
     if (document.getElementById('doencasFamiliaresSim').checked) {
         document.getElementById('doencasFamiliaresUsuario').disabled = false;
     } else if (document.getElementById('doencasFamiliaresNao').checked) {
+        document.getElementById('doencasFamiliaresUsuario').value = "";
         document.getElementById('doencasFamiliaresUsuario').disabled = true;
     }
 }

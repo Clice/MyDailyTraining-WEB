@@ -74,9 +74,11 @@ class InstrutorController extends CI_Controller {
             'statusConta' => true
         );
 
+        $dadosInstrutor['idadeUsuario'] = calcularIdade($dadosInstrutor['dataNascimentoUsuario']);
+        
         // SE O ID USUARIO FOR NOVO, CADASTRAR UM NOVO INSTRUTOR
         if ($dadosInstrutor['idUsuario'] == "novo") {
-            if ($this->InstrutorModel->mCadastrarInstrutor($dadosInstrutor)) {
+            if ($this->UsuarioModel->mCadastrarUsuario($dadosInstrutor)) {
                 $resposta = array('success' => true);
             } else {
                 $resposta = array('success' => false);
@@ -84,7 +86,7 @@ class InstrutorController extends CI_Controller {
         }
         // SE O ID USUARIO JÁ EXISTE, ALTERAR OS DADOS DO INSTRUTOR
         else {
-            if ($this->InstrutorModel->mEditarInstrutor($dadosInstrutor)) {
+            if ($this->UsuarioModel->mEditarUsuario($dadosInstrutor)) {
                 $resposta = array('success' => true);
             } else {
                 $resposta = array('success' => false);
@@ -98,7 +100,7 @@ class InstrutorController extends CI_Controller {
     public function cExcluirInstrutor() {
         $idInstrutor = $this->input->post('idUsuario');
 
-        if ($this->InstrutorModel->mExcluirInstrutor($idInstrutor)) {
+        if ($this->UsuarioModel->mExcluirUsuario($idInstrutor)) {
             $resposta = array('success' => true);
         } else {
             $resposta = array('success' => false);
@@ -111,7 +113,7 @@ class InstrutorController extends CI_Controller {
     public function cBloquearInstrutor() {
         $idInstrutor = $this->input->post('idUsuario');
 
-        if ($this->InstrutorModel->mBloquearInstrutor($idInstrutor)) {
+        if ($this->UsuarioModel->mBloquearUsuario($idInstrutor)) {
             $resposta = array('success' => true);
         } else {
             $resposta = array('success' => false);
@@ -124,7 +126,7 @@ class InstrutorController extends CI_Controller {
     public function cDesbloquearInstrutor() {
         $idInstrutor = $this->input->post('idUsuario');
 
-        if ($this->InstrutorModel->mDesbloquearInstrutor($idInstrutor)) {
+        if ($this->UsuarioModel->mDesbloquearUsuario($idInstrutor)) {
             $resposta = array('success' => true);
         } else {
             $resposta = array('success' => false);
@@ -137,7 +139,7 @@ class InstrutorController extends CI_Controller {
     public function cVisualizarPerfilInstrutor() {
         $idInstrutor = $this->input->post('idUsuario');
 
-        if ($this->InstrutorModel->mVisualizarPerfilInstrutor($idInstrutor)) {
+        if ($this->UsuarioModel->mVisualizarPerfilUsuario($idInstrutor)) {
             $resposta = array('success' => true);
         } else {
             $resposta = array('success' => false);
@@ -150,7 +152,7 @@ class InstrutorController extends CI_Controller {
     public function cVerificarCPF() {
         $cpfInstrutor = $this->input->post('cpfUsuario');
 
-        $dadosInstrutor = $this->InstrutorModel->mVerificarCPF($cpfInstrutor);
+        $dadosInstrutor = $this->UsuarioModel->mVerificarCPF($cpfInstrutor);
 
         if (count($dadosInstrutor) === 1) {
             $resposta = array('existe' => true);
@@ -165,7 +167,7 @@ class InstrutorController extends CI_Controller {
     public function cVerificarLogin() {
         $loginUsuario = $this->input->post('loginUsuario');
 
-        $dadosInstrutor = $this->InstrutorModel->mVerificarLogin($loginUsuario);
+        $dadosInstrutor = $this->UsuarioModel->mVerificarLogin($loginUsuario);
 
         if (count($dadosInstrutor) === 1) {
             $resposta = array('existe' => true);
