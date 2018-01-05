@@ -114,14 +114,14 @@ function verificarSexoFuncionario() {
 
     // SE O SEXO FOR FEMININO
     if (document.getElementById('sexoFeminino').checked) {
-        document.getElementById('sexoUsuario').value = 'Feminino';
+        document.getElementById('sexoFeminino').value = 'Feminino';
     } 
     // SE O SEXO FOR MASCULINO
     else if (document.getElementById('sexoMasculino').checked) {       
-        document.getElementById('sexoUsuario').value = 'Masculino';
+        document.getElementById('sexoMasculino').value = 'Masculino';
     } 
     // SE O SEXO FOR OUTROS
     else if (document.getElementById('sexoOutros').checked) {       
-        document.getElementById('sexoUsuario').value = 'Outros';
+        document.getElementById('sexoMasculino').value = 'Outros';
     }
 }

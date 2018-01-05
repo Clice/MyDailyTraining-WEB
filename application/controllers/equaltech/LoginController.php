@@ -11,7 +11,8 @@ class LoginController extends CI_Controller {
 
     // FUNÇÃO DE CARREGAMENTO DA VIEW LOGIN.PHP
     public function index() {
-        $this->load->view('apresentacao/login');
+        $dados['nomePagina'] = 'Lista de EqualTech';
+        $this->load->view('equaltech/login', $dados);
     }
 
     // FUNÇÃO DE VERIFICAÇÃO DAS INFORMAÇÕES PASSADAS PARA REALIZAR O LOGIN NO SISTEMA

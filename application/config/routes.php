@@ -50,3 +50,6 @@ $route['editar-academia/(:any)'] = 'sistema/AcademiaController/viewCadastrarEdit
 $route['editar-instrutor/(:any)'] = 'sistema/InstrutorController/viewCadastrarEditarInstrutor/$1';
 $route['editar-funcionario/(:any)'] = 'sistema/FuncionarioController/viewCadastrarEditarFuncionario/$1';
 $route['editar-administrador/(:any)'] = 'sistema/AdministradorController/viewCadastrarEditarAdministrador/$1';
+
+// ROTAS PARA A EQUALTECH
+$route['loginEqualtech'] = 'equaltech/LoginController';

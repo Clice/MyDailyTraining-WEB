@@ -29,7 +29,7 @@ class AcademiaModel extends CI_Model {
     public function mBloquearAcademia($idAcademia) {
         $dadosAcademia['statusAcademia'] = false;
         $this->db->where('idAcademia', $idAcademia);
-        $this->AdministradorModel->mBloquearAdministrador($idAcademia);
+        #$this->AdministradorModel->mBloquearAdministrador($idAcademia);
         return $this->db->update('academias', $dadosAcademia);
     }
 

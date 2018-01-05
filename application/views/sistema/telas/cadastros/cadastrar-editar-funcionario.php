@@ -18,10 +18,10 @@
                                     <form class="form" id="formCadEditFuncionario" name="formCadEditFuncionario">
                                         <div class="form-body">
                                             <h4 class="form-section"></h4>
-                                            
+
                                             <input type="hidden" name="idUsuario" id="idUsuario" value="<?php echo $idFuncionario; ?>">
                                             <input type="hidden" name="idAcademia" id="idAcademia" value="<?php echo $idAcademia; ?>">
-                                            
+
                                             <div class="row">
                                                 <!-- NOME DO FUNCIONÁRIO -->
                                                 <div class="col-md-7">

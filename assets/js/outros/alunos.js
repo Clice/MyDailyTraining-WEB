@@ -102,20 +102,20 @@ function pesquisarAluno() {
     }
 }
 
-// FUNÇÃO PARA CONTROLE DOS PLANOS E PACOTES DA EMPRESA
-// CONTROLANDO OS INPUTS RADIOS PARA QUE O USUÁRIO ESCOLHA CORRETAMENTE AS OPÇÕES 
 function verificarSexoAluno() {    
+    var sexoAluno;
+
     // SE O SEXO FOR FEMININO
     if (document.getElementById('sexoFeminino').checked) {
-        document.getElementById('sexoUsuario').value = 'Feminino';
-    }
+        document.getElementById('sexoFeminino').value = 'Feminino';
+    } 
     // SE O SEXO FOR MASCULINO
-    else if (document.getElementById('sexoMasculino').checked) {
-        document.getElementById('sexoUsuario').value = 'Masculino';
-    }
+    else if (document.getElementById('sexoMasculino').checked) {       
+        document.getElementById('sexoMasculino').value = 'Masculino';
+    } 
     // SE O SEXO FOR OUTROS
-    else if (document.getElementById('sexoOutros').checked) {
-        document.getElementById('sexoUsuario').value = 'Outros';
+    else if (document.getElementById('sexoOutros').checked) {       
+        document.getElementById('sexoOutros').value = 'Outros';
     }
 }
 

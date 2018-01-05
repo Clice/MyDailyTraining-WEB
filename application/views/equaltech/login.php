@@ -31,7 +31,7 @@
                                     <div class="card-title text-xs-center">
                                         <div class="p-1"><img style="width: 25%;" src="<?php echo base_url('assets/imagens/Icon.png'); ?>"></div>
                                     </div>
-                                    <h4 class="card-subtitle text-xs-center pt-2"><span>Área do Cliente</span></h4>
+                                    <h4 class="card-subtitle text-xs-center pt-2"><span>Área do Administrador</span></h4>
                                 </div>
                                 <!-- CORPO DO LOGIN -->           
                                 <div class="card-body collapse in">

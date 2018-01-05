@@ -472,7 +472,8 @@
 </div>
 
 <script type="text/javascript">
-    function verificarCPF(cpfUsuario, loginUsuario) {
+    
+    function verificarCPF(cpfUsuario) {
         var dados = "cpfUsuario=" + cpfUsuario;
         $.ajax({
             url: "<?php echo base_url('sistema/AlunoController/cVerificarCPF') ?>",
@@ -482,6 +483,8 @@
             success: function (data) {
                 if (data.existe) {
                     $('#cpf-cadastrado').modal('show');
+                } else {
+                    cadEditAluno();
                 }
             },
             error: function (request, status, error) {
@@ -490,33 +493,21 @@
         });
     }
 
-//    function verificarLogin(loginUsuario) {
-//        var dados = 'loginUsuario=' + loginUsuario;
-//        $.ajax({
-//            url: "<?php //echo base_url('sistema/AlunoController/cVerificarLogin') ?>",
-//            type: "POST",
-//            data: dados,
-//            dataType: "JSON",
-//            success: function (data) {
-//                if (data.existe) {
-//                    $('#login-cadastrado').modal('show');
-//                } else {
-//                    cadEditAluno();
-//                }
-//            },
-//            error: function (request, status, error) {
-//                alert("Erro: " + request.responseText);
-//            }
-//        });
-//    }
-
     function cadEditAluno() {
+
+        alert("Entrou na função!");
+
         $.ajax({
-            url: "<?php echo base_url('sistema/AlunoController/cCadastrarEditarAluno') ?>",
+
+            alert("Entrou no Ajax!");
+                    url: "<?php echo base_url('sistema/AlunoController/cCadastrarEditarAluno') ?>",
             type: "POST",
             data: $('#formCadEditAluno').serialize(),
             dataType: "JSON",
             success: function (data) {
+
+                alert("Entrou no success!");
+
                 if (data.success) {
                     $('#sucesso-aluno').modal('show');
                 } else {
