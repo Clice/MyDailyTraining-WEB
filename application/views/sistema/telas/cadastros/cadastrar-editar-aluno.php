@@ -19,7 +19,7 @@
                                         <div class="form-body">
                                             <h4 class="form-section"></h4>
 
-                                            <input type="hidden" name="idUsuario" id="idUsuario" value="<?php echo $idAluno; ?>">
+                                            <input type="hidden" name="idAluno" id="idAluno" value="<?php echo $idAluno; ?>">
                                             <input type="hidden" name="idAcademia" id="idAcademia" value="<?php echo $idAcademia; ?>">
 
                                             <div class="row">
@@ -72,8 +72,8 @@
                                                     </div>
                                                 </div>
                                                 <!-- SEXO DO ALUNO -->
-                                                <div class="col-md-4"
-                                                     <label>Sexo:*</label>
+                                                <div class="col-md-4">
+                                                    <label>Sexo:*</label>
                                                     <div class="input-group" style="margin-top: 13px">
                                                         <!-- FEMININO -->
                                                         <label class="display-inline-block custom-control custom-radio">
@@ -182,8 +182,34 @@
                                                     <div class="form-group has-icon-left">
                                                         <label>Data da Avaliação do Aluno:*</label>
                                                         <div class="position-relative has-icon-left">
-                                                            <input type="date" id="dataValidadeExame" name="dataValidadeExame" 
-                                                                   class="form-control" placeholder="Digite a data">
+                                                            <select id="dataValidadeExame" name="dataValidadeExame" class="form-control">
+                                                                <option value="">Selecione o dia</option>
+                                                                <option value="5">5</option>
+                                                                <option value="10">10</option>
+                                                                <option value="15">15</option>
+                                                                <option value="20">20</option>
+                                                                <option value="25">25</option>
+                                                            </select>
+                                                            <div class="form-control-position" style="margin-top: 11px;">
+                                                                <i class="icon-calendar5"></i>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- DIA DO PAGAMENTO DO ALUNO -->
+                                                <div class="col-md-3">
+                                                    <div class="form-group has-icon-left">
+                                                        <label>Dia do Pagamento:*</label>
+                                                        <div class="position-relative has-icon-left">
+                                                            <select id="diaPagamentoAluno" name="diaPagamentoAluno" class="form-control">
+                                                                <option value="">Selecione o dia</option>
+                                                                <option value="5">5</option>
+                                                                <option value="10">10</option>
+                                                                <option value="15">15</option>
+                                                                <option value="20">20</option>
+                                                                <option value="25">25</option>
+                                                            </select>
+
                                                             <div class="form-control-position" style="margin-top: 11px;">
                                                                 <i class="icon-calendar5"></i>
                                                             </div>
@@ -191,48 +217,52 @@
                                                     </div>
                                                 </div>
                                                 <!-- OBJETIVO DO ALUNO -->
-                                                <div class="col-md-9"
-                                                     <label>Objetivo do Aluno:*</label>
+                                                <div class="col-md-12">
+                                                    <label>Objetivo do Aluno:*</label>
                                                     <div class="input-group" style="margin-top: 13px">
-                                                        <!-- HIPERTROFIA -->
-                                                        <label class="display-inline-block custom-control custom-radio">
-                                                            <input type="radio" name="objetivoAluno" id="hipertrofia" value="hipertrofia" onchange="verificarObjetivoAluno();" class="custom-control-input">
-                                                            <span class="custom-control-indicator"></span>
-                                                            <span class="custom-control-description ml-0">Hipertrofia</span>
-                                                        </label>
-                                                        <!-- FORÇA -->
-                                                        <label class="display-inline-block custom-control custom-radio">
-                                                            <input type="radio" name="objetivoAluno" id="forca" value="Força" onchange="verificarObjetivoAluno();" class="custom-control-input">
-                                                            <span class="custom-control-indicator"></span>
-                                                            <span class="custom-control-description ml-0">Força</span>
-                                                        </label>
-                                                        <!-- QUALI. DE VIDA -->
-                                                        <label class="display-inline-block custom-control custom-radio">
-                                                            <input type="radio" name="objetivoAluno" id="qualiDeVida" value="qualiDeVida" onchange="verificarObjetivoAluno();" class="custom-control-input">
-                                                            <span class="custom-control-indicator"></span>
-                                                            <span class="custom-control-description ml-0">Quali. de Vida</span>
-                                                        </label>
-                                                        <!-- EMAGRECIMENTO -->
-                                                        <label class="display-inline-block custom-control custom-radio">
-                                                            <input type="radio" name="objetivoAluno" id="emagrecimento" value="Emagrecimento" onchange="verificarObjetivoAluno();" class="custom-control-input">
-                                                            <span class="custom-control-indicator"></span>
-                                                            <span class="custom-control-description ml-0">Emagrecimento</span>
-                                                        </label>
-                                                        <!-- RES. AERÓBICA -->
-                                                        <label class="display-inline-block custom-control custom-radio">
-                                                            <input type="radio" name="objetivoAluno" id="resAerobica" value="Res. Aeróbica" onchange="verificarObjetivoAluno();" class="custom-control-input">
-                                                            <span class="custom-control-indicator"></span>
-                                                            <span class="custom-control-description ml-0">Res. Aeróbica</span>
-                                                        </label>
-                                                        <!-- OUTROS -->
-                                                        <label class="display-inline-block custom-control custom-radio">
-                                                            <input type="radio" name="objetivoAluno" id="outros" value="Outros" onchange="verificarObjetivoAluno();" class="custom-control-input">
-                                                            <span class="custom-control-indicator"></span>
-                                                            <span class="custom-control-description ml-0">Outros</span>
-                                                        </label>
-                                                        <textarea type="" id="outrosObjetivoAluno" class="form-control" maxlength="200"
-                                                                  placeholder="Digite outro objetivo do aluno" name="objetivoAluno" value="" disabled="" >
-                                                        </textarea>
+                                                        <div class="form-group col-md-8">
+                                                            <!-- HIPERTROFIA -->
+                                                            <label class="display-inline-block custom-control custom-radio">
+                                                                <input type="radio" name="objetivoAluno" id="hipertrofia" value="hipertrofia" onchange="verificarObjetivoAluno();" class="custom-control-input">
+                                                                <span class="custom-control-indicator"></span>
+                                                                <span class="custom-control-description ml-0">Hipertrofia</span>
+                                                            </label>
+                                                            <!-- FORÇA -->
+                                                            <label class="display-inline-block custom-control custom-radio">
+                                                                <input type="radio" name="objetivoAluno" id="forca" value="Força" onchange="verificarObjetivoAluno();" class="custom-control-input">
+                                                                <span class="custom-control-indicator"></span>
+                                                                <span class="custom-control-description ml-0">Força</span>
+                                                            </label>
+                                                            <!-- QUALI. DE VIDA -->
+                                                            <label class="display-inline-block custom-control custom-radio">
+                                                                <input type="radio" name="objetivoAluno" id="qualiDeVida" value="qualiDeVida" onchange="verificarObjetivoAluno();" class="custom-control-input">
+                                                                <span class="custom-control-indicator"></span>
+                                                                <span class="custom-control-description ml-0">Quali. de Vida</span>
+                                                            </label>
+                                                            <!-- EMAGRECIMENTO -->
+                                                            <label class="display-inline-block custom-control custom-radio">
+                                                                <input type="radio" name="objetivoAluno" id="emagrecimento" value="Emagrecimento" onchange="verificarObjetivoAluno();" class="custom-control-input">
+                                                                <span class="custom-control-indicator"></span>
+                                                                <span class="custom-control-description ml-0">Emagrecimento</span>
+                                                            </label>
+                                                            <!-- RES. AERÓBICA -->
+                                                            <label class="display-inline-block custom-control custom-radio">
+                                                                <input type="radio" name="objetivoAluno" id="resAerobica" value="Res. Aeróbica" onchange="verificarObjetivoAluno();" class="custom-control-input">
+                                                                <span class="custom-control-indicator"></span>
+                                                                <span class="custom-control-description ml-0">Res. Aeróbica</span>
+                                                            </label>
+                                                            <!-- OUTROS -->
+                                                            <label class="display-inline-block custom-control custom-radio">
+                                                                <input type="radio" name="objetivoAluno" id="outros" value="Outros" onchange="verificarObjetivoAluno();" class="custom-control-input">
+                                                                <span class="custom-control-indicator"></span>
+                                                                <span class="custom-control-description ml-0">Outros</span>
+                                                            </label>
+                                                        </div>
+                                                        <div class="form-group col-md-4">
+                                                            <textarea type="" id="outrosObjetivoAluno" class="form-control" maxlength="200"
+                                                                      placeholder="Digite outro objetivo do aluno" name="objetivoAluno" value="" disabled="" >
+                                                            </textarea>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -269,23 +299,10 @@
                                                                placeholder="Digite o telefone do responsável" name="telefoneResponsavelUsuario" value="" disabled="" >
                                                     </div>
                                                 </div>
-                                                <!-- ESTADO DO ALUNO -->
-                                                <div class="col-md-2">
-                                                    <div class="form-group">
-                                                        <label>Dia do Pagamento:*</label>
-                                                        <select id="diaPagamentoAluno" name="diaPagamentoAluno" class="form-control">
-                                                            <option value="">Selecione o dia</option>
-                                                            <option value="5">5</option>
-                                                            <option value="10">10</option>
-                                                            <option value="15">15</option>
-                                                            <option value="20">20</option>
-                                                            <option value="25">25</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
+
                                             </div>
                                             <br>
-                                            <label>Observações:</label>
+                                            <label><b>Observações</b></label>
                                             <div class="row">
                                                 <br>
                                                 <div class="col-md-2">
@@ -472,7 +489,6 @@
 </div>
 
 <script type="text/javascript">
-    
     function verificarCPF(cpfUsuario) {
         var dados = "cpfUsuario=" + cpfUsuario;
         $.ajax({
@@ -494,20 +510,12 @@
     }
 
     function cadEditAluno() {
-
-        alert("Entrou na função!");
-
         $.ajax({
-
-            alert("Entrou no Ajax!");
-                    url: "<?php echo base_url('sistema/AlunoController/cCadastrarEditarAluno') ?>",
+            url: "<?php echo base_url('sistema/AlunoController/cCadastrarEditarAluno') ?>",
             type: "POST",
             data: $('#formCadEditAluno').serialize(),
             dataType: "JSON",
             success: function (data) {
-
-                alert("Entrou no success!");
-
                 if (data.success) {
                     $('#sucesso-aluno').modal('show');
                 } else {

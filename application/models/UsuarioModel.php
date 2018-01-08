@@ -19,13 +19,13 @@ class UsuarioModel extends CI_Model {
     }
 
     public function mBloquearUsuario($idUsuario) {
-        $dadosFuncionario['statusConta'] = false;
+        $dadosUsuario['statusConta'] = false;
         $this->db->where('idUsuario', $idUsuario);
-        return $this->db->update('usuarios', $dadosFuncionario);
+        return $this->db->update('usuarios', $dadosUsuario);
     }
 
     public function mDesbloquearUsuario($idUsuario) {
-        $dadosFuncionario['statusConta'] = true;
+        $dadosUsuario['statusConta'] = true;
         $this->db->where('idUsuario', $idUsuario);
         return $this->db->update('usuarios', $dadosUsuario);
     }
@@ -33,7 +33,7 @@ class UsuarioModel extends CI_Model {
     public function mVisualizarPerfilUsuario($idUsuario) {
         $this->db->select('*');
         $this->db->from('usuarios');
-        $this->db->where('idUsuario', $idUsuario);
+        $this->db->where('md5(idUsuario)', $idUsuario);
         return $this->db->get()->result();
     }
 

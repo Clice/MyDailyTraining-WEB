@@ -7,6 +7,7 @@ class FuncionarioController extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->model('FuncionarioModel');
+        $this->load->model('UsuarioModel');
     }
 
     // FUNÇÃO DE CARREGAMENTO DA VIEW LISTA-FUNCIONARIOS.PHP
@@ -44,6 +45,19 @@ class FuncionarioController extends CI_Controller {
         $this->load->view('sistema/templates/footer');
         $this->load->view('sistema/templates/html-footer');
     }
+    
+    // FUNÇÃO DE CARREGAMENTO DA VIEW PERFIL-FUNCIONARIO.PHP
+    public function viewPerfilFuncionario($idFuncionario) {
+        $dadosFuncionario['nomePagina'] = 'Perfil do Funcionário';
+        $dadosFuncionario['perfilFuncionario'] = $this->UsuarioModel->mVisualizarPerfilUsuario($idFuncionario);
+
+        $this->load->view('sistema/templates/html-header', $dadosFuncionario);
+        $this->load->view('sistema/templates/header');
+        $this->load->view('sistema/templates/side-menu');
+        $this->load->view('sistema/telas/perfis/perfil-funcionario');
+        $this->load->view('sistema/templates/footer');
+        $this->load->view('sistema/templates/html-footer');
+    }
 
     // FUNÇÃO CONTROLLER PARA CADASTRAR/EDITAR FUNCIONÁRIO
     public function cCadastrarEditarFuncionario() {        
@@ -52,8 +66,8 @@ class FuncionarioController extends CI_Controller {
             'idUsuario' => $this->input->post('idUsuario'),
             'idAcademia' => $this->input->post('idAcademia'),
             'nomeUsuario' => $this->input->post('nomeUsuario'),
-            'loginUsuario' => $this->input->post('loginUsuario'),
-            'senhaUsuario' => $this->input->post('senhaUsuario'),
+            'loginUsuario' => base64_encode($this->input->post('loginUsuario')),
+            'senhaUsuario' => base64_encode($this->input->post('senhaUsuario')),
             'emailUsuario' => $this->input->post('emailUsuario'),
             'crefUsuario' => $this->input->post('crefUsuario'),
             'cpfUsuario' => $this->input->post('cpfUsuario'),

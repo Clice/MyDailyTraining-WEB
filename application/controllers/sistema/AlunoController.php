@@ -48,9 +48,6 @@ class AlunoController extends CI_Controller {
 
     // FUNÇÃO CONTROLLER PARA CADASTRAR/EDITAR ALUNO
     public function cCadastrarEditarAluno() {
-        
-        echo "entrou";
-
         // PEGANDO OS VALORES PASSADOS PELO CADASTRAR-EDITAR-ALUNO.PHP     
         $dadosAluno = array(
             'idAluno' => $this->input->post('idUsuario'),
@@ -79,7 +76,7 @@ class AlunoController extends CI_Controller {
             'diaPagamentoAluno' => $this->input->post('diaPagamentoAluno')
         );
         
-        $dadosAluno['idadeAluno'] = calcularIdade($dadosAluno['dataNascimentoUsuario']);
+        $dadosAluno['idadeAluno'] = calcularIdade($dadosAluno['dataNascimentoAluno']);
 
         // SE O IDALUNO FOR NOVO, CADASTRAR UM NOVO ALUNO
         if ($dadosAluno['idAluno'] == "novo") {

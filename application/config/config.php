@@ -28,6 +28,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 // CONFIGURAÇÃO LOCAL 
 $config['base_url'] = 'http://localhost:8080/MyDailyTraining-Web/';
 
+//$config['base_url'] = 'http://10.0.0.6:8080/MyDailyTraining-Web/';
+
 // CONFIGURAÇÃO PARA O SERVIDOR
 // $config['base_url'] = 'http://www.mydailytraining.com.br/';
 
