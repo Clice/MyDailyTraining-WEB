@@ -122,7 +122,7 @@
                                                                             <td><?php echo $funcionarioBloqueado->enderecoUsuario; ?></td>
                                                                             <td style="text-align: center;">
                                                                                 <button type="button" class="btn mb-1 btn-success btn-sm" 
-                                                                                        onclick="window.location.href = '<?php echo base_url('perfil-funcionario/' . md5($funcionarioBloqueado->idUsuario)); ?>'"><i class="icon-eye"></i> Ver</button>
+                                                                                        onclick="window.location.href = '<?php echo base_url('perfil-funcionario/' . md5($funcionarioBloqueado->idUsuario)); ?>'"><i class="icon-eye"></i> Ver Perfil</button>
                                                                                 <button type="button" class="btn mb-1 btn-warning btn-sm" 
                                                                                         onclick="window.location.href = '<?php echo base_url('editar-funcionario/' . md5($funcionarioBloqueado->idUsuario)); ?>'"><i class="icon-edit"></i> Editar</button>
                                                                                 <button type="button" class="btn mb-1 btn-danger btn-sm" 

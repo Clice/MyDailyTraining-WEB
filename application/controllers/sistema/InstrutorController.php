@@ -7,6 +7,7 @@ class InstrutorController extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->model('InstrutorModel');
+        $this->load->model('UsuarioModel');
     }
 
     // FUNÇÃO DE CARREGAMENTO DA VIEW LISTA-INSTRUTOR.PHP
@@ -47,7 +48,20 @@ class InstrutorController extends CI_Controller {
         $this->load->view('sistema/templates/html-footer');
     }
 
-// FUNÇÃO CONTROLLER PARA CADASTRAR/EDITAR FUNCIONÁRIO
+    // FUNÇÃO DE CARREGAMENTO DA VIEW PERFIL-INSTRUTOR.PHP
+    public function viewPerfilInstrutor($idInstrutor) {
+        $dadosInstrutor['nomePagina'] = 'Perfil do Instrutor';
+        $dadosInstrutor['perfilInstrutor'] = $this->UsuarioModel->mVisualizarPerfilUsuario($idInstrutor);
+
+        $this->load->view('sistema/templates/html-header', $dadosInstrutor);
+        $this->load->view('sistema/templates/header');
+        $this->load->view('sistema/templates/side-menu');
+        $this->load->view('sistema/telas/perfis/perfil-instrutor');
+        $this->load->view('sistema/templates/footer');
+        $this->load->view('sistema/templates/html-footer');
+    }
+
+    // FUNÇÃO CONTROLLER PARA CADASTRAR/EDITAR INSTRUTOR
     public function cCadastrarEditarInstrutor() {
 
         // PEGANDO OS VALORES PASSADOS PELO CADASTRAR-EDITAR-INSTRUTOR.PHP     
@@ -75,7 +89,7 @@ class InstrutorController extends CI_Controller {
         );
 
         $dadosInstrutor['idadeUsuario'] = calcularIdade($dadosInstrutor['dataNascimentoUsuario']);
-        
+
         // SE O ID USUARIO FOR NOVO, CADASTRAR UM NOVO INSTRUTOR
         if ($dadosInstrutor['idUsuario'] == "novo") {
             if ($this->UsuarioModel->mCadastrarUsuario($dadosInstrutor)) {
@@ -177,4 +191,5 @@ class InstrutorController extends CI_Controller {
 
         echo json_encode($resposta);
     }
+
 }

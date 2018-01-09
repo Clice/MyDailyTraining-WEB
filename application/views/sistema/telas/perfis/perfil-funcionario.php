@@ -118,11 +118,12 @@
                                             <button type="button"                               
                                             <?php if ($funcionario->statusConta == 1) { ?>
                                                         class="btn btn-blue"
+                                                        onclick="modalDesBloquearFuncionario(this, <?php echo $funcionario->idUsuario; ?>, true);"
                                                     <?php } else { ?>
                                                         class="btn btn-black"
+                                                        onclick="modalDesBloquearFuncionario(this, <?php echo $funcionario->idUsuario; ?>, false);"
                                                     <?php } ?>
-                                                    onclick="modalDesBloquearFuncionario(this, <?php echo $funcionario->idUsuario; ?>, false);">
-                                                <i <?php if ($funcionario->statusConta == 1) { ?>
+                                                    ><i <?php if ($funcionario->statusConta == 1) { ?>
                                                         class="icon-unlock"
                                                     <?php } else { ?>
                                                         class="icon-lock"

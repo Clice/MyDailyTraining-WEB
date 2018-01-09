@@ -26,7 +26,7 @@
         <!-- MENU DE NAVEGAÇÃO -->
         <nav class="navbar navbar-expand navbar-dark navbar-color fixed-top" style="height:11%;">
             <div class="container">
-                <img src="<?php echo base_url('assets/imagens/Icon.png'); ?>" alt="" style="height: 80%;">
+                <img src="<?php echo base_url('assets/imagens/Icon35px.png'); ?>" alt="">
                 <a class="navbar-brand js-scroll-trigger" href="#home">&nbsp;&nbsp;MyDailyTraining</a>
                 <button class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded" type="button" 
                         data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" 

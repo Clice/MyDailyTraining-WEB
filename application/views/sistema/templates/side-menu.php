@@ -20,9 +20,7 @@
                         <li><a href="<?php echo base_url('lista-instrutores'); ?>" data-i18n="nav.listas.instrutores" class="menu-item">Instrutores</a>
                         </li>
                         <li><a href="<?php echo base_url('lista-alunos'); ?>" data-i18n="nav.listas.alunos" class="menu-item">Alunos</a>
-                        </li>
-                        <li><a href="<?php echo base_url('lista-treinos'); ?>" data-i18n="nav.listas.treinos" class="menu-item">Treinos</a>
-                        </li>                        
+                        </li>                      
                     <?php } ?>
                 </ul>
             </li>
@@ -42,13 +40,26 @@
                         </li>                    
                         <li><a href="<?php echo base_url('cadastrar-aluno'); ?>" data-i18n="nav.page_layouts.main" class="menu-item">Aluno</a>
                         </li>
-                        <li><a href="<?php echo base_url('cadastrar-treino'); ?>" data-i18n="nav.page_layouts.main" class="menu-item">Treino</a>
-                        </li>                
+
                     <?php } ?>
                 </ul>
             </li>
             <!-- RELATÓRIO - RELATÓRIOS QUE O SISTEMA PODE GERAR -->
-            <li class=" nav-item"><a href="<?php echo base_url('relatorio'); ?>"><i class="icon-book3"></i><span data-i18n="nav.form_layouts.form_layout_basic" class="menu-title">Relatório</span></a>          
+            <li class=" nav-item"><a href="<?php echo base_url('relatorio'); ?>"><i class="icon-book3"></i><span data-i18n="nav.form_layouts.form_layout_basic" class="menu-title">Relatório</span></a></li>
+
+            <?php if ($this->session->userdata('tipoConta') == 4) { ?>
+                <!-- CADASTROS - REALIZANDO OS CADASTROS NO SISTEMA -->
+                <li class=" nav-item"><a href="#"><i class="icon-calendar-o"></i><span data-i18n="nav.page_layouts.main" class="menu-title">Treinos</span></a>
+                    <ul class="menu-content">    
+                        <li><a href="<?php echo base_url('lista-treinos'); ?>" data-i18n="nav.listas.treinos" 
+                               class="menu-item">Lista</a>
+                        </li>
+                        <li><a href="<?php echo base_url('cadastrar-treino'); ?>" data-i18n="nav.page_layouts.main" 
+                               class="menu-item">Cadastros</a>
+                        </li>  
+                    </ul>
+                </li>
+            <?php } ?>
         </ul>
     </div>
 </div>
