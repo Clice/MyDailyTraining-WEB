@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
         <link rel="shortcut icon" href="<?php echo base_url('assets/imagens/Icon.png'); ?>">     
 
-        <title>MyDailyTraining - Login</title>
+        <title>MyDailyTraining - Recuperar Senha</title>
 
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/sistema/bootstrap.css'); ?>">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/fonts/fonts/icomoon.css'); ?>">
@@ -31,7 +31,7 @@
                                     <div class="card-title text-xs-center">
                                         <div class="p-1"><img style="width: 25%;" src="<?php echo base_url('assets/imagens/Icon.png'); ?>"></div>
                                     </div>
-                                    <h4 class="card-subtitle text-xs-center pt-2"><span>Área do Cliente</span></h4>
+                                    <h4 class="card-subtitle text-xs-center pt-2"><span>Recuperar senha</span></h4>
                                 </div>
                                 <!-- CORPO DO LOGIN -->           
                                 <div class="card-body collapse in">
@@ -39,30 +39,21 @@
                                         <form class="form" id="formLogin" name="formLogin">
                                             <div class="form-body">
                                                 <div class="row">
-                                                    <div class="col-md-12">
-                                                        <div class="form-group">
-                                                            <label>Login:</label>
-                                                            <input type="text" class="form-control" placeholder="Digite o login" id="loginUsuario" autofocus=""  
-                                                                   name="loginUsuario">                                          
+                                                    <div class="col-md-12" >
+                                                        <div class="offset-md-1 col-md-10">
+                                                            <label style="text-align: center">Digite o CPF para verificar a conta e recuperar a senha.</label>
+                                                            <input class="form-control" type="text" id="cpfUsuario" maxlength="11" value="" 
+                                                                   placeholder="Digite o CPF" name="cpfUsuario" onchange="verificarCpf();" autofocus="">
+                                                            <br>
+                                                            <small><span id='msnCPF'></span></small>                                       
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-12">
-                                                        <div class="form-group">
-                                                            <label>Senha:</label>
-                                                            <input type="password" class="form-control" placeholder="Digite a senha" id="senhaUsuario" 
-                                                                   name="senhaUsuario">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6 col-xs-12 text-xs-center text-md-left">
-                                                        <input type="checkbox" id="remember-me" class="chk-remember">
-                                                        <label> Lembre-se de mim</label>
-                                                    </div>
-                                                    <div class="col-md-6 col-xs-12 text-xs-center text-md-right" data-toggle="modal" data-target="#bloqueado">
-                                                        <a class="blue" href="<?php echo base_url('recuperar-senha'); ?>">Esqueceu a senha?</a></div>
                                                 </div>
                                             </div>
                                         </form>
-                                        <button type="submit" class="btn btn-blue btn-lg btn-block" onclick="login();"><i class="icon-unlock2"></i> Login</button>
+                                        <div class="offset-md-4 col-md-5">
+                                            <button type="submit" class="btn btn-blue btn-lg btn-block" onclick="recuperarSenha();"><i class="icon-search"></i> Procurar</button>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="card-footer hidden">
@@ -122,7 +113,7 @@
 
         <!-- JS-->
         <script type="text/javascript">
-            function login() {
+            function recuperarSenha() {
                 var url = "<?php echo base_url('sistema/LoginController/cLogarUsuario') ?>";
 
                 $.ajax({
@@ -152,6 +143,6 @@
         <script src="<?php echo base_url('assets/js/sistema/jquery.min.js'); ?>" type="text/javascript"></script>
         <script src="<?php echo base_url('assets/js/sistema/bootstrap.min.js'); ?>" type="text/javascript"></script>
         <script src="<?php echo base_url('assets/js/sistema/app.js'); ?>" type="text/javascript"></script>
-
+        <script src="<?php echo base_url('assets/js/outros/valida-cpf-cnpj.js'); ?>" type="text/javascript"></script>
     </body>
 </html>

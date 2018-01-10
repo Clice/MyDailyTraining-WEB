@@ -11,6 +11,7 @@ $route['translate_uri_dashes'] = FALSE;
 // ROTAS DE LOGIN E PARA A PÁGINA PRINCIPAL
 $route['login'] = 'sistema/LoginController';
 $route['pagina-principal'] = 'sistema/PaginaPrincipalController';
+$route['recuperar-senha'] = 'equaltech/LoginController/cRecuperarSenha';
 
 // ROTAS PARA O RELATÓRIO, PERFIL E NOTIFICAÇÕES
 $route['relatorio'] = 'sistema/AcademiaController/viewRelatorio';

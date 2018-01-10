@@ -45,6 +45,19 @@ class AlunoController extends CI_Controller {
         $this->load->view('sistema/templates/footer');
         $this->load->view('sistema/templates/html-footer');
     }
+    
+    // FUNÇÃO DE CARREGAMENTO DA VIEW PERFIL-ALUNO.PHP
+    public function viewPerfilAluno($idAluno) {
+        $dadosAluno['nomePagina'] = 'Perfil do Funcionário';
+        $dadosAluno['perfilAluno'] = $this->AlunoModel->mVisualizarPerfilAluno($idAluno);
+
+        $this->load->view('sistema/templates/html-header', $dadosAluno);
+        $this->load->view('sistema/templates/header');
+        $this->load->view('sistema/templates/side-menu');
+        $this->load->view('sistema/telas/perfis/perfil-aluno');
+        $this->load->view('sistema/templates/footer');
+        $this->load->view('sistema/templates/html-footer');
+    }
 
     // FUNÇÃO CONTROLLER PARA CADASTRAR/EDITAR ALUNO
     public function cCadastrarEditarAluno() {

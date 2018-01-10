@@ -33,7 +33,7 @@ class AlunoModel extends CI_Model {
     public function mVisualizarPerfilAluno($idAluno) {
         $this->db->select('*');
         $this->db->from('alunos');
-        $this->db->where('idAluno', $idAluno);
+        $this->db->where('md5(idAluno)', $idAluno);
         return $this->db->get()->result();
     }
 

@@ -14,6 +14,11 @@ class LoginController extends CI_Controller {
         $dados['nomePagina'] = 'Lista de EqualTech';
         $this->load->view('equaltech/login', $dados);
     }
+    
+    public function cRecuperarSenha() {
+        $dados['nomePagina'] = 'Recuperar Senha';
+        $this->load->view('sistema/telas/recuperar-senha', $dados);
+    } 
 
     // FUNÇÃO DE VERIFICAÇÃO DAS INFORMAÇÕES PASSADAS PARA REALIZAR O LOGIN NO SISTEMA
     public function cLogarUsuario() {
