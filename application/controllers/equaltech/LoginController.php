@@ -7,6 +7,7 @@ class LoginController extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->model('LoginModel');
+         $this->load->model('UsuarioModel');
     }
 
     // FUNÇÃO DE CARREGAMENTO DA VIEW LOGIN.PHP
@@ -14,11 +15,17 @@ class LoginController extends CI_Controller {
         $dados['nomePagina'] = 'Lista de EqualTech';
         $this->load->view('equaltech/login', $dados);
     }
-    
+
     public function cRecuperarSenha() {
         $dados['nomePagina'] = 'Recuperar Senha';
         $this->load->view('sistema/telas/recuperar-senha', $dados);
-    } 
+    }
+
+    public function cAlterarSenha($cpfUsuario) {
+        $dados['nomePagina'] = 'Alterar Senha';
+        $dados['cpfUsuario'] = 'Alterar Senha';
+        $this->load->view('sistema/telas/alterar-senha', $dados);
+    }
 
     // FUNÇÃO DE VERIFICAÇÃO DAS INFORMAÇÕES PASSADAS PARA REALIZAR O LOGIN NO SISTEMA
     public function cLogarUsuario() {
@@ -82,5 +89,20 @@ class LoginController extends CI_Controller {
         $this->session->sess_destroy();
         redirect(base_url());
     }
+
+    public function cProcurarCPF() {
+
+        $cpfUsuario = $this->input->post('cpfUsuario');
+
+        if ($this->UsuarioModel->mProcurarCPF($cpfUsuario)) {
+            $resposta = array('success' => true);
+        } else {
+            $resposta = array('success' => false);
+        }
+
+        echo json_encode($resposta);
+    }
+
+    
 
 }

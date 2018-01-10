@@ -3,7 +3,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class AcademiaModel extends CI_Model {
-    
+
     public function __construct() {
         parent::__construct();
         $this->load->model('AdministradorModel');
@@ -66,6 +66,13 @@ class AcademiaModel extends CI_Model {
         $this->db->from('academias');
         $this->db->where('cnpjAcademia', $cnpjAcademia);
         return $this->db->get()->result();
+    }
+
+    public function mQtdAlunos($idAcademia) {
+        if ($idAcademia > 0) {
+            $this->db->where('idAcademia', $idAcademia);
+            return $this->db->get('alunos')->result();
+        }
     }
 
     public function mQtdAcademiasAtivas($idAcademia) {

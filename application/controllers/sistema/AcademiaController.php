@@ -81,6 +81,7 @@ class AcademiaController extends CI_Controller {
     public function viewPerfilAcademia($idAcademia) {
         $dados['nomePagina'] = 'Perfil Academia';
         $dados['perfilAcademia'] = $this->AcademiaModel->mVisualizarPerfilAcademia($idAcademia);
+        $dados['qtdAlunos'] = count($this->AcademiaModel->mQtdAlunos(0));
 
         $this->load->view('sistema/templates/html-header', $dados);
         $this->load->view('sistema/templates/header');

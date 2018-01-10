@@ -51,5 +51,7 @@ class EqualTechController extends CI_Controller {
         $this->load->view('sistema/templates/footer');
         $this->load->view('sistema/templates/html-footer');
     }
+    
+    
 
 }

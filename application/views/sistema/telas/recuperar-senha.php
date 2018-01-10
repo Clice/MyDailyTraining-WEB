@@ -36,7 +36,7 @@
                                 <!-- CORPO DO LOGIN -->           
                                 <div class="card-body collapse in">
                                     <div class="card-block">
-                                        <form class="form" id="formLogin" name="formLogin">
+                                        <form class="form" id="formRecuperarSenha" name="formRecuperarSenha">
                                             <div class="form-body">
                                                 <div class="row">
                                                     <div class="col-md-12" >
@@ -44,8 +44,8 @@
                                                             <label style="text-align: center">Digite o CPF para verificar a conta e recuperar a senha.</label>
                                                             <input class="form-control" type="text" id="cpfUsuario" maxlength="11" value="" 
                                                                    placeholder="Digite o CPF" name="cpfUsuario" onchange="verificarCpf();" autofocus="">
-                                                            <br>
                                                             <small><span id='msnCPF'></span></small>                                       
+                                                            <br>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -64,45 +64,15 @@
                     </section>
                 </div>
             </div>
-        </div> 
-
-        <!-- MODAL - LOGIN E/OU SENHA INCORRETO(S) -->
-        <div class="modal fade text-xs-left" data-backdrop="static" id="incorreto" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
-             aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <h4 class="modal-title text-xs-center">Login e/ou Senha Incorreto(s)</h4>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                    </div>
-                </div>
-            </div>
         </div>
 
-        <!-- MODAL - USUÁRIO BLOQUEADO -->
-        <div class="modal fade text-xs-left" data-backdrop="static" id="usuario-bloqueado" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
+        <!-- MODAL - NENHUM USUÁRIO ENCONTRADO -->
+        <div class="modal fade text-xs-left" data-backdrop="static" id="usuario-nao-encontrado" name="usuario-nao-encontrado" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
              aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-body">
-                        <h4 class="modal-title text-xs-center">Usuário bloqueado! Por favor contate o(s) administrador(es) para mais informações.</h4>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- MODAL - ACADEMIA BLOQUEADA -->
-        <div class="modal fade text-xs-left" data-backdrop="static" id="academia-bloqueada" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
-             aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <h4 class="modal-title text-xs-center">Academia bloqueada! Por favor contate a academia para mais informações.</h4>
+                        <h4 class="modal-title text-xs-center">Nenhum usuário encontrado</h4>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
@@ -114,24 +84,18 @@
         <!-- JS-->
         <script type="text/javascript">
             function recuperarSenha() {
-                var url = "<?php echo base_url('sistema/LoginController/cLogarUsuario') ?>";
+                var url = "<?php echo base_url('equaltech/LoginController/cProcurarCPF') ?>";
 
                 $.ajax({
                     url: url,
                     type: "POST",
-                    data: $('#formLogin').serialize(),
+                    data: $('#formRecuperarSenha').serialize(),
                     dataType: "JSON",
                     success: function (data) {
                         if (data.success) {
-                            window.location.href = "<?php echo base_url('pagina-principal'); ?>";
+                            window.location.href = "<?php echo base_url('alterar-senha/'.md5(cpfUsuario)); ?>";
                         } else {
-                            if (data.statusAcademia === false) {
-                                $('#academia-bloqueada').modal('show');
-                            } else if (data.statusConta === false) {
-                                $('#usuario-bloqueado').modal('show');
-                            } else {
-                                $('#incorreto').modal('show');
-                            }
+                            $('#usuario-nao-encontrado').modal('show');
                         }
                     },
                     error: function (request, status, error) {
