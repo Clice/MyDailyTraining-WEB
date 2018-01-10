@@ -160,7 +160,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title text-xs-center">Deseja excluir o aluno?</h4>
+                <h4 class="modal-title text-xs-center"><i class="icon-warning"></i> Deseja excluir o(a) aluno(a)?</h4>
                 <div class="modal-footer">                
                     <button type="button" class="btn btn-primary" onclick="excluirAluno();">Sim</button>
                     <button type="button" class="btn grey btn-secondary" data-dismiss="modal">Não</button>
@@ -176,7 +176,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-body">
-                <h4 class="modal-title text-xs-center">Aluno excluído com sucesso</h4>
+                <h4 class="modal-title text-xs-center"><i class="icon-check-circle"></i> Aluno(a) excluído(a) com sucesso</h4>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="window.location.href = '<?php echo base_url('lista-alunos'); ?>'">Fechar</button>
@@ -191,7 +191,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-body">
-                <h4 class="modal-title text-xs-center">Erro ao excluir o aluno</h4>
+                <h4 class="modal-title text-xs-center"><i class="icon-remove"></i> Erro ao excluir o(a) aluno(a)</h4>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
@@ -201,11 +201,12 @@
 </div>
 
 <!-- MODAL - DESEJA BLOQUEAR O ALUNO? -->
-<div class="modal fade text-xs-left" id="bloquear-aluno" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
+<div class="modal fade text-xs-left" id="bloquear-aluno" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title text-xs-center">Deseja bloquear o aluno?</h4>
+                <h4 class="modal-title text-xs-center"><i class="icon-warning"></i> Deseja bloquear o(a) aluno(a)?</h4>
+                <br>
                 <div class="modal-footer">                
                     <button type="button" class="btn btn-primary" id="bloqueia-aluno">Sim</button>
                     <button type="button" class="btn grey btn-secondary" data-dismiss="modal" id="nao-bloqueia-aluno">Não</button>
@@ -221,7 +222,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-body">
-                <h4 class="modal-title text-xs-center">Aluno bloqueado com sucesso</h4>
+                <h4 class="modal-title text-xs-center"><i class="icon-check-circle"></i> Aluno(a) bloqueado(a) com sucesso</h4>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="window.location.href = '<?php echo base_url('lista-alunos'); ?>'">Fechar</button>
@@ -236,7 +237,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-body">
-                <h4 class="modal-title text-xs-center">Erro ao bloquear o aluno</h4>
+                <h4 class="modal-title text-xs-center"><i class="icon-remove"></i> Erro ao bloquear o(a) aluno(a)</h4>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="window.location.href = '<?php echo base_url('lista-alunos'); ?>'">Fechar</button>
@@ -246,11 +247,12 @@
 </div>
 
 <!-- MODAL - DESEJA DESBLOQUEAR O ALUNO? -->
-<div class="modal fade text-xs-left" id="desbloquear-aluno" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
+<div class="modal fade text-xs-left" data-backdrop="static" id="desbloquear-aluno" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title text-xs-center">Deseja desbloquear o aluno?</h4>
+                <h4 class="modal-title text-xs-center"><i class="icon-warning"></i> Deseja desbloquear o(a) aluno(a)?</h4>
+                <br>
                 <div class="modal-footer">                
                     <button type="button" class="btn btn-primary" id="desbloqueia-aluno">Sim</button>
                     <button type="button" class="btn grey btn-secondary" data-dismiss="modal" id="nao-desbloqueia-aluno">Não</button>
@@ -266,7 +268,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-body">
-                <h4 class="modal-title text-xs-center">Aluno desbloqueado com sucesso</h4>
+                <h4 class="modal-title text-xs-center"><i class="icon-check-circle"></i> Aluno(a) desbloqueado(a) com sucesso</h4>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="window.location.href = '<?php echo base_url('lista-alunos'); ?>'">Fechar</button>
@@ -281,7 +283,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-body">
-                <h4 class="modal-title text-xs-center">Erro ao desbloquear o aluno</h4>
+                <h4 class="modal-title text-xs-center"><i class="icon-remove"></i> Erro ao desbloquear o(a) aluno(a)</h4>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="window.location.href = '<?php echo base_url('lista-alunos'); ?>'">Fechar</button>

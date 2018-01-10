@@ -76,7 +76,7 @@
                                             <br>
                                             <div class="row">
                                                 <!-- ENDEREÇO DO ALUNO -->
-                                                <div class="col-md-8">
+                                                <div class="col-md-6">
                                                     <div class="form-group">
                                                         <h4><strong>Endereço: </strong></h4>
                                                         <h4><?php echo $aluno->enderecoAluno; ?></h4>
@@ -90,21 +90,21 @@
                                                     </div>
                                                 </div>
                                                 <!-- BAIRRO DO ALUNO -->
-                                                <div class="col-md-4">
+                                                <div class="col-md-3">
                                                     <div class="form-group">
                                                         <h4><strong>Bairro: </strong></h4>
                                                         <h4><?php echo $aluno->bairroAluno; ?></h4>
                                                     </div>
                                                 </div>
                                                 <!-- CIDADE DO ALUNO -->
-                                                <div class="col-md-4">
+                                                <div class="col-md-3">
                                                     <div class="form-group">
                                                         <h4><strong>Cidade: </strong></h4>
                                                         <h4><?php echo $aluno->cidadeAluno; ?></h4>
                                                     </div>
                                                 </div>
                                                 <!-- ESTADO DO ALUNO -->
-                                                <div class="col-md-4">
+                                                <div class="col-md-3">
                                                     <div class="form-group">
                                                         <h4><strong>Estado: </strong></h4>
                                                         <h4><?php echo $aluno->estadoAluno; ?></h4>
@@ -253,7 +253,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-body">
-                <h4 class="modal-title text-xs-center">Aluno(a) excluído(a) com sucesso</h4>
+                <h4 class="modal-title text-xs-center"><i class="icon-check-circle"></i> Aluno(a) excluído(a) com sucesso</h4>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="window.location.href = '<?php echo base_url('lista-alunos'); ?>'">Fechar</button>
@@ -268,7 +268,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-body">
-                <h4 class="modal-title text-xs-center">Erro ao excluir o(a) aluno(a)</h4>
+                <h4 class="modal-title text-xs-center"><i class="icon-remove"></i> Erro ao excluir o(a) aluno(a)</h4>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
@@ -299,7 +299,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-body">
-                <h4 class="modal-title text-xs-center">Aluno(a) bloqueado(a) com sucesso</h4>
+                <h4 class="modal-title text-xs-center"><i class="icon-check-circle"></i> Aluno(a) bloqueado(a) com sucesso</h4>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="window.location.href = '<?php echo base_url('lista-alunos'); ?>'">Fechar</button>
@@ -314,7 +314,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-body">
-                <h4 class="modal-title text-xs-center">Erro ao bloquear o(a) aluno(a)</h4>
+                <h4 class="modal-title text-xs-center"><i class="icon-remove"></i> Erro ao bloquear o(a) aluno(a)</h4>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="window.location.href = '<?php echo base_url('lista-alunos'); ?>'">Fechar</button>
@@ -345,7 +345,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-body">
-                <h4 class="modal-title text-xs-center">Aluno(a) desbloqueado(a) com sucesso</h4>
+                <h4 class="modal-title text-xs-center"><i class="icon-check-circle"></i> Aluno(a) desbloqueado(a) com sucesso</h4>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="window.location.href = '<?php echo base_url('lista-alunos'); ?>'">Fechar</button>
@@ -360,7 +360,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-body">
-                <h4 class="modal-title text-xs-center">Erro ao desbloquear o(a) aluno(a)</h4>
+                <h4 class="modal-title text-xs-center"><i class="icon-remove"></i> Erro ao desbloquear o(a) aluno(a)</h4>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="window.location.href = '<?php echo base_url('lista-alunos'); ?>'">Fechar</button>

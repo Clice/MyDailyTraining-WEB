@@ -76,7 +76,7 @@
                                             <br>
                                             <div class="row">
                                                 <!-- ENDEREÇO DO FUNCIONÁRIO -->
-                                                <div class="col-md-8">
+                                                <div class="col-md-6">
                                                     <div class="form-group">
                                                         <h4><strong>Endereço: </strong></h4>
                                                         <h4><?php echo $funcionario->enderecoUsuario; ?></h4>
@@ -90,21 +90,21 @@
                                                     </div>
                                                 </div>
                                                 <!-- BAIRRO DO FUNCIONÁRIO -->
-                                                <div class="col-md-4">
+                                                <div class="col-md-3">
                                                     <div class="form-group">
                                                         <h4><strong>Bairro: </strong></h4>
                                                         <h4><?php echo $funcionario->bairroUsuario; ?></h4>
                                                     </div>
                                                 </div>
                                                 <!-- CIDADE DO FUNCIONÁRIO -->
-                                                <div class="col-md-4">
+                                                <div class="col-md-3">
                                                     <div class="form-group">
                                                         <h4><strong>Cidade: </strong></h4>
                                                         <h4><?php echo $funcionario->cidadeUsuario; ?></h4>
                                                     </div>
                                                 </div>
                                                 <!-- ESTADO DO FUNCIONÁRIO -->
-                                                <div class="col-md-4">
+                                                <div class="col-md-3">
                                                     <div class="form-group">
                                                         <h4><strong>Estado: </strong></h4>
                                                         <h4><?php echo $funcionario->estadoUsuario; ?></h4>
@@ -155,7 +155,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title text-xs-center"><i class="icon-warning"></i> Deseja excluir o funcionário?</h4>
+                <h4 class="modal-title text-xs-center"><i class="icon-warning"></i> Deseja excluir o(a) funcionário(a)?</h4>
                 <div class="modal-footer">                
                     <button type="button" class="btn btn-primary" onclick="excluirFuncionario();">Sim</button>
                     <button type="button" class="btn grey btn-secondary" data-dismiss="modal">Não</button>
@@ -171,7 +171,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-body">
-                <h4 class="modal-title text-xs-center">Funcionário excluído com sucesso</h4>
+                <h4 class="modal-title text-xs-center"><i class="icon-check-circle"></i> Funcionário(a) excluído(a) com sucesso</h4>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="window.location.href = '<?php echo base_url('lista-funcionarios'); ?>'">Fechar</button>
@@ -186,7 +186,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-body">
-                <h4 class="modal-title text-xs-center">Erro ao excluir o funcionário</h4>
+                <h4 class="modal-title text-xs-center"><i class="icon-remove"></i> Erro ao excluir o(a) funcionário(a)</h4>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
@@ -200,7 +200,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title text-xs-center">Deseja bloquear o funcionário?</h4>
+                <h4 class="modal-title text-xs-center"><i class="icon-warning"></i> Deseja bloquear o funcionário?</h4>
                 <div class="modal-footer">                
                     <button type="button" class="btn btn-primary" id="bloqueia-funcionario">Sim</button>
                     <button type="button" class="btn grey btn-secondary" data-dismiss="modal" id="nao-bloqueia-funcionario">Não</button>
@@ -216,7 +216,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-body">
-                <h4 class="modal-title text-xs-center">Funcionário bloqueado com sucesso</h4>
+                <h4 class="modal-title text-xs-center"><i class="icon-check-circle"></i> Funcionário(a) bloqueado(a) com sucesso</h4>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="window.location.href = '<?php echo base_url('lista-funcionarios'); ?>'">Fechar</button>
@@ -231,7 +231,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-body">
-                <h4 class="modal-title text-xs-center">Erro ao bloquear o funcionário</h4>
+                <h4 class="modal-title text-xs-center"><i class="icon-remove"></i> Erro ao bloquear o(a) funcionário(a)</h4>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="window.location.href = '<?php echo base_url('lista-funcionarios'); ?>'">Fechar</button>
@@ -245,7 +245,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title text-xs-center">Deseja desbloquear o funcionário?</h4>
+                <h4 class="modal-title text-xs-center"><i class="icon-warning"></i> Deseja desbloquear o(a) funcionário(a)?</h4>
                 <div class="modal-footer">                
                     <button type="button" class="btn btn-primary" id="desbloqueia-funcionario">Sim</button>
                     <button type="button" class="btn grey btn-secondary" data-dismiss="modal" id="nao-desbloqueia-funcionario">Não</button>
@@ -261,7 +261,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-body">
-                <h4 class="modal-title text-xs-center">Funcionário desbloqueado com sucesso</h4>
+                <h4 class="modal-title text-xs-center"><i class="icon-check-circle"></i> Funcionário(a) desbloqueado(a) com sucesso</h4>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="window.location.href = '<?php echo base_url('lista-funcionarios'); ?>'">Fechar</button>
@@ -276,7 +276,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-body">
-                <h4 class="modal-title text-xs-center">Erro ao desbloquear o funcionário</h4>
+                <h4 class="modal-title text-xs-center"><i class="icon-remove"></i> Erro ao desbloquear o(a) funcionário(a)</h4>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="window.location.href = '<?php echo base_url('lista-funcionarios'); ?>'">Fechar</button>

@@ -79,7 +79,7 @@
                                                                             <td><?php echo $administradorAtivo->enderecoUsuario; ?></td>
                                                                             <td style="text-align: center;">
                                                                                 <button type="button" class="btn mb-1 btn-success btn-sm" 
-                                                                                        onclick="window.location.href = '<?php echo base_url('perfil-administrador/' . md5($administradorAtivo->idUsuario)); ?>'"><i class="icon-eye"></i> Ver</button>
+                                                                                        onclick="window.location.href = '<?php echo base_url('perfil-administrador/' . md5($administradorAtivo->idUsuario)); ?>'"><i class="icon-eye"></i> Ver Perfil</button>
                                                                                 <button type="button" class="btn mb-1 btn-warning btn-sm" 
                                                                                         onclick="window.location.href = '<?php echo base_url('editar-administrador/' . md5($administradorAtivo->idUsuario)); ?>'"><i class="icon-edit"></i> Editar</button>
                                                                                 <button type="button" class="btn mb-1 btn-danger btn-sm" 
@@ -122,7 +122,7 @@
                                                                             <td><?php echo $administradorBloqueado->enderecoUsuario; ?></td>
                                                                             <td style="text-align: center;">
                                                                                 <button type="button" class="btn mb-1 btn-success btn-sm" 
-                                                                                        onclick="window.location.href = '<?php echo base_url('perfil-administrador/' . md5($administradorBloqueado->idUsuario)); ?>'"><i class="icon-eye"></i> Ver</button>
+                                                                                        onclick="window.location.href = '<?php echo base_url('perfil-administrador/' . md5($administradorBloqueado->idUsuario)); ?>'"><i class="icon-eye"></i> Ver Perfil</button>
                                                                                 <button type="button" class="btn mb-1 btn-warning btn-sm" 
                                                                                         onclick="window.location.href = '<?php echo base_url('editar-administrador/' . md5($administradorBloqueado->idUsuario)); ?>'"><i class="icon-edit"></i> Editar</button>
                                                                                 <button type="button" class="btn mb-1 btn-danger btn-sm" 
@@ -156,7 +156,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title text-xs-center">Deseja excluir o administrador?</h4>
+                <h4 class="modal-title text-xs-center"><i class="icon-warning"></i> Deseja excluir o(a) administrador(a)?</h4>
                 <div class="modal-footer">                
                     <button type="button" class="btn btn-primary" onclick="excluirAdministrador();">Sim</button>
                     <button type="button" class="btn grey btn-secondary" data-dismiss="modal">Não</button>
@@ -172,7 +172,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-body">
-                <h4 class="modal-title text-xs-center">Administrador excluído com sucesso</h4>
+                <h4 class="modal-title text-xs-center"><i class="icon-check-circle"></i> Administrador(a) excluído(a) com sucesso</h4>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="window.location.href = '<?php echo base_url('lista-administradores'); ?>'">Fechar</button>
@@ -187,7 +187,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-body">
-                <h4 class="modal-title text-xs-center">Erro ao excluir o administrador</h4>
+                <h4 class="modal-title text-xs-center"><i class="icon-remove"></i> Erro ao excluir o(a) administrador(a)</h4>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
@@ -197,11 +197,11 @@
 </div>
 
 <!-- MODAL - DESEJA BLOQUEAR O ADMINISTRADOR? -->
-<div class="modal fade text-xs-left" id="bloquear-administrador" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
+<div class="modal fade text-xs-left" id="bloquear-administrador" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title text-xs-center">Deseja bloquear o administrador?</h4>
+                <h4 class="modal-title text-xs-center"><i class="icon-warning"></i> Deseja bloquear o(a) administrador(a)?</h4>
                 <div class="modal-footer">                
                     <button type="button" class="btn btn-primary" id="bloqueia-administrador">Sim</button>
                     <button type="button" class="btn grey btn-secondary" data-dismiss="modal" id="nao-bloqueia-administrador">Não</button>
@@ -217,7 +217,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-body">
-                <h4 class="modal-title text-xs-center">Administrador bloqueado com sucesso</h4>
+                <h4 class="modal-title text-xs-center"><i class="icon-check-circle"></i> Administrador(a) bloqueado(a) com sucesso</h4>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="window.location.href = '<?php echo base_url('lista-administradores'); ?>'">Fechar</button>
@@ -232,7 +232,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-body">
-                <h4 class="modal-title text-xs-center">Erro ao bloquear o administrador</h4>
+                <h4 class="modal-title text-xs-center"><i class="icon-remove"></i> Erro ao bloquear o(a) administrador(a)</h4>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="window.location.href = '<?php echo base_url('lista-administradores'); ?>'">Fechar</button>
@@ -242,11 +242,11 @@
 </div>
 
 <!-- MODAL - DESEJA DESBLOQUEAR O ADMINISTRADOR? -->
-<div class="modal fade text-xs-left" id="desbloquear-administrador" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
+<div class="modal fade text-xs-left" data-backdrop="static" id="desbloquear-administrador" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title text-xs-center">Deseja desbloquear o administrador?</h4>
+                <h4 class="modal-title text-xs-center"><i class="icon-warning"></i> Deseja desbloquear o(a) administrador(a)?</h4>
                 <div class="modal-footer">                
                     <button type="button" class="btn btn-primary" id="desbloqueia-administrador">Sim</button>
                     <button type="button" class="btn grey btn-secondary" data-dismiss="modal" id="nao-desbloqueia-administrador">Não</button>
@@ -262,7 +262,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-body">
-                <h4 class="modal-title text-xs-center">Administrador desbloqueado com sucesso</h4>
+                <h4 class="modal-title text-xs-center"><i class="icon-check-circle"></i> Administrador(a) desbloqueado(a) com sucesso</h4>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="window.location.href = '<?php echo base_url('lista-administradores'); ?>'">Fechar</button>
@@ -277,7 +277,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-body">
-                <h4 class="modal-title text-xs-center">Erro ao desbloquear o administrador</h4>
+                <h4 class="modal-title text-xs-center"><i class="icon-remove"></i> Erro ao desbloquear o(a) administrador(a)</h4>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="window.location.href = '<?php echo base_url('lista-administradores'); ?>'">Fechar</button>

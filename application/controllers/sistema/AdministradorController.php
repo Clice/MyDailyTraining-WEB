@@ -49,10 +49,10 @@ class AdministradorController extends CI_Controller {
 
     // FUNÇÃO DE CARREGAMENTO DA VIEW PERFIL ADMINISTRADOR.PHP
     public function viewPerfilAdministrador($idAdministrador) {
-        $dados['nomePagina'] = 'Perfil Administrador';
-        $dados['perfilAdministrador'] = $this->UsuarioModel->mVisualizarPerfilUsuario($idAdministrador);
+        $dadosAdministrador['nomePagina'] = 'Perfil Administrador';
+        $dadosAdministrador['perfilAdministrador'] = $this->UsuarioModel->mVisualizarPerfilUsuario($idAdministrador);
 
-        $this->load->view('sistema/templates/html-header', $dados);
+        $this->load->view('sistema/templates/html-header', $dadosAdministrador);
         $this->load->view('sistema/templates/header');
         $this->load->view('sistema/templates/side-menu');
         $this->load->view('sistema/telas/perfis/perfil-administrador');
