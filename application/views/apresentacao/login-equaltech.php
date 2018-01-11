@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
         <link rel="shortcut icon" href="<?php echo base_url('assets/imagens/Icon.png'); ?>">     
 
-        <title>MyDailyTraining - Login</title>
+        <title>MyDailyTraining - Login EqualTech</title>
 
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/sistema/bootstrap.css'); ?>">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/fonts/fonts/icomoon.css'); ?>">
@@ -14,7 +14,6 @@
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/sistema/app.css'); ?>">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/sistema/colors.css'); ?>">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/sistema/vertical-menu.css'); ?>">
-        <script src="<?php echo base_url('assets/js/sistema/usuarios.js'); ?>" type="text/javascript"></script>
 
     </head>
 
@@ -58,7 +57,7 @@
                                                         <label> Lembre-se de mim</label>
                                                     </div>
                                                     <div class="col-md-6 col-xs-12 text-xs-center text-md-right" data-toggle="modal" data-target="#bloqueado">
-                                                        <a class="blue" href="#">Esqueceu a senha?</a></div>
+                                                        <a class="blue" href="<?php echo base_url('recuperar-senha'); ?>">Esqueceu a senha?</a></div>
                                                 </div>
                                             </div>
                                         </form>
@@ -123,7 +122,7 @@
         <!-- JS-->
         <script type="text/javascript">
             function login() {
-                var url = "<?php echo base_url('sistema/LoginController/cLogarUsuario') ?>";
+                var url = "<?php echo base_url('EqualTechController/cLogarEqualTech') ?>";
 
                 $.ajax({
                     url: url,
@@ -134,13 +133,7 @@
                         if (data.success) {
                             window.location.href = "<?php echo base_url('pagina-principal'); ?>";
                         } else {
-                            if (data.statusAcademia === false) {
-                                $('#academia-bloqueada').modal('show');
-                            } else if (data.statusConta === false) {
-                                $('#usuario-bloqueado').modal('show');
-                            } else {
-                                $('#incorreto').modal('show');
-                            }
+                            $('#incorreto').modal('show');
                         }
                     },
                     error: function (request, status, error) {

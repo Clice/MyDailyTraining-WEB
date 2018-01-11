@@ -4,14 +4,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class AcademiaModel extends CI_Model {
 
-    public function __construct() {
-        parent::__construct();
-        $this->load->model('AdministradorModel');
-        $this->load->model('FuncionarioModel');
-        $this->load->model('InstrutorModel');
-        $this->load->model('AlunoModel');
-    }
-
     public function mCadastrarAcademia($dadosAcademia) {
         return $this->db->insert('academias', $dadosAcademia);
     }
@@ -26,10 +18,19 @@ class AcademiaModel extends CI_Model {
         return $this->db->delete('academias');
     }
 
+    public function mExcluirTodosAlunos($idAcademia) {
+        $this->db->where('idAcademia', $idAcademia);
+        return $this->db->delete('alunos');
+    }
+
+    public function mExcluirTodosUsuarios($idAcademia) {
+        $this->db->where('idAcademia', $idAcademia);
+        return $this->db->delete('usuarios');
+    }
+
     public function mBloquearAcademia($idAcademia) {
         $dadosAcademia['statusAcademia'] = false;
         $this->db->where('idAcademia', $idAcademia);
-        #$this->AdministradorModel->mBloquearAdministrador($idAcademia);
         return $this->db->update('academias', $dadosAcademia);
     }
 
@@ -69,10 +70,8 @@ class AcademiaModel extends CI_Model {
     }
 
     public function mQtdAlunos($idAcademia) {
-        if ($idAcademia > 0) {
-            $this->db->where('idAcademia', $idAcademia);
-            return $this->db->get('alunos')->result();
-        }
+        $this->db->where('md5(idAcademia)', $idAcademia);
+        return $this->db->get('alunos')->result();
     }
 
     public function mQtdAcademiasAtivas($idAcademia) {

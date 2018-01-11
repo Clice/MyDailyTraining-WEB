@@ -48,7 +48,7 @@
                                                 <div class="col-md-3">
                                                     <div class="form-group">
                                                         <h4><strong>Telefone: </strong></h4>
-                                                        <h4><i class="icon-phone-square"></i> <?php echo $administrador->telefoneUsuario; ?></h4>
+                                                        <h4><?php echo $administrador->telefoneUsuario; ?></h4>
                                                     </div>
                                                 </div>
                                                 <!-- SEXO DO ADMINISTRADOR -->
@@ -62,7 +62,7 @@
                                                 <div class="col-md-3">
                                                     <div class="form-group">
                                                         <h4><strong>Data de Nascimento: </strong></h4>
-                                                        <h4><?php echo $administrador->dataNascimentoUsuario; ?></h4>
+                                                        <h4><?php echo formatarData($administrador->dataNascimentoUsuario); ?></h4>
                                                     </div>
                                                 </div>
                                                 <!-- IDADE DO ADMINISTRADOR -->
@@ -115,27 +115,27 @@
                                         <hr style="margin-top: 4%;">
                                         <!-- BOTÕES -->
                                         <div style="float: right;" class="form-actions">
-                                            <button type="button"                               
-                                            <?php if ($administrador->statusConta == 1) { ?>
-                                                        class="btn btn-blue"
-                                                        onclick="modalDesBloquearAdministrador(this, <?php echo $administrador->idUsuario; ?>, true);"
-                                                    <?php } else { ?>
+                                            <button type="button" 
+                                                <?php if ($administrador->statusConta == 1) { ?>
                                                         class="btn btn-black"
-                                                        onclick="modalDesBloquearAdministrador(this, <?php echo $administrador->idUsuario; ?>, false);"
-                                                    <?php } ?>
-                                                    ><i <?php if ($administrador->statusConta == 1) { ?>
-                                                        class="icon-unlock"
+                                                        onclick="modalDesBloquearUsuario(this, <?php echo $administrador->idUsuario; ?>, true);"
                                                     <?php } else { ?>
+                                                        class="btn btn-blue"
+                                                        onclick="modalDesBloquearUsuario(this, <?php echo $administrador->idUsuario; ?>, false);"
+                                                    <?php } ?>>
+                                                <i <?php if ($administrador->statusConta == 1) { ?>
                                                         class="icon-lock"
+                                                    <?php } else { ?>
+                                                        class="icon-unlock"
                                                     <?php } ?>></i><?php if ($administrador->statusConta) { ?> Bloquear <?php } else { ?> Desbloquear <?php } ?>
                                             </button>
-                                            <button type="button" class="btn btn-green" onclick="window.location.href = '<?php echo base_url('editar-administrador/' . md5($administrador->idUsuario)); ?>'">
+                                            <button type="button" class="btn btn-warning" onclick="window.location.href = '<?php echo base_url('editar-administrador/' . md5($administrador->idUsuario)); ?>'">
                                                 <i class="icon-edit"></i> Editar
                                             </button>
-                                            <button type="button" class="btn btn-danger" onclick="modalExcluirAdministrador(<?php echo $administrador->idUsuario; ?>);">
+                                            <button type="button" class="btn btn-danger" onclick="modalExcluirUsuario(<?php echo $administrador->idUsuario; ?>);">
                                                 <i class="icon-trash"></i> Excluir
                                             </button>
-                                            <button type="button" class="btn btn-primary" onclick="window.location.href = '<?php echo base_url('lista-administradores'); ?>'">
+                                            <button type="button" class="btn btn-default" onclick="window.location.href = '<?php echo base_url('lista-administradores-academia'); ?>'">
                                                 <i class="icon-chevron-left2"></i> Voltar
                                             </button>
                                         </div>                                        
@@ -151,13 +151,13 @@
 </div>
 
 <!-- MODAL - DESEJA EXCLUIR O ADMINISTRADOR? -->
-<div class="modal fade text-xs-left" id="excluir-administrador" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
+<div class="modal fade text-xs-left" id="excluir" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title text-xs-center"><i class="icon-warning"></i> Deseja excluir o(a) administrador(a)?</h4>
+                <h4 class="modal-title text-xs-center"><i class="icon-warning warning"></i> Deseja excluir o(a) administrador(a)?</h4>
                 <div class="modal-footer">                
-                    <button type="button" class="btn btn-primary" onclick="excluirAdministrador();">Sim</button>
+                    <button type="button" class="btn btn-primary" onclick="excluirUsuario();">Sim</button>
                     <button type="button" class="btn grey btn-secondary" data-dismiss="modal">Não</button>
                 </div>
             </div>
@@ -166,12 +166,12 @@
 </div>
 
 <!-- MODAL - ADMINISTRADOR EXCLUÍDO COM SUCESSO -->
-<div class="modal fade text-xs-left" data-backdrop="static" id="excluir-sucesso-administrador" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
+<div class="modal fade text-xs-left" data-backdrop="static" id="excluir-sucesso" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
      aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-body">
-                <h4 class="modal-title text-xs-center"><i class="icon-check-circle"></i> Administrador(a) excluído(a) com sucesso</h4>
+                <h4 class="modal-title text-xs-center"><i class="icon-check-circle success"></i> Administrador(a) excluído(a) com sucesso</h4>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="window.location.href = '<?php echo base_url('lista-administradores'); ?>'">Fechar</button>
@@ -181,12 +181,12 @@
 </div>
 
 <!-- MODAL - ERRO AO EXCLUIR O ADMINISTRADOR -->
-<div class="modal fade text-xs-left" data-backdrop="static" id="excluir-erro-administrador" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
+<div class="modal fade text-xs-left" data-backdrop="static" id="excluir-erro" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
      aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-body">
-                <h4 class="modal-title text-xs-center"><i class="icon-remove"></i> Erro ao excluir o(a) administrador(a)</h4>
+                <h4 class="modal-title text-xs-center"><i class="icon-remove danger"></i> Erro ao excluir o(a) administrador(a)</h4>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
@@ -196,14 +196,14 @@
 </div>
 
 <!-- MODAL - DESEJA BLOQUEAR O ADMINISTRADOR? -->
-<div class="modal fade text-xs-left" id="bloquear-administrador" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
+<div class="modal fade text-xs-left" id="bloquear" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title text-xs-center"><i class="icon-warning"></i> Deseja bloquear o(a) administrador(a)?</h4>
+                <h4 class="modal-title text-xs-center"><i class="icon-warning warning"></i> Deseja bloquear o(a) administrador(a)?</h4>
                 <div class="modal-footer">                
-                    <button type="button" class="btn btn-primary" id="bloqueia-administrador">Sim</button>
-                    <button type="button" class="btn grey btn-secondary" data-dismiss="modal" id="nao-bloqueia-administrador">Não</button>
+                    <button type="button" class="btn btn-primary" id="bloqueia">Sim</button>
+                    <button type="button" class="btn grey btn-secondary" data-dismiss="modal" id="nao-bloqueia">Não</button>
                 </div>
             </div>
         </div>
@@ -211,27 +211,27 @@
 </div>
 
 <!-- MODAL - ADMINISTRADOR BLOQUEADO COM SUCESSO -->
-<div class="modal fade text-xs-left" data-backdrop="static" id="bloquear-sucesso-administrador" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
+<div class="modal fade text-xs-left" data-backdrop="static" id="bloquear-sucesso" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
      aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-body">
-                <h4 class="modal-title text-xs-center"><i class="icon-check-circle"></i> Administrador(a) bloqueado(a) com sucesso</h4>
+                <h4 class="modal-title text-xs-center"><i class="icon-check-circle success"></i> Administrador(a) bloqueado(a) com sucesso</h4>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="window.location.href = '<?php echo base_url('lista-administradores'); ?>'">Fechar</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="window.location.href = '<?php echo base_url('perfil-administrador'); ?>'">Fechar</button>
             </div>
         </div>
     </div>
 </div>
 
 <!-- MODAL - ERRO AO BLOQUEAR O ADMINISTRADOR -->
-<div class="modal fade text-xs-left" data-backdrop="static" id="bloquear-erro-administrador" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
+<div class="modal fade text-xs-left" data-backdrop="static" id="bloquear-erro" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
      aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-body">
-                <h4 class="modal-title text-xs-center"><i class="icon-remove"></i> Erro ao bloquear o(a) administrador(a)</h4>
+                <h4 class="modal-title text-xs-center"><i class="icon-remove danger"></i> Erro ao bloquear o(a) administrador(a)</h4>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="window.location.href = '<?php echo base_url('lista-administradores'); ?>'">Fechar</button>
@@ -241,14 +241,14 @@
 </div>
 
 <!-- MODAL - DESEJA DESBLOQUEAR O ADMINISTRADOR? -->
-<div class="modal fade text-xs-left" data-backdrop="static" id="desbloquear-administrador" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
+<div class="modal fade text-xs-left" data-backdrop="static" id="desbloquear" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title text-xs-center"><i class="icon-warning"></i> Deseja desbloquear o(a) administrador(a)?</h4>
+                <h4 class="modal-title text-xs-center"><i class="icon-warning warning"></i> Deseja desbloquear o(a) administrador(a)?</h4>
                 <div class="modal-footer">                
-                    <button type="button" class="btn btn-primary" id="desbloqueia-administrador">Sim</button>
-                    <button type="button" class="btn grey btn-secondary" data-dismiss="modal" id="nao-desbloqueia-administrador">Não</button>
+                    <button type="button" class="btn btn-primary" id="desbloqueia">Sim</button>
+                    <button type="button" class="btn grey btn-secondary" data-dismiss="modal" id="nao-desbloqueia">Não</button>
                 </div>
             </div>
         </div>
@@ -256,12 +256,12 @@
 </div>
 
 <!-- MODAL - ADMINISTRADOR DESBLOQUEADO COM SUCESSO -->
-<div class="modal fade text-xs-left" data-backdrop="static" id="desbloquear-sucesso-administrador" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
+<div class="modal fade text-xs-left" data-backdrop="static" id="desbloquear-sucesso" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
      aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-body">
-                <h4 class="modal-title text-xs-center"><i class="icon-check-circle"></i> Administrador(a) desbloqueado(a) com sucesso</h4>
+                <h4 class="modal-title text-xs-center"><i class="icon-check-circle success"></i> Administrador(a) desbloqueado(a) com sucesso</h4>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="window.location.href = '<?php echo base_url('lista-administradores'); ?>'">Fechar</button>
@@ -271,12 +271,12 @@
 </div>
 
 <!-- MODAL - ERRO AO DESBLOQUEAR O ADMINISTRADOR -->
-<div class="modal fade text-xs-left" data-backdrop="static" id="desbloquear-erro-administrador" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
+<div class="modal fade text-xs-left" data-backdrop="static" id="desbloquear-erro" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
      aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-body">
-                <h4 class="modal-title text-xs-center"><i class="icon-remove"></i> Erro ao desbloquear o(a) administrador(a)</h4>
+                <h4 class="modal-title text-xs-center"><i class="icon-remove danger"></i> Erro ao desbloquear o(a) administrador(a)</h4>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="window.location.href = '<?php echo base_url('lista-administradores'); ?>'">Fechar</button>
@@ -284,68 +284,3 @@
         </div>
     </div>
 </div>
-
-<!-- FUNÇÕES EM JAVASCRIPT -->
-<script type="text/javascript">
-    function excluirAdministrador() {
-
-        var dados = "idUsuario=" + $('#idUsuario').val();
-        $.ajax({
-            url: "<?php echo base_url('sistema/AdministradorController/cExcluirAdministrador'); ?>",
-            type: "POST",
-            data: dados,
-            dataType: 'json',
-            success: function (data) {
-                $('#excluir-administrador').modal('hide');
-                if (data.success) {
-                    $('#excluir-sucesso-administrador').modal('show');
-                } else {
-                    $('#excluir-erro-administrador').modal('show');
-                }
-            },
-            error: function (request, status, error) {
-                alert("Erro: " + request.responseText);
-            }
-        });
-    }
-
-    function bloquearAdministrador(dados) {
-        $.ajax({
-            type: 'POST',
-            url: "<?php echo base_url('sistema/AdministradorController/cBloquearAdministrador'); ?>",
-            dataType: 'json',
-            data: dados,
-            success: function (data) {
-                $('#bloquear-administrador').modal("hide");
-                if (data.success) {
-                    $('#bloquear-sucesso-administrador').modal("show");
-                } else {
-                    $('#bloquear-erro-administrador').modal("show");
-                }
-            },
-            error: function (request, status, error) {
-                alert("Erro: " + request.responseText);
-            }
-        });
-    }
-
-    function desbloquearAdministrador(dados) {
-        $.ajax({
-            type: 'POST',
-            url: "<?php echo base_url('sistema/AdministradorController/cDesbloquearAdministrador'); ?>",
-            dataType: 'json',
-            data: dados,
-            success: function (data) {
-                $('#desbloquear-administrador').modal("hide");
-                if (data.success) {
-                    $('#desbloquear-sucesso-administrador').modal("show");
-                } else {
-                    $('#desbloquear-erro-administrador').modal("show");
-                }
-            },
-            error: function (request, status, error) {
-                alert("Erro: " + request.responseText);
-            }
-        });
-    }
-</script>

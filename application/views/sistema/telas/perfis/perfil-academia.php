@@ -10,6 +10,7 @@
                         <div class="card">
                             <div class="card-body collapse in">
                                 <div class="card-block">
+                                    <input type="hidden" name="idAcademia" id="idAcademia">
                                     <!-- TÍTULO DA PÁGINA - NOME DA ACADEMIA -->
                                     <?php foreach ($perfilAcademia as $academia) { ?>
                                         <div class="content-header row">
@@ -104,6 +105,9 @@
                                         <hr style="margin-top: 4%;">
                                         <!-- BOTÕES -->
                                         <div style="float: right;" class="form-actions">
+                                            <button type="button" class="btn btn-purple" onclick="window.location.href = '<?php echo base_url('cadastrar-administrador/novo/' . $academia->idAcademia); ?>'">
+                                                <i class="icon-plus4"></i> Novo Administrador
+                                            </button>
                                             <button type="button"                               
                                             <?php if ($academia->statusAcademia == 1) { ?>
                                                         class="btn btn-black"
@@ -124,7 +128,7 @@
                                             <button type="button" class="btn btn-danger" onclick="modalExcluirAcademia(<?php echo $academia->idAcademia; ?>);">
                                                 <i class="icon-trash"></i> Excluir
                                             </button>
-                                            <button type="button" class="btn btn-primary" onclick="window.location.href = '<?php echo base_url('lista-academias'); ?>'">
+                                            <button type="button" class="btn btn-default" onclick="window.location.href = '<?php echo base_url('lista-academias'); ?>'">
                                                 <i class="icon-chevron-left2"></i> Voltar
                                             </button>
                                         <?php } ?>
@@ -138,201 +142,3 @@
         </div>
     </div>
 </div>
-
-<!-- MODAL - DESEJA EXCLUIR A ACADEMIA? -->
-<div class="modal fade text-xs-left" id="excluir-academia" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title text-xs-center">Deseja excluir a academia?</h4>
-                <div class="modal-footer">                
-                    <button type="button" class="btn btn-primary" onclick="excluirAcademia();">Sim</button>
-                    <button type="button" class="btn grey btn-secondary" data-dismiss="modal">Não</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- MODAL - ACADEMIA EXCLUÍDA COM SUCESSO -->
-<div class="modal fade text-xs-left" data-backdrop="static" id="excluir-sucesso-academia" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
-     aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-body">
-                <h4 class="modal-title text-xs-center">Academia excluída com sucesso</h4>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="window.location.href = '<?php echo base_url('lista-academias'); ?>'">Fechar</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- MODAL - ERRO AO EXCLUIR A ACADEMIA -->
-<div class="modal fade text-xs-left" data-backdrop="static" id="excluir-erro-academia" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
-     aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-body">
-                <h4 class="modal-title text-xs-center">Erro ao excluir a academia</h4>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- MODAL - DESEJA BLOQUEAR A ACADEMIA? -->
-<div class="modal fade text-xs-left" id="bloquear-academia" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title text-xs-center">Deseja bloquear a academia?</h4>
-                <div class="modal-footer">                
-                    <button type="button" class="btn btn-primary" id="bloqueia-academia">Sim</button>
-                    <button type="button" class="btn grey btn-secondary" data-dismiss="modal" id="nao-bloqueia-academia">Não</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- MODAL - ACADEMIA BLOQUEADA COM SUCESSO -->
-<div class="modal fade text-xs-left" data-backdrop="static" id="bloquear-sucesso-academia" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
-     aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-body">
-                <h4 class="modal-title text-xs-center">Academia bloqueada com sucesso</h4>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="window.location.href = '<?php echo base_url('lista-academias'); ?>'">Fechar</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- MODAL - ERRO AO BLOQUEAR A ACADEMIA -->
-<div class="modal fade text-xs-left" data-backdrop="static" id="bloquear-erro-academia" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
-     aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-body">
-                <h4 class="modal-title text-xs-center">Erro ao bloquear a academia</h4>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="window.location.href = '<?php echo base_url('lista-academias'); ?>'">Fechar</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- MODAL - DESEJA DESBLOQUEAR A ACADEMIA? -->
-<div class="modal fade text-xs-left" id="desbloquear-academia" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title text-xs-center">Deseja desbloquear a academia?</h4>
-                <div class="modal-footer">                
-                    <button type="button" class="btn btn-primary" id="desbloqueia-academia">Sim</button>
-                    <button type="button" class="btn grey btn-secondary" data-dismiss="modal" id="nao-desbloqueia-academia">Não</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- MODAL - ACADEMIA DESBLOQUEADA COM SUCESSO -->
-<div class="modal fade text-xs-left" data-backdrop="static" id="desbloquear-sucesso-academia" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
-     aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-body">
-                <h4 class="modal-title text-xs-center">Academia desbloqueada com sucesso</h4>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="window.location.href = '<?php echo base_url('lista-academias'); ?>'">Fechar</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- MODAL - ERRO AO DESBLOQUEAR A ACADEMIA -->
-<div class="modal fade text-xs-left" data-backdrop="static" id="desbloquear-erro-academia" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
-     aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-body">
-                <h4 class="modal-title text-xs-center">Erro ao desbloquear a academia</h4>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="window.location.href = '<?php echo base_url('lista-academias'); ?>'">Fechar</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script type="text/javascript">
-    function excluirAcademia() {
-        var dados = "idAcademia=" + $('#idAcademia').val();
-        $.ajax({
-            url: "<?php echo base_url('sistema/AcademiaController/cExcluirAcademia'); ?>",
-            type: "POST",
-            data: dados,
-            dataType: "JSON",
-            success: function (data) {
-                $('#excluir-academia').modal('hide');
-                if (data.success) {
-                    $('#excluir-sucesso-academia').modal('show');
-                } else {
-                    $('#excluir-erro-academia').modal('show');
-                }
-            },
-            error: function (request, status, error) {
-                alert("Erro: " + request.responseText);
-            }
-        });
-    }
-
-    function bloquearAcademia(dados) {
-        $.ajax({
-            type: 'POST',
-            url: "<?php echo base_url('sistema/AcademiaController/cBloquearAcademia'); ?>",
-            dataType: 'json',
-            data: dados,
-            success: function (data) {
-                $('#bloquear-academia').modal("hide");
-                if (data.success) {
-                    $('#bloquear-sucesso-academia').modal("show");
-                } else {
-                    $('#bloquear-erro-academia').modal("show");
-                }
-            },
-            error: function (request, status, error) {
-                alert("Erro: " + request.responseText);
-            }
-        });
-    }
-
-    function desbloquearAcademia(dados) {
-        $.ajax({
-            type: 'POST',
-            url: "<?php echo base_url('sistema/AcademiaController/cDesbloquearAcademia'); ?>",
-            dataType: 'json',
-            data: dados,
-            success: function (data) {
-                $('#desbloquear-academia').modal("hide");
-                if (data.success) {
-                    $('#desbloquear-sucesso-academia').modal("show");
-                } else {
-                    $('#desbloquear-erro-academia').modal("show");
-                }
-            },
-            error: function (request, status, error) {
-                alert("Erro: " + request.responseText);
-            }
-        });
-    }
-</script>

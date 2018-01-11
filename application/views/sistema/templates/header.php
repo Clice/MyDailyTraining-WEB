@@ -55,7 +55,7 @@
                                 <img src="<?php echo base_url('assets/imagens/avatar-s-1.png'); ?>" alt="avatar"><i></i></span><span class="user-name"><?php if ($this->session->userdata('tipoConta') == 1) { echo $this->session->userdata('nomeEqualTech'); } else if ($this->session->userdata('tipoConta') > 1) { echo $this->session->userdata('nomeUsuario'); } ?></span></a>
                         <div class="dropdown-menu dropdown-menu-right">
                             <a href="<?php echo base_url('perfil'); ?>" class="dropdown-item"><i class="icon-head"></i> Perfil</a>
-                            <div class="dropdown-divider"></div><a href="<?php echo base_url('sistema/LoginController/cLogoutUsuario'); ?>" class="dropdown-item"><i class="icon-power3"></i> Sair</a>
+                            <div class="dropdown-divider"></div><a href="<?php echo base_url('InicialController/cLogoutUsuario'); ?>" class="dropdown-item"><i class="icon-power3"></i> Sair</a>
                         </div>
                     </li>
                 </ul>

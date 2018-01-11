@@ -3,55 +3,54 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 // ROTA PARA O CONTROLLER INICIAL
-$route['default_controller'] = 'PaginaInicialController';
+$route['default_controller'] = 'InicialController';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 // ROTAS PARA OUTROS CONTROLLERS
 // ROTAS DE LOGIN E PARA A PÁGINA PRINCIPAL
-$route['login'] = 'sistema/LoginController';
-$route['pagina-principal'] = 'sistema/PaginaPrincipalController';
-$route['recuperar-senha'] = 'equaltech/LoginController/cRecuperarSenha';
+$route['login'] = 'UsuarioController';
+$route['loginEqualTech'] = 'EqualTechController';
+$route['pagina-principal'] = 'InicialController/viewPaginaPrincipal';
+$route['recuperar-senha'] = 'EqualTechController/viewRecuperarSenha';
 $route['alterar-senha/(:any)'] = 'equaltech/LoginController/cAlterarSenha/$1';
 
 // ROTAS PARA O RELATÓRIO, PERFIL E NOTIFICAÇÕES
-$route['relatorio'] = 'sistema/AcademiaController/viewRelatorio';
-$route['perfil'] = 'sistema/PaginaPrincipalController/viewPerfil';
-$route['notificacoes'] = 'sistema/PaginaPrincipalController/viewNotificacoes';
+$route['perfil'] = 'InicialController/viewPerfil';
+$route['relatorio'] = 'InicialController/viewRelatorio';
+$route['notificacoes'] = 'InicialController/viewNotificacoes';
 
 // ROTAS PARA AS LISTAS
-$route['lista-alunos'] = 'sistema/AlunoController';
-$route['lista-treinos'] = 'sistema/TreinoController';
-$route['lista-academias'] = 'sistema/AcademiaController';
-$route['lista-equaltech'] = 'equaltech/EqualTechController';
-$route['lista-instrutores'] = 'sistema/InstrutorController';
-$route['lista-funcionarios'] = 'sistema/FuncionarioController';
-$route['lista-administradores'] = 'sistema/AdministradorController';
+$route['lista-alunos'] = 'AlunoController';
+$route['lista-treinos'] = 'TreinoController';
+$route['lista-academias'] = 'AcademiaController';
+$route['lista-instrutores'] = 'InstrutorController';
+$route['lista-funcionarios'] = 'FuncionarioController';
+$route['lista-administradores'] = 'AdministradorController';
+$route['lista-equaltech'] = 'EqualTechController/viewListaEqualTech';
+$route['lista-administradores-academia'] = 'AdministradorController/viewListaAdministradoresAcademia';
 
 // ROTAS PARA OS PERFIS
-$route['perfil-aluno/(:any)'] = 'sistema/AlunoController/viewPerfilAluno/$1';
-$route['perfil-academia/(:any)'] = 'sistema/AcademiaController/viewPerfilAcademia/$1';
-$route['perfil-equaltech/(:any)'] = 'equaltech/EqualTechController/viewPerfilEqualTech/$1';
-$route['perfil-instrutor/(:any)'] = 'sistema/InstrutorController/viewPerfilInstrutor/$1';
-$route['perfil-funcionario/(:any)'] = 'sistema/FuncionarioController/viewPerfilFuncionario/$1';
-$route['perfil-administrador/(:any)'] = 'sistema/AdministradorController/viewPerfilAdministrador/$1';
+$route['perfil-aluno/(:any)'] = 'AlunoController/viewPerfilAluno/$1';
+$route['perfil-academia/(:any)'] = 'AcademiaController/viewPerfilAcademia/$1';
+$route['perfil-equaltech/(:any)'] = 'EqualTechController/viewPerfilEqualTech/$1';
+$route['perfil-instrutor/(:any)'] = 'InstrutorController/viewPerfilInstrutor/$1';
+$route['perfil-funcionario/(:any)'] = 'FuncionarioController/viewPerfilFuncionario/$1';
+$route['perfil-administrador/(:any)'] = 'AdministradorController/viewPerfilAdministrador/$1';
 
 // ROTAS PARA OS CADASTROS
-$route['cadastrar-aluno'] = 'sistema/AlunoController/viewCadastrarEditarAluno';
-$route['cadastrar-treino'] = 'sistema/TreinoController/viewCadastrarEditarTreino';
-$route['cadastrar-academia'] = 'sistema/AcademiaController/viewCadastrarEditarAcademia';
-$route['cadastrar-instrutor'] = 'sistema/InstrutorController/viewCadastrarEditarInstrutor';
-$route['cadastrar-funcionario'] = 'sistema/FuncionarioController/viewCadastrarEditarFuncionario';
-$route['cadastrar-administrador'] = 'sistema/AdministradorController/viewCadastrarEditarAdministrador';
+$route['cadastrar-aluno/(:any)'] = 'AlunoController/viewCadastrarEditarAluno/$1';
+$route['cadastrar-treino/(:any)'] = 'TreinoController/viewCadastrarEditarTreino/$1';
+$route['cadastrar-academia/(:any)'] = 'AcademiaController/viewCadastrarEditarAcademia/$1';
+$route['cadastrar-instrutor/(:any)'] = 'InstrutorController/viewCadastrarEditarInstrutor/$1';
+$route['cadastrar-funcionario/(:any)'] = 'FuncionarioController/viewCadastrarEditarFuncionario/$1';
+$route['cadastrar-administrador/(:any)/(:num)'] = 'AdministradorController/viewCadastrarEditarAdministrador/$1/$2';
 
 // ROTAS PARA AS EDIÇÕES
-$route['editar-aluno/(:any)'] = 'sistema/AlunoController/viewCadastrarEditarAluno/$1';
-$route['editar-treino/(:any)'] = 'sistema/TreinoController/viewCadastrarEditarTreino/$1';
-$route['editar-equaltech/(:any)'] = 'equaltech/EqualTechController/viewEditarEqualTech/$1';
-$route['editar-academia/(:any)'] = 'sistema/AcademiaController/viewCadastrarEditarAcademia/$1';
-$route['editar-instrutor/(:any)'] = 'sistema/InstrutorController/viewCadastrarEditarInstrutor/$1';
-$route['editar-funcionario/(:any)'] = 'sistema/FuncionarioController/viewCadastrarEditarFuncionario/$1';
-$route['editar-administrador/(:any)'] = 'sistema/AdministradorController/viewCadastrarEditarAdministrador/$1';
-
-// ROTAS PARA A EQUALTECH
-$route['loginEqualtech'] = 'equaltech/LoginController';
+$route['editar-aluno/(:any)'] = 'AlunoController/viewCadastrarEditarAluno/$1';
+$route['editar-treino/(:any)'] = 'TreinoController/viewCadastrarEditarTreino/$1';
+$route['editar-equaltech/(:any)'] = 'EqualTechController/viewEditarEqualTech/$1';
+$route['editar-academia/(:any)'] = 'AcademiaController/viewCadastrarEditarAcademia/$1';
+$route['editar-instrutor/(:any)'] = 'InstrutorController/viewCadastrarEditarInstrutor/$1';
+$route['editar-funcionario/(:any)'] = 'FuncionarioController/viewCadastrarEditarFuncionario/$1';
+$route['editar-administrador/(:any)'] = 'AdministradorController/viewCadastrarEditarAdministrador/$1';

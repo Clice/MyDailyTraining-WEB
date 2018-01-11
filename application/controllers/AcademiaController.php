@@ -11,7 +11,8 @@ class AcademiaController extends CI_Controller {
 
     // FUNÇÃO DE CARREGAMENTO DA VIEW LISTA-ACADEMIAS.PHP
     public function index() {
-        $dadosAcademia['nomePagina'] = 'Lista de Academias';
+        $dadosAcademia['nomePagina'] = "Lista de Academias";
+        $dadosAcademia['urlPagina'] = "lista-academias";
         $dadosAcademia['academiasAtivas'] = $this->AcademiaModel->mListarAcademiasAtivas();
         $dadosAcademia['academiasBloqueadas'] = $this->AcademiaModel->mListarAcademiasBloqueadas();
 
@@ -19,27 +20,19 @@ class AcademiaController extends CI_Controller {
         $this->load->view('sistema/templates/header');
         $this->load->view('sistema/templates/side-menu');
         $this->load->view('sistema/telas/listas/lista-academias');
+        $this->load->view('sistema/templates/academia/modals-academia');
+        $this->load->view('sistema/templates/academia/js-academia');
         $this->load->view('sistema/templates/footer');
         $this->load->view('sistema/templates/html-footer');
     }
 
     // FUNÇÃO DE CARREGAMENTO DA VIEW CADASTRAR-EDITAR-ACADEMIA.PHP
-    public function viewCadastrarEditarAcademia() {
+    public function viewCadastrarEditarAcademia($idAcademia) {
         // SE UM ID ACADEMIA FOI PASSADO OU NÃO
         // PARA REALIZAR O CADASTRO DE UMA ACADEMIA
-        if (isset($idAcademia)) {
+        if ($idAcademia != "novo") {
+            $dados = get_object_vars($this->AcademiaModel->mVisualizarPerfilAcademia($idAcademia)[0]);
             $dados['nomePagina'] = 'Editar Academia';
-            $dados['idPlano'] = $idPlano;
-            $dados['idPacote'] = $idPacote;
-            $dados['valorPago'] = $valorPago;
-            $dados['valorTotal'] = $valorTotal;
-            $dados['idAcademia'] = $idAcademia;
-            $dados['qtdParcelas'] = $qtdParcelas;
-            $dados['statusAcademia'] = $statusAcademia;
-            $dados['qtdTotalLicencas'] = $qtdTotalLicencas;
-            $dados['qtdLicencasUsadas'] = $qtdLicencasUsadas;
-            $dados['mensalidadeAcademia'] = $mensalidadeAcademia;
-            $dados['diaPagamentoAcademia'] = $diaPagamentoAcademia;
         }
         // PARA REALIZAR A EDIÇÃO DE DADOS DE UMA ACADEMIA
         else {
@@ -47,10 +40,15 @@ class AcademiaController extends CI_Controller {
             $dados['idPlano'] = 0;
             $dados['idPacote'] = 0;
             $dados['valorPago'] = 0;
+            $dados['valorPlano'] = 0;
             $dados['valorTotal'] = 0;
-            $dados['idAcademia'] = "novo";
             $dados['qtdParcelas'] = 0;
+            $dados['valorPacote'] = 0;
+            $dados['licencasPlano'] = 0;
             $dados['statusAcademia'] = 0;
+            $dados['licencasPacote'] = 0;
+            $dados['estadoAcademia'] = '';
+            $dados['idAcademia'] = "novo";
             $dados['qtdTotalLicencas'] = 0;
             $dados['qtdLicencasUsadas'] = 0;
             $dados['mensalidadeAcademia'] = 0;
@@ -79,14 +77,17 @@ class AcademiaController extends CI_Controller {
 
     // FUNÇÃO DE CARREGAMENTO DA VIEW PERFIL ACADEMIA.PHP
     public function viewPerfilAcademia($idAcademia) {
-        $dados['nomePagina'] = 'Perfil Academia';
+        $dados['nomePagina'] = "Perfil Academia";
+        $dados['urlPagina'] = "perfil-academia/" . $idAcademia;
         $dados['perfilAcademia'] = $this->AcademiaModel->mVisualizarPerfilAcademia($idAcademia);
-        $dados['qtdAlunos'] = count($this->AcademiaModel->mQtdAlunos(0));
+        $dados['qtdAlunos'] = count($this->AcademiaModel->mQtdAlunos($idAcademia));
 
         $this->load->view('sistema/templates/html-header', $dados);
         $this->load->view('sistema/templates/header');
         $this->load->view('sistema/templates/side-menu');
         $this->load->view('sistema/telas/perfis/perfil-academia');
+        $this->load->view('sistema/templates/academia/modals-academia');
+        $this->load->view('sistema/templates/academia/js-academia');
         $this->load->view('sistema/templates/footer');
         $this->load->view('sistema/templates/html-footer');
     }
@@ -142,12 +143,20 @@ class AcademiaController extends CI_Controller {
     public function cExcluirAcademia() {
         $idAcademia = $this->input->post('idAcademia');
 
-        if ($this->AcademiaModel->mExcluirAcademia($idAcademia)) {
-            $resposta = array('success' => true);
+        if ($this->AcademiaModel->mExcluirTodosAlunos($idAcademia)) {
+            if ($this->AcademiaModel->mExcluirTodosUsuarios($idAcademia)) {
+                if ($this->AcademiaModel->mExcluirAcademia($idAcademia)) {
+                    $resposta = array('success' => true);
+                } else {
+                    $resposta = array('success' => false);
+                }
+            } else {
+                $resposta = array('success' => false);
+            }
         } else {
             $resposta = array('success' => false);
         }
-
+        
         echo json_encode($resposta);
     }
 

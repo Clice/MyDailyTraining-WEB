@@ -1,11 +1,11 @@
-// FUNÇÕES PARA MANUTENÇÃO DO INSTRUTOR
+// FUNÇÕES PARA MANUTENÇÃO DO USUÁRIO
 
-// FUNÇÃO PARA VERIFICAR OS DADOS DO INSTRUTOR
+// FUNÇÃO PARA VERIFICAR OS DADOS DO USUÁRIO
 // OS DADOS PASSADOS DEVERAM SER OBRIGATÓRIOS
 // O CPF TEM QUE SER VERIFICADO, PARA NÃO SER CADASTRADO DUAS VEZES
-function verificarDadosInstrutor() {
+function verificarDadosUsuario() {
     var idUsuario = $('#idUsuario').val();
-    //var idAcademia = $('#idAcademia').val();
+    var idAcademia = $('#idAcademia').val();
     var nomeUsuario = $('#nomeUsuario').val();
     var loginUsuario = $('#loginUsuario').val();
     var senhaUsuario = $('#senhaUsuario').val();
@@ -13,74 +13,72 @@ function verificarDadosInstrutor() {
     var emailUsuario = $('#emailUsuario').val();
     var cpfUsuario = $('#cpfUsuario').val();
     var rgUsuario = $('#rgUsuario').val();
-    //var sexoUsuario = $('#sexoUsuario').val();
+    var sexoUsuario = $('#sexoUsuario').val();
     var dataNascimentoUsuario = $('#dataNascimentoUsuario').val();
-    var idadeUsuario = $('#idadeUsuario').val();
     var enderecoUsuario = $('#enderecoUsuario').val();
     var estadoUsuario = $('#estadoUsuario').val();
     var cidadeUsuario = $('#cidadeUsuario').val();
-    //var bairroUsuario = $('#bairroUsuario').val();
+    var bairroUsuario = $('#bairroUsuario').val();
     var cepUsuario = $('#cepUsuario').val();
     var telefoneUsuario = $('#telefoneUsuario').val();
 
     var msnCPF = $('#msnCPF').val();
 
-    if ((idUsuario === "") || /*(idAcademia === "") ||*/ (nomeUsuario === "") || (loginUsuario === "") ||
-            (senhaUsuario === "") || (emailUsuario === "") || (cpfUsuario === "") || (rgUsuario === "") || 
-             (dataNascimentoUsuario === "") || (idadeUsuario === "") || (enderecoUsuario === "") || 
-             (estadoUsuario === "") || (cidadeUsuario === "") || /*(bairroAdministrador === "") || 
-             (sexoAdministrador === "") || */(cepUsuario === "") || (telefoneUsuario === "")) {
-        $('#dados-obrigatorios-instrutor').modal('show');
+    if ((idUsuario === "") || (idAcademia === "") || (nomeUsuario === "") || (loginUsuario === "") ||(senhaUsuario === "") || 
+            (emailUsuario === "") || (cpfUsuario === "") || (rgUsuario === "") || (dataNascimentoUsuario === "") || 
+            (enderecoUsuario === "") || (estadoUsuario === "") || (cidadeUsuario === "") || (bairroUsuario === "") || 
+            (sexoUsuario === "") || (cepUsuario === "") || (telefoneUsuario === "")) {
+        $('#dados-obrigatorios').modal('show');
     } else if (senhaUsuario !== confirmarSenha) {
         $('#senhas-diferentes').modal('show');
     } else if (msnCPF === "CPF válido!") {
-        verificarCPF(cpfUsuario, loginUsuario);
+        verificarCpfExiste(cpfUsuario, loginUsuario);
     } 
 }
 
 // FUNÇÃO PARA ATIVAR O MODAL EXCLUIR INSTRUTOR
-function modalExcluirInstrutor(idUsuario) {
-    $('#excluir-instrutor').modal('show');
+function modalExcluirUsuario(idUsuario) {
+    $('#excluir').modal('show');
     document.getElementById('idUsuario').value = idUsuario;
 }
 
-// FUNÇÃO PARA BLOQUEAR OU DESBLOQUEAR UM INSTRUTOR
-function modalDesBloquearInstrutor(obj, idUsuario, statusConta) {
+// FUNÇÃO PARA BLOQUEAR OU DESBLOQUEAR UM USUÁRIO
+function modalDesBloquearUsuario(obj, idUsuario, statusConta) {
     var dados = 'idUsuario=' + idUsuario;
-    // SE O STATUS CONTA FOR TRUE - INSTRUTOR ATIVO - BLOQUEAR INSTRUTOR
+    // SE O STATUS CONTA FOR TRUE - USUÁRIO ATIVO - BLOQUEAR USUÁRIO
     if (statusConta) {
-        $('#bloquear-instrutor').modal('show');
-        $('#bloqueia-instrutor').click(function () {
-            bloquearInstrutor(dados);
+        $('#bloquear').modal('show');
+        $('#bloqueia').click(function () {
+            bloquearUsuario(dados);
         });
-        $('#nao-bloqueia-instrutor').click(function () {
+        $('#nao-bloqueia').click(function () {
             obj.checked = false;
         });
     }
-    // SE O STATUS CONTA FOR FALSE - INSTRUTOR BLOQUEADO - DESBLOQUEAR INSTRUTOR
+    // SE O STATUS CONTA FOR FALSE - USUÁRIO BLOQUEADO - DESBLOQUEAR USUÁRIO
     else {
-        $('#desbloquear-instrutor').modal('show');
-        $('#desbloqueia-instrutor').click(function () {
-            desbloquearInstrutor(dados);
+        $('#desbloquear').modal('show');
+        $('#desbloqueia').click(function () {
+            desbloquearUsuario(dados);
         });
-        $('#nao-desbloqueia-instrutor').click(function () {
+        $('#nao-desbloqueia').click(function () {
             obj.checked = true;
         });
     }
 }
 
-// FUNÇÃO PARA PESQUISAR OS INSTRUTORES CADASTRADOS
-function pesquisarInstrutor() {
+// FUNÇÃO PARA PESQUISAR OS USUÁRIOS CADASTRADOS
+function pesquisarUsuario() {
     var entrada, filtro, i;
-    var tabelaInstrutoresAtivos, trA, tdA;
-    var tabelaInstrutoresBloqueados, trB, tdB;
+    var tabelaUsuariosAtivos, trA, tdA;
+    var tabelaUsuariosBloqueados, trB, tdB;
 
-    entrada = document.getElementById('pesquisarInstrutor');
+    entrada = document.getElementById('pesquisarUsuario');
     filtro = entrada.value.toUpperCase();
 
-    // PESQUISA OS INSTRUTORES ATIVOS NA TABELA
-    tabelaInstrutoresAtivos = document.getElementById('tabelaInstrutoresAtivos');
-    trA = tabelaInstrutoresAtivos.getElementsByTagName('tr');
+    // PESQUISA OS USUÁRIOS ATIVOS NA TABELA
+    tabelaUsuariosAtivos = document.getElementById('tabelaUsuariosAtivos');
+    trA = tabelaUsuariosAtivos.getElementsByTagName('tr');
     for (i = 0; i < trA.length; i++) {
         tdA = trA[i].getElementsByTagName('td')[0];
         if (tdA) {
@@ -92,9 +90,9 @@ function pesquisarInstrutor() {
         }
     }
 
-    // PESQUISA OS INSTRUTORES BLOQUEADOS NA TABELA
-    tabelaInstrutoresBloqueados = document.getElementById('tabelaInstrutoresBloqueados');
-    trB = tabelaInstrutoresBloqueados.getElementsByTagName('tr');
+    // PESQUISA OS USUÁRIOS BLOQUEADOS NA TABELA
+    tabelaUsuariosBloqueados = document.getElementById('tabelaUsuariosBloqueados');
+    trB = tabelaUsuariosBloqueados.getElementsByTagName('tr');
     for (i = 0; i < trB.length; i++) {
         tdB = trB[i].getElementsByTagName('td')[0];
         if (tdB) {
@@ -109,9 +107,7 @@ function pesquisarInstrutor() {
 
 // FUNÇÃO PARA CONTROLE DOS PLANOS E PACOTES DA EMPRESA
 // CONTROLANDO OS INPUTS RADIOS PARA QUE O USUÁRIO ESCOLHA CORRETAMENTE AS OPÇÕES 
-function verificarSexoInstrutor() {
-    var sexoInstrutor;
-
+function verificarSexoUsuario() {
     // SE O SEXO FOR FEMININO
     if (document.getElementById('sexoFeminino').checked) {
         document.getElementById('sexoUsuario').value = 'Feminino';

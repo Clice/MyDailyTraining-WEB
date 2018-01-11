@@ -1,3 +1,4 @@
+
 <!-- FORM DE CADASTRO DO FUNCIONÁRIO -->
 <div class="app-content content container-fluid">
     <div class="content-wrapper">      
@@ -15,12 +16,15 @@
                                             <h2 class="content-header-title"><?php echo $nomePagina ?></h2>
                                         </div>
                                     </div>
-                                    <form class="form" id="formCadEditFuncionario" name="formCadEditFuncionario">
+                                    <form class="form" id="formCadEditUsuario" name="formCadEditUsuario">
                                         <div class="form-body">
                                             <h4 class="form-section"></h4>
 
-                                            <input type="hidden" name="idUsuario" id="idUsuario" value="<?php echo $idFuncionario; ?>">
+                                            <input type="hidden" name="idUsuario" id="idUsuario" value="<?php echo $idUsuario; ?>">
                                             <input type="hidden" name="idAcademia" id="idAcademia" value="<?php echo $idAcademia; ?>">
+                                            <input type="hidden" name="sexoUsuario" id="sexoUsuario" value="<?php echo $sexoUsuario; ?>">
+                                            <input type="hidden" name="crefUsuario" id="crefUsuario" value="<?php echo $crefUsuario; ?>">
+                                            <input type="hidden" name="tipoConta" id="tipoConta" value="<?php echo $tipoConta; ?>">
 
                                             <div class="row">
                                                 <!-- NOME DO FUNCIONÁRIO -->
@@ -105,19 +109,19 @@
                                                     <div class="input-group" style="margin-top: 13px">
                                                         <!-- FEMININO -->
                                                         <label class="display-inline-block custom-control custom-radio">
-                                                            <input type="radio" name="sexoUsuario" id="sexoFeminino" value="Feminino" onchange="verificarSexoFuncionario();" class="custom-control-input">
+                                                            <input type="radio" name="sexoUsuario" id="sexoFeminino" value="Feminino" onchange="verificarSexoUsuario();" class="custom-control-input">
                                                             <span class="custom-control-indicator"></span>
                                                             <span class="custom-control-description ml-0">Feminino</span>
                                                         </label>
                                                         <!-- MASCULINO -->
                                                         <label class="display-inline-block custom-control custom-radio">
-                                                            <input type="radio" name="sexoUsuario" id="sexoMasculino" value="Masculino" onchange="verificarSexoFuncionario();" class="custom-control-input">
+                                                            <input type="radio" name="sexoUsuario" id="sexoMasculino" value="Masculino" onchange="verificarSexoUsuario();" class="custom-control-input">
                                                             <span class="custom-control-indicator"></span>
                                                             <span class="custom-control-description ml-0">Masculino</span>
                                                         </label>
                                                         <!-- OUTROS -->
                                                         <label class="display-inline-block custom-control custom-radio">
-                                                            <input type="radio" name="sexoUsuario" id="sexoOutros" value="Outros" onchange="verificarSexoFuncionario();" class="custom-control-input">
+                                                            <input type="radio" name="sexoUsuario" id="sexoOutros" value="Outros" onchange="verificarSexoUsuario();" class="custom-control-input">
                                                             <span class="custom-control-indicator"></span>
                                                             <span class="custom-control-description ml-0">Outros</span>
                                                         </label>
@@ -212,7 +216,7 @@
                                         <button type="button" class="btn btn-secondary" onclick="window.location.href = '<?php echo base_url('lista-funcionarios'); ?>'">
                                             <i class="icon-cross2"></i> Cancelar
                                         </button>
-                                        <button type="submit" class="btn btn-success" onclick="verificarDadosFuncionario();">
+                                        <button type="submit" class="btn btn-success" onclick="verificarDadosUsuario();">
                                             <i class="icon-check2"></i> Salvar
                                         </button>
                                     </div>
@@ -226,157 +230,3 @@
         </div>
     </div>
 </div>
-
-<!-- MODAL - DADOS OBRIGATÓRIOS NÃO INFORMADOS -->
-<div class="modal fade text-xs-left" data-backdrop="static" id="dados-obrigatorios-funcionario" tabindex="-1" role="dialog" 
-     aria-labelledby="myModalLabel1" 
-     aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-body">
-                <h4 class="modal-title text-xs-center"><i class="icon-warning"></i> Dados obrigatórios não informados</h4>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- MODAL - SENHAS DIFERENTES -->
-<div class="modal fade text-xs-left" data-backdrop="static" id="senhas-diferentes" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
-     aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-body">
-                <h4 class="modal-title text-xs-center">Senhas diferentes</h4>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- MODAL - CPF CADASTRADO -->
-<div class="modal fade text-xs-left" data-backdrop="static" id="cpf-cadastrado" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
-     aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-body">
-                <h4 class="modal-title text-xs-center">CPF já cadastrado</h4>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- MODAL - LOGIN CADASTRADO -->
-<div class="modal fade text-xs-left" data-backdrop="static" id="login-cadastrado" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
-     aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-body">
-                <h4 class="modal-title text-xs-center">Login já cadastrado</h4>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- MODAL - DADOS CADASTRADOS/ALTERADOS COM SUCESSO -->
-<div class="modal fade text-xs-left" data-backdrop="static" id="sucesso-funcionario" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
-     aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-body">
-                <h4 class="modal-title text-xs-center"><?php if (isset($idFuncionario)) { ?> Dados cadastrados com sucesso 
-                    <?php } else { ?> Erro ao cadastrar os dados <?php } ?></h4>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" onclick="window.location.href = '<?php echo base_url('lista-funcionarios'); ?>'">Fechar</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- MODAL - ERRO AO CADASTRAR/ALTERAR OS DADOS -->
-<div class="modal fade text-xs-left" data-backdrop="static" id="erro-funcionario" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
-     aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-body">
-                <h4 class="modal-title text-xs-center"><?php if (isset($idFuncionario)) { ?> Erro ao cadastrar os dados 
-                    <?php } else { ?> Erro ao alterar os dados <?php } ?></h4>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script type="text/javascript">
-    function verificarCPF(cpfUsuario, loginUsuario) {
-        var dados = "cpfUsuario=" + cpfUsuario;
-        $.ajax({
-            url: "<?php echo base_url('sistema/FuncionarioController/cVerificarCPF') ?>",
-            type: "POST",
-            data: dados,
-            dataType: "JSON",
-            success: function (data) {
-                if (data.existe) {
-                    $('#cpf-cadastrado').modal('show');
-                } else {
-                    verificarLogin(loginUsuario);
-                }
-            },
-            error: function (request, status, error) {
-                alert("Erro: " + request.responseText);
-            }
-        });
-    }
-
-    function verificarLogin(loginUsuario) {
-        var dados = 'loginUsuario=' + loginUsuario;
-        $.ajax({
-            url: "<?php echo base_url('sistema/FuncionarioController/cVerificarLogin') ?>",
-            type: "POST",
-            data: dados,
-            dataType: "JSON",
-            success: function (data) {
-                if (data.existe) {
-                    $('#login-cadastrado').modal('show');
-                } else {
-                    cadEditFuncionario();
-                }
-            },
-            error: function (request, status, error) {
-                alert("Erro: " + request.responseText);
-            }
-        });
-    }
-
-    function cadEditFuncionario() {
-        $.ajax({
-            url: "<?php echo base_url('sistema/FuncionarioController/cCadastrarEditarFuncionario') ?>",
-            type: "POST",
-            data: $('#formCadEditFuncionario').serialize(),
-            dataType: "JSON",
-            success: function (data) {
-                if (data.success) {
-                    $('#sucesso-funcionario').modal('show');
-                } else {
-                    $('#erro-funcionario').modal('show');
-                }
-            },
-            error: function (request, status, error) {
-                alert("Erro: " + request.responseText);
-            }
-        });
-    }
-</script>

@@ -18,7 +18,6 @@ function verificarDadosAcademia() {
     var nomeResponsavelAcademia = $('#nomeResponsavelAcademia').val();
     var emailAcademia = $('#emailAcademia').val();
     var mensalidadeAcademia = $('#mensalidadeAcademia').val();
-    var statusAcademia = $('#statusAcademia').val();
     var qtdTotalLicencas = $('#qtdTotalLicencas').val();
     var qtdLicencasUsadas = $('#qtdLicencasUsadas').val();
     var valorTotal = $('#valorTotal').val();
@@ -31,18 +30,18 @@ function verificarDadosAcademia() {
     if ((idAcademia === "") || (idPlano === "") || (idPacote === "") || (nomeAcademia === "") || (cnpjAcademia === "") ||
             (enderecoAcademia === "") || (estadoAcademia === "") || (cidadeAcademia === "") || (bairroAcademia === "") ||
             (cepAcademia === "") || (telefoneAcademia === "") || (nomeResponsavelAcademia === "") || (emailAcademia === "") ||
-            (mensalidadeAcademia === "") || (statusAcademia === "") || (qtdTotalLicencas === "") || (qtdLicencasUsadas === "") ||
+            (mensalidadeAcademia === "") || (qtdTotalLicencas === "") || (qtdLicencasUsadas === "") ||
             (valorTotal === "") || (valorPago === "") || (qtdParcelas === "") || (diaPagamentoAcademia === "")) {
         $('#dados-obrigatorios-academia').modal('show');
     } else if (msnCNPJ === "CNPJ válido!") {
-        cnpjCadastrado(cnpjAcademia);
+        verificarCnpjExiste(cnpjAcademia);
     }
 }
 
 // FUNÇÃO PARA ATIVAR O MODAL EXCLUIR ACADEMIA
 function modalExcluirAcademia(idAcademia) {
-    $('#excluir-academia').modal('show');
     document.getElementById('idAcademia').value = idAcademia;
+    $('#excluir-academia').modal('show');
 }
 
 // FUNÇÃO PARA BLOQUEAR OU DESBLOQUEAR UMA ACADEMIA

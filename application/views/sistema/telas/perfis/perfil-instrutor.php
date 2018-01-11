@@ -48,7 +48,7 @@
                                                 <div class="col-md-3">
                                                     <div class="form-group">
                                                         <h4><strong>Telefone: </strong></h4>
-                                                        <h4><i class="icon-phone-square"></i> <?php echo $instrutor->telefoneUsuario; ?></h4>
+                                                        <h4><?php echo $instrutor->telefoneUsuario; ?></h4>
                                                     </div>
                                                 </div>
                                                 <!-- SEXO DO INSTRUTOR -->
@@ -62,7 +62,7 @@
                                                 <div class="col-md-3">
                                                     <div class="form-group">
                                                         <h4><strong>Data de Nascimento: </strong></h4>
-                                                        <h4><?php echo $instrutor->dataNascimentoUsuario; ?></h4>
+                                                        <h4><?php echo formatarData($instrutor->dataNascimentoUsuario); ?></h4>
                                                     </div>
                                                 </div>
                                                 <!-- IDADE DO INSTRUTOR -->
@@ -117,25 +117,25 @@
                                         <div style="float: right;" class="form-actions">
                                             <button type="button"                               
                                             <?php if ($instrutor->statusConta == 1) { ?>
-                                                        class="btn btn-blue"
-                                                        onclick="modalDesBloquearInstrutor(this, <?php echo $instrutor->idUsuario; ?>, true);"
-                                                    <?php } else { ?>
                                                         class="btn btn-black"
-                                                        onclick="modalDesBloquearInstrutor(this, <?php echo $instrutor->idUsuario; ?>, false);"
+                                                        onclick="modalDesBloquearUsuario(this, <?php echo $instrutor->idUsuario; ?>, true);"
+                                                    <?php } else { ?>
+                                                        class="btn btn-blue"
+                                                        onclick="modalDesBloquearUsuario(this, <?php echo $instrutor->idUsuario; ?>, false);"
                                                     <?php } ?>
                                                     ><i <?php if ($instrutor->statusConta == 1) { ?>
-                                                        class="icon-unlock"
-                                                    <?php } else { ?>
                                                         class="icon-lock"
+                                                    <?php } else { ?>
+                                                        class="icon-unlock"
                                                     <?php } ?>></i><?php if ($instrutor->statusConta) { ?> Bloquear <?php } else { ?> Desbloquear <?php } ?>
                                             </button>
-                                            <button type="button" class="btn btn-green" onclick="window.location.href = '<?php echo base_url('editar-instrutor/' . md5($instrutor->idUsuario)); ?>'">
+                                            <button type="button" class="btn btn-warning" onclick="window.location.href = '<?php echo base_url('editar-instrutor/' . md5($instrutor->idUsuario)); ?>'">
                                                 <i class="icon-edit"></i> Editar
                                             </button>
-                                            <button type="button" class="btn btn-danger" onclick="modalExcluirInstrutor(<?php echo $instrutor->idUsuario; ?>);">
+                                            <button type="button" class="btn btn-danger" onclick="modalExcluirUsuario(<?php echo $instrutor->idUsuario; ?>);">
                                                 <i class="icon-trash"></i> Excluir
                                             </button>
-                                            <button type="button" class="btn btn-primary" onclick="window.location.href = '<?php echo base_url('lista-instrutores'); ?>'">
+                                            <button type="button" class="btn btn-default" onclick="window.location.href = '<?php echo base_url('lista-instrutores'); ?>'">
                                                 <i class="icon-chevron-left2"></i> Voltar
                                             </button>
                                         </div>                                        

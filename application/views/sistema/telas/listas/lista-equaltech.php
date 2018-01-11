@@ -61,9 +61,7 @@
                                                                             <td><?php echo $equaltech->enderecoEqualTech; ?></td>
                                                                             <td style="text-align: center;">
                                                                                 <button type="button" class="btn mb-1 btn-success btn-sm" 
-                                                                                        onclick="window.location.href = '<?php echo base_url('perfil-equaltech/' . md5($equaltech->idEqualTech)); ?>'"><i class="icon-eye"></i> Ver</button>
-                                                                                <button type="button" class="btn mb-1 btn-warning btn-sm" 
-                                                                                        onclick="window.location.href = '<?php echo base_url('editar-equaltech/' . md5($equaltech->idEqualTech)); ?>'"><i class="icon-edit"></i> Editar</button>
+                                                                                        onclick="window.location.href = '<?php echo base_url('perfil-equaltech/' . md5($equaltech->idEqualTech)); ?>'"><i class="icon-eye"></i> Ver Perfil</button>
                                                                             </td>
                                                                         </tr>
                                                                     <?php } ?> 

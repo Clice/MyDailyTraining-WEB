@@ -1,3 +1,4 @@
+
 <!-- FORM DE CADASTRO DO ALUNO -->
 <div class="app-content content container-fluid">
     <div class="content-wrapper">      
@@ -21,22 +22,27 @@
 
                                             <input type="hidden" name="idAluno" id="idAluno" value="<?php echo $idAluno; ?>">
                                             <input type="hidden" name="idAcademia" id="idAcademia" value="<?php echo $idAcademia; ?>">
+                                            <input type="hidden" name="sexoAluno" id="sexoAluno" value="<?php echo $sexoAluno; ?>">
+                                            <input type="hidden" name="loginAluno" id="loginAluno" value="<?php echo $loginAluno; ?>">
+                                            <input type="hidden" name="senhaAluno" id="senhaAluno" value="<?php echo $senhaAluno; ?>">
+                                            <input type="hidden" name="objetivoAluno" id="objetivoAluno" value="<?php echo $objetivoAluno; ?>">
+                                            <input type="hidden" name="tipoConta" id="tipoConta" value="<?php echo $tipoConta; ?>">
 
                                             <div class="row">
                                                 <!-- NOME DO ALUNO -->
                                                 <div class="col-md-7">
                                                     <div class="form-group">
                                                         <label>Nome do Aluno:*</label>
-                                                        <input type="text" id="nomeUsuario" class="form-control" 
-                                                               placeholder="Digite o nome do aluno" name="nomeUsuario" value="" minlength="5">
+                                                        <input type="text" id="nomeAluno" class="form-control" 
+                                                               placeholder="Digite o nome do aluno" name="nomeAluno" value="" minlength="5">
                                                     </div>
                                                 </div>
                                                 <!-- E-MAIL DO ALUNO -->
                                                 <div class="col-md-5">
                                                     <div class="form-group">
                                                         <label>E-mail:*</label>
-                                                        <input type="email" id="emailUsuario" minlength="6" class="form-control" value="" 
-                                                               placeholder="Digite o e-mail" name="emailUsuario">
+                                                        <input type="email" id="emailAluno" minlength="6" class="form-control" value="" 
+                                                               placeholder="Digite o e-mail" name="emailAluno">
                                                     </div>                                                                
                                                 </div>
                                             </div>
@@ -54,8 +60,8 @@
                                                 <div class="col-md-3">
                                                     <div class="form-group">
                                                         <label>RG:*</label>
-                                                        <input type="text" id="rgUsuario" maxlength="18" class="form-control" value="" 
-                                                               placeholder="Digite o RG" name="rgUsuario">
+                                                        <input type="text" id="rgAluno" maxlength="18" class="form-control" value="" 
+                                                               placeholder="Digite o RG" name="rgAluno">
                                                     </div>                                                                
                                                 </div>
                                                 <!-- DATA NASCIMENTO DO ALUNO -->
@@ -63,7 +69,7 @@
                                                     <div class="form-group has-icon-left">
                                                         <label>Data de Nascimento:*</label>
                                                         <div class="position-relative has-icon-left">
-                                                            <input type="date" id="dataNascimentoUsuario" name="dataNascimentoUsuario" 
+                                                            <input type="date" id="dataNascimentoAluno" name="dataNascimentoAluno" 
                                                                    class="form-control" placeholder="Digite a data">
                                                             <div class="form-control-position" style="margin-top: 11px;">
                                                                 <i class="icon-calendar5"></i>
@@ -77,19 +83,19 @@
                                                     <div class="input-group" style="margin-top: 13px">
                                                         <!-- FEMININO -->
                                                         <label class="display-inline-block custom-control custom-radio">
-                                                            <input type="radio" name="sexoUsuario" id="sexoFeminino" value="Feminino" onchange="verificarSexoAluno();" class="custom-control-input">
+                                                            <input type="radio" name="sexoAluno" id="sexoFeminino" value="Feminino" onchange="verificarSexoAluno();" class="custom-control-input">
                                                             <span class="custom-control-indicator"></span>
                                                             <span class="custom-control-description ml-0">Feminino</span>
                                                         </label>
                                                         <!-- MASCULINO -->
                                                         <label class="display-inline-block custom-control custom-radio">
-                                                            <input type="radio" name="sexoUsuario" id="sexoMasculino" value="Masculino" onchange="verificarSexoAluno();" class="custom-control-input">
+                                                            <input type="radio" name="sexoAluno" id="sexoMasculino" value="Masculino" onchange="verificarSexoAluno();" class="custom-control-input">
                                                             <span class="custom-control-indicator"></span>
                                                             <span class="custom-control-description ml-0">Masculino</span>
                                                         </label>
                                                         <!-- OUTROS -->
                                                         <label class="display-inline-block custom-control custom-radio">
-                                                            <input type="radio" name="sexoUsuario" id="sexoOutros" value="Outros" onchange="verificarSexoAluno();" class="custom-control-input">
+                                                            <input type="radio" name="sexoAluno" id="sexoOutros" value="Outros" onchange="verificarSexoAluno();" class="custom-control-input">
                                                             <span class="custom-control-indicator"></span>
                                                             <span class="custom-control-description ml-0">Outros</span>
                                                         </label>
@@ -101,8 +107,8 @@
                                                 <div class="col-md-9">
                                                     <div class="form-group">
                                                         <label>Endereço:*</label>
-                                                        <input type="text" id="enderecoUsuario" class="form-control" 
-                                                               placeholder="Digite o endereço" name="enderecoUsuario" value="">
+                                                        <input type="text" id="enderecoAluno" class="form-control" 
+                                                               placeholder="Digite o endereço" name="enderecoAluno" value="">
                                                     </div>
                                                 </div>
                                                 <!-- TELEFONE DO ALUNO -->
@@ -119,7 +125,7 @@
                                                 <div class="col-md-3">
                                                     <div class="form-group">
                                                         <label>Estado:*</label>
-                                                        <select id="estadoUsuario" name="estadoUsuario" class="form-control">
+                                                        <select id="estadoAluno" name="estadoAluno" class="form-control">
                                                             <option value="">Selecione o estado</option>
                                                             <option value="Acre">Acre</option>
                                                             <option value="Alagoas">Alagoas</option>
@@ -155,24 +161,24 @@
                                                 <div class="col-md-3">
                                                     <div class="form-group">
                                                         <label>Cidade:*</label>
-                                                        <input type="text" id="cidadeUsuario" class="form-control" 
-                                                               placeholder="Digite a cidade" name="cidadeUsuario" value="">
+                                                        <input type="text" id="cidadeAluno" class="form-control" 
+                                                               placeholder="Digite a cidade" name="cidadeAluno" value="">
                                                     </div>
                                                 </div>
                                                 <!-- BAIRRO DO ALUNO -->
                                                 <div class="col-md-3">
                                                     <div class="form-group">
                                                         <label>Bairro:*</label>
-                                                        <input type="text" id="bairroUsuario" class="form-control" 
-                                                               placeholder="Digite o bairro" name="bairroUsuario" value="">
+                                                        <input type="text" id="bairroAluno" class="form-control" 
+                                                               placeholder="Digite o bairro" name="bairroAluno" value="">
                                                     </div>
                                                 </div>
                                                 <!-- CEP DO ALUNO -->
                                                 <div class="col-md-3">
                                                     <div class="form-group">
                                                         <label>CEP:*</label>
-                                                        <input type="text" id="cepUsuario" class="form-control" 
-                                                               placeholder="Digite o CEP" name="cepUsuario" value="">
+                                                        <input type="text" id="cepAluno" class="form-control" maxlength="9"
+                                                               placeholder="Digite o CEP" name="cepAluno" value="">
                                                     </div>
                                                 </div>
                                             </div>
@@ -182,7 +188,7 @@
                                                     <div class="form-group has-icon-left">
                                                         <label>Data da Avaliação do Aluno:*</label>
                                                         <div class="position-relative has-icon-left">
-                                                            <select id="dataValidadeExame" name="dataValidadeExame" class="form-control">
+                                                            <select id="diaValidadeExame" name="diaValidadeExame" class="form-control">
                                                                 <option value="">Selecione o dia</option>
                                                                 <option value="5">5</option>
                                                                 <option value="10">10</option>
@@ -223,37 +229,43 @@
                                                         <div class="form-group col-md-8">
                                                             <!-- HIPERTROFIA -->
                                                             <label class="display-inline-block custom-control custom-radio">
-                                                                <input type="radio" name="objetivoAluno" id="hipertrofia" value="hipertrofia" onchange="verificarObjetivoAluno();" class="custom-control-input">
+                                                                <input type="radio" name="objetivoAluno" id="hipertrofia" value="Hipertrofia" 
+                                                                       onchange="verificarObjetivoAluno();" class="custom-control-input">
                                                                 <span class="custom-control-indicator"></span>
                                                                 <span class="custom-control-description ml-0">Hipertrofia</span>
                                                             </label>
                                                             <!-- FORÇA -->
                                                             <label class="display-inline-block custom-control custom-radio">
-                                                                <input type="radio" name="objetivoAluno" id="forca" value="Força" onchange="verificarObjetivoAluno();" class="custom-control-input">
+                                                                <input type="radio" name="objetivoAluno" id="forca" value="Força"
+                                                                       onchange="verificarObjetivoAluno();" class="custom-control-input">
                                                                 <span class="custom-control-indicator"></span>
                                                                 <span class="custom-control-description ml-0">Força</span>
                                                             </label>
                                                             <!-- QUALI. DE VIDA -->
                                                             <label class="display-inline-block custom-control custom-radio">
-                                                                <input type="radio" name="objetivoAluno" id="qualiDeVida" value="qualiDeVida" onchange="verificarObjetivoAluno();" class="custom-control-input">
+                                                                <input type="radio" name="objetivoAluno" id="qualiDeVida" value="Quali. de Vida" 
+                                                                       onchange="verificarObjetivoAluno();" class="custom-control-input">
                                                                 <span class="custom-control-indicator"></span>
                                                                 <span class="custom-control-description ml-0">Quali. de Vida</span>
                                                             </label>
                                                             <!-- EMAGRECIMENTO -->
                                                             <label class="display-inline-block custom-control custom-radio">
-                                                                <input type="radio" name="objetivoAluno" id="emagrecimento" value="Emagrecimento" onchange="verificarObjetivoAluno();" class="custom-control-input">
+                                                                <input type="radio" name="objetivoAluno" id="emagrecimento" value="Emagrecimento" 
+                                                                       onchange="verificarObjetivoAluno();" class="custom-control-input">
                                                                 <span class="custom-control-indicator"></span>
                                                                 <span class="custom-control-description ml-0">Emagrecimento</span>
                                                             </label>
                                                             <!-- RES. AERÓBICA -->
                                                             <label class="display-inline-block custom-control custom-radio">
-                                                                <input type="radio" name="objetivoAluno" id="resAerobica" value="Res. Aeróbica" onchange="verificarObjetivoAluno();" class="custom-control-input">
+                                                                <input type="radio" name="objetivoAluno" id="resAerobica" value="Res. Aeróbica" 
+                                                                       onchange="verificarObjetivoAluno();" class="custom-control-input">
                                                                 <span class="custom-control-indicator"></span>
                                                                 <span class="custom-control-description ml-0">Res. Aeróbica</span>
                                                             </label>
                                                             <!-- OUTROS -->
                                                             <label class="display-inline-block custom-control custom-radio">
-                                                                <input type="radio" name="objetivoAluno" id="outros" value="Outros" onchange="verificarObjetivoAluno();" class="custom-control-input">
+                                                                <input type="radio" name="objetivoAluno" id="outros" value="Outros" 
+                                                                       onchange="verificarObjetivoAluno();" class="custom-control-input">
                                                                 <span class="custom-control-indicator"></span>
                                                                 <span class="custom-control-description ml-0">Outros</span>
                                                             </label>
@@ -272,12 +284,14 @@
                                                     <label>Responsável:</label>
                                                     <div class="input-group" style="margin-top: 13px">
                                                         <label class="display-inline-block custom-control custom-radio">
-                                                            <input type="radio" name="responsavel" id="responsavelSim" value="Sim" onchange="responsaveisHabilitar();" class="custom-control-input">
+                                                            <input type="radio" name="responsavel" id="responsavelSim" value="Sim" 
+                                                                   onchange="responsaveisHabilitar();" class="custom-control-input">
                                                             <span class="custom-control-indicator"></span>
                                                             <span class="custom-control-description ml-0">Sim</span>
                                                         </label>
                                                         <label class="display-inline-block custom-control custom-radio">
-                                                            <input type="radio" name="responsavel" id="responsavelNao" value="Nao" onchange="responsaveisHabilitar();" class="custom-control-input">
+                                                            <input type="radio" name="responsavel" id="responsavelNao" value="Nao" 
+                                                                   onchange="responsaveisHabilitar();" class="custom-control-input">
                                                             <span class="custom-control-indicator"></span>
                                                             <span class="custom-control-description ml-0">Não</span>
                                                         </label>
@@ -287,16 +301,16 @@
                                                 <div class="col-md-5">
                                                     <div class="form-group">
                                                         <label>Nome do Responsável:</label>
-                                                        <input type="text" id="nomeResponsavelUsuario" class="form-control" 
-                                                               placeholder="Digite o nome do responsável" name="nomeResponsavelUsuario" value="" disabled="" >
+                                                        <input type="text" id="nomeResponsavelAluno" class="form-control" 
+                                                               placeholder="Digite o nome do responsável" name="nomeResponsavelAluno" value="" disabled="" >
                                                     </div>
                                                 </div>
                                                 <!-- TELEFONE DO RESPONSÁVEL DO ALUNO -->
                                                 <div class="col-md-3">
                                                     <div class="form-group">
                                                         <label>Telefone do Responsável:</label>
-                                                        <input type="text" id="telefoneResponsavelUsuario" class="form-control" maxlength="15"
-                                                               placeholder="Digite o telefone do responsável" name="telefoneResponsavelUsuario" value="" disabled="" >
+                                                        <input type="text" id="telefoneResponsavelAluno" class="form-control" maxlength="15"
+                                                               placeholder="Digite o telefone do responsável" name="telefoneResponsavelAluno" value="" disabled="" >
                                                     </div>
                                                 </div>
 
@@ -309,12 +323,14 @@
                                                     <label>Cirurgias:</label>
                                                     <div class="input-group" style="margin-top: 13px">
                                                         <label class="display-inline-block custom-control custom-radio">
-                                                            <input type="radio" name="cirurgias" id="cirurgiasSim" value="Sim" onchange="cirurgiasHabilitar();" class="custom-control-input">
+                                                            <input type="radio" name="cirurgias" id="cirurgiasSim" value="Sim" onchange="cirurgiasHabilitar();" 
+                                                                   class="custom-control-input">
                                                             <span class="custom-control-indicator"></span>
                                                             <span class="custom-control-description ml-0">Sim</span>
                                                         </label>
                                                         <label class="display-inline-block custom-control custom-radio">
-                                                            <input type="radio" name="cirurgias" id="cirurgiasNao" value="Nao" onchange="cirurgiasHabilitar();" class="custom-control-input">
+                                                            <input type="radio" name="cirurgias" id="cirurgiasNao" value="Nao" onchange="cirurgiasHabilitar();" 
+                                                                   class="custom-control-input">
                                                             <span class="custom-control-indicator"></span>
                                                             <span class="custom-control-description ml-0">Não</span>
                                                         </label>
@@ -322,8 +338,9 @@
                                                 </div>
                                                 <div class="form-group col-md-10">
                                                     <label>Descrição:</label>
-                                                    <textarea id="cirurgiasUsuario" class="form-control" maxlength="200"
-                                                              placeholder="Descreva as cirurgias que o aluno já foi submetido" name="cirurgiasUsuario" value="" disabled="" ></textarea>
+                                                    <textarea id="cirurgiasAluno" class="form-control" maxlength="200"
+                                                              placeholder="Descreva as cirurgias que o aluno já foi submetido" name="cirurgiasAluno" value="" 
+                                                              disabled="" ></textarea>
                                                 </div>
                                             </div>
                                             <div class="row">
@@ -332,12 +349,14 @@
                                                     <label>Medicamentos:</label>
                                                     <div class="input-group" style="margin-top: 13px">
                                                         <label class="display-inline-block custom-control custom-radio">
-                                                            <input type="radio" name="medicamentos" id="medicamentosSim" value="Sim" onchange="medicamentosHabilitar();" class="custom-control-input">
+                                                            <input type="radio" name="medicamentos" id="medicamentosSim" value="Sim" 
+                                                                   onchange="medicamentosHabilitar();" class="custom-control-input">
                                                             <span class="custom-control-indicator"></span>
                                                             <span class="custom-control-description ml-0">Sim</span>
                                                         </label>
                                                         <label class="display-inline-block custom-control custom-radio">
-                                                            <input type="radio" name="medicamentos" id="medicamentosNao" value="Nao" onchange="medicamentosHabilitar();" class="custom-control-input">
+                                                            <input type="radio" name="medicamentos" id="medicamentosNao" value="Nao" 
+                                                                   onchange="medicamentosHabilitar();" class="custom-control-input">
                                                             <span class="custom-control-indicator"></span>
                                                             <span class="custom-control-description ml-0">Não</span>
                                                         </label>
@@ -345,8 +364,9 @@
                                                 </div>
                                                 <div class="form-group col-md-10">
                                                     <label>Descrição:</label>
-                                                    <textarea type="" id="medicamentosUsuario" class="form-control" maxlength="200"
-                                                              placeholder="Descreva os medicamentos usados pelo aluno" name="medicamentosUsuario" value="" disabled="" ></textarea>
+                                                    <textarea type="" id="medicamentosAluno" class="form-control" maxlength="200"
+                                                              placeholder="Descreva os medicamentos usados pelo aluno" name="medicamentosAluno" 
+                                                              value="" disabled="" ></textarea>
                                                 </div>
                                             </div>
                                             <div class="row">
@@ -355,12 +375,14 @@
                                                     <label>Doenças Familiares:</label>
                                                     <div class="input-group" style="margin-top: 13px">
                                                         <label class="display-inline-block custom-control custom-radio">
-                                                            <input type="radio" name="doencasFamiliares" id="doencasFamiliaresSim" value="Sim" onchange="doencasFamiliaresHabilitar();" class="custom-control-input">
+                                                            <input type="radio" name="doencasFamiliares" id="doencasFamiliaresSim" value="Sim" 
+                                                                   onchange="doencasFamiliaresHabilitar();" class="custom-control-input">
                                                             <span class="custom-control-indicator"></span>
                                                             <span class="custom-control-description ml-0">Sim</span>
                                                         </label>
                                                         <label class="display-inline-block custom-control custom-radio">
-                                                            <input type="radio" name="doencasFamiliares" id="doencasFamiliaresNao" value="Nao" onchange="doencasFamiliaresHabilitar();" class="custom-control-input">
+                                                            <input type="radio" name="doencasFamiliares" id="doencasFamiliaresNao" value="Nao" 
+                                                                   onchange="doencasFamiliaresHabilitar();" class="custom-control-input">
                                                             <span class="custom-control-indicator"></span>
                                                             <span class="custom-control-description ml-0">Não</span>
                                                         </label>
@@ -368,8 +390,9 @@
                                                 </div>
                                                 <div class="form-group col-md-10">
                                                     <label>Descrição:</label>
-                                                    <textarea type="" id="doencasFamiliaresUsuario" class="form-control" maxlength="200"
-                                                              placeholder="Descreva as doenças familiares do aluno" name="doencasFamiliaresUsuario" value="" disabled="" ></textarea>
+                                                    <textarea type="" id="doencasFamiliaresAluno" class="form-control" maxlength="200"
+                                                              placeholder="Descreva as doenças familiares do aluno" name="doencasFamiliaresAluno" 
+                                                              value="" disabled="" ></textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -402,7 +425,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-body">
-                <h4 class="modal-title text-xs-center"><i class="icon-warning"></i> Dados obrigatórios não informados</h4>
+                <h4 class="modal-title text-xs-center"><i class="icon-warning2 warning"></i> Dados obrigatórios não informados</h4>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
@@ -417,7 +440,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-body">
-                <h4 class="modal-title text-xs-center">Senhas diferentes</h4>
+                <h4 class="modal-title text-xs-center"><i class="icon-remove danger"></i> Senhas diferentes</h4>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
@@ -432,7 +455,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-body">
-                <h4 class="modal-title text-xs-center">CPF já cadastrado</h4>
+                <h4 class="modal-title text-xs-center"><i class="icon-remove danger"></i> CPF já cadastrado</h4>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
@@ -447,7 +470,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-body">
-                <h4 class="modal-title text-xs-center">Login já cadastrado</h4>
+                <h4 class="modal-title text-xs-center"><i class="icon-remove danger"></i> Login já cadastrado</h4>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
@@ -462,7 +485,8 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-body">
-                <h4 class="modal-title text-xs-center"><?php if (isset($idAluno)) { ?> Dados cadastrados com sucesso 
+                <h4 class="modal-title text-xs-center"><i class="icon-check-circle success"></i>
+                    <?php if (isset($idAluno)) { ?> Dados cadastrados com sucesso 
                     <?php } else { ?> Erro ao cadastrar os dados <?php } ?></h4>
             </div>
             <div class="modal-footer">
@@ -478,7 +502,8 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-body">
-                <h4 class="modal-title text-xs-center"><?php if (isset($idAluno)) { ?> Erro ao cadastrar os dados 
+                <h4 class="modal-title text-xs-center"><i class="icon-remove danger"></i>
+                    <?php if (isset($idAluno)) { ?> Erro ao cadastrar os dados 
                     <?php } else { ?> Erro ao alterar os dados <?php } ?></h4>
             </div>
             <div class="modal-footer">
@@ -492,7 +517,7 @@
     function verificarCPF(cpfUsuario) {
         var dados = "cpfUsuario=" + cpfUsuario;
         $.ajax({
-            url: "<?php echo base_url('sistema/AlunoController/cVerificarCPF') ?>",
+            url: "<?php echo base_url('AlunoController/cVerificarCPF') ?>",
             type: "POST",
             data: dados,
             dataType: "JSON",
@@ -511,7 +536,7 @@
 
     function cadEditAluno() {
         $.ajax({
-            url: "<?php echo base_url('sistema/AlunoController/cCadastrarEditarAluno') ?>",
+            url: "<?php echo base_url('AlunoController/cCadastrarEditarAluno') ?>",
             type: "POST",
             data: $('#formCadEditAluno').serialize(),
             dataType: "JSON",

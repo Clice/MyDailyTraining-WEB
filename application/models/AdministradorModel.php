@@ -4,17 +4,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class AdministradorModel extends CI_Model {
 
-    public function mListarAdministradoresAtivos() {
+    public function mListarAdministradoresAtivos($idAcademia) {
         $this->db->select('idUsuario, idAcademia, nomeUsuario, enderecoUsuario, telefoneUsuario');
         $this->db->from('usuarios');
+        if ($idAcademia > 0) {
+            $this->db->where('idAcademia', $idAcademia);
+        }
         $this->db->where('tipoConta', 2);
         $this->db->where('statusConta', TRUE);
         return $this->db->get()->result();
     }
 
-    public function mListarAdministradoresBloqueados() {
+    public function mListarAdministradoresBloqueados($idAcademia) {
         $this->db->select('idUsuario, idAcademia, nomeUsuario, enderecoUsuario, telefoneUsuario');
         $this->db->from('usuarios');
+        if ($idAcademia > 0) {
+            $this->db->where('idAcademia', $idAcademia);
+        }
         $this->db->where('tipoConta', 2);
         $this->db->where('statusConta', FALSE);
         return $this->db->get()->result();

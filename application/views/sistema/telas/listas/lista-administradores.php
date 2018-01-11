@@ -16,7 +16,7 @@
                                     <div class="form-group">
                                        <div class="form-group position-relative">
                                             <input type="text" class="form-control" placeholder="Buscar administrador..." 
-                                                   name="pesquisarAdministrador" id="pesquisarAdministrador" onkeyup="pesquisarAdministrador();">
+                                                   name="pesquisarUsuario" id="pesquisarUsuario" onkeyup="pesquisarUsuario();">
                                             <div class="form-control-position" style="margin-top: 7px;">
                                                 <i class="icon-search4 font-medium-4"></i>
                                             </div>
@@ -31,14 +31,16 @@
                                             </li>                                            
                                         </ul>
                                     </div>
+                                    <?php if ($this->session->userdata('tipoConta') != 1) {?>
                                     <div style="float: right; margin-right: 10px;">
                                         <ul class="pl-0 list-unstyled right">
                                             <li class="mb-1">
-                                                <button type="button" class="btn btn-primary btn-block" onclick="window.location.href = '<?php echo base_url('cadastrar-administrador'); ?>'">
-                                                    <i class="icon-plus2"></i> Novo Administrador</button>
+                                                <button type="button" class="btn btn-primary btn-block" onclick="window.location.href = '<?php echo base_url('cadastrar-administrador/novo/' . $this->session->userdata('idAcademia')); ?>'">
+                                                    <i class="icon-plus4"></i> Novo Administrador</button>
                                             </li>                                            
                                         </ul>
                                     </div>
+                                    <?php } ?>
                                 </div>                                
                             </div>
                         </div>
@@ -61,7 +63,7 @@
                                                 <div class="card">
                                                     <div class="card-body collapse in">
                                                         <div class="table-responsive">
-                                                            <table class="table table-hover mb-0" id="tabelaAdministradoresAtivos">
+                                                            <table class="table table-hover mb-0" id="tabelaUsuariosAtivos">
                                                                 <thead>
                                                                     <tr>
                                                                         <th>Nome</th>
@@ -83,10 +85,10 @@
                                                                                 <button type="button" class="btn mb-1 btn-warning btn-sm" 
                                                                                         onclick="window.location.href = '<?php echo base_url('editar-administrador/' . md5($administradorAtivo->idUsuario)); ?>'"><i class="icon-edit"></i> Editar</button>
                                                                                 <button type="button" class="btn mb-1 btn-danger btn-sm" 
-                                                                                        onclick="modalExcluirAdministrador(<?php echo $administradorAtivo->idUsuario; ?>);"><i class="icon-trash-o"></i> Excluir</button>
+                                                                                        onclick="modalExcluirUsuario(<?php echo $administradorAtivo->idUsuario; ?>);"><i class="icon-trash-o"></i> Excluir</button>
                                                                             </td>
                                                                             <td style="text-align: center;" class="">
-                                                                                <input type="checkbox" name="" onchange="modalDesBloquearAdministrador(this, <?php echo $administradorAtivo->idUsuario; ?>, true);">
+                                                                                <input type="checkbox" name="" onchange="modalDesBloquearUsuario(this, <?php echo $administradorAtivo->idUsuario; ?>, true);">
                                                                             </td>
                                                                         </tr>
                                                                     <?php } ?> 
@@ -104,7 +106,7 @@
                                                 <div class="card">
                                                     <div class="card-body collapse in">
                                                         <div class="table-responsive">
-                                                            <table class="table table-hover mb-0" id="tabelaAdministradoresBloqueados">
+                                                            <table class="table table-hover mb-0" id="tabelaUsuariosBloqueados">
                                                                 <thead>
                                                                     <tr>
                                                                         <th>Nome</th>
@@ -126,10 +128,10 @@
                                                                                 <button type="button" class="btn mb-1 btn-warning btn-sm" 
                                                                                         onclick="window.location.href = '<?php echo base_url('editar-administrador/' . md5($administradorBloqueado->idUsuario)); ?>'"><i class="icon-edit"></i> Editar</button>
                                                                                 <button type="button" class="btn mb-1 btn-danger btn-sm" 
-                                                                                        onclick="modalExcluirAdministrador(<?php echo $administradorBloqueado->idUsuario; ?>);"><i class="icon-trash-o"></i> Excluir</button>
+                                                                                        onclick="modalExcluirUsuario(<?php echo $administradorBloqueado->idUsuario; ?>);"><i class="icon-trash-o"></i> Excluir</button>
                                                                             </td>
                                                                             <td style="text-align: center;" class="">
-                                                                                <input type="checkbox" name="" checked="" onchange="modalDesBloquearAdministrador(this, <?php echo $administradorBloqueado->idUsuario; ?>, false);">
+                                                                                <input type="checkbox" name="" checked="" onchange="modalDesBloquearUsuario(this, <?php echo $administradorBloqueado->idUsuario; ?>, false);">
                                                                             </td>
                                                                         </tr>
                                                                     <?php } ?> 
@@ -150,202 +152,3 @@
         </div>
     </div>
 </div>
-
-<!-- MODAL - DESEJA EXCLUIR O ADMINISTRADOR? -->
-<div class="modal fade text-xs-left" id="excluir-administrador" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title text-xs-center"><i class="icon-warning"></i> Deseja excluir o(a) administrador(a)?</h4>
-                <div class="modal-footer">                
-                    <button type="button" class="btn btn-primary" onclick="excluirAdministrador();">Sim</button>
-                    <button type="button" class="btn grey btn-secondary" data-dismiss="modal">Não</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- MODAL - ADMINISTRADOR EXCLUÍDO COM SUCESSO -->
-<div class="modal fade text-xs-left" data-backdrop="static" id="excluir-sucesso-administrador" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
-     aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-body">
-                <h4 class="modal-title text-xs-center"><i class="icon-check-circle"></i> Administrador(a) excluído(a) com sucesso</h4>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="window.location.href = '<?php echo base_url('lista-administradores'); ?>'">Fechar</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- MODAL - ERRO AO EXCLUIR O ADMINISTRADOR -->
-<div class="modal fade text-xs-left" data-backdrop="static" id="excluir-erro-administrador" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
-     aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-body">
-                <h4 class="modal-title text-xs-center"><i class="icon-remove"></i> Erro ao excluir o(a) administrador(a)</h4>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- MODAL - DESEJA BLOQUEAR O ADMINISTRADOR? -->
-<div class="modal fade text-xs-left" id="bloquear-administrador" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title text-xs-center"><i class="icon-warning"></i> Deseja bloquear o(a) administrador(a)?</h4>
-                <div class="modal-footer">                
-                    <button type="button" class="btn btn-primary" id="bloqueia-administrador">Sim</button>
-                    <button type="button" class="btn grey btn-secondary" data-dismiss="modal" id="nao-bloqueia-administrador">Não</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- MODAL - ADMINISTRADOR BLOQUEADO COM SUCESSO -->
-<div class="modal fade text-xs-left" data-backdrop="static" id="bloquear-sucesso-administrador" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
-     aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-body">
-                <h4 class="modal-title text-xs-center"><i class="icon-check-circle"></i> Administrador(a) bloqueado(a) com sucesso</h4>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="window.location.href = '<?php echo base_url('lista-administradores'); ?>'">Fechar</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- MODAL - ERRO AO BLOQUEAR O ADMINISTRADOR -->
-<div class="modal fade text-xs-left" data-backdrop="static" id="bloquear-erro-administrador" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
-     aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-body">
-                <h4 class="modal-title text-xs-center"><i class="icon-remove"></i> Erro ao bloquear o(a) administrador(a)</h4>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="window.location.href = '<?php echo base_url('lista-administradores'); ?>'">Fechar</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- MODAL - DESEJA DESBLOQUEAR O ADMINISTRADOR? -->
-<div class="modal fade text-xs-left" data-backdrop="static" id="desbloquear-administrador" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title text-xs-center"><i class="icon-warning"></i> Deseja desbloquear o(a) administrador(a)?</h4>
-                <div class="modal-footer">                
-                    <button type="button" class="btn btn-primary" id="desbloqueia-administrador">Sim</button>
-                    <button type="button" class="btn grey btn-secondary" data-dismiss="modal" id="nao-desbloqueia-administrador">Não</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- MODAL - ADMINISTRADOR DESBLOQUEADO COM SUCESSO -->
-<div class="modal fade text-xs-left" data-backdrop="static" id="desbloquear-sucesso-administrador" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
-     aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-body">
-                <h4 class="modal-title text-xs-center"><i class="icon-check-circle"></i> Administrador(a) desbloqueado(a) com sucesso</h4>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="window.location.href = '<?php echo base_url('lista-administradores'); ?>'">Fechar</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- MODAL - ERRO AO DESBLOQUEAR O ADMINISTRADOR -->
-<div class="modal fade text-xs-left" data-backdrop="static" id="desbloquear-erro-administrador" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
-     aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-body">
-                <h4 class="modal-title text-xs-center"><i class="icon-remove"></i> Erro ao desbloquear o(a) administrador(a)</h4>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="window.location.href = '<?php echo base_url('lista-administradores'); ?>'">Fechar</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- FUNÇÕES EM JAVASCRIPT -->
-<script type="text/javascript">
-    function excluirAdministrador() {
-        var dados = "idUsuario=" + $('#idUsuario').val();
-        $.ajax({
-            url: "<?php echo base_url('sistema/AdministradorController/cExcluirAdministrador'); ?>",
-            type: "POST",
-            data: dados,
-            dataType: 'json',
-            success: function (data) {
-                $('#excluir-administrador').modal('hide');
-                if (data.success) {
-                    $('#excluir-sucesso-administrador').modal('show');
-                } else {
-                    $('#excluir-erro-administrador').modal('show');
-                }
-            },
-            error: function (request, status, error) {
-                alert("Erro: " + request.responseText);
-            }
-        });
-    }
-
-    function bloquearAdministrador(dados) {
-        $.ajax({
-            type: 'POST',
-            url: "<?php echo base_url('sistema/AdministradorController/cBloquearAdministrador'); ?>",
-            dataType: 'json',
-            data: dados,
-            success: function (data) {
-                $('#bloquear-administrador').modal("hide");
-                if (data.success) {
-                    $('#bloquear-sucesso-administrador').modal("show");
-                } else {
-                    $('#bloquear-erro-administrador').modal("show");
-                }
-            },
-            error: function (request, status, error) {
-                alert("Erro: " + request.responseText);
-            }
-        });
-    }
-
-    function desbloquearAdministrador(dados) {
-        $.ajax({
-            type: 'POST',
-            url: "<?php echo base_url('sistema/AdministradorController/cDesbloquearAdministrador'); ?>",
-            dataType: 'json',
-            data: dados,
-            success: function (data) {
-                $('#desbloquear-administrador').modal("hide");
-                if (data.success) {
-                    $('#desbloquear-sucesso-administrador').modal("show");
-                } else {
-                    $('#desbloquear-erro-administrador').modal("show");
-                }
-            },
-            error: function (request, status, error) {
-                alert("Erro: " + request.responseText);
-            }
-        });
-    }
-</script>

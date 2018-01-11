@@ -6,6 +6,8 @@ function verificarCpf() {
         document.getElementById('msnCPF').style.color = 'green';
         document.getElementById('msnCPF').innerHTML = 'CPF válido!';
         document.getElementById('msnCPF').value = 'CPF válido!';
+        document.getElementById('loginAluno').value = cpfUsuario;
+        document.getElementById('senhaAluno').value = cpfUsuario;
     } else {
         document.getElementById('msnCPF').style.color = 'red';
         document.getElementById('msnCPF').innerHTML = 'CPF inválido!';

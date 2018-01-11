@@ -48,7 +48,7 @@
                                                 <div class="col-md-3">
                                                     <div class="form-group">
                                                         <h4><strong>Telefone: </strong></h4>
-                                                        <h4><i class="icon-phone-square"></i> <?php echo $aluno->telefoneAluno; ?></h4>
+                                                        <h4><?php echo $aluno->telefoneAluno; ?></h4>
                                                     </div>
                                                 </div>
                                                 <!-- SEXO DO ALUNO -->
@@ -62,7 +62,7 @@
                                                 <div class="col-md-3">
                                                     <div class="form-group">
                                                         <h4><strong>Data de Nascimento: </strong></h4>
-                                                        <h4><?php echo $aluno->dataNascimentoAluno; ?></h4>
+                                                        <h4><?php echo formatarData($aluno->dataNascimentoAluno); ?></h4>
                                                     </div>
                                                 </div>
                                                 <!-- IDADE DO ALUNO -->
@@ -114,18 +114,18 @@
                                         </div>
                                         <br>
                                         <div class="row">
-                                            <!-- DATA DA AVALIAÇÃO DO ALUNO -->
+                                            <!-- DIA DA AVALIAÇÃO DO ALUNO -->
                                             <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <h4><strong>Data da Avaliação: </strong></h4>
-                                                    <h4><?php echo $aluno->dataValidadeExame; ?></h4>
+                                                    <h4><strong>Data da Próxima Avaliação: </strong></h4>
+                                                    <h4><?php echo dataProximoMes($aluno->diaValidadeExame); ?></h4>
                                                 </div>
                                             </div>
                                             <!-- DIA DO PAGAMENTO DO ALUNO -->
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <h4><strong>Dia do Pagamento: </strong></h4>
-                                                    <h4><?php echo $aluno->diaPagamentoAluno; ?></h4>
+                                                    <h4><?php echo dataProximoMes($aluno->diaPagamentoAluno); ?></h4>
                                                 </div>
                                             </div>
                                             <!-- OBJETIVO DO ALUNO -->
@@ -189,35 +189,35 @@
                                         <hr style="margin-top: 4%;">
                                         <!-- BOTÕES -->
                                         <div style="float: left;" class="form-actions">
-                                            <button type="button" class="btn btn-green" onclick="window.location.href = '<?php echo base_url('lista-treinos/' . md5($aluno->idAluno)); ?>'">
+                                            <button type="button" class="btn btn-indigo" onclick="window.location.href = '<?php echo base_url('lista-treinos/' . md5($aluno->idAluno)); ?>'">
                                                 <i class="icon-IcoMoon"></i> Definir Treino
                                             </button>
-                                            <button type="button" class="btn btn-warning" onclick="window.location.href = '<?php echo base_url('lista-treinos/' . md5($aluno->idAluno)); ?>'">
+                                            <button type="button" class="btn btn-green" onclick="window.location.href = '<?php echo base_url('lista-treinos/' . md5($aluno->idAluno)); ?>'">
                                                 <i class="icon-mobile"></i> Enviar Notificação
                                             </button>
                                         </div>
                                         <div style="float: right;" class="form-actions">
                                             <button type="button"                               
                                             <?php if ($aluno->statusAluno == 1) { ?>
-                                                        class="btn btn-blue"
+                                                        class="btn btn-black"
                                                         onclick="modalDesBloquearAluno(this, <?php echo $aluno->idAluno; ?>, true);"
                                                     <?php } else { ?>
-                                                        class="btn btn-black"
+                                                        class="btn btn-blue"
                                                         onclick="modalDesBloquearAluno(this, <?php echo $aluno->idAluno; ?>, false);"
                                                     <?php } ?>
                                                     ><i <?php if ($aluno->statusAluno == 1) { ?>
-                                                        class="icon-unlock"
-                                                    <?php } else { ?>
                                                         class="icon-lock"
+                                                    <?php } else { ?>
+                                                        class="icon-unlock"
                                                     <?php } ?>></i><?php if ($aluno->statusAluno) { ?> Bloquear <?php } else { ?> Desbloquear <?php } ?>
                                             </button>
-                                            <button type="button" class="btn btn-green" onclick="window.location.href = '<?php echo base_url('editar-aluno/' . md5($aluno->idAluno)); ?>'">
+                                            <button type="button" class="btn btn-warning" onclick="window.location.href = '<?php echo base_url('editar-aluno/' . md5($aluno->idAluno)); ?>'">
                                                 <i class="icon-edit"></i> Editar
                                             </button>
                                             <button type="button" class="btn btn-danger" onclick="modalExcluirAluno(<?php echo $aluno->idAluno; ?>);">
                                                 <i class="icon-trash"></i> Excluir
                                             </button>
-                                            <button type="button" class="btn btn-primary" onclick="window.location.href = '<?php echo base_url('lista-alunos'); ?>'">
+                                            <button type="button" class="btn btn-default" onclick="window.location.href = '<?php echo base_url('lista-alunos'); ?>'">
                                                 <i class="icon-chevron-left2"></i> Voltar
                                             </button>
                                         </div>                                        
@@ -231,205 +231,3 @@
         </div>
     </div>
 </div>
-
-<!-- MODAL - DESEJA EXCLUIR O ALUNO? -->
-<div class="modal fade text-xs-left" id="excluir-aluno" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title text-xs-center"><i class="icon-warning"></i> Deseja excluir o(a) aluno(a)?</h4>
-                <div class="modal-footer">                
-                    <button type="button" class="btn btn-primary" onclick="excluirAluno();">Sim</button>
-                    <button type="button" class="btn grey btn-secondary" data-dismiss="modal">Não</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- MODAL - ALUNO EXCLUÍDO COM SUCESSO -->
-<div class="modal fade text-xs-left" data-backdrop="static" id="excluir-sucesso-aluno" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
-     aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-body">
-                <h4 class="modal-title text-xs-center"><i class="icon-check-circle"></i> Aluno(a) excluído(a) com sucesso</h4>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="window.location.href = '<?php echo base_url('lista-alunos'); ?>'">Fechar</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- MODAL - ERRO AO EXCLUIR O ALUNO -->
-<div class="modal fade text-xs-left" data-backdrop="static" id="excluir-erro-aluno" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
-     aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-body">
-                <h4 class="modal-title text-xs-center"><i class="icon-remove"></i> Erro ao excluir o(a) aluno(a)</h4>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- MODAL - DESEJA BLOQUEAR O ALUNO? -->
-<div class="modal fade text-xs-left" id="bloquear-aluno" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title text-xs-center"><i class="icon-warning"></i> Deseja bloquear o(a) aluno(a)?</h4>
-                <br>
-                <div class="modal-footer">                
-                    <button type="button" class="btn btn-primary" id="bloqueia-aluno">Sim</button>
-                    <button type="button" class="btn grey btn-secondary" data-dismiss="modal" id="nao-bloqueia-aluno">Não</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- MODAL - ALUNO BLOQUEADO COM SUCESSO -->
-<div class="modal fade text-xs-left" data-backdrop="static" id="bloquear-sucesso-aluno" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
-     aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-body">
-                <h4 class="modal-title text-xs-center"><i class="icon-check-circle"></i> Aluno(a) bloqueado(a) com sucesso</h4>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="window.location.href = '<?php echo base_url('lista-alunos'); ?>'">Fechar</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- MODAL - ERRO AO BLOQUEAR O ALUNO -->
-<div class="modal fade text-xs-left" data-backdrop="static" id="bloquear-erro-aluno" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
-     aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-body">
-                <h4 class="modal-title text-xs-center"><i class="icon-remove"></i> Erro ao bloquear o(a) aluno(a)</h4>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="window.location.href = '<?php echo base_url('lista-alunos'); ?>'">Fechar</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- MODAL - DESEJA DESBLOQUEAR O ALUNO? -->
-<div class="modal fade text-xs-left" data-backdrop="static" id="desbloquear-aluno" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title text-xs-center"><i class="icon-warning"></i> Deseja desbloquear o(a) aluno(a)?</h4>
-                <br>
-                <div class="modal-footer">                
-                    <button type="button" class="btn btn-primary" id="desbloqueia-aluno">Sim</button>
-                    <button type="button" class="btn grey btn-secondary" data-dismiss="modal" id="nao-desbloqueia-aluno">Não</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- MODAL - ALUNO DESBLOQUEADO COM SUCESSO -->
-<div class="modal fade text-xs-left" data-backdrop="static" id="desbloquear-sucesso-aluno" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
-     aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-body">
-                <h4 class="modal-title text-xs-center"><i class="icon-check-circle"></i> Aluno(a) desbloqueado(a) com sucesso</h4>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="window.location.href = '<?php echo base_url('lista-alunos'); ?>'">Fechar</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- MODAL - ERRO AO DESBLOQUEAR O ALUNO -->
-<div class="modal fade text-xs-left" data-backdrop="static" id="desbloquear-erro-aluno" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
-     aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-body">
-                <h4 class="modal-title text-xs-center"><i class="icon-remove"></i> Erro ao desbloquear o(a) aluno(a)</h4>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="window.location.href = '<?php echo base_url('lista-alunos'); ?>'">Fechar</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- FUNÇÕES EM JAVASCRIPT -->
-<script type="text/javascript">
-    function excluirAluno() {
-
-        var dados = "idAluno=" + $('#idAluno').val();
-        $.ajax({
-            url: "<?php echo base_url('sistema/AlunoController/cExcluirAluno'); ?>",
-            type: "POST",
-            data: dados,
-            dataType: 'json',
-            success: function (data) {
-                $('#excluir-aluno').modal('hide');
-                if (data.success) {
-                    $('#excluir-sucesso-aluno').modal('show');
-                } else {
-                    $('#excluir-erro-aluno').modal('show');
-                }
-            },
-            error: function (request, status, error) {
-                alert("Erro: " + request.responseText);
-            }
-        });
-    }
-
-    function bloquearAluno(dados) {
-        $.ajax({
-            type: 'POST',
-            url: "<?php echo base_url('sistema/AlunoController/cBloquearAluno'); ?>",
-            dataType: 'json',
-            data: dados,
-            success: function (data) {
-                $('#bloquear-aluno').modal("hide");
-                if (data.success) {
-                    $('#bloquear-sucesso-aluno').modal("show");
-                } else {
-                    $('#bloquear-erro-aluno').modal("show");
-                }
-            },
-            error: function (request, status, error) {
-                alert("Erro: " + request.responseText);
-            }
-        });
-    }
-
-    function desbloquearAluno(dados) {
-        $.ajax({
-            type: 'POST',
-            url: "<?php echo base_url('sistema/AlunoController/cDesbloquearAluno'); ?>",
-            dataType: 'json',
-            data: dados,
-            success: function (data) {
-                $('#desbloquear-aluno').modal("hide");
-                if (data.success) {
-                    $('#desbloquear-sucesso-aluno').modal("show");
-                } else {
-                    $('#desbloquear-erro-aluno').modal("show");
-                }
-            },
-            error: function (request, status, error) {
-                alert("Erro: " + request.responseText);
-            }
-        });
-    }
-</script>

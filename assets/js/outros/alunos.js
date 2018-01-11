@@ -4,31 +4,32 @@
 // OS DADOS PASSADOS DEVERAM SER OBRIGATÓRIOS
 // O CPF TEM QUE SER VERIFICADO, PARA NÃO SER CADASTRADO DUAS VEZES
 function verificarDadosAluno() {
-    var idAluno = $('#idUsuario').val();
+    var idAluno = $('#idAluno').val();
     var idAcademia = $('#idAcademia').val();
-    var nomeAluno = $('#nomeUsuario').val();
-    var dataNascimentoAluno = $('#dataNascimentoUsuario').val();
+    var nomeAluno = $('#nomeAluno').val();
+    var dataNascimentoAluno = $('#dataNascimentoAluno').val();
     var cpfAluno = $('#cpfUsuario').val();
-    var rgAluno = $('#rgUsuario').val();
-    var emailAluno = $('#emailUsuario').val();
-    var sexoUsuario = $('#sexoUsuario').val();
-    var telefoneUsuario = $('#telefoneUsuario').val();
-    var enderecoUsuario = $('#enderecoUsuario').val();
-    var estadoUsuario = $('#estadoUsuario').val();
-    var cidadeUsuario = $('#cidadeUsuario').val();
-    var bairroUsuario = $('#bairroUsuario').val();
-    var cepUsuario = $('#cepUsuario').val();
-    var objetivoAluno = $('objetivoAluno').val();
-    var dataValidadeExame = $('dataValidadeExame').val();
-    var diaPagamentoAluno = $('diaPagamentoAluno').val();
+    var rgAluno = $('#rgAluno').val();
+    var emailAluno = $('#emailAluno').val();
+    var sexoAluno = $('#sexoAluno').val();
+    var loginAluno = $('#loginAluno').val();
+    var senhaAluno = $('#senhaAluno').val();
+    var telefoneAluno = $('#telefoneUsuario').val();
+    var enderecoAluno = $('#enderecoAluno').val();
+    var estadoAluno = $('#estadoAluno').val();
+    var cidadeAluno = $('#cidadeAluno').val();
+    var bairroAluno = $('#bairroAluno').val();
+    var cepAluno = $('#cepAluno').val();
+    var objetivoAluno = $('#objetivoAluno').val();
+    var diaValidadeExame = $('#diaValidadeExame').val();
+    var diaPagamentoAluno = $('#diaPagamentoAluno').val();
 
     var msnCPF = $('#msnCPF').val();
 
-    if ((idAluno === "") || (idAcademia === "") || (nomeAluno === "") || (dataNascimentoAluno === "") ||
-            (cpfAluno === "") || (rgAluno === "") || (emailAluno === "") || (sexoUsuario === "") ||
-            (telefoneUsuario === "") || (enderecoUsuario === "") || (estadoUsuario === "") || (cidadeUsuario === "") ||
-            (bairroUsuario === "") || (cepUsuario === "") || (objetivoAluno === "") || (dataValidadeExame === "Selecione o dia") ||
-            (diaPagamentoAluno === "Selecione o dia")) {
+    if ((idAluno === "") || (idAcademia === "") || (nomeAluno === "") || (dataNascimentoAluno === "") || (cpfAluno === "") ||
+            (rgAluno === "") || (emailAluno === "") || (sexoAluno === "") || (telefoneAluno === "") || (enderecoAluno === "") ||
+            (estadoAluno === "") || (cidadeAluno === "") || (bairroAluno === "") || (cepAluno === "") || (objetivoAluno === "") ||
+            (diaValidadeExame === "Selecione o dia") || (diaPagamentoAluno === "Selecione o dia")) {
         $('#dados-obrigatorios-aluno').modal('show');
     } else if (msnCPF === "CPF válido!") {
         verificarCPF(cpfAluno);
@@ -102,33 +103,31 @@ function pesquisarAluno() {
     }
 }
 
-function verificarSexoAluno() {    
-    var sexoAluno;
-
+function verificarSexoAluno() {
     // SE O SEXO FOR FEMININO
     if (document.getElementById('sexoFeminino').checked) {
-        document.getElementById('sexoFeminino').value = 'Feminino';
-    } 
+        document.getElementById('sexoAluno').value = 'Feminino';
+    }
     // SE O SEXO FOR MASCULINO
-    else if (document.getElementById('sexoMasculino').checked) {       
-        document.getElementById('sexoMasculino').value = 'Masculino';
-    } 
+    else if (document.getElementById('sexoMasculino').checked) {
+        document.getElementById('sexoAluno').value = 'Masculino';
+    }
     // SE O SEXO FOR OUTROS
-    else if (document.getElementById('sexoOutros').checked) {       
-        document.getElementById('sexoOutros').value = 'Outros';
+    else if (document.getElementById('sexoOutros').checked) {
+        document.getElementById('sexoAluno').value = 'Outros';
     }
 }
 
 function responsaveisHabilitar() {
     if (document.getElementById('responsavelSim').checked) {
-        document.getElementById('nomeResponsavelUsuario').disabled = false;
-        document.getElementById('telefoneResponsavelUsuario').disabled = false;
+        document.getElementById('nomeResponsavelAluno').disabled = false;
+        document.getElementById('telefoneResponsavelAluno').disabled = false;
         document.getElementById('responsavelNao').checked = false;
     } else if (document.getElementById('responsavelNao').checked) {
-        document.getElementById('nomeResponsavelUsuario').value = "";
-        document.getElementById('telefoneResponsavelUsuario').value = "";
-        document.getElementById('nomeResponsavelUsuario').disabled = true;
-        document.getElementById('telefoneResponsavelUsuario').disabled = true;
+        document.getElementById('nomeResponsavelAluno').value = "";
+        document.getElementById('telefoneResponsavelAluno').value = "";
+        document.getElementById('nomeResponsavelAluno').disabled = true;
+        document.getElementById('telefoneResponsavelAluno').disabled = true;
         document.getElementById('responsavelSim').checked = false;
     }
 }
@@ -136,7 +135,19 @@ function responsaveisHabilitar() {
 function verificarObjetivoAluno() {
     if (document.getElementById('outros').checked) {
         document.getElementById('outrosObjetivoAluno').disabled = false;
+        document.getElementById('objetivoAluno').value = document.getElementById('outrosObjetivoAluno').value;
     } else {
+        if (document.getElementById('hipertrofia').checked) {
+            document.getElementById('objetivoAluno').value = 'Hipertrofia';
+        } else if (document.getElementById('forca').checked) {
+            document.getElementById('objetivoAluno').value = 'Força';
+        } else if (document.getElementById('qualiDeVida').checked) {
+            document.getElementById('objetivoAluno').value = 'Quali. de Vida';
+        } else if (document.getElementById('emagrecimento').checked) {
+            document.getElementById('objetivoAluno').value = 'Emagrecimento';
+        } else if (document.getElementById('resAerobica').checked) {
+            document.getElementById('objetivoAluno').value = 'Res. Aeróbica';
+        }
         document.getElementById('outrosObjetivoAluno').value = "";
         document.getElementById('outrosObjetivoAluno').disabled = true;
     }
@@ -144,27 +155,27 @@ function verificarObjetivoAluno() {
 
 function cirurgiasHabilitar() {
     if (document.getElementById('cirurgiasSim').checked) {
-        document.getElementById('cirurgiasUsuario').disabled = false;
+        document.getElementById('cirurgiasAluno').disabled = false;
     } else if (document.getElementById('cirurgiasNao').checked) {
-        document.getElementById('cirurgiasUsuario').value = "";
-        document.getElementById('cirurgiasUsuario').disabled = true;
+        document.getElementById('cirurgiasAluno').value = "";
+        document.getElementById('cirurgiasAluno').disabled = true;
     }
 }
 
 function medicamentosHabilitar() {
     if (document.getElementById('medicamentosSim').checked) {
-        document.getElementById('medicamentosUsuario').disabled = false;
+        document.getElementById('medicamentosAluno').disabled = false;
     } else if (document.getElementById('medicamentosNao').checked) {
-        document.getElementById('medicamentosUsuario').value = "";
-        document.getElementById('medicamentosUsuario').disabled = true;
+        document.getElementById('medicamentosAluno').value = "";
+        document.getElementById('medicamentosAluno').disabled = true;
     }
 }
 
 function doencasFamiliaresHabilitar() {
     if (document.getElementById('doencasFamiliaresSim').checked) {
-        document.getElementById('doencasFamiliaresUsuario').disabled = false;
+        document.getElementById('doencasFamiliaresAluno').disabled = false;
     } else if (document.getElementById('doencasFamiliaresNao').checked) {
-        document.getElementById('doencasFamiliaresUsuario').value = "";
-        document.getElementById('doencasFamiliaresUsuario').disabled = true;
+        document.getElementById('doencasFamiliaresAluno').value = "";
+        document.getElementById('doencasFamiliaresAluno').disabled = true;
     }
 }

@@ -48,7 +48,7 @@
                                                 <div class="col-md-3">
                                                     <div class="form-group">
                                                         <h4><strong>Telefone: </strong></h4>
-                                                        <h4><i class="icon-phone-square"></i> <?php echo $funcionario->telefoneUsuario; ?></h4>
+                                                        <h4><?php echo $funcionario->telefoneUsuario; ?></h4>
                                                     </div>
                                                 </div>
                                                 <!-- SEXO DO FUNCIONÁRIO -->
@@ -62,7 +62,7 @@
                                                 <div class="col-md-3">
                                                     <div class="form-group">
                                                         <h4><strong>Data de Nascimento: </strong></h4>
-                                                        <h4><?php echo $funcionario->dataNascimentoUsuario; ?></h4>
+                                                        <h4><?php echo formatarData($funcionario->dataNascimentoUsuario); ?></h4>
                                                     </div>
                                                 </div>
                                                 <!-- IDADE DO FUNCIONÁRIO -->
@@ -117,25 +117,25 @@
                                         <div style="float: right;" class="form-actions">
                                             <button type="button"                               
                                             <?php if ($funcionario->statusConta == 1) { ?>
-                                                        class="btn btn-blue"
+                                                        class="btn btn-black"
                                                         onclick="modalDesBloquearFuncionario(this, <?php echo $funcionario->idUsuario; ?>, true);"
                                                     <?php } else { ?>
-                                                        class="btn btn-black"
+                                                        class="btn btn-blue"
                                                         onclick="modalDesBloquearFuncionario(this, <?php echo $funcionario->idUsuario; ?>, false);"
                                                     <?php } ?>
                                                     ><i <?php if ($funcionario->statusConta == 1) { ?>
-                                                        class="icon-unlock"
-                                                    <?php } else { ?>
                                                         class="icon-lock"
+                                                    <?php } else { ?>
+                                                        class="icon-unlock"
                                                     <?php } ?>></i><?php if ($funcionario->statusConta) { ?> Bloquear <?php } else { ?> Desbloquear <?php } ?>
                                             </button>
-                                            <button type="button" class="btn btn-green" onclick="window.location.href = '<?php echo base_url('editar-funcionario/' . md5($funcionario->idUsuario)); ?>'">
+                                            <button type="button" class="btn btn-warning" onclick="window.location.href = '<?php echo base_url('editar-funcionario/' . md5($funcionario->idUsuario)); ?>'">
                                                 <i class="icon-edit"></i> Editar
                                             </button>
                                             <button type="button" class="btn btn-danger" onclick="modalExcluirFuncionario(<?php echo $funcionario->idUsuario; ?>);">
                                                 <i class="icon-trash"></i> Excluir
                                             </button>
-                                            <button type="button" class="btn btn-primary" onclick="window.location.href = '<?php echo base_url('lista-funcionarios'); ?>'">
+                                            <button type="button" class="btn btn-default" onclick="window.location.href = '<?php echo base_url('lista-funcionarios'); ?>'">
                                                 <i class="icon-chevron-left2"></i> Voltar
                                             </button>
                                         </div>                                        
