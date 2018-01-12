@@ -81,7 +81,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-body">
-                        <h4 class="modal-title text-xs-center">Login e/ou Senha Incorreto(s)</h4>
+                        <h4 class="modal-title text-xs-center"><i class="icon-warning2 warning"></i> Login e/ou Senha Incorreto(s)</h4>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
@@ -96,7 +96,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-body">
-                        <h4 class="modal-title text-xs-center">Usuário bloqueado! Por favor contate o(s) administrador(es) para mais informações.</h4>
+                        <h4 class="modal-title text-xs-center"><i class="icon-warning2 warning"></i> Usuário bloqueado! Por favor contate o(s) administrador(es) para mais informações.</h4>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
@@ -111,7 +111,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-body">
-                        <h4 class="modal-title text-xs-center">Academia bloqueada! Por favor contate a academia para mais informações.</h4>
+                        <h4 class="modal-title text-xs-center"><i class="icon-warning2 warning"></i> Academia bloqueada! Por favor contate a academia para mais informações.</h4>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>

@@ -8,7 +8,7 @@ class UsuarioController extends CI_Controller {
         parent::__construct();
         $this->load->model('UsuarioModel');
     }
-    
+
     // FUNÇÃO DE CARREGAMENTO DA VIEW LOGIN.PHP
     public function index() {
         $this->load->view('apresentacao/login');
@@ -30,7 +30,7 @@ class UsuarioController extends CI_Controller {
         if (count($dadosUsuario) >= 1) {
             // PASSANDO AS INFORMAÇÕES DO USUÁRIO PARA UM VETOR
             $dadosUsuarioLogado = get_object_vars($dadosUsuario[0]);
-            
+
             // VERIFICANDO SE O STATUS DA ACADEMIA ESTÁ TRUE 
             // PARA QUE O USUÁRIO POSSA LOGAR
             $aux = $this->UsuarioModel->mVerificarStatusAcademia($dadosUsuarioLogado['idAcademia']);
@@ -46,13 +46,13 @@ class UsuarioController extends CI_Controller {
                 // SE A CONTA FO USUÁRIO ESTIVER FALSE, BLOQUEADA
                 else {
                     $resposta = array('success' => false, 'statusConta' => false);
-                } 
-            } 
+                }
+            }
             // SE O STATUS ACADEMIA FOR FALSE
             else {
                 $resposta = array('success' => false, 'statusAcademia' => false);
             }
-        } 
+        }
         // SE NÃO HOUVER NENHUM USUÁRIO COM AS INFORMAÇÕES PASSADAS
         else {
             $resposta = array('success' => false);
@@ -188,6 +188,22 @@ class UsuarioController extends CI_Controller {
             $resposta = array('existe' => false);
         }
 
+        echo json_encode($resposta);
+    }
+
+    // FUNÇÃO DE CARREGAMENTO DA VIEW ALTERAR-SENHA.PHP
+    public function cAlterarSenha() {
+        $dadosUsuario = array(
+            'cpfUsuario' => $this->input->post('cpfUsuario'),
+            'senhaUsuario' => base64_encode($this->input->post('senhaUsuario'))
+        );
+        
+        if ($this->UsuarioModel->mAlterarSenha($dadosUsuario)) {
+            $resposta = array('success' => true);
+        } else {
+            $resposta = array('success' => false);
+        }
+        
         echo json_encode($resposta);
     }
 

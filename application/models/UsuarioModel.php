@@ -74,16 +74,9 @@ class UsuarioModel extends CI_Model {
         return $this->db->get()->result();
     }
     
-    public function mProcurarCPF($cpfUsuario) {
-        $this->db->select('*');
-        $this->db->from('usuarios');
-        $this->db->where('cpfUsuario', $cpfUsuario);
-        return $this->db->get()->result();
-    }
-    
-    // FUNÇÃO PARA 
+    // FUNÇÃO PARA ALTERAR A SENHA
     public function mAlterarSenha($dadosUsuario){
-        $this->db->where('idUsuario', $dadosUsuario['idUsuario']);
+        $this->db->where('cpfUsuario', $dadosUsuario['cpfUsuario']);
         return $this->db->update('usuarios', $dadosUsuario);
     }
 

@@ -1,3 +1,9 @@
+$(document).ready(function () {
+    $("#nomeAlterarSenha").hide();
+    $("#alterarSenha").hide();
+    $("#botaoAlterarSenha").hide();
+});
+
 var verificarTamanhoSenha = function () {
     var tamanho = document.getElementById('senhaUsuario').value.length;
     if (tamanho < 6) {

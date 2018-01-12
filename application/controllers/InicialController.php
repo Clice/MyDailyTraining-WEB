@@ -3,7 +3,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class InicialController extends CI_Controller {
-    
+
     public function __construct() {
         parent::__construct();
         $this->load->model('AlunoModel');
@@ -12,10 +12,15 @@ class InicialController extends CI_Controller {
         $this->load->model('InstrutorModel');
         $this->load->model('FuncionarioModel');
         $this->load->model('AdministradorModel');
-    }    
-    
+    }
+
     public function index() {
         $this->load->view('apresentacao/pagina-inicial');
+    }
+
+    // FUNÇÃO DE CARREGAMENTO DA VIEW RECUPERAR-SENHA.PHP
+    public function viewRecuperarSenha() {
+        $this->load->view('apresentacao/recuperar-senha');
     }
 
     // FUNÇÃO DE CARREGAMENTO DA VIEW PAGINA-PRINCIPAL.PHP
@@ -42,9 +47,9 @@ class InicialController extends CI_Controller {
 
     // FUNÇÃO DE CARREGAMENTO DA VIEW PERFIL.PHP
     public function viewPerfil() {
-        $dados['nomePagina'] = 'Perfil';        
+        $dados['nomePagina'] = 'Perfil';
         $dados['perfilLogado'] = $this->UsuarioModel->mVisualizarPerfilUsuario($this->session->userdata('idUsuario'));
-        
+
         $this->load->view('sistema/templates/html-header', $dados);
         $this->load->view('sistema/templates/header');
         $this->load->view('sistema/templates/side-menu');
@@ -73,10 +78,10 @@ class InicialController extends CI_Controller {
         $this->load->view('sistema/telas/relatorio');
         $this->load->view('sistema/templates/footer');
         $this->load->view('sistema/templates/html-footer');
-    }  
+    } 
 
     // FUNÇÃO PARA REALIZAR O LOGOUT DO USUÁRIO
-    public function cLogoutUsuario () {
+    public function cLogoutUsuario() {
         $this->session->sess_destroy();
         redirect(base_url());
     }

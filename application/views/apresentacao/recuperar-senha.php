@@ -31,7 +31,8 @@
                                     <div class="card-title text-xs-center">
                                         <div class="p-1"><img style="width: 25%;" src="<?php echo base_url('assets/imagens/Icon.png'); ?>"></div>
                                     </div>
-                                    <h4 class="card-subtitle text-xs-center pt-2"><span>Recuperar senha</span></h4>
+                                    <h4 class="card-subtitle text-xs-center pt-2" id="nomeRecuperarSenha"><span>Recuperar senha</span></h4>
+                                    <h4 class="card-subtitle text-xs-center pt-2" id="nomeAlterarSenha"><span>Alterar Senha</span></h4>
                                 </div>
                                 <!-- CORPO DO LOGIN -->           
                                 <div class="card-body collapse in">
@@ -40,19 +41,36 @@
                                             <div class="form-body">
                                                 <div class="row">
                                                     <div class="col-md-12" >
-                                                        <div class="offset-md-1 col-md-10">
+                                                        <div class="offset-md-1 col-md-10" id="recuperarSenha">
                                                             <label style="text-align: center">Digite o CPF para verificar a conta e recuperar a senha.</label>
                                                             <input class="form-control" type="text" id="cpfUsuario" maxlength="11" value="" 
                                                                    placeholder="Digite o CPF" name="cpfUsuario" onchange="verificarCpf();" autofocus="">
-                                                            <small><span id='msnCPF'></span></small>                                       
+                                                            <small><span id='msnCPF'></span></small>
+                                                            <br>
+                                                        </div>
+                                                        <div class="offset-md-1 col-md-10" id="alterarSenha">
+                                                            <!-- NOVA SENHA -->
+                                                            <label>Digite a nova senha:</label>
+                                                            <input type="password" id="senhaUsuario" minlength="6" class="form-control" value="" 
+                                                                   placeholder="Digite a senha" name="senhaUsuario" onchange="verificarTamanhoSenha();">
+                                                            <small><span id='msnSenha'></span></small>
+                                                            <br>
+                                                            <!-- CONFIRMA NOVA SENHA -->
+                                                            <label>Confirme a Senha:</label>
+                                                            <input type="password" id="confirmarSenha" minlength="6" class="form-control" value="" 
+                                                                   placeholder="Digite a senha novamente" name="confirmarSenha" onchange="verificarSenhasIguais();">
+                                                            <small><span id='msnSenhasIguais'></span></small>
                                                             <br>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </form>
-                                        <div class="offset-md-4 col-md-5">
-                                            <button type="submit" class="btn btn-blue btn-lg btn-block" onclick="recuperarSenha();"><i class="icon-search"></i> Procurar</button>
+                                        <div class="offset-md-3 col-md-5" id="botaoRecuperarSenha">
+                                            <button style="margin-left: 15px;" type="submit" class="btn btn-blue btn-lg btn-block" onclick="recuperarSenha();"><i class="icon-search"></i> Procurar</button>
+                                        </div>
+                                        <div class="offset-md-3 col-md-5"id="botaoAlterarSenha">
+                                            <button style="margin-left: 15px;" type="submit" class="btn btn-blue btn-lg btn-block" onclick="alterarSenha();"><i class="icon-save"></i> Alterar</button>
                                         </div>
                                     </div>
                                 </div>
@@ -72,7 +90,52 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-body">
-                        <h4 class="modal-title text-xs-center">Nenhum usuário encontrado</h4>
+                        <h4 class="modal-title text-xs-center"><i class="icon-warning2 warning"></i> Nenhum usuário encontrado</h4>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODAL - SENHAS DIFERENTES -->
+        <div class="modal fade text-xs-left" data-backdrop="static" id="senhas-diferentes" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
+             aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <h4 class="modal-title text-xs-center"><i class="icon-warning2 warning"></i> Senhas diferentes</h4>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODAL - NENHUM USUÁRIO ENCONTRADO -->
+        <div class="modal fade text-xs-left" data-backdrop="static" id="alterar-senha-sucesso" name="alterar-senha-sucesso" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
+             aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <h4 class="modal-title text-xs-center"><i class="icon-check-circle success"></i> Senha alterada com sucesso</h4>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" onclick="window.location.href = '<?php echo base_url('login'); ?>'" data-dismiss="modal">Fechar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODAL - NENHUM USUÁRIO ENCONTRADO -->
+        <div class="modal fade text-xs-left" data-backdrop="static" id="alterar-senha-erro" name="alterar-senha-erro" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
+             aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <h4 class="modal-title text-xs-center"><i class="icon-remove danger"></i> Erro ao alterar a senha</h4>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
@@ -84,16 +147,19 @@
         <!-- JS-->
         <script type="text/javascript">
             function recuperarSenha() {
-                var url = "<?php echo base_url('equaltech/LoginController/cProcurarCPF') ?>";
-
                 $.ajax({
-                    url: url,
+                    url: "<?php echo base_url('UsuarioController/cVerificarCPF') ?>",
                     type: "POST",
                     data: $('#formRecuperarSenha').serialize(),
                     dataType: "JSON",
                     success: function (data) {
-                        if (data.success) {
-                            window.location.href = "<?php echo base_url('alterar-senha/'.md5(cpfUsuario)); ?>";
+                        if (data.existe) {
+                            $("#nomeRecuperarSenha").hide();
+                            $("#recuperarSenha").hide();
+                            $("#botaoRecuperarSenha").hide();
+                            $("#nomeAlterarSenha").show();
+                            $("#alterarSenha").show();
+                            $("#botaoAlterarSenha").show();
                         } else {
                             $('#usuario-nao-encontrado').modal('show');
                         }
@@ -103,10 +169,37 @@
                     }
                 });
             }
+
+            function alterarSenha() {
+                var senhaUsuario = $('#senhaUsuario').val();
+                var confirmarSenha = $('#confirmarSenha').val();
+
+                if (senhaUsuario !== confirmarSenha) {
+                    $('#senhas-diferentes').modal('show');
+                } else {
+                    $.ajax({
+                        url: "<?php echo base_url('UsuarioController/cAlterarSenha') ?>",
+                        type: "POST",
+                        data: $('#formRecuperarSenha').serialize(),
+                        dataType: "JSON",
+                        success: function (data) {
+                            if (data.success) {
+                                $('#alterar-senha-sucesso').modal('show');
+                            } else {
+                                $('#alterar-senha-erro').modal('show');
+                            }
+                        },
+                        error: function (request, status, error) {
+                            alert("Erro: " + request.responseText);
+                        }
+                    });
+                }
+            }
         </script>
         <script src="<?php echo base_url('assets/js/sistema/jquery.min.js'); ?>" type="text/javascript"></script>
         <script src="<?php echo base_url('assets/js/sistema/bootstrap.min.js'); ?>" type="text/javascript"></script>
         <script src="<?php echo base_url('assets/js/sistema/app.js'); ?>" type="text/javascript"></script>
         <script src="<?php echo base_url('assets/js/outros/valida-cpf-cnpj.js'); ?>" type="text/javascript"></script>
+        <script src="<?php echo base_url('assets/js/outros/valida-senha.js'); ?>" type="text/javascript"></script>
     </body>
 </html>

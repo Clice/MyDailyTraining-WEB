@@ -80,37 +80,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-body">
-                        <h4 class="modal-title text-xs-center">Login e/ou Senha Incorreto(s)</h4>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- MODAL - USUÁRIO BLOQUEADO -->
-        <div class="modal fade text-xs-left" data-backdrop="static" id="usuario-bloqueado" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
-             aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <h4 class="modal-title text-xs-center">Usuário bloqueado! Por favor contate o(s) administrador(es) para mais informações.</h4>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- MODAL - ACADEMIA BLOQUEADA -->
-        <div class="modal fade text-xs-left" data-backdrop="static" id="academia-bloqueada" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
-             aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <h4 class="modal-title text-xs-center">Academia bloqueada! Por favor contate a academia para mais informações.</h4>
+                        <h4 class="modal-title text-xs-center"><i class="icon-warning2 warning"></i> Login e/ou Senha Incorreto(s)</h4>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
