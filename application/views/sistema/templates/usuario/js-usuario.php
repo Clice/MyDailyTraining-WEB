@@ -61,7 +61,7 @@
         });
     }
 
-    function verificarCpfExiste(cpfUsuario, loginUsuario) {
+    function verificarCpfExiste(cpfUsuario, loginUsuario, idUsuario) {
         var dados = "cpfUsuario=" + cpfUsuario;
         $.ajax({
             url: "<?php echo base_url('UsuarioController/cVerificarCPF') ?>",
@@ -70,9 +70,13 @@
             dataType: "JSON",
             success: function (data) {
                 if (data.existe) {
-                    $('#cpf-cadastrado').modal('show');
+                    if (data.id === idUsuario) {
+                        verificarLoginExiste(loginUsuario, idUsuario);
+                    } else {
+                        $('#cpf-cadastrado').modal('show');
+                    }
                 } else {
-                    verificarLoginExiste(loginUsuario);
+                    verificarLoginExiste(loginUsuario, idUsuario);
                 }
             },
             error: function (request, status, error) {
@@ -81,7 +85,7 @@
         });
     }
 
-    function verificarLoginExiste(loginUsuario) {
+    function verificarLoginExiste(loginUsuario, idUsuario) {
         var dados = 'loginUsuario=' + loginUsuario;
         $.ajax({
             url: "<?php echo base_url('UsuarioController/cVerificarLogin') ?>",
@@ -90,7 +94,11 @@
             dataType: "JSON",
             success: function (data) {
                 if (data.existe) {
-                    $('#login-cadastrado').modal('show');
+                    if (data.id === idUsuario) {
+                        cadEditUsuario();
+                    } else {
+                        $('#login-cadastrado').modal('show');
+                    }
                 } else {
                     cadEditUsuario();
                 }

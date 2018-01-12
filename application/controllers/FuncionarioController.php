@@ -33,7 +33,7 @@ class FuncionarioController extends CI_Controller {
         // SE UM ID FUNCIONARIO FOI PASSADO OU NÃO
         // PARA REALIZAR A EDIÇÃO OU O CADASTRO DE UM FUNCIONARIO        
         if ($idFuncionario != "novo") {
-            $dadosFuncionario['nomePagina'] = get_object_vars($this->UsuarioModel->mVisualizarPerfilUsuario($idFuncionario)[0]);
+            $dadosFuncionario = get_object_vars($this->UsuarioModel->mVisualizarPerfilUsuario($idFuncionario)[0]);
             $dadosFuncionario['nomePagina'] = "Editar Funcionário";
             $dadosFuncionario['crefUsuario'] = "";
         } else {
@@ -42,6 +42,8 @@ class FuncionarioController extends CI_Controller {
             $dadosFuncionario['idAcademia'] = $this->session->userdata('idAcademia');
             $dadosFuncionario['sexoUsuario'] = "";
             $dadosFuncionario['crefUsuario'] = "";
+            $dadosFuncionario['estadoUsuario'] = "";
+            $dadosFuncionario['statusConta'] = true;
             $dadosFuncionario['tipoConta'] = 3;
         }
         

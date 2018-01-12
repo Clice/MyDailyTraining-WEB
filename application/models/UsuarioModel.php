@@ -75,7 +75,7 @@ class UsuarioModel extends CI_Model {
     }
     
     // FUNÇÃO PARA ALTERAR A SENHA
-    public function mAlterarSenha($dadosUsuario){
+    public function mAlterarSenha($dadosUsuario) {
         $this->db->where('cpfUsuario', $dadosUsuario['cpfUsuario']);
         return $this->db->update('usuarios', $dadosUsuario);
     }

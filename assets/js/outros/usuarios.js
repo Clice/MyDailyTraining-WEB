@@ -24,16 +24,20 @@ function verificarDadosUsuario() {
 
     var msnCPF = $('#msnCPF').val();
 
-    if ((idUsuario === "") || (idAcademia === "") || (nomeUsuario === "") || (loginUsuario === "") ||(senhaUsuario === "") || 
-            (emailUsuario === "") || (cpfUsuario === "") || (rgUsuario === "") || (dataNascimentoUsuario === "") || 
-            (enderecoUsuario === "") || (estadoUsuario === "") || (cidadeUsuario === "") || (bairroUsuario === "") || 
+    if ((idUsuario === "") || (idAcademia === "") || (nomeUsuario === "") || (loginUsuario === "") || (senhaUsuario === "") ||
+            (emailUsuario === "") || (cpfUsuario === "") || (rgUsuario === "") || (dataNascimentoUsuario === "") ||
+            (enderecoUsuario === "") || (estadoUsuario === "") || (cidadeUsuario === "") || (bairroUsuario === "") ||
             (sexoUsuario === "") || (cepUsuario === "") || (telefoneUsuario === "")) {
         $('#dados-obrigatorios').modal('show');
     } else if (senhaUsuario !== confirmarSenha) {
         $('#senhas-diferentes').modal('show');
-    } else if (msnCPF === "CPF válido!") {
-        verificarCpfExiste(cpfUsuario, loginUsuario);
-    } 
+    } else {
+        if (msnCPF === "CPF válido!") {
+            verificarCpfExiste(cpfUsuario, loginUsuario, idUsuario);
+        } else if (idUsuario !== "novo") {
+            verificarCpfExiste(cpfUsuario, loginUsuario, idUsuario);
+        }
+    }
 }
 
 // FUNÇÃO PARA ATIVAR O MODAL EXCLUIR INSTRUTOR
@@ -111,13 +115,13 @@ function verificarSexoUsuario() {
     // SE O SEXO FOR FEMININO
     if (document.getElementById('sexoFeminino').checked) {
         document.getElementById('sexoUsuario').value = 'Feminino';
-    } 
+    }
     // SE O SEXO FOR MASCULINO
-    else if (document.getElementById('sexoMasculino').checked) {       
+    else if (document.getElementById('sexoMasculino').checked) {
         document.getElementById('sexoUsuario').value = 'Masculino';
-    } 
+    }
     // SE O SEXO FOR OUTROS
-    else if (document.getElementById('sexoOutros').checked) {       
+    else if (document.getElementById('sexoOutros').checked) {
         document.getElementById('sexoUsuario').value = 'Outros';
     }
 }

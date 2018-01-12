@@ -84,7 +84,7 @@ class UsuarioController extends CI_Controller {
             'cepUsuario' => $this->input->post('cepUsuario'),
             'telefoneUsuario' => $this->input->post('telefoneUsuario'),
             'tipoConta' => $this->input->post('tipoConta'),
-            'statusConta' => true
+            'statusConta' => $this->input->post('statusConta')
         );
 
         $dadosUsuario['idadeUsuario'] = calcularIdade($dadosUsuario['dataNascimentoUsuario']);
@@ -168,7 +168,8 @@ class UsuarioController extends CI_Controller {
         $dadosUsuario = $this->UsuarioModel->mVerificarCPF($cpfUsuario);
 
         if (count($dadosUsuario) >= 1) {
-            $resposta = array('existe' => true);
+            $dadosUsuario = get_object_vars($this->UsuarioModel->mVerificarCPF($cpfUsuario)[0]);
+            $resposta = array('existe' => true, 'id' => $dadosUsuario['idUsuario']);
         } else {
             $resposta = array('existe' => false);
         }
@@ -183,7 +184,8 @@ class UsuarioController extends CI_Controller {
         $dadosUsuario = $this->UsuarioModel->mVerificarLogin($loginUsuario);
 
         if (count($dadosUsuario) >= 1) {
-            $resposta = array('existe' => true);
+            $dadosUsuario = get_object_vars($this->UsuarioModel->mVerificarLogin($loginUsuario)[0]);
+            $resposta = array('existe' => true, 'id' => $dadosUsuario['idUsuario']);
         } else {
             $resposta = array('existe' => false);
         }
