@@ -35,18 +35,19 @@ class InstrutorController extends CI_Controller {
         if ($idInstrutor != "novo") {
             $dadosInstrutor = get_object_vars($this->UsuarioModel->mVisualizarPerfilUsuario($idInstrutor)[0]);
             $dadosInstrutor['nomePagina'] = "Editar Instrutor";
-            $dadosInstrutor['crefUsuario'] = "";
         } else {
             $dadosInstrutor['nomePagina'] = "Cadastrar Instrutor";
             $dadosInstrutor['idUsuario'] = "novo";
             $dadosInstrutor['idAcademia'] = $this->session->userdata('idAcademia');
             $dadosInstrutor['sexoUsuario'] = "";
             $dadosInstrutor['crefUsuario'] = "";
+            $dadosInstrutor['estadoUsuario'] = "";
+            $dadosInstrutor['statusConta'] = true;
             $dadosInstrutor['tipoConta'] = 4;
         }
 
         $dadosInstrutor['urlPagina'] = 'lista-instrutores';
-        
+
         // CARREGANDO AS VIEWS PARA FORMAR A TELA DE CADASTRO/EDIÇÃO DO INSTRUTOR  
         $this->load->view('sistema/templates/html-header', $dadosInstrutor);
         $this->load->view('sistema/templates/header');

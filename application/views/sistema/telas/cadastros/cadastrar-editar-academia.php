@@ -20,7 +20,7 @@
                                         <div class="form-body">
                                             <h4 class="form-section"></h4>
                                             <input type="hidden" name="idAcademia" id="idAcademia" value="<?php echo $idAcademia; ?>">
-                                            <input type="hidden" name="idPlano" id="idPlano" value="<?php if ($idAcademia != "novo") echo $idPlano; ?>">
+                                            <input type="hidden" name="idPlano" id="idPlano" value="<?php if ($idAcademia != "novo") { echo $idPlano; } ?>">
                                             <input type="hidden" name="idPacote" id="idPacote" value="<?php if ($idAcademia != "novo") echo $idPacote; ?>">
                                             <input type="hidden" name="statusAcademia" id="statusAcademia" value="<?php if ($idAcademia != "novo") echo $statusAcademia; ?>">
                                             <input type="hidden" name="qtdLicencasUsadas" id="qtdLicencasUsadas" value="<?php echo $qtdLicencasUsadas; ?>">
@@ -41,7 +41,7 @@
                                                 <div class="col-md-3">
                                                     <div class="form-group">
                                                         <label>CNPJ:*</label>
-                                                        <input type="text" id="cnpjAcademia" maxlength="18" class="form-control" value="<?php if ($idAcademia != "novo") echo $cnpjAcademia; ?>" 
+                                                        <input type="text" id="cnpjAcademia" maxlength="18" class="form-control" value="<?php if ($idAcademia != "novo") { echo $cnpjAcademia; } ?>" 
                                                                placeholder="Digite o CNPJ" name="cnpjAcademia" onchange="verificarCnpj();">
                                                         <small><span id='msnCNPJ'></span></small>
                                                     </div>                                                                
@@ -227,7 +227,7 @@
                                                     <div class="form-group">
                                                         <label>Bairro:*</label>
                                                         <input type="text" id="bairroAcademia" class="form-control" 
-                                                               placeholder="Digite o bairro" name="bairroAcademia" value="<?php if ($idAcademia != "novo") echo $bairroAcademia; ?>">
+                                                               placeholder="Digite o bairro" name="bairroAcademia" value="<?php if ($idAcademia != "novo") { echo $bairroAcademia; } ?>">
                                                     </div>
                                                 </div>
                                                 <!-- CEP DA ACADEMIA -->

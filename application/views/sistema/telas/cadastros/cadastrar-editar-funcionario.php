@@ -97,7 +97,7 @@
                                                         <label>Data de Nascimento:*</label>
                                                         <div class="position-relative has-icon-left">
                                                             <input type="date" id="dataNascimentoUsuario" name="dataNascimentoUsuario" value="<?php if ($idUsuario != "novo") echo $dataNascimentoUsuario; ?>" 
-                                                                   class="form-control" placeholder="Digite a data">
+                                                                   class="form-control">
                                                             <div class="form-control-position" style="margin-top: 11px;">
                                                                 <i class="icon-calendar5"></i>
                                                             </div>

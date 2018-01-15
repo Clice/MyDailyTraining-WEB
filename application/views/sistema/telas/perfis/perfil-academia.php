@@ -17,7 +17,8 @@
                                             <div class="content-header-left col-md-6 col-xs-12 mb-1">
                                                 <h2 class="content-header-title"><?php echo $academia->nomeAcademia; ?></h2>
                                             </div>
-                                        </div>  
+                                        </div>
+                                        <hr>
                                         <div class="form-body">
                                             <h4 class="form-section"></h4>
                                             <div class="row">

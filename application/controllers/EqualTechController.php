@@ -45,11 +45,6 @@ class EqualTechController extends CI_Controller {
         $this->load->view('sistema/templates/html-footer');
     }
 
-    // FUNÇÃO DE CARREGAMENTO DA VIEW RECUPERAR-SENHA.PHP
-    public function viewRecuperarSenha() {
-        $this->load->view('apresentacao/recuperar-senha');
-    }
-
     // FUNÇÃO DE CARREGAMENTO DA VIEW LISTA-EQUALTECH.PHP
     public function viewListaEqualTech() {
         $dados['nomePagina'] = 'Lista de EqualTech';
@@ -88,18 +83,6 @@ class EqualTechController extends CI_Controller {
         }
 
         // RETORNANDO AS FUNÇÃO JAVASCRIPT AS INFORMAÇÕES
-        echo json_encode($resposta);
-    }
-
-    public function cProcurarCPF() {
-        $cpfUsuario = $this->input->post('cpfUsuario');
-
-        if ($this->UsuarioModel->mProcurarCPF($cpfUsuario)) {
-            $resposta = array('success' => true);
-        } else {
-            $resposta = array('success' => false);
-        }
-
         echo json_encode($resposta);
     }
 
