@@ -52,4 +52,4 @@ $route['editar-equaltech/(:any)'] = 'EqualTechController/viewEditarEqualTech/$1'
 $route['editar-academia/(:any)'] = 'AcademiaController/viewCadastrarEditarAcademia/$1';
 $route['editar-instrutor/(:any)'] = 'InstrutorController/viewCadastrarEditarInstrutor/$1';
 $route['editar-funcionario/(:any)'] = 'FuncionarioController/viewCadastrarEditarFuncionario/$1';
-$route['editar-administrador/(:any)'] = 'AdministradorController/viewCadastrarEditarAdministrador/$1';
+$route['editar-administrador/(:any)/(:num)'] = 'AdministradorController/viewCadastrarEditarAdministrador/$1/$2';

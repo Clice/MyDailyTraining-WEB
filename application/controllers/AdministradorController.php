@@ -64,8 +64,10 @@ class AdministradorController extends CI_Controller {
             $dadosAdministrador['idAcademia'] = $idAcademia;
             $dadosAdministrador['sexoUsuario'] = "";
             $dadosAdministrador['crefUsuario'] = "";
+            $dadosAdministrador['estadoUsuario'] = "";
+            $dadosAdministrador['statusConta'] = true;
             $dadosAdministrador['tipoConta'] = 2;
-        }  
+        }
 
         if ($this->session->userdata('idAcademia') == 1) {
             $dadosAdministrador['urlPagina'] = "lista-administradores";

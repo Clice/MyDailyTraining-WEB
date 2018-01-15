@@ -14,7 +14,7 @@
                             <div class="row">
                                 <div class="col-lg-4">
                                     <div class="form-group">
-                                       <div class="form-group position-relative">
+                                        <div class="form-group position-relative">
                                             <input type="text" class="form-control" placeholder="Buscar administrador..." 
                                                    name="pesquisarUsuario" id="pesquisarUsuario" onkeyup="pesquisarUsuario();">
                                             <div class="form-control-position" style="margin-top: 7px;">
@@ -31,15 +31,15 @@
                                             </li>                                            
                                         </ul>
                                     </div>
-                                    <?php if ($this->session->userdata('tipoConta') != 1) {?>
-                                    <div style="float: right; margin-right: 10px;">
-                                        <ul class="pl-0 list-unstyled right">
-                                            <li class="mb-1">
-                                                <button type="button" class="btn btn-primary btn-block" onclick="window.location.href = '<?php echo base_url('cadastrar-administrador/novo/' . $this->session->userdata('idAcademia')); ?>'">
-                                                    <i class="icon-plus4"></i> Novo Administrador</button>
-                                            </li>                                            
-                                        </ul>
-                                    </div>
+                                    <?php if ($this->session->userdata('tipoConta') != 1) { ?>
+                                        <div style="float: right; margin-right: 10px;">
+                                            <ul class="pl-0 list-unstyled right">
+                                                <li class="mb-1">
+                                                    <button type="button" class="btn btn-primary btn-block" onclick="window.location.href = '<?php echo base_url('cadastrar-administrador/novo/' . $this->session->userdata('idAcademia')); ?>'">
+                                                        <i class="icon-plus4"></i> Novo Administrador</button>
+                                                </li>                                            
+                                            </ul>
+                                        </div>
                                     <?php } ?>
                                 </div>                                
                             </div>
@@ -83,7 +83,7 @@
                                                                                 <button type="button" class="btn mb-1 btn-success btn-sm" 
                                                                                         onclick="window.location.href = '<?php echo base_url('perfil-administrador/' . md5($administradorAtivo->idUsuario)); ?>'"><i class="icon-eye"></i> Ver Perfil</button>
                                                                                 <button type="button" class="btn mb-1 btn-warning btn-sm" 
-                                                                                        onclick="window.location.href = '<?php echo base_url('editar-administrador/' . md5($administradorAtivo->idUsuario)); ?>'"><i class="icon-edit"></i> Editar</button>
+                                                                                        onclick="window.location.href = '<?php echo base_url('editar-administrador/' . md5($administradorAtivo->idUsuario) . '/' . $this->session->userdata('idAcademia')); ?>'"><i class="icon-edit"></i> Editar</button>
                                                                                 <button type="button" class="btn mb-1 btn-danger btn-sm" 
                                                                                         onclick="modalExcluirUsuario(<?php echo $administradorAtivo->idUsuario; ?>);"><i class="icon-trash-o"></i> Excluir</button>
                                                                             </td>
@@ -126,7 +126,7 @@
                                                                                 <button type="button" class="btn mb-1 btn-success btn-sm" 
                                                                                         onclick="window.location.href = '<?php echo base_url('perfil-administrador/' . md5($administradorBloqueado->idUsuario)); ?>'"><i class="icon-eye"></i> Ver Perfil</button>
                                                                                 <button type="button" class="btn mb-1 btn-warning btn-sm" 
-                                                                                        onclick="window.location.href = '<?php echo base_url('editar-administrador/' . md5($administradorBloqueado->idUsuario)); ?>'"><i class="icon-edit"></i> Editar</button>
+                                                                                        onclick="window.location.href = '<?php echo base_url('editar-administrador/' . md5($administradorBloqueado->idUsuario) . '/' . $this->session->userdata('idAcademia')); ?>'"><i class="icon-edit"></i> Editar</button>
                                                                                 <button type="button" class="btn mb-1 btn-danger btn-sm" 
                                                                                         onclick="modalExcluirUsuario(<?php echo $administradorBloqueado->idUsuario; ?>);"><i class="icon-trash-o"></i> Excluir</button>
                                                                             </td>
