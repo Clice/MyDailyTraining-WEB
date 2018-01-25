@@ -129,7 +129,7 @@
                                                 </div>
                                             </div>
                                             <!-- OBJETIVO DO ALUNO -->
-                                            <div class="col-md-4">
+                                            <div class="col-md-2">
                                                 <div class="form-group">
                                                     <h4><strong>Objetivo: </strong></h4>
                                                     <h4><?php echo $aluno->objetivoAluno; ?></h4>
@@ -138,9 +138,22 @@
                                         </div>
                                         <br>
                                         <div class="row">
-                                            <?php if (!$aluno->nomeResponsavelAluno == NULL || !$aluno->cirurgias == NULL ||
-                                                    !$aluno->medicamentos == NULL || !$aluno->doencasFamiliaresAluno == NULL) { ?>
+                                            <!-- DIAS DE TREINO DO ALUNO -->
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <h4><strong>Dias de Treino: </strong></h4>
+                                                    <h4><?php echo formartarDiasTreino($aluno->diasTreinoAluno); ?></h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <div class="row">
+                                            <?php
+                                            if ($aluno->nomeResponsavelAluno != NULL || $aluno->cirurgias != NULL ||
+                                                    $aluno->medicamentos != NULL || $aluno->doencasFamiliaresAluno != NULL) {
+                                                ?>
                                                 <h4 style="margin-left: 14px;"><strong>Observações:</strong></h4>
+                                                <br>
                                             <?php } ?>
                                             <?php if (!$aluno->nomeResponsavelAluno == NULL) { ?>
                                                 <!-- NOME DO RESPONSÁVEL DO ALUNO -->
@@ -158,7 +171,10 @@
                                                     </div>
                                                 </div>
                                             <?php } ?>
+                                        </div>
+                                        <div class="row">
                                             <?php if (!$aluno->cirurgias == NULL) { ?>
+                                                <br>
                                                 <!-- CIRURGIAS DO ALUNO -->
                                                 <div class="col-md-4">
                                                     <div class="form-group">
@@ -184,16 +200,17 @@
                                                         <h4><?php echo $aluno->doencasFamiliaresAluno; ?></h4>
                                                     </div>
                                                 </div>                                   
-                                            </div>
-                                        <?php } ?>
+                                            <?php } ?>
+                                        </div>
+                                        <br>
                                         <hr style="margin-top: 4%;">
                                         <!-- BOTÕES -->
                                         <div style="float: left;" class="form-actions">
                                             <button type="button" class="btn btn-indigo" onclick="window.location.href = '<?php echo base_url('lista-treinos/' . md5($aluno->idAluno)); ?>'">
                                                 <i class="icon-IcoMoon"></i> Definir Treino
                                             </button>
-                                            <button type="button" class="btn btn-green" onclick="window.location.href = '<?php echo base_url('lista-treinos/' . md5($aluno->idAluno)); ?>'">
-                                                <i class="icon-mobile"></i> Enviar Notificação
+                                            <button type="button" class="btn btn-green" onclick="window.location.href = '<?php echo base_url('imprimir-ficha/' . md5($aluno->idAluno)); ?>'">
+                                                <i class="icon-print"></i> Imprimir Ficha
                                             </button>
                                         </div>
                                         <div style="float: right;" class="form-actions">

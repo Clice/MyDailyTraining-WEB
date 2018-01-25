@@ -14,6 +14,14 @@ function calcularIdade($string) {
     return $idade;
 }
 
-function dataProximoMes ($dia) {
-    return date("d/m/Y", mktime(0, 0, 0, date("m") + 1 , $dia,   date("Y")));
-} 
+function dataProximoMes($dia) {
+    return date("d/m/Y", mktime(0, 0, 0, date("m") + 1, $dia, date("Y")));
+}
+
+function diasTreino($string) {
+    return implode('|', $string['diasTreino']);
+}
+
+function formartarDiasTreino($string) {
+    return str_replace('|', '; ', $string);
+}

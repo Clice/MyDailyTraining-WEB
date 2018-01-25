@@ -65,21 +65,21 @@
                                                                 <thead>
                                                                     <tr>
                                                                         <th>Nome</th>
-                                                                        <th>Telefone</th>
+                                                                        <th style="padding: 0px 0px 0.75rem 0px;">Telefone</th>
                                                                         <th>Endereço</th>
-                                                                        <th style="text-align: center">Data do Pagamento</th>
-                                                                        <th style="text-align: center">Opções</th>
-                                                                        <th class="col-lg-1 text-center" style="text-align: center">Bloqueado</th>
+                                                                        <th style="text-align: center; padding: 0px 5px 0.75rem 5px;">Dia do Pagamento</th>
+                                                                        <th style="text-align: center; padding: 0px 0px 0.75rem 0px;">Opções</th>
+                                                                        <th style="text-align: center; padding: 0px 5px 0.75rem 5px;">Bloqueado</th>
                                                                     </tr>
                                                                 </thead>
                                                                 <tbody>
                                                                     <?php foreach ($alunosAtivos as $alunoAtivo) { ?>   
                                                                         <tr>
                                                                             <td><?php echo $alunoAtivo->nomeAluno; ?></td>
-                                                                            <td><?php echo $alunoAtivo->telefoneAluno; ?></td>
+                                                                            <td style="padding: 0.75rem 0px 0px 0px;"><?php echo $alunoAtivo->telefoneAluno; ?></td>
                                                                             <td><?php echo $alunoAtivo->enderecoAluno; ?></td>
                                                                             <td style="text-align: center"><?php echo $alunoAtivo->diaPagamentoAluno; ?></td>
-                                                                            <td style="text-align: center;">
+                                                                            <td style="text-align: center; padding: 0.75rem 0px 0px 0px;">
                                                                                 <button type="button" class="btn mb-1 btn-success btn-sm" 
                                                                                         onclick="window.location.href = '<?php echo base_url('perfil-aluno/' . md5($alunoAtivo->idAluno)); ?>'"><i class="icon-eye"></i> Ver Perfil</button>
                                                                                 <button type="button" class="btn mb-1 btn-warning btn-sm" 
@@ -87,7 +87,7 @@
                                                                                 <button type="button" class="btn mb-1 btn-danger btn-sm" 
                                                                                         onclick="modalExcluirAluno(<?php echo $alunoAtivo->idAluno; ?>);"><i class="icon-trash-o"></i> Excluir</button>
                                                                             </td>
-                                                                            <td style="text-align: center;" class="">
+                                                                            <td style="text-align: center;">
                                                                                 <input type="checkbox" name="" onchange="modalDesBloquearAluno(this, <?php echo $alunoAtivo->idAluno; ?>, true);">
                                                                             </td>
                                                                         </tr>
@@ -110,21 +110,21 @@
                                                                 <thead>
                                                                     <tr>
                                                                         <th>Nome</th>
-                                                                        <th>Telefone</th>
+                                                                        <th style="padding: 0px 0px 0.75rem 0px;">Telefone</th>
                                                                         <th>Endereço</th>
-                                                                        <th style="text-align: center">Data do Pagamento</th>
-                                                                        <th style="text-align: center">Opções</th>
-                                                                        <th class="col-lg-1 text-center" style="text-align: center">Bloqueado</th>
+                                                                        <th style="text-align: center; padding: 0px 5px 0.75rem 5px;">Dia do Pagamento</th>
+                                                                        <th style="text-align: center; padding: 0px 0px 0.75rem 0px;">Opções</th>
+                                                                        <th style="text-align: center; padding: 0px 5px 0.75rem 5px;">Bloqueado</th>
                                                                     </tr>
                                                                 </thead>
                                                                 <tbody>
                                                                     <?php foreach ($alunosBloqueados as $alunoBloqueado) { ?>   
                                                                         <tr>
                                                                             <td><?php echo $alunoBloqueado->nomeAluno; ?></td>
-                                                                            <td><?php echo $alunoBloqueado->telefoneAluno; ?></td>
+                                                                            <td style="padding: 0.75rem 0px 0px 0px;"><?php echo $alunoBloqueado->telefoneAluno; ?></td>
                                                                             <td><?php echo $alunoBloqueado->enderecoAluno; ?></td>
                                                                             <td style="text-align: center"><?php echo $alunoBloqueado->diaPagamentoAluno; ?></td>                                                                            
-                                                                            <td style="text-align: center;">
+                                                                            <td style="text-align: center; padding: 0.75rem 0px 0px 0px;">
                                                                                 <button type="button" class="btn mb-1 btn-success btn-sm" 
                                                                                         onclick="window.location.href = '<?php echo base_url('perfil-aluno/' . md5($alunoBloqueado->idAluno)); ?>'"><i class="icon-eye"></i> Ver Perfil</button>
                                                                                 <button type="button" class="btn mb-1 btn-warning btn-sm" 

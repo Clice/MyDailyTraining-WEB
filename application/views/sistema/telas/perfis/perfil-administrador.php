@@ -129,7 +129,7 @@
                                                         class="icon-unlock"
                                                     <?php } ?>></i><?php if ($administrador->statusConta) { ?> Bloquear <?php } else { ?> Desbloquear <?php } ?>
                                             </button>
-                                            <button type="button" class="btn btn-warning" onclick="window.location.href = '<?php echo base_url('editar-administrador/' . md5($administrador->idUsuario)); ?>'">
+                                            <button type="button" class="btn btn-warning" onclick="window.location.href = '<?php echo base_url('editar-administrador/' . md5($administrador->idUsuario) . '/' . $this->session->userdata('idAcademia')); ?>'">
                                                 <i class="icon-edit"></i> Editar
                                             </button>
                                             <button type="button" class="btn btn-danger" onclick="modalExcluirUsuario(<?php echo $administrador->idUsuario; ?>);">

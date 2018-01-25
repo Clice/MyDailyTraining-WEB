@@ -12,8 +12,6 @@ function verificarDadosAluno() {
     var rgAluno = $('#rgAluno').val();
     var emailAluno = $('#emailAluno').val();
     var sexoAluno = $('#sexoAluno').val();
-    var loginAluno = $('#loginAluno').val();
-    var senhaAluno = $('#senhaAluno').val();
     var telefoneAluno = $('#telefoneUsuario').val();
     var enderecoAluno = $('#enderecoAluno').val();
     var estadoAluno = $('#estadoAluno').val();
@@ -22,6 +20,7 @@ function verificarDadosAluno() {
     var cepAluno = $('#cepAluno').val();
     var objetivoAluno = $('#objetivoAluno').val();
     var diaValidadeExame = $('#diaValidadeExame').val();
+    var diasTreinoAluno = $('#diasTreinoAluno').val();
     var diaPagamentoAluno = $('#diaPagamentoAluno').val();
 
     var msnCPF = $('#msnCPF').val();
@@ -118,64 +117,16 @@ function verificarSexoAluno() {
     }
 }
 
-function responsaveisHabilitar() {
-    if (document.getElementById('responsavelSim').checked) {
-        document.getElementById('nomeResponsavelAluno').disabled = false;
-        document.getElementById('telefoneResponsavelAluno').disabled = false;
-        document.getElementById('responsavelNao').checked = false;
-    } else if (document.getElementById('responsavelNao').checked) {
-        document.getElementById('nomeResponsavelAluno').value = "";
-        document.getElementById('telefoneResponsavelAluno').value = "";
-        document.getElementById('nomeResponsavelAluno').disabled = true;
-        document.getElementById('telefoneResponsavelAluno').disabled = true;
-        document.getElementById('responsavelSim').checked = false;
-    }
-}
-
 function verificarObjetivoAluno() {
-    if (document.getElementById('outros').checked) {
-        document.getElementById('outrosObjetivoAluno').disabled = false;
-        document.getElementById('objetivoAluno').value = document.getElementById('outrosObjetivoAluno').value;
-    } else {
-        if (document.getElementById('hipertrofia').checked) {
-            document.getElementById('objetivoAluno').value = 'Hipertrofia';
-        } else if (document.getElementById('forca').checked) {
-            document.getElementById('objetivoAluno').value = 'Força';
-        } else if (document.getElementById('qualiDeVida').checked) {
-            document.getElementById('objetivoAluno').value = 'Quali. de Vida';
-        } else if (document.getElementById('emagrecimento').checked) {
-            document.getElementById('objetivoAluno').value = 'Emagrecimento';
-        } else if (document.getElementById('resAerobica').checked) {
-            document.getElementById('objetivoAluno').value = 'Res. Aeróbica';
-        }
-        document.getElementById('outrosObjetivoAluno').value = "";
-        document.getElementById('outrosObjetivoAluno').disabled = true;
-    }
-}
-
-function cirurgiasHabilitar() {
-    if (document.getElementById('cirurgiasSim').checked) {
-        document.getElementById('cirurgiasAluno').disabled = false;
-    } else if (document.getElementById('cirurgiasNao').checked) {
-        document.getElementById('cirurgiasAluno').value = "";
-        document.getElementById('cirurgiasAluno').disabled = true;
-    }
-}
-
-function medicamentosHabilitar() {
-    if (document.getElementById('medicamentosSim').checked) {
-        document.getElementById('medicamentosAluno').disabled = false;
-    } else if (document.getElementById('medicamentosNao').checked) {
-        document.getElementById('medicamentosAluno').value = "";
-        document.getElementById('medicamentosAluno').disabled = true;
-    }
-}
-
-function doencasFamiliaresHabilitar() {
-    if (document.getElementById('doencasFamiliaresSim').checked) {
-        document.getElementById('doencasFamiliaresAluno').disabled = false;
-    } else if (document.getElementById('doencasFamiliaresNao').checked) {
-        document.getElementById('doencasFamiliaresAluno').value = "";
-        document.getElementById('doencasFamiliaresAluno').disabled = true;
+    if (document.getElementById('hipertrofia').checked) {
+        document.getElementById('objetivoAluno').value = 'Hipertrofia';
+    } else if (document.getElementById('forca').checked) {
+        document.getElementById('objetivoAluno').value = 'Força';
+    } else if (document.getElementById('qualiDeVida').checked) {
+        document.getElementById('objetivoAluno').value = 'Quali. de Vida';
+    } else if (document.getElementById('emagrecimento').checked) {
+        document.getElementById('objetivoAluno').value = 'Emagrecimento';
+    } else if (document.getElementById('resAerobica').checked) {
+        document.getElementById('objetivoAluno').value = 'Res. Aeróbica';
     }
 }

@@ -30,7 +30,7 @@ class AlunoController extends CI_Controller {
         // SE UM ID ADMINISTRADOR FOI PASSADO OU NÃO
         // PARA REALIZAR A EDIÇÃO OU O CADASTRO DE UM ADMINISTRADOR
         if ($idAluno != "novo") {
-            $dadosAluno = get_object_vars($this->AlunoModel->mVisualizarPerfilAluno($idAluno));
+            $dadosAluno = get_object_vars($this->AlunoModel->mVisualizarPerfilAluno($idAluno)[0]);
             $dadosAluno['nomePagina'] = "Editar Aluno";
         } else {
             $dadosAluno['idAluno'] = "novo";
@@ -40,7 +40,11 @@ class AlunoController extends CI_Controller {
             $dadosAluno['senhaAluno'] = "";
             $dadosAluno['sexoAluno'] = "";
             $dadosAluno['objetivoAluno'] = "";
-            $dadosAluno['tipoConta'] = 5;
+            $dadosAluno['diasTreinoAluno'] = "";
+            $dadosAluno['diaValidadeExame'] = "";
+            $dadosAluno['estadoAluno'] = "";
+            $dadosAluno['diaPagamentoAluno'] = "";
+            $dadosAluno['statusAluno'] = true;
         }
 
         $this->load->view('sistema/templates/html-header', $dadosAluno);
@@ -97,9 +101,12 @@ class AlunoController extends CI_Controller {
             'doencasFamiliaresAluno' => $this->input->post('doencasFamiliaresAluno'),
             'diaPagamentoAluno' => $this->input->post('diaPagamentoAluno')
         );
-
-        $dadosAluno['idadeAluno'] = calcularIdade($dadosAluno['dataNascimentoAluno']);
         
+        $diasTreino = $this->input->post('diasTreinoAluno');
+        $diasTreinoAluno = implode('|', $diasTreino);
+        $dadosAluno['idadeAluno'] = calcularIdade($dadosAluno['dataNascimentoAluno']);
+        $dadosAluno['diasTreinoAluno'] = $diasTreinoAluno;
+
         // SE O IDALUNO FOR NOVO, CADASTRAR UM NOVO ALUNO
         if ($dadosAluno['idAluno'] == "novo") {
             if ($this->AlunoModel->mCadastrarAluno($dadosAluno)) {
@@ -116,7 +123,6 @@ class AlunoController extends CI_Controller {
                 $resposta = array('success' => false);
             }
         }
-
         echo json_encode($resposta);
     }
 
