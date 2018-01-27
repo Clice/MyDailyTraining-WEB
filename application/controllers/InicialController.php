@@ -48,7 +48,7 @@ class InicialController extends CI_Controller {
     // FUNÇÃO DE CARREGAMENTO DA VIEW PERFIL.PHP
     public function viewPerfil() {
         $dados['nomePagina'] = 'Perfil';
-        $dados['perfilLogado'] = $this->UsuarioModel->mVisualizarPerfilUsuario($this->session->userdata('idUsuario'));
+        $dados['perfilLogado'] = $this->UsuarioModel->mVisualizarPerfilUsuario(md5($this->session->userdata('idUsuario')));
 
         $this->load->view('sistema/templates/html-header', $dados);
         $this->load->view('sistema/templates/header');

@@ -22,7 +22,6 @@
                                             <input type="hidden" name="idUsuario" id="idUsuario" value="<?php echo $idUsuario; ?>">
                                             <input type="hidden" name="idAcademia" id="idAcademia" value="<?php echo $idAcademia; ?>">
                                             <input type="hidden" name="sexoUsuario" id="sexoUsuario" value="<?php echo $sexoUsuario; ?>">
-                                            <input type="hidden" name="crefUsuario" id="crefUsuario" value="<?php echo $crefUsuario; ?>">
                                             <input type="hidden" name="statusConta" id="statusConta" value="<?php echo $statusConta; ?>">
                                             <input type="hidden" name="tipoConta" id="tipoConta" value="<?php echo $tipoConta; ?>">
 

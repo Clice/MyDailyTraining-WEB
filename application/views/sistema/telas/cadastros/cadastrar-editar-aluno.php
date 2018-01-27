@@ -366,49 +366,49 @@
                                                     <div class="input-group" style="margin-top: 13px">
                                                         <div class="form-group col-md-10">
                                                             <!-- DOMINGO -->
-                                                            <label class="display-inline-block custom-control custom-radio">
+                                                            <label class="display-inline-block custom-control custom-checkbox">
                                                                 <input type="checkbox" name="diasTreinoAluno[]" id="domingo" value="Domingo" class="custom-control-input"
                                                                        <?php if (strstr($diasTreinoAluno, "Domingo")) echo 'checked' ?>>
                                                                 <span class="custom-control-indicator"></span>
                                                                 <span class="custom-control-description ml-0">Domingo</span>
                                                             </label>
                                                             <!-- SEGUNDA -->
-                                                            <label class="display-inline-block custom-control custom-radio">
+                                                            <label class="display-inline-block custom-control custom-checkbox">
                                                                 <input type="checkbox" name="diasTreinoAluno[]" id="segunda" value="Segunda" class="custom-control-input"
                                                                        <?php if (strstr($diasTreinoAluno, "Segunda")) echo 'checked'; ?>>
                                                                 <span class="custom-control-indicator"></span>
                                                                 <span class="custom-control-description ml-0">Segunda</span>
                                                             </label>
                                                             <!-- TERÇA -->
-                                                            <label class="display-inline-block custom-control custom-radio">
+                                                            <label class="display-inline-block custom-control custom-checkbox">
                                                                 <input type="checkbox" name="diasTreinoAluno[]" id="terça" value="Terça" class="custom-control-input"
                                                                        <?php if (strstr($diasTreinoAluno, "Terça")) echo 'checked'; ?>>
                                                                 <span class="custom-control-indicator"></span>
                                                                 <span class="custom-control-description ml-0">Terça</span>
                                                             </label>
                                                             <!-- QUARTA -->
-                                                            <label class="display-inline-block custom-control custom-radio">
+                                                            <label class="display-inline-block custom-control custom-checkbox">
                                                                 <input type="checkbox" name="diasTreinoAluno[]" id="quarta" value="Quarta" class="custom-control-input"
                                                                        <?php if (strstr($diasTreinoAluno, "Quarta")) echo 'checked'; ?>>
                                                                 <span class="custom-control-indicator"></span>
                                                                 <span class="custom-control-description ml-0">Quarta</span>
                                                             </label>
                                                             <!-- QUINTA -->
-                                                            <label class="display-inline-block custom-control custom-radio">
+                                                            <label class="display-inline-block custom-control custom-checkbox">
                                                                 <input type="checkbox" name="diasTreinoAluno[]" id="quinta" value="Quinta" class="custom-control-input"
                                                                        <?php if (strstr($diasTreinoAluno, "Quinta")) echo 'checked'; ?>>
                                                                 <span class="custom-control-indicator"></span>
                                                                 <span class="custom-control-description ml-0">Quinta</span>
                                                             </label>
                                                             <!-- SEXTA -->
-                                                            <label class="display-inline-block custom-control custom-radio">
+                                                            <label class="display-inline-block custom-control custom-checkbox">
                                                                 <input type="checkbox" name="diasTreinoAluno[]" id="sexta" value="Sexta" class="custom-control-input"
                                                                        <?php if (strstr($diasTreinoAluno, "Sexta")) echo 'checked'; ?>>
                                                                 <span class="custom-control-indicator"></span>
                                                                 <span class="custom-control-description ml-0">Sexta</span>
                                                             </label>
                                                             <!-- SÁBADO -->
-                                                            <label class="display-inline-block custom-control custom-radio">
+                                                            <label class="display-inline-block custom-control custom-checkbox">
                                                                 <input type="checkbox" name="diasTreinoAluno[]" id="sabado" value="Sábado" class="custom-control-input"
                                                                        <?php if (strstr($diasTreinoAluno, "Sábado")) echo 'checked'; ?>>
                                                                 <span class="custom-control-indicator"></span>

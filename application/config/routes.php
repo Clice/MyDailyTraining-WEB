@@ -10,7 +10,7 @@ $route['translate_uri_dashes'] = FALSE;
 // ROTAS PARA OUTROS CONTROLLERS
 // ROTAS DE LOGIN E PARA A PÁGINA PRINCIPAL
 $route['login'] = 'UsuarioController';
-$route['loginEqualTech'] = 'EqualTechController';
+$route['login-equaltech'] = 'EqualTechController';
 $route['recuperar-senha'] = 'InicialController/viewRecuperarSenha';
 $route['pagina-principal'] = 'InicialController/viewPaginaPrincipal';
 

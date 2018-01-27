@@ -33,13 +33,16 @@
                     <?php if ($this->session->userdata('tipoConta') == 1) { ?>
                         <li><a href="<?php echo base_url('cadastrar-academia/novo'); ?>" data-i18n="nav.page_layouts.main" class="menu-item">Academia</a>
                         </li>
-                    <?php } else { ?>  
+                    <?php } else if ($this->session->userdata('tipoConta') == 2) { ?>  
                         <li><a href="<?php echo base_url('cadastrar-administrador/novo/' . $this->session->userdata('idAcademia')); ?>" data-i18n="nav.page_layouts.main" class="menu-item">Administrador</a>
                         </li>      
                         <li><a href="<?php echo base_url('cadastrar-funcionario/novo'); ?>" data-i18n="nav.page_layouts.main" class="menu-item">Funcionário</a>
                         </li>
                         <li><a href="<?php echo base_url('cadastrar-instrutor/novo'); ?>" data-i18n="nav.page_layouts.main" class="menu-item">Instrutor</a>
-                        </li>                    
+                        </li> 
+                        <li><a href="<?php echo base_url('cadastrar-aluno/novo'); ?>" data-i18n="nav.page_layouts.main" class="menu-item">Aluno</a>
+                        </li>
+                    <?php } else { ?>
                         <li><a href="<?php echo base_url('cadastrar-aluno/novo'); ?>" data-i18n="nav.page_layouts.main" class="menu-item">Aluno</a>
                         </li>
                     <?php } ?>
