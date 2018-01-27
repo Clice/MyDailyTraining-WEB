@@ -622,8 +622,8 @@
 </div>
 
 <script type="text/javascript">
-    function verificarCPF(cpfUsuario) {
-        var dados = "cpfUsuario=" + cpfUsuario;
+    function verificarCPF(cpfAluno, idAluno) {
+        var dados = "cpfAluno=" + cpfAluno;
         $.ajax({
             url: "<?php echo base_url('AlunoController/cVerificarCPF') ?>",
             type: "POST",
@@ -631,7 +631,11 @@
             dataType: "JSON",
             success: function (data) {
                 if (data.existe) {
-                    $('#cpf-cadastrado').modal('show');
+                    if (data.id === idAluno) {
+                        cadEditAluno();
+                    } else {
+                        $('#cpf-cadastrado').modal('show');
+                    }
                 } else {
                     cadEditAluno();
                 }

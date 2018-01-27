@@ -30,8 +30,12 @@ function verificarDadosAluno() {
             (estadoAluno === "") || (cidadeAluno === "") || (bairroAluno === "") || (cepAluno === "") || (objetivoAluno === "") ||
             (diaValidadeExame === "Selecione o dia") || (diaPagamentoAluno === "Selecione o dia")) {
         $('#dados-obrigatorios-aluno').modal('show');
-    } else if (msnCPF === "CPF válido!") {
-        verificarCPF(cpfAluno);
+    } else {
+        if (msnCPF === "CPF válido!") {            
+            verificarCPF(cpfAluno, idAluno);
+        } else if (idAluno !== "novo") {
+            verificarCPF(cpfAluno, idAluno);
+        }
     }
 }
 

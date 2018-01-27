@@ -95,7 +95,7 @@ class AlunoController extends CI_Controller {
             'diaValidadeExame' => $this->input->post('diaValidadeExame'),
             'nomeResponsavelAluno' => $this->input->post('nomeResponsavelAluno'),
             'telefoneResponsavelAluno' => $this->input->post('telefoneResponsavelAluno'),
-            'statusAluno' => true,
+            'statusAluno' => $this->input->post('statusAluno'),
             'cirurgias' => $this->input->post('cirurgiasAluno'),
             'medicamentos' => $this->input->post('medicamentosAluno'),
             'doencasFamiliaresAluno' => $this->input->post('doencasFamiliaresAluno'),
@@ -179,13 +179,14 @@ class AlunoController extends CI_Controller {
     }
 
     // FUNÇÃO CONTROLLER PARA VERIFICAR O CPF
-    public function cVerificarCPF() {
-        $cpfAluno = $this->input->post('cpfAluno');
+    public function cVerificarCPF() {        
+        $cpfAluno= $this->input->post('cpfAluno');
 
         $dadosAluno = $this->AlunoModel->mVerificarCPF($cpfAluno);
 
-        if (count($dadosAluno) === 1) {
-            $resposta = array('existe' => true);
+        if (count($dadosAluno) >= 1) {
+            $dadosAluno = get_object_vars($this->AlunoModel->mVerificarCPF($cpfAluno)[0]);
+            $resposta = array('existe' => true, 'id' => $dadosAluno['idAluno']);
         } else {
             $resposta = array('existe' => false);
         }
