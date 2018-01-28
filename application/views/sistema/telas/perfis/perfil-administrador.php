@@ -115,29 +115,35 @@
                                         <hr style="margin-top: 4%;">
                                         <!-- BOTÕES -->
                                         <div style="float: right;" class="form-actions">
-                                            <button type="button" 
+                                            <?php if ($this->session->userdata('tipoConta') < 2) { ?>                                            
+                                                <button type="button" 
                                                 <?php if ($administrador->statusConta == 1) { ?>
-                                                        class="btn btn-black"
-                                                        onclick="modalDesBloquearUsuario(this, <?php echo $administrador->idUsuario; ?>, true);"
-                                                    <?php } else { ?>
-                                                        class="btn btn-blue"
-                                                        onclick="modalDesBloquearUsuario(this, <?php echo $administrador->idUsuario; ?>, false);"
-                                                    <?php } ?>>
-                                                <i <?php if ($administrador->statusConta == 1) { ?>
-                                                        class="icon-lock"
-                                                    <?php } else { ?>
-                                                        class="icon-unlock"
-                                                    <?php } ?>></i><?php if ($administrador->statusConta) { ?> Bloquear <?php } else { ?> Desbloquear <?php } ?>
-                                            </button>
-                                            <button type="button" class="btn btn-warning" onclick="window.location.href = '<?php echo base_url('editar-administrador/' . md5($administrador->idUsuario) . '/' . $this->session->userdata('idAcademia')); ?>'">
-                                                <i class="icon-edit"></i> Editar
-                                            </button>
-                                            <button type="button" class="btn btn-danger" onclick="modalExcluirUsuario(<?php echo $administrador->idUsuario; ?>);">
-                                                <i class="icon-trash"></i> Excluir
-                                            </button>
+                                                            class="btn btn-black"
+                                                            onclick="modalDesBloquearUsuario(this, <?php echo $administrador->idUsuario; ?>, true);"
+                                                        <?php } else { ?>
+                                                            class="btn btn-blue"
+                                                            onclick="modalDesBloquearUsuario(this, <?php echo $administrador->idUsuario; ?>, false);"
+                                                        <?php } ?>>
+                                                    <i <?php if ($administrador->statusConta == 1) { ?>
+                                                            class="icon-lock"
+                                                        <?php } else { ?>
+                                                            class="icon-unlock"
+                                                        <?php } ?>></i><?php if ($administrador->statusConta) { ?> Bloquear <?php } else { ?> Desbloquear <?php } ?>
+                                                </button>
+                                                <button type="button" class="btn btn-warning" onclick="window.location.href = '<?php echo base_url('editar-administrador/' . md5($administrador->idUsuario) . '/' . $this->session->userdata('idAcademia')); ?>'">
+                                                    <i class="icon-edit"></i> Editar
+                                                </button>
+                                                <button type="button" class="btn btn-danger" onclick="modalExcluirUsuario(<?php echo $administrador->idUsuario; ?>);">
+                                                    <i class="icon-trash"></i> Excluir
+                                                </button>
+                                            <?php } else if ($this->session->userdata('idUsuario') == $administrador->idUsuario) { ?>
+                                                <button type="button" class="btn btn-warning" onclick="window.location.href = '<?php echo base_url('editar-administrador/' . md5($administrador->idUsuario) . '/' . $this->session->userdata('idAcademia')); ?>'">
+                                                    <i class="icon-edit"></i> Editar
+                                                </button>
+                                            <?php } ?>
                                             <button type="button" class="btn btn-default" onclick="window.location.href = '<?php echo base_url('lista-administradores-academia'); ?>'">
                                                 <i class="icon-chevron-left2"></i> Voltar
-                                            </button>
+                                            </button> 
                                         </div>                                        
                                     <?php } ?>
                                 </div>

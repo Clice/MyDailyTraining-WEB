@@ -69,10 +69,10 @@ class AdministradorController extends CI_Controller {
             $dadosAdministrador['tipoConta'] = 2;
         }
 
-        if ($this->session->userdata('idAcademia') == 1) {
-            $dadosAdministrador['urlPagina'] = "lista-administradores";
+        if ($this->session->userdata('idAcademia') != NULL) {
+            $dadosAdministrador['voltarPagina'] = "lista-administradores-academia";
         } else {
-            $dadosAdministrador['urlPagina'] = "lista-administradores-academia";
+            $dadosAdministrador['voltarPagina'] = "lista-administradores";
         }
 
         // CARREGANDO AS VIEWS PARA FORMAR A TELA DE CADASTRO/EDIÇÃO DO ADMINISTRADOR  
@@ -91,6 +91,11 @@ class AdministradorController extends CI_Controller {
         $dadosAdministrador['nomePagina'] = "Perfil Administrador";
         $dadosAdministrador['urlPagina'] = "perfil-administrador/" . $idAdministrador;
         $dadosAdministrador['perfilAdministrador'] = $this->UsuarioModel->mVisualizarPerfilUsuario($idAdministrador);
+        if ($this->session->userdata('idAcademia') != NULL) {
+            $dadosAdministrador['voltarPagina'] = "lista-administradores-academia";
+        } else {
+            $dadosAdministrador['voltarPagina'] = "lista-administradores";
+        }
 
         $this->load->view('sistema/templates/html-header', $dadosAdministrador);
         $this->load->view('sistema/templates/header');

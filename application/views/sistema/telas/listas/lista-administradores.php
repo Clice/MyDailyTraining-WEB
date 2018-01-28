@@ -31,7 +31,7 @@
                                             </li>                                            
                                         </ul>
                                     </div>
-                                    <?php if ($this->session->userdata('tipoConta') != 1) { ?>
+                                    <?php if ($this->session->userdata('tipoConta') == 2) { ?>
                                         <div style="float: right; margin-right: 10px;">
                                             <ul class="pl-0 list-unstyled right">
                                                 <li class="mb-1">
@@ -51,10 +51,12 @@
                                         <a class="nav-link active" id="base-tab1" data-toggle="tab" aria-controls="tab1" href="#ativos" 
                                            aria-expanded="true">Ativos</a>
                                     </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" id="base-tab2" data-toggle="tab" aria-controls="tab2" href="#bloqueados" 
-                                           aria-expanded="false">Bloqueados</a>
-                                    </li>
+                                    <?php if ($this->session->userdata('tipoConta') < 2) { ?>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="base-tab2" data-toggle="tab" aria-controls="tab2" href="#bloqueados" 
+                                               aria-expanded="false">Bloqueados</a>
+                                        </li>
+                                    <?php } ?>
                                 </ul>
                                 <div class="tab-content px-1 pt-1">
                                     <div role="tabpanel" class="tab-pane active" id="ativos" aria-expanded="true" aria-labelledby="base-tab1">
@@ -68,9 +70,11 @@
                                                                     <tr>
                                                                         <th>Nome</th>
                                                                         <th>Telefone</th>
-                                                                        <th>Endereço</th>
+                                                                        <th>Endereço</th>                                                 
                                                                         <th style="text-align: center;">Opções</th>
-                                                                        <th style="text-align: center;">Bloqueado</th>
+                                                                        <?php if ($this->session->userdata('tipoConta') < 2) { ?>
+                                                                            <th style="text-align: center;">Bloqueado</th>
+                                                                        <?php } ?>
                                                                     </tr>
                                                                 </thead>
                                                                 <tbody>
@@ -78,18 +82,25 @@
                                                                         <tr>
                                                                             <td><?php echo $administradorAtivo->nomeUsuario; ?></td>
                                                                             <td><?php echo $administradorAtivo->telefoneUsuario; ?></td>
-                                                                            <td><?php echo $administradorAtivo->enderecoUsuario; ?></td>
+                                                                            <td><?php echo $administradorAtivo->enderecoUsuario; ?></td>                                                                            
                                                                             <td style="text-align: center;">
                                                                                 <button type="button" class="btn mb-1 btn-success btn-sm" 
                                                                                         onclick="window.location.href = '<?php echo base_url('perfil-administrador/' . md5($administradorAtivo->idUsuario)); ?>'"><i class="icon-eye"></i> Ver Perfil</button>
-                                                                                <button type="button" class="btn mb-1 btn-warning btn-sm" 
-                                                                                        onclick="window.location.href = '<?php echo base_url('editar-administrador/' . md5($administradorAtivo->idUsuario) . '/' . $this->session->userdata('idAcademia')); ?>'"><i class="icon-edit"></i> Editar</button>
-                                                                                <button type="button" class="btn mb-1 btn-danger btn-sm" 
-                                                                                        onclick="modalExcluirUsuario(<?php echo $administradorAtivo->idUsuario; ?>);"><i class="icon-trash-o"></i> Excluir</button>
+                                                                                        <?php if ($this->session->userdata('idUsuario') == $administradorAtivo->idUsuario) { ?>
+                                                                                    <button type="button" class="btn mb-1 btn-warning btn-sm" 
+                                                                                            onclick="window.location.href = '<?php echo base_url('editar-administrador/' . md5($administradorAtivo->idUsuario) . '/' . $this->session->userdata('idAcademia')); ?>'"><i class="icon-edit"></i> Editar</button>
+                                                                                        <?php } else if ($this->session->userdata('tipoConta') < 2) { ?>
+                                                                                    <button type="button" class="btn mb-1 btn-warning btn-sm" 
+                                                                                            onclick="window.location.href = '<?php echo base_url('editar-administrador/' . md5($administradorAtivo->idUsuario) . '/' . $this->session->userdata('idAcademia')); ?>'"><i class="icon-edit"></i> Editar</button>
+                                                                                    <button type="button" class="btn mb-1 btn-danger btn-sm" 
+                                                                                            onclick="modalExcluirUsuario(<?php echo $administradorAtivo->idUsuario; ?>);"><i class="icon-trash-o"></i> Excluir</button>
+                                                                                        <?php } ?>
                                                                             </td>
-                                                                            <td style="text-align: center;" class="">
-                                                                                <input type="checkbox" name="" onchange="modalDesBloquearUsuario(this, <?php echo $administradorAtivo->idUsuario; ?>, true);">
-                                                                            </td>
+                                                                            <?php if ($this->session->userdata('tipoConta') < 2) { ?>
+                                                                                <td style="text-align: center;" class="">
+                                                                                    <input type="checkbox" name="" onchange="modalDesBloquearUsuario(this, <?php echo $administradorAtivo->idUsuario; ?>, true);">
+                                                                                </td>
+                                                                            <?php } ?>
                                                                         </tr>
                                                                     <?php } ?> 
                                                                 </tbody>
@@ -100,49 +111,51 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="tab-pane" id="bloqueados" aria-labelledby="base-tab2">
-                                        <div class="content-body">
-                                            <div class="row">
-                                                <div class="card">
-                                                    <div class="card-body collapse in">
-                                                        <div class="table-responsive">
-                                                            <table class="table table-hover mb-0" id="tabelaUsuariosBloqueados">
-                                                                <thead>
-                                                                    <tr>
-                                                                        <th>Nome</th>
-                                                                        <th>Telefone</th>
-                                                                        <th>Endereço</th>
-                                                                        <th style="text-align: center;">Opções</th>
-                                                                        <th style="text-align: center;">Bloqueado</th>
-                                                                    </tr>
-                                                                </thead>
-                                                                <tbody>
-                                                                    <?php foreach ($administradoresBloqueados as $administradorBloqueado) { ?>   
+                                    <?php if ($this->session->userdata('tipoConta') < 2) { ?>
+                                        <div class="tab-pane" id="bloqueados" aria-labelledby="base-tab2">
+                                            <div class="content-body">
+                                                <div class="row">
+                                                    <div class="card">
+                                                        <div class="card-body collapse in">
+                                                            <div class="table-responsive">
+                                                                <table class="table table-hover mb-0" id="tabelaUsuariosBloqueados">
+                                                                    <thead>
                                                                         <tr>
-                                                                            <td><?php echo $administradorBloqueado->nomeUsuario; ?></td>
-                                                                            <td><?php echo $administradorBloqueado->telefoneUsuario; ?></td>
-                                                                            <td><?php echo $administradorBloqueado->enderecoUsuario; ?></td>
-                                                                            <td style="text-align: center;">
-                                                                                <button type="button" class="btn mb-1 btn-success btn-sm" 
-                                                                                        onclick="window.location.href = '<?php echo base_url('perfil-administrador/' . md5($administradorBloqueado->idUsuario)); ?>'"><i class="icon-eye"></i> Ver Perfil</button>
-                                                                                <button type="button" class="btn mb-1 btn-warning btn-sm" 
-                                                                                        onclick="window.location.href = '<?php echo base_url('editar-administrador/' . md5($administradorBloqueado->idUsuario) . '/' . $this->session->userdata('idAcademia')); ?>'"><i class="icon-edit"></i> Editar</button>
-                                                                                <button type="button" class="btn mb-1 btn-danger btn-sm" 
-                                                                                        onclick="modalExcluirUsuario(<?php echo $administradorBloqueado->idUsuario; ?>);"><i class="icon-trash-o"></i> Excluir</button>
-                                                                            </td>
-                                                                            <td style="text-align: center;" class="">
-                                                                                <input type="checkbox" name="" checked="" onchange="modalDesBloquearUsuario(this, <?php echo $administradorBloqueado->idUsuario; ?>, false);">
-                                                                            </td>
+                                                                            <th>Nome</th>
+                                                                            <th>Telefone</th>
+                                                                            <th>Endereço</th>
+                                                                            <th style="text-align: center;">Opções</th>
+                                                                            <th style="text-align: center;">Bloqueado</th>
                                                                         </tr>
-                                                                    <?php } ?> 
-                                                                </tbody>
-                                                            </table>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <?php foreach ($administradoresBloqueados as $administradorBloqueado) { ?>   
+                                                                            <tr>
+                                                                                <td><?php echo $administradorBloqueado->nomeUsuario; ?></td>
+                                                                                <td><?php echo $administradorBloqueado->telefoneUsuario; ?></td>
+                                                                                <td><?php echo $administradorBloqueado->enderecoUsuario; ?></td>
+                                                                                <td style="text-align: center;">
+                                                                                    <button type="button" class="btn mb-1 btn-success btn-sm" 
+                                                                                            onclick="window.location.href = '<?php echo base_url('perfil-administrador/' . md5($administradorBloqueado->idUsuario)); ?>'"><i class="icon-eye"></i> Ver Perfil</button>
+                                                                                    <button type="button" class="btn mb-1 btn-warning btn-sm" 
+                                                                                            onclick="window.location.href = '<?php echo base_url('editar-administrador/' . md5($administradorBloqueado->idUsuario) . '/' . $this->session->userdata('idAcademia')); ?>'"><i class="icon-edit"></i> Editar</button>
+                                                                                    <button type="button" class="btn mb-1 btn-danger btn-sm" 
+                                                                                            onclick="modalExcluirUsuario(<?php echo $administradorBloqueado->idUsuario; ?>);"><i class="icon-trash-o"></i> Excluir</button>
+                                                                                </td>
+                                                                                <td style="text-align: center;" class="">
+                                                                                    <input type="checkbox" name="" checked="" onchange="modalDesBloquearUsuario(this, <?php echo $administradorBloqueado->idUsuario; ?>, false);">
+                                                                                </td>
+                                                                            </tr>
+                                                                        <?php } ?> 
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    <?php } ?>
                                 </div>
                             </div>
                         </div>

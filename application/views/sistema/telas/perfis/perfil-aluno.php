@@ -206,9 +206,11 @@
                                         <hr style="margin-top: 4%;">
                                         <!-- BOTÕES -->
                                         <div style="float: left;" class="form-actions">
-                                            <button type="button" class="btn btn-indigo" onclick="window.location.href = '<?php echo base_url('lista-treinos/' . md5($aluno->idAluno)); ?>'">
-                                                <i class="icon-IcoMoon"></i> Definir Treino
-                                            </button>
+                                            <?php if ($this->session->userdata('tipoConta') == 4) { ?>
+                                                <button type="button" class="btn btn-indigo" onclick="window.location.href = '<?php echo base_url('lista-treinos/' . md5($aluno->idAluno)); ?>'">
+                                                    <i class="icon-IcoMoon"></i> Definir Treino
+                                                </button>
+                                            <?php } ?>
                                             <button type="button" class="btn btn-green" onclick="window.location.href = '<?php echo base_url('imprimir-ficha/' . md5($aluno->idAluno)); ?>'">
                                                 <i class="icon-print"></i> Imprimir Ficha
                                             </button>
