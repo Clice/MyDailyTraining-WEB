@@ -33,8 +33,10 @@ function verificarDadosAcademia() {
             (mensalidadeAcademia === "") || (qtdTotalLicencas === "") || (qtdLicencasUsadas === "") ||
             (valorTotal === "") || (valorPago === "") || (qtdParcelas === "") || (diaPagamentoAcademia === "")) {
         $('#dados-obrigatorios-academia').modal('show');
+    } else if (idAcademia !== "novo") {
+        verificarCnpjExiste(cnpjAcademia, idAcademia);
     } else if (msnCNPJ === "CNPJ válido!") {
-        verificarCnpjExiste(cnpjAcademia);
+        verificarCnpjExiste(cnpjAcademia, idAcademia);
     }
 }
 

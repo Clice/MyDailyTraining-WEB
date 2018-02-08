@@ -10,6 +10,7 @@ class AcademiaController extends CI_Controller {
 
         if ($this->session->userdata('logado') == true) {
             $this->load->model('AcademiaModel');
+            $this->load->model('PlanoPacoteModel');
         } else {
             redirect(base_url('404_override'));
         }
@@ -38,7 +39,11 @@ class AcademiaController extends CI_Controller {
         // PARA REALIZAR A EDIÇÃO DE DADOS DE UMA ACADEMIA
         if ($idAcademia != "novo") {
             $dados = get_object_vars($this->AcademiaModel->mVisualizarPerfilAcademia($idAcademia)[0]);
+            $plano = get_object_vars($this->PlanoPacoteModel->mQtdLicencasPlano($dados['idPlano'])[0]);
+            $pacote = get_object_vars($this->PlanoPacoteModel->mQtdLicencasPacote($dados['idPacote'])[0]);
             $dados['nomePagina'] = 'Editar Academia';
+            $dados['licencasPlano'] = $plano['qtdLicencas'];
+            $dados['licencasPacote'] = $pacote['qtdLicencas'];
         }
         // PARA REALIZAR O CADASTRO DE UMA ACADEMIA
         else {
@@ -59,6 +64,12 @@ class AcademiaController extends CI_Controller {
             $dados['qtdLicencasUsadas'] = 0;
             $dados['mensalidadeAcademia'] = 0;
             $dados['diaPagamentoAcademia'] = 0;
+        }
+
+        if ($this->session->userdata('tipoConta') == 1) {
+            $dados['voltarPagina'] = "lista-academias";
+        } else {
+            $dados['voltarPagina'] = "perfil-academia/" . md5($this->session->userdata('idAcademia'));
         }
 
         // CARREGANDO AS VIEWS PARA FORMAR A TELA DE CADASTRO/EDIÇÃO DA ACADEMIA
@@ -202,10 +213,10 @@ class AcademiaController extends CI_Controller {
     public function cVerificarCNPJ() {
         $cnpjAcademia = $this->input->post('cnpjAcademia');
 
-        $dadosAcademia = $this->AcademiaModel->mVerificarCNPJ($cnpjAcademia);
+        $dadosAcademia = get_object_vars($this->AcademiaModel->mVerificarCNPJ($cnpjAcademia)[0]);
 
         if (count($dadosAcademia) === 1) {
-            $resposta = array('existe' => true);
+            $resposta = array('existe' => true, 'id' => $dadosAcademia['idAcademia']);
         } else {
             $resposta = array('existe' => false);
         }

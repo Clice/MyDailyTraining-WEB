@@ -64,6 +64,7 @@ class AcademiaModel extends CI_Model {
     }
 
     public function mVerificarCNPJ($cnpjAcademia) {
+        $this->db->select('idAcademia');
         $this->db->from('academias');
         $this->db->where('cnpjAcademia', $cnpjAcademia);
         return $this->db->get()->result();
