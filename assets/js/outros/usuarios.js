@@ -21,14 +21,21 @@ function verificarDadosUsuario() {
     var bairroUsuario = $('#bairroUsuario').val();
     var cepUsuario = $('#cepUsuario').val();
     var telefoneUsuario = $('#telefoneUsuario').val();
+    var tipoConta = $('#tipoConta').val();
 
     var msnCPF = $('#msnCPF').val();
 
-    if ((idUsuario === "") || (idAcademia === "") || (nomeUsuario === "") || (loginUsuario === "") || (senhaUsuario === "") ||
+    if ((idUsuario === "") || (nomeUsuario === "") || (loginUsuario === "") || (senhaUsuario === "") ||
             (emailUsuario === "") || (cpfUsuario === "") || (rgUsuario === "") || (dataNascimentoUsuario === "") ||
             (enderecoUsuario === "") || (estadoUsuario === "") || (cidadeUsuario === "") || (bairroUsuario === "") ||
             (sexoUsuario === "") || (cepUsuario === "") || (telefoneUsuario === "")) {
-        $('#dados-obrigatorios').modal('show');
+        if (tipoConta > 1) {
+            if (idAcademia === "") {
+                $('#dados-obrigatorios').modal('show');
+            }
+        } else {
+            $('#dados-obrigatorios').modal('show');
+        }
     } else if (senhaUsuario !== confirmarSenha) {
         $('#senhas-diferentes').modal('show');
     } else {

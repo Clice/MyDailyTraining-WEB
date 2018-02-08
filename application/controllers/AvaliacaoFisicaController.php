@@ -7,7 +7,12 @@ class AvaliacaoFisicaController extends CI_Controller {
     // CONSTRUTOR DO AVALIACAO FISICA CONTROLLER
     public function __construct() {
         parent::__construct();
-        $this->load->model('AvalicacaoFisicaModel');
+        
+        if ($this->session->userdata('logado') == true) {
+            $this->load->model('AvalicacaoFisicaModel');
+        } else {
+            redirect(base_url('404_override'));
+        }
     }
 
 }

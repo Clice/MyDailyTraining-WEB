@@ -7,8 +7,13 @@ class AdministradorController extends CI_Controller {
     // CONSTRUTOR DO ADMINISTRADOR CONTROLLER
     public function __construct() {
         parent::__construct();
-        $this->load->model('UsuarioModel');
-        $this->load->model('AdministradorModel');
+
+        if ($this->session->userdata('logado') == true) {
+            $this->load->model('UsuarioModel');
+            $this->load->model('AdministradorModel');
+        } else {
+            redirect(base_url('404_override'));
+        }
     }
 
     // FUNÇÃO DE CARREGAMENTO DA VIEW LISTA-ADMINISTRADORES.PHP PARA EQUALTECH
@@ -33,7 +38,7 @@ class AdministradorController extends CI_Controller {
 
     // FUNÇÃO DE CARREGAMENTO DA VIEW LISTA-ADMINISTRADORES.PHP PARA OS USUÁRIOS
     // SOMENTE OS USUÁRIOS DA ACADEMIA SERÃO MOSTRADOS
-    public function viewListaAdministradoresAcademia() {
+    public function vListaAdministradoresAcademia() {
         // PEGANDO AS INFORMAÇÕES NECESSÁRIAS
         $dadosAdministrador['nomePagina'] = "Lista de Administradores da Academia";
         $dadosAdministrador['urlPagina'] = "lista-administradores-academia";
@@ -52,7 +57,7 @@ class AdministradorController extends CI_Controller {
     }
 
     // FUNÇÃO DE CARREGAMENTO DA VIEW CADASTRAR-EDITAR-ADMINISTRADOR.PHP
-    public function viewCadastrarEditarAdministrador($idAdministrador, $idAcademia) {
+    public function vCadastrarEditarAdministrador($idAdministrador, $idAcademia) {
         // SE UM ID ADMINISTRADOR FOI PASSADO OU NÃO
         // PARA REALIZAR A EDIÇÃO OU O CADASTRO DE UM ADMINISTRADOR
         if ($idAdministrador != "novo") {
@@ -88,11 +93,11 @@ class AdministradorController extends CI_Controller {
     }
 
     // FUNÇÃO DE CARREGAMENTO DA VIEW PERFIL ADMINISTRADOR.PHP
-    public function viewPerfilAdministrador($idAdministrador) {
+    public function vPerfilAdministrador($idAdministrador) {
         $dadosAdministrador['nomePagina'] = "Perfil Administrador";
         $dadosAdministrador['urlPagina'] = "perfil-administrador/" . $idAdministrador;
-        $dadosAdministrador['perfilAdministrador'] = $this->UsuarioModel->mVisualizarPerfilUsuario($idAdministrador);
-        
+        $dadosAdministrador['perfilAdministrador'] = $this->UsuarioModel->mVisualizarUsuario($idAdministrador);
+
         if ($this->session->userdata('idAcademia') != NULL) {
             $dadosAdministrador['voltarPagina'] = "lista-administradores-academia";
         } else {

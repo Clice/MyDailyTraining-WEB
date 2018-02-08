@@ -36,7 +36,7 @@
                                         <ul class="pl-0 list-unstyled right">
                                             <li class="mb-1">
                                                 <button type="button" class="btn btn-primary btn-block" 
-                                                        onclick="window.location.href = '<?php echo base_url('cadastrar-academia'); ?>'">
+                                                        onclick="window.location.href = '<?php echo base_url('cadastrar-academia/novo'); ?>'">
                                                     <i class="icon-plus4"></i> Nova Academia</button>
                                             </li>                                            
                                         </ul>

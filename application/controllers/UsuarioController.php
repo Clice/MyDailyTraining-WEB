@@ -10,11 +10,6 @@ class UsuarioController extends CI_Controller {
         $this->load->model('UsuarioModel');
     }
 
-    // FUNÇÃO DE CARREGAMENTO DA VIEW LOGIN.PHP
-    public function index() {
-        $this->load->view('apresentacao/login');
-    }
-
     // FUNÇÃO DE VERIFICAÇÃO DAS INFORMAÇÕES PASSADAS PARA REALIZAR O LOGIN NO SISTEMA
     public function cLogarUsuario() {
         // PEGANDO AS INFORMAÇÕES DE LOGIN E SENHA PASSADAS E COLOCANDO EM UM VETOR
@@ -35,6 +30,7 @@ class UsuarioController extends CI_Controller {
             // SE O TIPO CONTA FOR 1, EQUALTECH
             if ($dadosUsuario['tipoConta'] == 1) {
                 // PASSANDO AS INFORMAÇÕES DO USUÁRIO PARA UM VETOR
+                $dadosUsuario['logado'] = true;
                 $this->session->set_userdata($dadosUsuario);
                 $resposta = array('success' => true);
             }
@@ -62,6 +58,7 @@ class UsuarioController extends CI_Controller {
         if ($dadosAcademia['statusAcademia'] == true) {
             // SE O STATUS DA CONTA ESTIVER TRUE, NÃO BLOQUEADO
             if ($dadosUsuario['statusConta'] == true) {
+                $dadosUsuario['logado'] = true;
                 $this->session->set_userdata($dadosUsuario);
                 $resposta = array('success' => true);
             }

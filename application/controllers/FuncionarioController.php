@@ -7,8 +7,13 @@ class FuncionarioController extends CI_Controller {
     // CONSTRUTOR DO FUNCIONARIO CONTROLLER
     public function __construct() {
         parent::__construct();
-        $this->load->model('UsuarioModel');
-        $this->load->model('FuncionarioModel');
+
+        if ($this->session->userdata('logado') == true) {
+            $this->load->model('UsuarioModel');
+            $this->load->model('FuncionarioModel');
+        } else {
+            redirect(base_url('404_override'));
+        }
     }
 
     // FUNÇÃO DE CARREGAMENTO DA VIEW LISTA-FUNCIONARIOS.PHP
@@ -30,11 +35,11 @@ class FuncionarioController extends CI_Controller {
     }
 
     // FUNÇÃO DE CARREGAMENTO DA VIEW CADASTRAR-EDITAR-FUNCIONARIO.PHP
-    public function viewCadastrarEditarFuncionario($idFuncionario) {
+    public function vCadastrarEditarFuncionario($idFuncionario) {
         // SE UM ID FUNCIONARIO FOI PASSADO OU NÃO
         // PARA REALIZAR A EDIÇÃO OU O CADASTRO DE UM FUNCIONARIO        
         if ($idFuncionario != "novo") {
-            $dadosFuncionario = get_object_vars($this->UsuarioModel->mVisualizarPerfilUsuario($idFuncionario)[0]);
+            $dadosFuncionario = get_object_vars($this->UsuarioModel->mVisualizarUsuario($idFuncionario)[0]);
             $dadosFuncionario['nomePagina'] = "Editar Funcionário";
             $dadosFuncionario['crefUsuario'] = "";
         } else {
@@ -47,7 +52,7 @@ class FuncionarioController extends CI_Controller {
             $dadosFuncionario['statusConta'] = true;
             $dadosFuncionario['tipoConta'] = 3;
         }
-        
+
         $dadosFuncionario['urlPagina'] = "lista-funcionarios";
 
         $this->load->view('sistema/templates/html-header', $dadosFuncionario);
@@ -61,10 +66,10 @@ class FuncionarioController extends CI_Controller {
     }
 
     // FUNÇÃO DE CARREGAMENTO DA VIEW PERFIL-FUNCIONARIO.PHP
-    public function viewPerfilFuncionario($idFuncionario) {
+    public function vPerfilFuncionario($idFuncionario) {
         $dadosFuncionario['nomePagina'] = "Perfil do Funcionário";
         $dadosFuncionario['urlPagina'] = "perfil-funcionario";
-        $dadosFuncionario['perfilFuncionario'] = $this->UsuarioModel->mVisualizarPerfilUsuario($idFuncionario);
+        $dadosFuncionario['perfilFuncionario'] = $this->UsuarioModel->mVisualizarUsuario($idFuncionario);
 
         $this->load->view('sistema/templates/html-header', $dadosFuncionario);
         $this->load->view('sistema/templates/header');

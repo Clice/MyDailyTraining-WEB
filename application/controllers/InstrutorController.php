@@ -7,8 +7,13 @@ class InstrutorController extends CI_Controller {
     // CONSTRUTOR DO INSTRUTOR CONTROLLER
     public function __construct() {
         parent::__construct();
-        $this->load->model('UsuarioModel');
-        $this->load->model('InstrutorModel');
+
+        if ($this->session->userdata('logado') == true) {
+            $this->load->model('UsuarioModel');
+            $this->load->model('InstrutorModel');
+        } else {
+            redirect(base_url('404_override'));
+        }
     }
 
     // FUNÇÃO DE CARREGAMENTO DA VIEW LISTA-INSTRUTOR.PHP
@@ -30,11 +35,11 @@ class InstrutorController extends CI_Controller {
     }
 
     // FUNÇÃO DE CARREGAMENTO DA VIEW CADASTRAR-EDITAR-INSTRUTOR.PHP
-    public function viewCadastrarEditarInstrutor($idInstrutor) {
+    public function vCadastrarEditarInstrutor($idInstrutor) {
         // SE UM ID INSTRUTOR FOI PASSADO OU NÃO
         // PARA REALIZAR A EDIÇÃO OU O CADASTRO DE UM INSTRUTOR
         if ($idInstrutor != "novo") {
-            $dadosInstrutor = get_object_vars($this->UsuarioModel->mVisualizarPerfilUsuario($idInstrutor)[0]);
+            $dadosInstrutor = get_object_vars($this->UsuarioModel->mVisualizarUsuario($idInstrutor)[0]);
             $dadosInstrutor['nomePagina'] = "Editar Instrutor";
         } else {
             $dadosInstrutor['nomePagina'] = "Cadastrar Instrutor";
@@ -61,10 +66,10 @@ class InstrutorController extends CI_Controller {
     }
 
     // FUNÇÃO DE CARREGAMENTO DA VIEW PERFIL-INSTRUTOR.PHP
-    public function viewPerfilInstrutor($idInstrutor) {
+    public function vPerfilInstrutor($idInstrutor) {
         $dadosInstrutor['nomePagina'] = "Perfil do Instrutor";
         $dadosInstrutor['urlPagina'] = "perfil-instrutor/" . $idInstrutor;
-        $dadosInstrutor['perfilInstrutor'] = $this->UsuarioModel->mVisualizarPerfilUsuario($idInstrutor);
+        $dadosInstrutor['perfilInstrutor'] = $this->UsuarioModel->mVisualizarUsuario($idInstrutor);
 
         $this->load->view('sistema/templates/html-header', $dadosInstrutor);
         $this->load->view('sistema/templates/header');

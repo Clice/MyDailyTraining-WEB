@@ -11,16 +11,4 @@ class EqualTechModel extends CI_Model {
         return $this->db->get()->result();
     }
 
-    public function mEditarEqualTech($dadosUsuario) {
-        $this->db->where('md5(idUsuario)', $dadosUsuario['idUsuario']);
-        return $this->db->update('usuarios', $dadosUsuario);
-    }
-
-    public function mVisualizarEqualTech($idUsuario) {
-        $this->db->select('*');
-        $this->db->from('usuarios');
-        $this->db->where('md5(idUsuario)', $idUsuario);
-        return $this->db->get()->result();
-    }
-
 }

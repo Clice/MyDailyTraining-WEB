@@ -7,7 +7,12 @@ class AlunoController extends CI_Controller {
     // CONSTRUTOR DO ALUNO CONTROLLER
     public function __construct() {
         parent::__construct();
-        $this->load->model('AlunoModel');
+                
+        if ($this->session->userdata('logado') == true) {
+            $this->load->model('AlunoModel');
+        } else {
+            redirect(base_url('404_override'));
+        }
     }
 
     // FUNÇÃO DE CARREGAMENTO DA VIEW LISTA-ALUNOS.PHP
@@ -28,7 +33,7 @@ class AlunoController extends CI_Controller {
     }
 
     // FUNÇÃO DE CARREGAMENTO DA VIEW CADASTRAR-EDITAR-ALUNO.PHP
-    public function viewCadastrarEditarAluno($idAluno) {
+    public function vCadastrarEditarAluno($idAluno) {
         // SE UM ID ADMINISTRADOR FOI PASSADO OU NÃO
         // PARA REALIZAR A EDIÇÃO OU O CADASTRO DE UM ADMINISTRADOR
         if ($idAluno != "novo") {
@@ -58,7 +63,7 @@ class AlunoController extends CI_Controller {
     }
 
     // FUNÇÃO DE CARREGAMENTO DA VIEW PERFIL-ALUNO.PHP
-    public function viewPerfilAluno($idAluno) {
+    public function vPerfilAluno($idAluno) {
         $dadosAluno['nomePagina'] = "Perfil do Aluno";
         $dadosAluno['urlPagina'] = "perfil-aluno";
         $dadosAluno['perfilAluno'] = $this->AlunoModel->mVisualizarPerfilAluno($idAluno);

@@ -7,7 +7,12 @@ class TreinoController extends CI_Controller {
     // CONSTRUTOR DO TREINO CONTROLLER
     public function __construct() {
         parent::__construct();
-        $this->load->model('TreinoModel');
+
+        if ($this->session->userdata('logado') == true) {
+            $this->load->model('TreinoModel');
+        } else {
+            redirect(base_url('404_override'));
+        }
     }
 
     // FUNÇÃO DE CARREGAMENTO DA VIEW LISTA-TRIENOS.PHP
@@ -22,7 +27,7 @@ class TreinoController extends CI_Controller {
     }
 
     // FUNÇÃO DE CARREGAMENTO DA VIEW CADASTRAR-EDITAR-TREINO.PHP
-    public function viewCadastrarEditarTreino($idTreino) {
+    public function vCadastrarEditarTreino($idTreino) {
         // SE UM ID TRIENO FOI PASSADO OU NÃO
         // PARA REALIZAR A EDIÇÃO DE DADOS DE UM TREINO
         if ($idTreino != "novo") {
@@ -33,7 +38,7 @@ class TreinoController extends CI_Controller {
             $dados['nomePagina'] = 'Cadastrar Treino';
             $dados['idTreino'] = $idTreino;
         }
-        
+
         $dados['exercicios'] = $this->TreinoModel->mVisualizarExercicios();
 
         $this->load->view('sistema/templates/html-header', $dados);

@@ -7,7 +7,12 @@ class AcademiaController extends CI_Controller {
     // CONSTRUTOR DO ACADEMIA CONTROLLER
     public function __construct() {
         parent::__construct();
-        $this->load->model('AcademiaModel');
+
+        if ($this->session->userdata('logado') == true) {
+            $this->load->model('AcademiaModel');
+        } else {
+            redirect(base_url('404_override'));
+        }
     }
 
     // FUNÇÃO DE CARREGAMENTO DA VIEW LISTA-ACADEMIAS.PHP
@@ -28,7 +33,7 @@ class AcademiaController extends CI_Controller {
     }
 
     // FUNÇÃO DE CARREGAMENTO DA VIEW CADASTRAR-EDITAR-ACADEMIA.PHP
-    public function viewCadastrarEditarAcademia($idAcademia) {
+    public function vCadastrarEditarAcademia($idAcademia) {
         // SE UM ID ACADEMIA FOI PASSADO OU NÃO
         // PARA REALIZAR A EDIÇÃO DE DADOS DE UMA ACADEMIA
         if ($idAcademia != "novo") {
@@ -66,7 +71,7 @@ class AcademiaController extends CI_Controller {
     }
 
     // FUNÇÃO DE CARREGAMENTO DA VIEW RELARORIO.PHP
-    public function viewRelatorio() {
+    public function vRelatorio() {
         $dados['nomePagina'] = 'Relatório';
         $this->load->view('sistema/templates/html-header', $dados);
         $this->load->view('sistema/templates/header');
@@ -77,12 +82,12 @@ class AcademiaController extends CI_Controller {
     }
 
     // FUNÇÃO DE CARREGAMENTO DA VIEW PERFIL ACADEMIA.PHP
-    public function viewPerfilAcademia($idAcademia) {
+    public function vPerfilAcademia($idAcademia) {
         $dados['nomePagina'] = "Perfil Academia";
         $dados['urlPagina'] = "perfil-academia/" . $idAcademia;
         $dados['perfilAcademia'] = $this->AcademiaModel->mVisualizarPerfilAcademia($idAcademia);
         $dados['qtdAlunos'] = count($this->AcademiaModel->mQtdAlunos($idAcademia));
-        
+
         if ($this->session->userdata('tipoConta') == 1) {
             $dados['voltarPagina'] = "lista-academias";
         } else {
@@ -163,7 +168,7 @@ class AcademiaController extends CI_Controller {
         } else {
             $resposta = array('success' => false);
         }
-        
+
         echo json_encode($resposta);
     }
 
