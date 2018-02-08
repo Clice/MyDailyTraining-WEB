@@ -474,9 +474,9 @@ input:focus ~ .bg-primary {
     color: #FFFFFF; }
 
 .btn-primary:hover {
-  color: #fff;
-  background-color: #286090;
-  border-color: #204d74;
+    color: #fff;
+    background-color: #286090;
+    border-color: #204d74;
 }
 
 .btn-outline-primary {

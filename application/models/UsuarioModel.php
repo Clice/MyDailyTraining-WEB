@@ -7,8 +7,8 @@ class UsuarioModel extends CI_Model {
     // FUNÇÃO PARA BUSCAR OS DADOS PARA REALIAR O LOGIN DO USUÁRIO
     public function mLogarUsuario($dadosLogin) {
         $this->db->select('*');
-        $this->db->where('loginUsuario', base64_encode($dadosLogin['loginUsuario']));
-        $this->db->where('senhaUsuario', base64_encode($dadosLogin['senhaUsuario']));
+        $this->db->where('loginUsuario', $dadosLogin['loginUsuario']);
+        $this->db->where('senhaUsuario', $dadosLogin['senhaUsuario']);
         return $this->db->get('usuarios')->result();
     }
 
@@ -23,6 +23,14 @@ class UsuarioModel extends CI_Model {
     // FUNÇÃO PARA REALIZAR A INSERÇÃO DAS INFORMAÇÕES DO USUÁRIO NO BANCO
     public function mCadastrarUsuario($dadosUsuario) {
         return $this->db->insert('usuarios', $dadosUsuario);
+    }
+    
+    // FUNÇÃO PARA PEGAR OS DADOS DO USUÁRIO
+    public function mVisualizarUsuario($idUsuario) {
+        $this->db->select('*');
+        $this->db->from('usuarios');
+        $this->db->where('md5(idUsuario)', $idUsuario);
+        return $this->db->get()->result();
     }
 
     // FUNÇÃO PARA ALTERAR AS INFORMAÇÕES DO USUÁRIO NO BANCO
@@ -50,12 +58,12 @@ class UsuarioModel extends CI_Model {
         $this->db->where('idUsuario', $idUsuario);
         return $this->db->update('usuarios', $dadosUsuario);
     }
-
-    // FUNÇÃO PARA PEGAR OS DADOS DO USUÁRIO
-    public function mVisualizarPerfilUsuario($idUsuario) {
+    
+    // FUNÇÃO PARA IDENTIFICAR SE O LOGIN PASSADO JÁ EXISTE NO BANCO 
+    public function mVerificarLogin($loginUsuario) {
         $this->db->select('*');
         $this->db->from('usuarios');
-        $this->db->where('md5(idUsuario)', $idUsuario);
+        $this->db->where('loginUsuario', $loginUsuario);
         return $this->db->get()->result();
     }
 
@@ -63,14 +71,6 @@ class UsuarioModel extends CI_Model {
     public function mVerificarCPF($cpfUsuario) {
         $this->db->from('usuarios');
         $this->db->where('cpfUsuario', $cpfUsuario);
-        return $this->db->get()->result();
-    }
-    
-    // FUNÇÃO PARA IDENTIFICAR SE O LOGIN PASSADO JÁ EXISTE NO BANCO 
-    public function mVerificarLogin($loginUsuario) {
-        $this->db->select('*');
-        $this->db->from('usuarios');
-        $this->db->where('loginUsuario', $loginUsuario);
         return $this->db->get()->result();
     }
     

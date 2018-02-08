@@ -4,6 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class UsuarioController extends CI_Controller {
 
+    // CONSTRUTOR DO USUÁRIO CONTROLLER
     public function __construct() {
         parent::__construct();
         $this->load->model('UsuarioModel');
@@ -18,39 +19,28 @@ class UsuarioController extends CI_Controller {
     public function cLogarUsuario() {
         // PEGANDO AS INFORMAÇÕES DE LOGIN E SENHA PASSADAS E COLOCANDO EM UM VETOR
         $dadosLogin = array(
-            'loginUsuario' => $this->input->post('loginUsuario'),
-            'senhaUsuario' => $this->input->post('senhaUsuario')
+            'loginUsuario' => base64_encode($this->input->post('loginUsuario')),
+            'senhaUsuario' => base64_encode($this->input->post('senhaUsuario'))
         );
 
         // PASSANDO AS INFORMAÇÕES PARA A FUNÇÃO QUE FARÁ A VERIFICAÇÃO NO BANCO DE DADOS
-        $dadosUsuario = $this->UsuarioModel->mLogarUsuario($dadosLogin);
+        $dadosLoginUsuario = $this->UsuarioModel->mLogarUsuario($dadosLogin);
 
         // CONDIÇÕES DAS INFORMAÇÕES PASSADAS PELO USUÁRIO PARA REALIZAR O LOGIN OU NÃO
         // SE HOUVER ALGUM USUÁRIO COM O LOGIN E SENHA PASSADOS NA TABELA USUARIOS
-        if (count($dadosUsuario) >= 1) {
+        if (count($dadosLoginUsuario) >= 1) {
             // PASSANDO AS INFORMAÇÕES DO USUÁRIO PARA UM VETOR
-            $dadosUsuarioLogado = get_object_vars($dadosUsuario[0]);
+            $dadosUsuario = get_object_vars($dadosLoginUsuario[0]);
 
-            // VERIFICANDO SE O STATUS DA ACADEMIA ESTÁ TRUE 
-            // PARA QUE O USUÁRIO POSSA LOGAR
-            $aux = $this->UsuarioModel->mVerificarStatusAcademia($dadosUsuarioLogado['idAcademia']);
-            $dados = get_object_vars($aux[0]);
-
-            // SE O STATUS ACADEMIA FOR TRUE
-            if ($dados['statusAcademia'] == true) {
-                // SE O STATUS DA CONTA ESTIVER TRUE, NÃO BLOQUEADO
-                if ($dadosUsuarioLogado['statusConta'] == true) {
-                    $this->session->set_userdata($dadosUsuarioLogado);
-                    $resposta = array('success' => true);
-                }
-                // SE A CONTA FO USUÁRIO ESTIVER FALSE, BLOQUEADA
-                else {
-                    $resposta = array('success' => false, 'statusConta' => false);
-                }
+            // SE O TIPO CONTA FOR 1, EQUALTECH
+            if ($dadosUsuario['tipoConta'] == 1) {
+                // PASSANDO AS INFORMAÇÕES DO USUÁRIO PARA UM VETOR
+                $this->session->set_userdata($dadosUsuario);
+                $resposta = array('success' => true);
             }
-            // SE O STATUS ACADEMIA FOR FALSE
+            // SE O TIPO CONTA FOR OUTRO
             else {
-                $resposta = array('success' => false, 'statusAcademia' => false);
+                $resposta = $this->cVerificarDadosUsuario($dadosUsuario);
             }
         }
         // SE NÃO HOUVER NENHUM USUÁRIO COM AS INFORMAÇÕES PASSADAS
@@ -60,6 +50,32 @@ class UsuarioController extends CI_Controller {
 
         // RETORNANDO AS FUNÇÃO JAVASCRIPT AS INFORMAÇÕES
         echo json_encode($resposta);
+    }
+
+    public function cVerificarDadosUsuario($dadosUsuario) {
+        // VERIFICANDO SE O STATUS DA ACADEMIA ESTÁ TRUE 
+        // PARA QUE O USUÁRIO POSSA LOGAR
+        $dadosAux = $this->UsuarioModel->mVerificarStatusAcademia($dadosUsuario['idAcademia']);
+        $dadosAcademia = get_object_vars($dadosAux[0]);
+
+        // SE O STATUS ACADEMIA FOR TRUE
+        if ($dadosAcademia['statusAcademia'] == true) {
+            // SE O STATUS DA CONTA ESTIVER TRUE, NÃO BLOQUEADO
+            if ($dadosUsuario['statusConta'] == true) {
+                $this->session->set_userdata($dadosUsuario);
+                $resposta = array('success' => true);
+            }
+            // SE A CONTA FO USUÁRIO ESTIVER FALSE, BLOQUEADA
+            else {
+                $resposta = array('success' => false, 'statusConta' => false);
+            }
+        }
+        // SE O STATUS ACADEMIA FOR FALSE
+        else {
+            $resposta = array('success' => false, 'statusAcademia' => false);
+        }
+
+        return $resposta;
     }
 
     // FUNÇÃO CONTROLLER PARA CADASTRAR/EDITAR USUÁRIO
@@ -109,6 +125,19 @@ class UsuarioController extends CI_Controller {
         echo json_encode($resposta);
     }
 
+    // FUNÇÃO CONTROLLER PARA VISUALIZAR OS DADOS DO USUÁRIO
+    public function cVisualizarUsuario() {
+        $idUsuario = $this->input->post('idUsuario');
+
+        if ($this->UsuarioModel->mVisualizarUsuario($idUsuario)) {
+            $resposta = array('success' => true);
+        } else {
+            $resposta = array('success' => false);
+        }
+
+        echo json_encode($resposta);
+    }
+
     // FUNÇÃO CONTROLLER PARA EXCLUIR USUÁRIO
     public function cExcluirUsuario() {
         $idUsuario = $this->input->post('idUsuario');
@@ -148,14 +177,17 @@ class UsuarioController extends CI_Controller {
         echo json_encode($resposta);
     }
 
-    // FUNÇÃO CONTROLLER PARA VISUALIZAR OS DADOS DO USUÁRIO
-    public function cVisualizarPerfilUsuario() {
-        $idUsuario = $this->input->post('idUsuario');
+    // FUNÇÃO CONTROLLER PARA VERIFICAR O LOGIN
+    public function cVerificarLogin() {
+        $loginUsuario = base64_encode($this->input->post('loginUsuario'));
 
-        if ($this->UsuarioModel->mVisualizarPerfilUsuario($idUsuario)) {
-            $resposta = array('success' => true);
+        $dadosUsuario = $this->UsuarioModel->mVerificarLogin($loginUsuario);
+
+        if (count($dadosUsuario) >= 1) {
+            $dadosUsuario = get_object_vars($this->UsuarioModel->mVerificarLogin($loginUsuario)[0]);
+            $resposta = array('existe' => true, 'id' => $dadosUsuario['idUsuario']);
         } else {
-            $resposta = array('success' => false);
+            $resposta = array('existe' => false);
         }
 
         echo json_encode($resposta);
@@ -177,36 +209,26 @@ class UsuarioController extends CI_Controller {
         echo json_encode($resposta);
     }
 
-    // FUNÇÃO CONTROLLER PARA VERIFICAR O LOGIN
-    public function cVerificarLogin() {
-        $loginUsuario = base64_encode($this->input->post('loginUsuario'));
-
-        $dadosUsuario = $this->UsuarioModel->mVerificarLogin($loginUsuario);
-
-        if (count($dadosUsuario) >= 1) {
-            $dadosUsuario = get_object_vars($this->UsuarioModel->mVerificarLogin($loginUsuario)[0]);
-            $resposta = array('existe' => true, 'id' => $dadosUsuario['idUsuario']);
-        } else {
-            $resposta = array('existe' => false);
-        }
-
-        echo json_encode($resposta);
-    }
-
     // FUNÇÃO DE CARREGAMENTO DA VIEW ALTERAR-SENHA.PHP
     public function cAlterarSenha() {
         $dadosUsuario = array(
             'cpfUsuario' => $this->input->post('cpfUsuario'),
             'senhaUsuario' => base64_encode($this->input->post('senhaUsuario'))
         );
-        
+
         if ($this->UsuarioModel->mAlterarSenha($dadosUsuario)) {
             $resposta = array('success' => true);
         } else {
             $resposta = array('success' => false);
         }
-        
+
         echo json_encode($resposta);
+    }
+
+    // FUNÇÃO PARA REALIZAR O LOGOUT DO USUÁRIO
+    public function cLogoutUsuario() {
+        $this->session->sess_destroy();
+        redirect(base_url());
     }
 
 }

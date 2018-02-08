@@ -57,7 +57,7 @@
                                class="menu-item">Lista</a>
                         </li>
                         <li><a href="<?php echo base_url('cadastrar-treino/novo'); ?>" data-i18n="nav.page_layouts.main" 
-                               class="menu-item">Cadastros</a>
+                               class="menu-item">Cadastro</a>
                         </li>  
                     </ul>
                 </li>

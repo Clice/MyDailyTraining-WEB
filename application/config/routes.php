@@ -10,23 +10,22 @@ $route['translate_uri_dashes'] = FALSE;
 // ROTAS PARA OUTROS CONTROLLERS
 // ROTAS DE LOGIN E PARA A PÁGINA PRINCIPAL
 $route['login'] = 'UsuarioController';
-$route['login-equaltech'] = 'EqualTechController';
 $route['recuperar-senha'] = 'InicialController/viewRecuperarSenha';
 $route['pagina-principal'] = 'InicialController/viewPaginaPrincipal';
 
 // ROTAS PARA O RELATÓRIO, PERFIL E NOTIFICAÇÕES
-$route['perfil'] = 'InicialController/viewPerfil';
 $route['relatorio'] = 'InicialController/viewRelatorio';
+$route['meus-dados'] = 'InicialController/viewMeusDados';
 $route['notificacoes'] = 'InicialController/viewNotificacoes';
 
 // ROTAS PARA AS LISTAS
 $route['lista-alunos'] = 'AlunoController';
 $route['lista-treinos'] = 'TreinoController';
 $route['lista-academias'] = 'AcademiaController';
+$route['lista-equaltech'] = 'EqualTechController';
 $route['lista-instrutores'] = 'InstrutorController';
 $route['lista-funcionarios'] = 'FuncionarioController';
 $route['lista-administradores'] = 'AdministradorController';
-$route['lista-equaltech'] = 'EqualTechController/viewListaEqualTech';
 $route['lista-administradores-academia'] = 'AdministradorController/viewListaAdministradoresAcademia';
 
 // ROTAS PARA OS PERFIS

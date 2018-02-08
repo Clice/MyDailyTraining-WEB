@@ -4,6 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class AdministradorController extends CI_Controller {
 
+    // CONSTRUTOR DO ADMINISTRADOR CONTROLLER
     public function __construct() {
         parent::__construct();
         $this->load->model('UsuarioModel');
@@ -55,7 +56,7 @@ class AdministradorController extends CI_Controller {
         // SE UM ID ADMINISTRADOR FOI PASSADO OU NÃO
         // PARA REALIZAR A EDIÇÃO OU O CADASTRO DE UM ADMINISTRADOR
         if ($idAdministrador != "novo") {
-            $dadosAdministrador = get_object_vars($this->UsuarioModel->mVisualizarPerfilUsuario($idAdministrador)[0]);
+            $dadosAdministrador = get_object_vars($this->UsuarioModel->mVisualizarUsuario($idAdministrador)[0]);
             $dadosAdministrador['nomePagina'] = "Editar Administrador";
             $dadosAdministrador['crefUsuario'] = "";
         } else {
@@ -91,6 +92,7 @@ class AdministradorController extends CI_Controller {
         $dadosAdministrador['nomePagina'] = "Perfil Administrador";
         $dadosAdministrador['urlPagina'] = "perfil-administrador/" . $idAdministrador;
         $dadosAdministrador['perfilAdministrador'] = $this->UsuarioModel->mVisualizarPerfilUsuario($idAdministrador);
+        
         if ($this->session->userdata('idAcademia') != NULL) {
             $dadosAdministrador['voltarPagina'] = "lista-administradores-academia";
         } else {

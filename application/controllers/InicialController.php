@@ -4,6 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class InicialController extends CI_Controller {
 
+    // CONSTRUTOR DO INICIAL CONTROLLER
     public function __construct() {
         parent::__construct();
         $this->load->model('AlunoModel');
@@ -14,6 +15,7 @@ class InicialController extends CI_Controller {
         $this->load->model('AdministradorModel');
     }
 
+    // FUNÇÃO DE CARREGAMENTO DA VIEW PAGINA-INICIAL.PHP
     public function index() {
         $this->load->view('apresentacao/pagina-inicial');
     }
@@ -46,14 +48,23 @@ class InicialController extends CI_Controller {
     }
 
     // FUNÇÃO DE CARREGAMENTO DA VIEW PERFIL.PHP
-    public function viewPerfil() {
-        $dados['nomePagina'] = 'Perfil';
-        $dados['perfilLogado'] = $this->UsuarioModel->mVisualizarPerfilUsuario(md5($this->session->userdata('idUsuario')));
-
+    public function viewMeusDados() {
+        $dados['nomePagina'] = 'Meus Dados';
+        
+        if ($this->session->userdata('tipoConta') == 1) {
+            $dados['urlPagina'] = 'editar-equaltech/' . md5($this->session->userdata('idUsuario'));
+        } else if ($this->session->userdata('tipoConta') == 2) {
+            $dados['urlPagina'] = 'editar-administrador/' . md5($this->session->userdata('idUsuario')) . '/' . $this->session->userdata('idAcademia');
+        } else if ($this->session->userdata('tipoConta') == 3) {
+            $dados['urlPagina'] = 'editar-funcionario/' . md5($this->session->userdata('idUsuario'));
+        } else if ($this->session->userdata('tipoConta') == 4) {
+            $dados['urlPagina'] = 'editar-instrutor/' . md5($this->session->userdata('idUsuario'));
+        }
+         
         $this->load->view('sistema/templates/html-header', $dados);
         $this->load->view('sistema/templates/header');
         $this->load->view('sistema/templates/side-menu');
-        $this->load->view('sistema/telas/perfil');
+        $this->load->view('sistema/telas/meus-dados');
         $this->load->view('sistema/templates/footer');
         $this->load->view('sistema/templates/html-footer');
     }
@@ -79,11 +90,5 @@ class InicialController extends CI_Controller {
         $this->load->view('sistema/templates/footer');
         $this->load->view('sistema/templates/html-footer');
     } 
-
-    // FUNÇÃO PARA REALIZAR O LOGOUT DO USUÁRIO
-    public function cLogoutUsuario() {
-        $this->session->sess_destroy();
-        redirect(base_url());
-    }
 
 }

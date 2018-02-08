@@ -23,7 +23,7 @@
                 <h4 class="modal-title text-xs-center">Academia excluída com sucesso</h4>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="window.location.href = '<?php echo base_url($urlPagina); ?>'">Fechar</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="window.location.href = '<?php echo base_url($voltarPagina); ?>'">Fechar</button>
             </div>
         </div>
     </div>

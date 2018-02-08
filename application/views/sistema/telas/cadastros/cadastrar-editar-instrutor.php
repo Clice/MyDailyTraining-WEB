@@ -332,9 +332,6 @@
                                     <hr>
                                     <!-- BOTÕES -->
                                     <div style="float: right; margin-bottom: 15px;" class="form-actions">
-                                        <button type="button" class="btn btn-secondary" onclick="window.location.href = '<?php echo base_url('lista-instrutores'); ?>'">
-                                            <i class="icon-cross2"></i> Cancelar
-                                        </button>
                                         <button type="submit" class="btn btn-success" onclick="verificarDadosUsuario();">
                                             <i class="icon-check2"></i> Salvar
                                         </button>

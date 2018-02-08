@@ -54,16 +54,11 @@
                     <li class="dropdown dropdown-user nav-item">
                         <a href="#" data-toggle="dropdown" class="dropdown-toggle nav-link dropdown-user-link">
                             <span class="avatar avatar-online">
-                                <img src="<?php echo base_url('assets/imagens/avatar-s-1.png'); ?>" alt="avatar"><i></i></span><span class="user-name"><?php
-                                if ($this->session->userdata('tipoConta') == 1) {
-                                    echo $this->session->userdata('nomeEqualTech');
-                                } else if ($this->session->userdata('tipoConta') > 1) {
-                                    echo $this->session->userdata('nomeUsuario');
-                                }
-                                ?></span></a>
+                                <img src="<?php echo base_url('assets/imagens/avatar-s-1.png'); ?>" alt="avatar"><i></i></span>
+                            <span class="user-name"><?php echo $this->session->userdata('nomeUsuario'); ?></span></a>
                         <div class="dropdown-menu dropdown-menu-right">
-                            <a href="<?php echo base_url('perfil'); ?>" class="dropdown-item"><i class="icon-head"></i> Perfil</a>
-                            <div class="dropdown-divider"></div><a href="<?php echo base_url('InicialController/cLogoutUsuario'); ?>" class="dropdown-item"><i class="icon-power3"></i> Sair</a>
+                            <a href="<?php echo base_url('meus-dados'); ?>" class="dropdown-item"><i class="icon-head"></i> Meus Dados</a>
+                            <div class="dropdown-divider"></div><a href="<?php echo base_url('UsuarioController/cLogoutUsuario'); ?>" class="dropdown-item"><i class="icon-power3"></i> Sair</a>
                         </div>
                     </li>
                 </ul>

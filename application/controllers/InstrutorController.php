@@ -4,6 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class InstrutorController extends CI_Controller {
 
+    // CONSTRUTOR DO INSTRUTOR CONTROLLER
     public function __construct() {
         parent::__construct();
         $this->load->model('UsuarioModel');

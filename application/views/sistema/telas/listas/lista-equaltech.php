@@ -28,7 +28,8 @@
                                     <div style="float: right;">
                                         <ul class="pl-0 list-unstyled right">
                                             <li class="mb-1">
-                                                <button type="button" class="btn btn-secondary btn-block" onclick="window.location.reload()"><i class="icon-refresh"></i> Atualizar</button>
+                                                <button type="button" class="btn btn-secondary btn-block" onclick="window.location.reload()">
+                                                    <i class="icon-refresh"></i> Atualizar</button>
                                             </li>                                            
                                         </ul>
                                     </div>
@@ -56,12 +57,13 @@
                                                                 <tbody>
                                                                     <?php foreach ($equaltechs as $equaltech) { ?>   
                                                                         <tr>
-                                                                            <td><?php echo $equaltech->nomeEqualTech; ?></td>
-                                                                            <td><?php echo $equaltech->telefoneEqualTech; ?></td>
-                                                                            <td><?php echo $equaltech->enderecoEqualTech; ?></td>
+                                                                            <td><?php echo $equaltech->nomeUsuario; ?></td>
+                                                                            <td><?php echo $equaltech->telefoneUsuario; ?></td>
+                                                                            <td><?php echo $equaltech->enderecoUsuario; ?></td>
                                                                             <td style="text-align: center;">
                                                                                 <button type="button" class="btn mb-1 btn-success btn-sm" 
-                                                                                        onclick="window.location.href = '<?php echo base_url('perfil-equaltech/' . md5($equaltech->idEqualTech)); ?>'"><i class="icon-eye"></i> Ver Perfil</button>
+                                                                                        onclick="window.location.href = '<?php echo base_url('perfil-equaltech/' . md5($equaltech->idUsuario)); ?>'">
+                                                                                    <i class="icon-eye"></i> Ver Perfil</button>
                                                                             </td>
                                                                         </tr>
                                                                     <?php } ?> 

@@ -4,6 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class FuncionarioController extends CI_Controller {
 
+    // CONSTRUTOR DO FUNCIONARIO CONTROLLER
     public function __construct() {
         parent::__construct();
         $this->load->model('UsuarioModel');

@@ -4,6 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class TreinoController extends CI_Controller {
 
+    // CONSTRUTOR DO TREINO CONTROLLER
     public function __construct() {
         parent::__construct();
         $this->load->model('TreinoModel');
@@ -20,8 +21,21 @@ class TreinoController extends CI_Controller {
         $this->load->view('sistema/templates/html-footer');
     }
 
-    public function viewCadastrarEditarTreino() {
-        $dados['nomePagina'] = 'Cadastrar Treino';
+    // FUNÇÃO DE CARREGAMENTO DA VIEW CADASTRAR-EDITAR-TREINO.PHP
+    public function viewCadastrarEditarTreino($idTreino) {
+        // SE UM ID TRIENO FOI PASSADO OU NÃO
+        // PARA REALIZAR A EDIÇÃO DE DADOS DE UM TREINO
+        if ($idTreino != "novo") {
+            $dados['nomePagina'] = 'Editar Academia';
+        }
+        // PARA REALIZAR O CADASTRO DE UM TREINO
+        else {
+            $dados['nomePagina'] = 'Cadastrar Treino';
+            $dados['idTreino'] = $idTreino;
+        }
+        
+        $dados['exercicios'] = $this->TreinoModel->mVisualizarExercicios();
+
         $this->load->view('sistema/templates/html-header', $dados);
         $this->load->view('sistema/templates/header');
         $this->load->view('sistema/templates/side-menu');

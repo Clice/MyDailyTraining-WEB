@@ -4,6 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class AcademiaController extends CI_Controller {
 
+    // CONSTRUTOR DO ACADEMIA CONTROLLER
     public function __construct() {
         parent::__construct();
         $this->load->model('AcademiaModel');
@@ -29,12 +30,12 @@ class AcademiaController extends CI_Controller {
     // FUNÇÃO DE CARREGAMENTO DA VIEW CADASTRAR-EDITAR-ACADEMIA.PHP
     public function viewCadastrarEditarAcademia($idAcademia) {
         // SE UM ID ACADEMIA FOI PASSADO OU NÃO
-        // PARA REALIZAR O CADASTRO DE UMA ACADEMIA
+        // PARA REALIZAR A EDIÇÃO DE DADOS DE UMA ACADEMIA
         if ($idAcademia != "novo") {
             $dados = get_object_vars($this->AcademiaModel->mVisualizarPerfilAcademia($idAcademia)[0]);
             $dados['nomePagina'] = 'Editar Academia';
         }
-        // PARA REALIZAR A EDIÇÃO DE DADOS DE UMA ACADEMIA
+        // PARA REALIZAR O CADASTRO DE UMA ACADEMIA
         else {
             $dados['nomePagina'] = 'Cadastrar Academia';
             $dados['idPlano'] = 0;
@@ -81,6 +82,12 @@ class AcademiaController extends CI_Controller {
         $dados['urlPagina'] = "perfil-academia/" . $idAcademia;
         $dados['perfilAcademia'] = $this->AcademiaModel->mVisualizarPerfilAcademia($idAcademia);
         $dados['qtdAlunos'] = count($this->AcademiaModel->mQtdAlunos($idAcademia));
+        
+        if ($this->session->userdata('tipoConta') == 1) {
+            $dados['voltarPagina'] = "lista-academias";
+        } else {
+            $dados['voltarPagina'] = "meus-dados";
+        }
 
         $this->load->view('sistema/templates/html-header', $dados);
         $this->load->view('sistema/templates/header');

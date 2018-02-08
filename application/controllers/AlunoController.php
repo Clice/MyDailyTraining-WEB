@@ -4,6 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class AlunoController extends CI_Controller {
 
+    // CONSTRUTOR DO ALUNO CONTROLLER
     public function __construct() {
         parent::__construct();
         $this->load->model('AlunoModel');
@@ -26,6 +27,7 @@ class AlunoController extends CI_Controller {
         $this->load->view('sistema/templates/html-footer');
     }
 
+    // FUNÇÃO DE CARREGAMENTO DA VIEW CADASTRAR-EDITAR-ALUNO.PHP
     public function viewCadastrarEditarAluno($idAluno) {
         // SE UM ID ADMINISTRADOR FOI PASSADO OU NÃO
         // PARA REALIZAR A EDIÇÃO OU O CADASTRO DE UM ADMINISTRADOR
