@@ -545,7 +545,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-body">
-                <h4 class="modal-title text-xs-center"><i class="icon-remove danger"></i> Senhas diferentes</h4>
+                <h4 class="modal-title text-xs-center"><i class="icon-warning2 warning"></i> Senhas diferentes</h4>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
@@ -560,7 +560,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-body">
-                <h4 class="modal-title text-xs-center"><i class="icon-remove danger"></i> CPF já cadastrado</h4>
+                <h4 class="modal-title text-xs-center"><i class="icon-warning2 warning"></i> CPF já cadastrado</h4>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
@@ -575,7 +575,23 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-body">
-                <h4 class="modal-title text-xs-center"><i class="icon-remove danger"></i> Login já cadastrado</h4>
+                <h4 class="modal-title text-xs-center"><i class="icon-warning2 warning"></i> Login já cadastrado</h4>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--MODAL - QUATIDADE DE LICENÇAS USADAS -->
+<div class="modal fade text-xs-left" data-backdrop="static" id="qtd-licencas" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <h4 class="modal-title text-xs-center"><i class="icon-warning2 warning"></i> Quantidade máxima permitida de alunos já cadastrados. 
+                    Se necessitar de mais licenças, entre em contato com o(s) administrador(es) do sistema para maiores informações.</h4>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
@@ -653,7 +669,11 @@
                 if (data.success) {
                     $('#sucesso-aluno').modal('show');
                 } else {
-                    $('#erro-aluno').modal('show');
+                    if (data.licencas) {
+                        $('#qtd-licenças').modal('show');
+                    } else {
+                        $('#erro-aluno').modal('show');
+                    }
                 }
             },
             error: function (request, status, error) {

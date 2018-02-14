@@ -9,6 +9,7 @@ class AcademiaController extends CI_Controller {
         parent::__construct();
 
         if ($this->session->userdata('logado') == true) {
+            $this->load->model('AlunoModel');
             $this->load->model('AcademiaModel');
             $this->load->model('PlanoPacoteModel');
         } else {
@@ -97,7 +98,7 @@ class AcademiaController extends CI_Controller {
         $dados['nomePagina'] = "Perfil Academia";
         $dados['urlPagina'] = "perfil-academia/" . $idAcademia;
         $dados['perfilAcademia'] = $this->AcademiaModel->mVisualizarPerfilAcademia($idAcademia);
-        $dados['qtdAlunos'] = count($this->AcademiaModel->mQtdAlunos($idAcademia));
+        $dados['qtdAlunos'] = count($this->AlunoModel->mQtdAlunos($idAcademia));
 
         if ($this->session->userdata('tipoConta') == 1) {
             $dados['voltarPagina'] = "lista-academias";

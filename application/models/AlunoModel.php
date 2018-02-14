@@ -4,15 +4,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class AlunoModel extends CI_Model {
 
+    // FUNÇÃO PARA INSERIR OS DADOS PASSADOS PELO USUÁRIO NO BANCO
     public function mCadastrarAluno($dadosAluno) {
         return $this->db->insert('alunos', $dadosAluno);
     }
 
+    // FUNÇÃO PARA ATUALIZAR OS DADOS PASSADOS PELO USUÁRIO NO BANCO
     public function mEditarAluno($dadosAluno) {
         $this->db->where('idAluno', $dadosAluno['idAluno']);
         return $this->db->update('alunos', $dadosAluno);
     }
 
+    // FUNÇÃO PARA EXCLUIR OS DADOS DO ALUNO DO BANCO
     public function mExcluirAluno($idAluno) {
         $this->db->where('idAluno', $idAluno);
         return $this->db->delete('alunos');
@@ -53,10 +56,9 @@ class AlunoModel extends CI_Model {
         return $this->db->get()->result();
     }
 
-    public function mVerificarCPF($cpfAluno) {
-        $this->db->from('alunos');
-        $this->db->where('cpfAluno', $cpfAluno);
-        return $this->db->get()->result();
+    public function mQtdAlunos($idAcademia) {
+        $this->db->where('md5(idAcademia)', $idAcademia);
+        return $this->db->get('alunos')->result();
     }
 
     public function mQtdAlunosAtivos($idAcademia) {
@@ -73,6 +75,12 @@ class AlunoModel extends CI_Model {
         }
         $this->db->where('statusAluno', false);
         return $this->db->get('alunos')->result();
+    }
+
+    public function mVerificarCPF($cpfAluno) {
+        $this->db->from('alunos');
+        $this->db->where('cpfAluno', $cpfAluno);
+        return $this->db->get()->result();
     }
 
 }

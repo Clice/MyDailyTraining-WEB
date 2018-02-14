@@ -37,6 +37,7 @@ class EqualTechController extends CI_Controller {
             $dadosEqualTech['nomePagina'] = 'Editar EqualTech';
             $dadosEqualTech['crefUsuario'] = "";
             $dadosEqualTech['statusConta'] = false;
+            $dadosEqualTech['urlPagina'] = "meus-dados";
         }
 
         // CARREGANDO AS VIEWS PARA FORMAR A TELA DE EDIÇÃO DO EQUALTECH

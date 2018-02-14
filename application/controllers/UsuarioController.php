@@ -48,6 +48,7 @@ class UsuarioController extends CI_Controller {
         echo json_encode($resposta);
     }
 
+    // FUNÇÃO DE AUXILIAR PARA REALIZAR O LOGIN DOS USUÁRIOS CUJOS TIPO DE CONTA SEJA DIFERENTES DE 1
     public function cVerificarDadosUsuario($dadosUsuario) {
         // VERIFICANDO SE O STATUS DA ACADEMIA ESTÁ TRUE 
         // PARA QUE O USUÁRIO POSSA LOGAR

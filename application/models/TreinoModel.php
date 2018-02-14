@@ -5,27 +5,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class TreinoModel extends CI_Model {
 
     // FUNÇÃO PARA REALIZAR A INSERÇÃO DAS INFORMAÇÕES DO TREINO NO BANCO
-    public function mCadastrarTreino($dadosUsuario) {
-        return $this->db->insert('usuarios', $dadosUsuario);
+    public function mCadastrarTreino($dadosTreino) {
+        return $this->db->insert('treinos', $dadosTreino);
     }
 
     // FUNÇÃO PARA ALTERAR AS INFORMAÇÕES DO TREINO NO BANCO
-    public function mEditarTreino($dadosUsuario) {
-        $this->db->where('idUsuario', $dadosUsuario['idUsuario']);
-        return $this->db->update('usuarios', $dadosUsuario);
+    public function mEditarTreino($dadosTreino) {
+        $this->db->where('idTreino', $dadosTreino['idTreino']);
+        return $this->db->update('treinos', $dadosTreino);
     }
 
     // FUNÇÃO PARA EXCLUIR AS INFORMAÇÕES DO TREINO DO BANCO
-    public function mExcluirTreino($idUsuario) {
-        $this->db->where('idUsuario', $idUsuario);
-        return $this->db->delete('usuarios');
+    public function mExcluirTreino($idTreino) {
+        $this->db->where('idTreino', $idTreino);
+        return $this->db->delete('treinos');
     }
 
     // FUNÇÃO PARA PEGAR OS DADOS DO TREINO
     public function mVisualizarTreino($idUsuario) {
         $this->db->select('*');
-        $this->db->from('usuarios');
-        $this->db->where('md5(idUsuario)', $idUsuario);
+        $this->db->from('treinos');
+        $this->db->where('md5(idTreino)', $idUsuario);
         return $this->db->get()->result();
     }
     

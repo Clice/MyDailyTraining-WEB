@@ -70,11 +70,6 @@ class AcademiaModel extends CI_Model {
         return $this->db->get()->result();
     }
 
-    public function mQtdAlunos($idAcademia) {
-        $this->db->where('md5(idAcademia)', $idAcademia);
-        return $this->db->get('alunos')->result();
-    }
-
     public function mQtdAcademiasAtivas($idAcademia) {
         if ($idAcademia > 0) {
             $this->db->where('idAcademia', $idAcademia);
@@ -88,6 +83,12 @@ class AcademiaModel extends CI_Model {
             $this->db->where('idAcademia', $idAcademia);
         }
         $this->db->where('statusAcademia', false);
+        return $this->db->get('academias')->result();
+    }
+
+    public function mQtdLicencasTotaisEUsadas($idAcademia) {
+        $this->db->select('idAcademia, qtdTotalLicencas, qtdLicencasUsadas');
+        $this->db->where('idAcademia', $idAcademia);
         return $this->db->get('academias')->result();
     }
 

@@ -7,9 +7,10 @@ class AlunoController extends CI_Controller {
     // CONSTRUTOR DO ALUNO CONTROLLER
     public function __construct() {
         parent::__construct();
-                
+
         if ($this->session->userdata('logado') == true) {
             $this->load->model('AlunoModel');
+            $this->load->model('AcademiaModel');
         } else {
             redirect(base_url('404_override'));
         }
@@ -108,18 +109,26 @@ class AlunoController extends CI_Controller {
             'doencasFamiliaresAluno' => $this->input->post('doencasFamiliaresAluno'),
             'diaPagamentoAluno' => $this->input->post('diaPagamentoAluno')
         );
-        
+
         $diasTreino = $this->input->post('diasTreinoAluno');
         $diasTreinoAluno = implode('|', $diasTreino);
         $dadosAluno['idadeAluno'] = calcularIdade($dadosAluno['dataNascimentoAluno']);
         $dadosAluno['diasTreinoAluno'] = $diasTreinoAluno;
 
+        $dadosAcademia = get_object_vars($this->AcademiaModel->mQtdLicencasTotaisEUsadas($dadosAluno['idAcademia'])[0]);
+        
         // SE O IDALUNO FOR NOVO, CADASTRAR UM NOVO ALUNO
         if ($dadosAluno['idAluno'] == "novo") {
-            if ($this->AlunoModel->mCadastrarAluno($dadosAluno)) {
-                $resposta = array('success' => true);
+            if ($dadosAcademia['qtdTotalLicencas'] > $dadosAcademia['qtdLicencasUsadas']) {
+                $dadosAcademia['qtdLicencasUsadas'] += 1;    
+                $this->AcademiaModel->mEditarAcademia($dadosAcademia);
+                if ($this->AlunoModel->mCadastrarAluno($dadosAluno)) {
+                    $resposta = array('success' => true);
+                } else {
+                    $resposta = array('success' => false);
+                }
             } else {
-                $resposta = array('success' => false);
+                $resposta = array('success' => false, 'licencas' => true);
             }
         }
         // SE O IDALUNO JÁ EXISTE, ALTERAR OS DADOS DO ALUNO
@@ -186,8 +195,8 @@ class AlunoController extends CI_Controller {
     }
 
     // FUNÇÃO CONTROLLER PARA VERIFICAR O CPF
-    public function cVerificarCPF() {        
-        $cpfAluno= $this->input->post('cpfAluno');
+    public function cVerificarCPF() {
+        $cpfAluno = $this->input->post('cpfAluno');
 
         $dadosAluno = $this->AlunoModel->mVerificarCPF($cpfAluno);
 

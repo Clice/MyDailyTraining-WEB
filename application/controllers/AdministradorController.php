@@ -77,8 +77,10 @@ class AdministradorController extends CI_Controller {
 
         if ($this->session->userdata('idAcademia') != NULL) {
             $dadosAdministrador['voltarPagina'] = "lista-administradores-academia";
+            $dadosAdministrador['urlPagina'] = "lista-administradores-academia";
         } else {
             $dadosAdministrador['voltarPagina'] = "lista-administradores";
+            $dadosAdministrador['urlPagina'] = "lista-administradores";
         }
 
         // CARREGANDO AS VIEWS PARA FORMAR A TELA DE CADASTRO/EDIÇÃO DO ADMINISTRADOR  

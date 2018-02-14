@@ -2,8 +2,8 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class UsuarioModel extends CI_Model {    
-    
+class UsuarioModel extends CI_Model {
+
     // FUNÇÃO PARA BUSCAR OS DADOS PARA REALIAR O LOGIN DO USUÁRIO
     public function mLogarUsuario($dadosLogin) {
         $this->db->select('*');
@@ -24,19 +24,19 @@ class UsuarioModel extends CI_Model {
     public function mCadastrarUsuario($dadosUsuario) {
         return $this->db->insert('usuarios', $dadosUsuario);
     }
-    
+
+    // FUNÇÃO PARA ALTERAR AS INFORMAÇÕES DO USUÁRIO NO BANCO
+    public function mEditarUsuario($dadosUsuario) {
+        $this->db->where('idUsuario', $dadosUsuario['idUsuario']);
+        return $this->db->update('usuarios', $dadosUsuario);
+    }
+
     // FUNÇÃO PARA PEGAR OS DADOS DO USUÁRIO
     public function mVisualizarUsuario($idUsuario) {
         $this->db->select('*');
         $this->db->from('usuarios');
         $this->db->where('md5(idUsuario)', $idUsuario);
         return $this->db->get()->result();
-    }
-
-    // FUNÇÃO PARA ALTERAR AS INFORMAÇÕES DO USUÁRIO NO BANCO
-    public function mEditarUsuario($dadosUsuario) {
-        $this->db->where('idUsuario', $dadosUsuario['idUsuario']);
-        return $this->db->update('usuarios', $dadosUsuario);
     }
 
     // FUNÇÃO PARA EXCLUIR AS INFORMAÇÕES DO USUÁRIO DO BANCO
@@ -58,7 +58,7 @@ class UsuarioModel extends CI_Model {
         $this->db->where('idUsuario', $idUsuario);
         return $this->db->update('usuarios', $dadosUsuario);
     }
-    
+
     // FUNÇÃO PARA IDENTIFICAR SE O LOGIN PASSADO JÁ EXISTE NO BANCO 
     public function mVerificarLogin($loginUsuario) {
         $this->db->select('*');
@@ -73,7 +73,7 @@ class UsuarioModel extends CI_Model {
         $this->db->where('cpfUsuario', $cpfUsuario);
         return $this->db->get()->result();
     }
-    
+
     // FUNÇÃO PARA ALTERAR A SENHA
     public function mAlterarSenha($dadosUsuario) {
         $this->db->where('cpfUsuario', $dadosUsuario['cpfUsuario']);

@@ -88,10 +88,10 @@
                                                                                         onclick="window.location.href = '<?php echo base_url('perfil-administrador/' . md5($administradorAtivo->idUsuario)); ?>'"><i class="icon-eye"></i> Ver Perfil</button>
                                                                                         <?php if ($this->session->userdata('idUsuario') == $administradorAtivo->idUsuario) { ?>
                                                                                     <button type="button" class="btn mb-1 btn-warning btn-sm" 
-                                                                                            onclick="window.location.href = '<?php echo base_url('editar-administrador/' . md5($administradorAtivo->idUsuario) . '/' . $this->session->userdata('idAcademia')); ?>'"><i class="icon-edit"></i> Editar</button>
+                                                                                            onclick="window.location.href = '<?php echo base_url('editar-administrador/' . md5($administradorAtivo->idUsuario) . '/' . $administradorAtivo->idAcademia); ?>'"><i class="icon-edit"></i> Editar</button>
                                                                                         <?php } else if ($this->session->userdata('tipoConta') < 2) { ?>
                                                                                     <button type="button" class="btn mb-1 btn-warning btn-sm" 
-                                                                                            onclick="window.location.href = '<?php echo base_url('editar-administrador/' . md5($administradorAtivo->idUsuario) . '/' . $this->session->userdata('idAcademia')); ?>'"><i class="icon-edit"></i> Editar</button>
+                                                                                            onclick="window.location.href = '<?php echo base_url('editar-administrador/' . md5($administradorAtivo->idUsuario) . '/' . $administradorAtivo->idAcademia); ?>'"><i class="icon-edit"></i> Editar</button>
                                                                                     <button type="button" class="btn mb-1 btn-danger btn-sm" 
                                                                                             onclick="modalExcluirUsuario(<?php echo $administradorAtivo->idUsuario; ?>);"><i class="icon-trash-o"></i> Excluir</button>
                                                                                         <?php } ?>
@@ -138,7 +138,7 @@
                                                                                     <button type="button" class="btn mb-1 btn-success btn-sm" 
                                                                                             onclick="window.location.href = '<?php echo base_url('perfil-administrador/' . md5($administradorBloqueado->idUsuario)); ?>'"><i class="icon-eye"></i> Ver Perfil</button>
                                                                                     <button type="button" class="btn mb-1 btn-warning btn-sm" 
-                                                                                            onclick="window.location.href = '<?php echo base_url('editar-administrador/' . md5($administradorBloqueado->idUsuario) . '/' . $this->session->userdata('idAcademia')); ?>'"><i class="icon-edit"></i> Editar</button>
+                                                                                            onclick="window.location.href = '<?php echo base_url('editar-administrador/' . md5($administradorBloqueado->idUsuario) . '/' . $administradorBloqueado->idAcademia); ?>'"><i class="icon-edit"></i> Editar</button>
                                                                                     <button type="button" class="btn mb-1 btn-danger btn-sm" 
                                                                                             onclick="modalExcluirUsuario(<?php echo $administradorBloqueado->idUsuario; ?>);"><i class="icon-trash-o"></i> Excluir</button>
                                                                                 </td>

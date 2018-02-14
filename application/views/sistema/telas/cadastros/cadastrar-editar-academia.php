@@ -45,11 +45,7 @@
                                                 <div class="col-md-3">
                                                     <div class="form-group">
                                                         <label>CNPJ:*</label>
-                                                        <input type="text" id="cnpjAcademia" maxlength="18" class="form-control" value="<?php
-                                            if ($idAcademia != "novo") {
-                                                echo $cnpjAcademia;
-                                            }
-                                            ?>" 
+                                                        <input type="text" id="cnpjAcademia" maxlength="18" class="form-control" value="<?php if ($idAcademia != "novo") echo $cnpjAcademia; ?>" 
                                                                placeholder="Digite o CNPJ" name="cnpjAcademia" onchange="verificarCnpj();">
                                                         <small><span id='msnCNPJ'></span></small>
                                                     </div>                                                                
@@ -80,145 +76,145 @@
                                                         <label>Estado:*</label>
                                                         <select id="estadoAcademia" name="estadoAcademia" class="form-control">
                                                             <option value="" <?php
-                                            if ($estadoAcademia == '') {
-                                                echo 'selected';
-                                            }
-                                            ?>>Selecione o estado</option>
+                                                            if ($estadoAcademia == '') {
+                                                                echo 'selected';
+                                                            }
+                                                            ?>>Selecione o estado</option>
                                                             <option value="Acre" <?php
                                                             if ($estadoAcademia == 'Acre') {
                                                                 echo 'selected';
                                                             }
-                                            ?>>Acre</option>
+                                                            ?>>Acre</option>
                                                             <option value="Alagoas" <?php
                                                             if ($estadoAcademia == 'Alagoas') {
                                                                 echo 'selected';
                                                             }
-                                            ?>>Alagoas</option>
+                                                            ?>>Alagoas</option>
                                                             <option value="Amapá" <?php
                                                             if ($estadoAcademia == 'Amapá') {
                                                                 echo 'selected';
                                                             }
-                                            ?>>Amapá</option>
+                                                            ?>>Amapá</option>
                                                             <option value="Amazonas" <?php
                                                             if ($estadoAcademia == 'Amazonas') {
                                                                 echo 'selected';
                                                             }
-                                            ?>>Amazonas</option>
+                                                            ?>>Amazonas</option>
                                                             <option value="Bahia" <?php
                                                             if ($estadoAcademia == 'Bahia') {
                                                                 echo 'selected';
                                                             }
-                                            ?>>Bahia</option>
+                                                            ?>>Bahia</option>
                                                             <option value="Ceará"<?php
                                                             if ($estadoAcademia == 'Ceará') {
                                                                 echo 'selected';
                                                             }
-                                            ?>>Ceará</option>
+                                                            ?>>Ceará</option>
                                                             <option value="Distrito Federal"<?php
                                                             if ($estadoAcademia == 'Distrito Federal') {
                                                                 echo 'selected';
                                                             }
-                                            ?>>Distrito Federal</option>
+                                                            ?>>Distrito Federal</option>
                                                             <option value="Espírito Santo"<?php
                                                             if ($estadoAcademia == 'Espírito Santo') {
                                                                 echo 'selected';
                                                             }
-                                            ?>>Espírito Santo</option>
+                                                            ?>>Espírito Santo</option>
                                                             <option value="Goiás"<?php
                                                             if ($estadoAcademia == 'Goiás') {
                                                                 echo 'selected';
                                                             }
-                                            ?>>Goiás</option>
+                                                            ?>>Goiás</option>
                                                             <option value="Maranhão"<?php
                                                             if ($estadoAcademia == 'Maranhão') {
                                                                 echo 'selected';
                                                             }
-                                            ?>>Maranhão</option>
+                                                            ?>>Maranhão</option>
                                                             <option value="Mato Grosso" <?php
                                                             if ($estadoAcademia == 'Mato Grosso') {
                                                                 echo 'selected';
                                                             }
-                                            ?>>Mato Grosso</option>
+                                                            ?>>Mato Grosso</option>
                                                             <option value="Mato Grosso do Sul" <?php
                                                             if ($estadoAcademia == 'Mato Grosso do Sul') {
                                                                 echo 'selected';
                                                             }
-                                            ?>>Mato Grosso do Sul</option>
+                                                            ?>>Mato Grosso do Sul</option>
                                                             <option value="Minas Gerais" <?php
                                                             if ($estadoAcademia == 'Minas Gerais') {
                                                                 echo 'selected';
                                                             }
-                                            ?>>Minas Gerais</option>
+                                                            ?>>Minas Gerais</option>
                                                             <option value="Pará" <?php
                                                             if ($estadoAcademia == 'Pará') {
                                                                 echo 'selected';
                                                             }
-                                            ?>>Pará</option>
+                                                            ?>>Pará</option>
                                                             <option value="Paraíba" <?php
                                                             if ($estadoAcademia == 'Paraíba') {
                                                                 echo 'selected';
                                                             }
-                                            ?>>Paraíba</option>
+                                                            ?>>Paraíba</option>
                                                             <option value="Paraná" <?php
                                                             if ($estadoAcademia == 'Paraná') {
                                                                 echo 'selected';
                                                             }
-                                            ?>>Paraná</option>
+                                                            ?>>Paraná</option>
                                                             <option value="Pernambuco" <?php
                                                             if ($estadoAcademia == 'Pernambuco') {
                                                                 echo 'selected';
                                                             }
-                                            ?>>Pernambuco</option>
+                                                            ?>>Pernambuco</option>
                                                             <option value="Piauí" <?php
                                                             if ($estadoAcademia == 'Piauí') {
                                                                 echo 'selected';
                                                             }
-                                            ?>>Piauí</option>
+                                                            ?>>Piauí</option>
                                                             <option value="Rio de Janeiro" <?php
                                                             if ($estadoAcademia == 'Rio de Janeiro') {
                                                                 echo 'selected';
                                                             }
-                                            ?>>Rio de Janeiro</option>
+                                                            ?>>Rio de Janeiro</option>
                                                             <option value="Rio Grande do Norte"<?php
                                                             if ($estadoAcademia == 'Rio Grande do Norte') {
                                                                 echo 'selected';
                                                             }
-                                            ?>>Rio Grande do Norte</option>
+                                                            ?>>Rio Grande do Norte</option>
                                                             <option value="Rio Grande do Sul" <?php
                                                             if ($estadoAcademia == 'Rio Grande do Sul') {
                                                                 echo 'selected';
                                                             }
-                                            ?>>Rio Grande do Sul</option>
+                                                            ?>>Rio Grande do Sul</option>
                                                             <option value="Rondônia" <?php
                                                             if ($estadoAcademia == 'Rondônia') {
                                                                 echo 'selected';
                                                             }
-                                            ?>>Rondônia</option>
+                                                            ?>>Rondônia</option>
                                                             <option value="Roraima" <?php
                                                             if ($estadoAcademia == 'Roraima') {
                                                                 echo 'selected';
                                                             }
-                                            ?>>Roraima</option>
+                                                            ?>>Roraima</option>
                                                             <option value="Santa Catarina"<?php
                                                             if ($estadoAcademia == 'Santa Catarina') {
                                                                 echo 'selected';
                                                             }
-                                            ?>>Santa Catarina</option>
+                                                            ?>>Santa Catarina</option>
                                                             <option value="São Paulo" <?php
                                                             if ($estadoAcademia == 'São Paulo') {
                                                                 echo 'selected';
                                                             }
-                                            ?>>São Paulo</option>
+                                                            ?>>São Paulo</option>
                                                             <option value="Sergipe" <?php
                                                             if ($estadoAcademia == 'Sergipe') {
                                                                 echo 'selected';
                                                             }
-                                            ?>>Sergipe</option>
+                                                            ?>>Sergipe</option>
                                                             <option value="Tocantins" <?php
                                                             if ($estadoAcademia == 'Tocantins') {
                                                                 echo 'selected';
                                                             }
-                                            ?>>Tocantins</option>
+                                                            ?>>Tocantins</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -236,10 +232,10 @@
                                                         <label>Bairro:*</label>
                                                         <input type="text" id="bairroAcademia" class="form-control" 
                                                                placeholder="Digite o bairro" name="bairroAcademia" value="<?php
-                                                            if ($idAcademia != "novo") {
-                                                                echo $bairroAcademia;
-                                                            }
-                                            ?>">
+                                                               if ($idAcademia != "novo") {
+                                                                   echo $bairroAcademia;
+                                                               }
+                                                               ?>">
                                                     </div>
                                                 </div>
                                                 <!-- CEP DA ACADEMIA -->
@@ -323,7 +319,7 @@
                                                                 } else {
                                                                     echo 'disabled';
                                                                 }
-                                            ?> value="" class="custom-control-input" onchange="valorPlanoPacote();">
+                                                                ?> value="" class="custom-control-input" onchange="valorPlanoPacote();">
                                                                 <span class="custom-control-indicator"></span>
                                                                 <span class="custom-control-description ml-0">Pacote A</span>
                                                             </label>
@@ -335,7 +331,7 @@
                                                                 } else {
                                                                     echo 'disabled';
                                                                 }
-                                            ?> onchange="valorPlanoPacote();" class="custom-control-input">
+                                                                ?> onchange="valorPlanoPacote();" class="custom-control-input">
                                                                 <span class="custom-control-indicator"></span>
                                                                 <span class="custom-control-description ml-0">Pacote B</span>
                                                             </label>
@@ -347,7 +343,7 @@
                                                                 } else {
                                                                     echo 'disabled';
                                                                 }
-                                            ?> class="custom-control-input" onchange="valorPlanoPacote();">
+                                                                ?> class="custom-control-input" onchange="valorPlanoPacote();">
                                                                 <span class="custom-control-indicator"></span>
                                                                 <span class="custom-control-description ml-0">Pacote C</span>
                                                             </label>
@@ -359,7 +355,7 @@
                                                                 } else {
                                                                     echo 'disabled';
                                                                 }
-                                            ?> class="custom-control-input" onchange="valorPlanoPacote();">
+                                                                ?> class="custom-control-input" onchange="valorPlanoPacote();">
                                                                 <span class="custom-control-indicator"></span>
                                                                 <span class="custom-control-description ml-0">Pacote D</span>
                                                             </label>
@@ -544,7 +540,7 @@
         <div class="modal-content">
             <div class="modal-body">
                 <h4 class="modal-title text-xs-center"><i class="icon-check-circle success"></i> <?php if ($idAcademia !== "novo") { ?> Dados alterados com sucesso 
-<?php } else { ?> Dados cadastrados com sucesso <?php } ?></h4>
+                    <?php } else { ?> Dados cadastrados com sucesso <?php } ?></h4>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" onclick="window.location.href = '<?php echo base_url($voltarPagina); ?>'">Fechar</button>
@@ -560,7 +556,7 @@
         <div class="modal-content">
             <div class="modal-body">
                 <h4 class="modal-title text-xs-center"><i class="icon-remove danger"></i> <?php if ($idAcademia !== "novo") { ?> Erro ao cadastrar os dados 
-<?php } else { ?> Erro ao alterar os dados <?php } ?></h4>
+                    <?php } else { ?> Erro ao alterar os dados <?php } ?></h4>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
