@@ -14,7 +14,7 @@
                             <div class="row">
                                 <div class="col-lg-4">
                                     <div class="form-group">
-                                        <div class="form-group position-relative">
+                                        <div class="position-relative">
                                             <input type="text" class="form-control" placeholder="Buscar administrador..." 
                                                    name="pesquisarUsuario" id="pesquisarUsuario" onkeyup="pesquisarUsuario();">
                                             <div class="form-control-position" style="margin-top: 7px;">

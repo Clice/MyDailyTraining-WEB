@@ -28,6 +28,13 @@ class TreinoModel extends CI_Model {
         $this->db->where('md5(idTreino)', $idUsuario);
         return $this->db->get()->result();
     }
+
+    public function mListarTreinos() {
+        $this->db->select('*');
+        $this->db->from('treinos');
+        $this->db->where('idAcademia', $this->session->userdata('idAcademia'));
+        return $this->db->get()->result();
+    }
     
     // FUNÇÃO PARA PEGAR OS DADOS DOS EXERCÍCIOS
     public function mVisualizarExercicios() {

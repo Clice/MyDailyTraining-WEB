@@ -17,8 +17,11 @@ class TreinoController extends CI_Controller {
 
     // FUNÇÃO DE CARREGAMENTO DA VIEW LISTA-TRIENOS.PHP
     public function index() {
-        $dados['nomePagina'] = 'Lista de Treinos';
-        $this->load->view('sistema/templates/html-header', $dados);
+        $dadosTreino['nomePagina'] = 'Lista de Treinos';
+        $dadosTreino['urlPagina'] = "lista-treinos";
+        $dadosTreino['treinos'] = $this->TreinoModel->mListarTreinos();
+
+        $this->load->view('sistema/templates/html-header', $dadosTreino);
         $this->load->view('sistema/templates/header');
         $this->load->view('sistema/templates/side-menu');
         $this->load->view('sistema/telas/listas/lista-treinos');

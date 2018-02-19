@@ -307,7 +307,7 @@
         <!-- RODAPÉ -->
         <div style="background-color: #0e456b;" class="copyright py-4 text-center text-white">
             <div class="container">
-                <p>EqualTech &copy; 2017 - <?php echo date('Y') ?> . Todos os direitos reservados.</p>
+                <p>&copy; 2017 - <?php echo date('Y') ?> MyDailyTraining. Todos os direitos reservados.</p>
                 <p>Desenvolvido por EqualTech</p>
             </div>
         </div>
