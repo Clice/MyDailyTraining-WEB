@@ -114,6 +114,9 @@ class UsuarioController extends CI_Controller {
         // SE O ID USUARIO JÁ EXISTE, ALTERAR OS DADOS DO USUÁRIO
         else {
             if ($this->UsuarioModel->mEditarUsuario($dadosUsuario)) {
+                if ($this->session->userdata('idUsuario') == $dadosUsuario['idUsuario']) {
+                    $this->session->set_userdata($dadosUsuario);
+                }
                 $resposta = array('success' => true);
             } else {
                 $resposta = array('success' => false);

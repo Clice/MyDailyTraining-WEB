@@ -438,11 +438,12 @@
                                                 <div class="col-md-4">
                                                     <div class="form-group">
                                                         <label>Licenças do Plano:*</label>
-                                                        <label id="qtdLicencasPlano"><?php
-                                                            if ($licencasPlano > 0) {
-                                                                echo $licencasPlano . ' licenças';
+                                                        <label id="qtdLicencasPlano">
+                                                            <?php if ($licencasPlano > 0) {
+                                                                echo $licencasPlano;
+                                                            echo $licencasPlano . ' licenças';
                                                             } else {
-                                                                echo '0 licenças';
+                                                            echo '0 licenças';
                                                             }
                                                             ?></label>
                                                     </div>

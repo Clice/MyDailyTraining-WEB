@@ -95,12 +95,12 @@
             success: function (data) {
                 if (data.existe) {
                     if (data.id === idUsuario) {
-                        cadEditUsuario();
+                        cadastrarEditarUsuario();
                     } else {
                         $('#login-cadastrado').modal('show');
                     }
                 } else {
-                    cadEditUsuario();
+                    cadastrarEditarUsuario();
                 }
             },
             error: function (request, status, error) {
@@ -109,7 +109,7 @@
         });
     }
 
-    function cadEditUsuario() {
+    function cadastrarEditarUsuario() {
         $.ajax({
             url: "<?php echo base_url('UsuarioController/cCadastrarEditarUsuario') ?>",
             type: "POST",
@@ -128,5 +128,3 @@
         });
     }
 </script>
-
-<script src="<?php echo base_url('assets/js/outros/usuarios.js'); ?>" type="text/javascript"></script> 

@@ -116,6 +116,29 @@ function pesquisarUsuario() {
     }
 }
 
+// FUNÇÃO PARA PESQUISAR OS USUÁRIOS CADASTRADOS
+function pesquisarEqualTech() {
+    var entrada, filtro, i;
+    var tabelaEqualTech, trA, tdA;
+
+    entrada = document.getElementById('pesquisarEqualTech');
+    filtro = entrada.value.toUpperCase();
+
+    // PESQUISA OS USUÁRIOS ATIVOS NA TABELA
+    tabelaEqualTech = document.getElementById('tabelaEqualTech');
+    trA = tabelaEqualTech.getElementsByTagName('tr');
+    for (i = 0; i < trA.length; i++) {
+        tdA = trA[i].getElementsByTagName('td')[0];
+        if (tdA) {
+            if (tdA.innerHTML.toUpperCase().indexOf(filtro) > -1) {
+                trA[i].style.display = "";
+            } else {
+                trA[i].style.display = "none";
+            }
+        }
+    }
+}
+
 // FUNÇÃO PARA CONTROLE DOS PLANOS E PACOTES DA EMPRESA
 // CONTROLANDO OS INPUTS RADIOS PARA QUE O USUÁRIO ESCOLHA CORRETAMENTE AS OPÇÕES 
 function verificarSexoUsuario() {

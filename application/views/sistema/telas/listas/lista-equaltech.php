@@ -13,14 +13,12 @@
                             <div class="row">
                                 <div class="col-lg-4">
                                     <div class="form-group">
-                                        <div class="input-group">
+                                        <div class="form-group position-relative">
                                             <input type="text" class="form-control" placeholder="Digite o nome do funcionário da EqualTech" 
-                                                   name="pesquisarEqualtech" id="pesquisarEqualtech">
-                                            <span class="input-group-btn">
-                                                <button class="btn btn-primary" type="button">
-                                                    <i class="icon-search"></i>
-                                                </button>
-                                            </span>
+                                                   name="pesquisarEqualTech" id="pesquisarEqualTech" onkeyup="pesquisarEqualTech();">
+                                            <div class="form-control-position" style="margin-top: 7px;">
+                                                <i class="icon-search4 font-medium-4"></i>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -45,7 +43,7 @@
                                                 <div class="card">
                                                     <div class="card-body collapse in">
                                                         <div class="table-responsive">
-                                                            <table class="table table-hover mb-0">
+                                                            <table class="table table-hover mb-0" id="tabelaEqualTech">
                                                                 <thead>
                                                                     <tr>
                                                                         <th>Nome</th>

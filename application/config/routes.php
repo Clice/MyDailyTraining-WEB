@@ -26,6 +26,7 @@ $route['lista-equaltech'] = 'EqualTechController';
 $route['lista-instrutores'] = 'InstrutorController';
 $route['lista-funcionarios'] = 'FuncionarioController';
 $route['lista-administradores'] = 'AdministradorController';
+$route['lista-exercicios-treino/(:any)'] = 'TreinoController/vListaExerciciosTreino/$1';
 $route['lista-administradores-academia'] = 'AdministradorController/vListaAdministradoresAcademia';
 
 // ROTAS PARA OS PERFIS

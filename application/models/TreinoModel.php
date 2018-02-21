@@ -43,4 +43,12 @@ class TreinoModel extends CI_Model {
         return $this->db->get()->result();
     }
 
+    // FUNÇÃO PARA PEGAR OS DADOS DOS EXERCÍCIOS
+    public function mVisualizarExerciciosTreino($idTreino) {
+        $this->db->select('*');
+        $this->db->from('exercicios');
+        $this->db->where('idTreino', $idTreino);
+        return $this->db->get()->result();
+    }
+
 }
