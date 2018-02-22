@@ -3446,20 +3446,21 @@ tbody.collapse.in {
     z-index: 2;
     color: #fff;
     cursor: default;
-    background-color: #967ADC;
-    border-color: #967ADC; }
+    background-color: 337ab7;
+    border-color: #337ab7; }
 
 .page-item.active .page-link:hover {
     z-index: 2;
     color: #fff;
     cursor: default;
-    background-color: #967ADC;
-    border-color: #967ADC; }
+    background-color: #337ab7;
+    border-color: #337ab7; }
+
 .page-item.disabled .page-link, .page-item.disabled .page-link:focus {
     color: #818a91;
     pointer-events: none;
     cursor: not-allowed;
-    background-color: #fff;
+    background-color: #337ab7;
     border-color: #ddd; }
 .page-item.disabled .page-link:hover {
     color: #818a91;
@@ -3473,7 +3474,7 @@ tbody.collapse.in {
     float: left;
     padding: 0.5rem 0.75rem;
     margin-left: -1px;
-    color: #7A54D8;
+    color: #337ab7;
     text-decoration: none;
     background-color: #fff;
     border: 1px solid #ddd; }

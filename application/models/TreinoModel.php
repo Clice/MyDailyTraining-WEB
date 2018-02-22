@@ -40,6 +40,7 @@ class TreinoModel extends CI_Model {
     public function mVisualizarExercicios() {
         $this->db->select('*');
         $this->db->from('exercicios');
+        $this->db->order_by('grupoMuscular', 'ASC');
         return $this->db->get()->result();
     }
 

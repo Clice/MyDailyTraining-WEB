@@ -56,7 +56,7 @@
                         <li><a href="<?php echo base_url('lista-treinos'); ?>" data-i18n="nav.listas.treinos" 
                                class="menu-item">Lista</a>
                         </li>
-                        <li><a href="<?php echo base_url('lista-exercicios-treino/novo'); ?>" data-i18n="nav.page_layouts.main" 
+                        <li><a href="<?php echo base_url('cadastrar-treino/novo'); ?>" data-i18n="nav.page_layouts.main" 
                                class="menu-item">Cadastro</a>
                         </li>  
                     </ul>

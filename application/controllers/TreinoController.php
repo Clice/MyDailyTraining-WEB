@@ -59,17 +59,35 @@ class TreinoController extends CI_Controller {
         // SE UM ID TRIENO FOI PASSADO OU NÃO
         // PARA REALIZAR A EDIÇÃO DE DADOS DE UM TREINO
         if ($idTreino != "novo") {
-            $dados['nomePagina'] = 'Editar Academia';
+            $dadosTreino['nomePagina'] = 'Editar Academia';
         }
         // PARA REALIZAR O CADASTRO DE UM TREINO
         else {
-            $dados['nomePagina'] = 'Cadastrar Treino';
-            $dados['idTreino'] = $idTreino;
+            $dadosTreino['nomePagina'] = 'Cadastrar Treino';
+            $dadosTreino['idTreino'] = $idTreino;
         }
 
-        $dados['exercicios'] = $this->TreinoModel->mVisualizarExercicios();
+        $dadosTreino['exercicios'] = $this->TreinoModel->mVisualizarExercicios();
+        
+        if ($dadosTreino['idTreino'] == "novo") {
+            $dados['dataTreino'] = date('Y-m-d');
+            $dados['horaTreino'] = date('H:i:s');
+            $dados['statusTreino'] = false;
+            $dadosTreino['exerciciosAdicionadosDomingoTreino'] = NULL;
+        } else {
+            $dadosTreino['exerciciosAdicionadosDomingoTreino'] = $this->TreinoModel->mListarExerciciosDomingoTreino($idTreino);
+        }
+        
+        if ($dadosTreino['idTreino'] == "novo") {
+            $dados['dataTreino'] = date('Y-m-d');
+            $dados['horaTreino'] = date('H:i:s');
+            $dados['statusTreino'] = false;
+            $dadosTreino['exerciciosAdicionadosSegundaTreino'] = NULL;
+        } else {
+            $dadosTreino['exerciciosAdicionadosSegundaTreino'] = $this->TreinoModel->mListarExerciciosSegundaTreino($idTreino);
+        }
 
-        $this->load->view('sistema/templates/html-header', $dados);
+        $this->load->view('sistema/templates/html-header', $dadosTreino);
         $this->load->view('sistema/templates/header');
         $this->load->view('sistema/templates/side-menu');
         $this->load->view('sistema/telas/cadastros/cadastrar-editar-treino');
