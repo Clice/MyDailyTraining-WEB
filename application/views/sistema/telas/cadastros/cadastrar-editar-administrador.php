@@ -320,7 +320,7 @@
                                                     <div class="form-group">
                                                         <label>CEP:*</label>
                                                         <input type="text" id="cepUsuario" name="cepUsuario" class="form-control" maxlength="9" placeholder="Digite o CEP" 
-                                                               value="<?php if ($idUsuario != "novo") echo $cepUsuario; ?>">
+                                                               value="<?php if ($idUsuario != "novo") echo $cepUsuario; ?>" data-mask="00000-000">
                                                     </div>
                                                 </div>
                                             </div>

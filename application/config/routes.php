@@ -45,6 +45,7 @@ $route['cadastrar-academia/(:any)'] = 'AcademiaController/vCadastrarEditarAcadem
 $route['cadastrar-instrutor/(:any)'] = 'InstrutorController/vCadastrarEditarInstrutor/$1';
 $route['cadastrar-funcionario/(:any)'] = 'FuncionarioController/vCadastrarEditarFuncionario/$1';
 $route['cadastrar-administrador/(:any)/(:num)'] = 'AdministradorController/vCadastrarEditarAdministrador/$1/$2';
+$route['cadastrar-avaliacao-fisica/(:any)'] = 'AvaliacaoFisicaController/vCadastrarAvaliacaoFisica/$1';
 
 // ROTAS PARA AS EDIÇÕES
 $route['editar-aluno/(:any)'] = 'AlunoController/vCadastrarEditarAluno/$1';

@@ -1,8 +1,8 @@
 
-<!-- DODOS DO ALUNO -->
+<!-- DADOS DO ALUNO -->
 <div class="app-content content container-fluid">
     <div class="content-wrapper">      
-        <!-- CONTEÚDO DO PÁGINA - DODOS DO ALUNO ESCOLHIDO -->
+        <!-- CONTEÚDO DO PÁGINA - DADOS DO ALUNO ESCOLHIDO -->
         <div class="content-body">
             <section id="basic-form-layouts">
                 <div class="row match-height">
@@ -209,6 +209,9 @@
                                             <?php if ($this->session->userdata('tipoConta') == 4) { ?>
                                                 <button type="button" class="btn btn-indigo" onclick="window.location.href = '<?php echo base_url('lista-treinos/' . md5($aluno->idAluno)); ?>'">
                                                     <i class="icon-IcoMoon"></i> Definir Treino
+                                                </button>
+                                                <button type="button" class="btn btn-blue" onclick="window.location.href = '<?php echo base_url('cadastrar-avaliacao-fisica/' . md5($aluno->idAluno)); ?>'">
+                                                    <i class="icon-user5"></i> Realizar Avaliação Física
                                                 </button>
                                             <?php } ?>
                                             <button type="button" class="btn btn-green" onclick="window.location.href = '<?php echo base_url('imprimir-ficha/' . md5($aluno->idAluno)); ?>'">

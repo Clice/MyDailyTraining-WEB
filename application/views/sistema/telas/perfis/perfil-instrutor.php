@@ -1,8 +1,8 @@
 
-<!-- DODOS DO INSTRUTOR -->
+<!-- DADOS DO INSTRUTOR -->
 <div class="app-content content container-fluid">
     <div class="content-wrapper">      
-        <!-- CONTEÚDO DO PÁGINA - DODOS DO INSTRUTOR ESCOLHIDO -->
+        <!-- CONTEÚDO DO PÁGINA - DADOS DO INSTRUTOR ESCOLHIDO -->
         <div class="content-body">
             <section id="basic-form-layouts">
                 <div class="row match-height">

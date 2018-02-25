@@ -1,8 +1,8 @@
 
-<!-- DODOS DO FUNCIONÁRIO -->
+<!-- DADOS DO FUNCIONÁRIO -->
 <div class="app-content content container-fluid">
     <div class="content-wrapper">      
-        <!-- CONTEÚDO DO PÁGINA - DODOS DO FUNCIONÁRIO ESCOLHIDO -->
+        <!-- CONTEÚDO DO PÁGINA - DADOS DO FUNCIONÁRIO ESCOLHIDO -->
         <div class="content-body">
             <section id="basic-form-layouts">
                 <div class="row match-height">

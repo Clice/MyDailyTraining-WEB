@@ -1,8 +1,8 @@
 
-<!-- DODOS DO ADMINISTRADOR -->
+<!-- DADOS DO ADMINISTRADOR -->
 <div class="app-content content container-fluid">
     <div class="content-wrapper">      
-        <!-- CONTEÚDO DO PÁGINA - DODOS DO ADMINISTRADOR ESCOLHIDO -->
+        <!-- CONTEÚDO DO PÁGINA - DADOS DO ADMINISTRADOR ESCOLHIDO -->
         <div class="content-body">
             <section id="basic-form-layouts">
                 <div class="row match-height">
