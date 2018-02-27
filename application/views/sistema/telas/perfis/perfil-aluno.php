@@ -210,10 +210,14 @@
                                                 <button type="button" class="btn btn-indigo" onclick="window.location.href = '<?php echo base_url('lista-treinos/' . md5($aluno->idAluno)); ?>'">
                                                     <i class="icon-IcoMoon"></i> Definir Treino
                                                 </button>
-                                                <button type="button" class="btn btn-blue" onclick="window.location.href = '<?php echo base_url('cadastrar-avaliacao-fisica/' . md5($aluno->idAluno)); ?>'">
-                                                    <i class="icon-user5"></i> Realizar Avaliação Física
-                                                </button>
-                                            <?php } ?>
+                                                <?php if ($aluno->statusAluno != 0) { ?>
+                                                    <button type="button" class="btn btn-blue" onclick="window.location.href = '<?php echo base_url('cadastrar-avaliacao-fisica/' . md5($aluno->idAluno)); ?>'">
+                                                        <i class="icon-user5"></i> Realizar Avaliação Física
+                                                    </button>
+                                                    <?php
+                                                }
+                                            }
+                                            ?>
                                             <button type="button" class="btn btn-green" onclick="window.location.href = '<?php echo base_url('imprimir-ficha/' . md5($aluno->idAluno)); ?>'">
                                                 <i class="icon-print"></i> Imprimir Ficha
                                             </button>
