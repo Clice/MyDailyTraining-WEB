@@ -182,6 +182,16 @@
                                 <div class="card-block-cadastro">
                                     <div class="row">
                                         <div class="col-md-12 ">
+                                            <label>Observações:</label>
+                                            <div class="form-group">
+                                                <textarea type="text" class="form-control" name="observacoesTreino" 
+                                                          id="observacoesTreino"></textarea>
+                                            </div> 
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-md-12 ">
                                             <div style="float: right;" class="form-actions">
                                                 <button type="submit" class="btn btn-success" onclick="editTreino();">
                                                     <i class="icon-check2"></i> Salvar
@@ -238,7 +248,7 @@
                 <h4 class="modal-title text-xs-center"><i class="icon-check-circle success"></i> Treino cadastrado com sucesso.</h4>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="window.location.href='<?php echo base_url('lista-treinos'); ?>';">Fechar</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="window.location.href = '<?php echo base_url('lista-treinos'); ?>';">Fechar</button>
             </div>
         </div>
     </div>
@@ -260,7 +270,6 @@
                 "&tempoExercicioTreino=" + tempoExercicioTreino + "&descansoExercicioTreino=" + descansoExercicioTreino +
                 "&repeticoesExercicioTreino=" + repeticoesExercicioTreino + "&velocidadeExercicioTreino=" + velocidadeExercicioTreino;
 
-        alert(dados);
         $.ajax({
             url: "<?php echo base_url('TreinoController/cCadastrarEditarExercicioTreino') ?>",
             type: "POST",
@@ -280,7 +289,8 @@
     }
 
     function editTreino() {
-        var dados = "idTreino=" + $('#idTreino').val() + "&statusTreino=" + $('#statusTreino').val();
+        var dados = "idTreino=" + $('#idTreino').val() + "&observacoesTreino=" + $('#observacoesTreino').val() +
+                "&statusTreino=" + $('#statusTreino').val();
         $.ajax({
             url: "<?php echo base_url('TreinoController/cEditarTreino') ?>",
             type: "POST",

@@ -149,6 +149,7 @@ class TreinoController extends CI_Controller {
     public function cEditarTreino() {
         $dadosTreino = array(
             'idTreino' => $this->input->post('idTreino'),
+            'observacoesTreino' => $this->input->post('observacoesTreino'),
             'statusTreino' => $this->input->post('statusTreino')
         );
 
