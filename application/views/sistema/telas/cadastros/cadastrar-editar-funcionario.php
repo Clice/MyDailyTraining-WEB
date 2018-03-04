@@ -110,19 +110,19 @@
                                                     <div class="input-group" style="margin-top: 13px">
                                                         <!-- FEMININO -->
                                                         <label class="display-inline-block custom-control custom-radio">
-                                                            <input type="radio" name="sexoUsuario" id="sexoFeminino" value="Feminino" onchange="verificarSexoUsuario();" class="custom-control-input" <?php if ($sexoUsuario == 'Feminino') echo 'checked';?>>
+                                                            <input type="radio" name="sexoUsuario" id="sexoFeminino" value="Feminino" onchange="verificarSexoUsuario();" class="custom-control-input" <?php if ($sexoUsuario == 'Feminino') echo 'checked'; ?>>
                                                             <span class="custom-control-indicator"></span>
                                                             <span class="custom-control-description ml-0">Feminino</span>
                                                         </label>
                                                         <!-- MASCULINO -->
                                                         <label class="display-inline-block custom-control custom-radio">
-                                                            <input type="radio" name="sexoUsuario" id="sexoMasculino" value="Masculino" onchange="verificarSexoUsuario();" class="custom-control-input" <?php if ($sexoUsuario == 'Masculino') echo 'checked';?>>
+                                                            <input type="radio" name="sexoUsuario" id="sexoMasculino" value="Masculino" onchange="verificarSexoUsuario();" class="custom-control-input" <?php if ($sexoUsuario == 'Masculino') echo 'checked'; ?>>
                                                             <span class="custom-control-indicator"></span>
                                                             <span class="custom-control-description ml-0">Masculino</span>
                                                         </label>
                                                         <!-- OUTROS -->
                                                         <label class="display-inline-block custom-control custom-radio">
-                                                            <input type="radio" name="sexoUsuario" id="sexoOutros" value="Outros" onchange="verificarSexoUsuario();" class="custom-control-input" <?php if ($sexoUsuario == 'Outros') echo 'checked';?>>
+                                                            <input type="radio" name="sexoUsuario" id="sexoOutros" value="Outros" onchange="verificarSexoUsuario();" class="custom-control-input" <?php if ($sexoUsuario == 'Outros') echo 'checked'; ?>>
                                                             <span class="custom-control-indicator"></span>
                                                             <span class="custom-control-description ml-0">Outros</span>
                                                         </label>
@@ -323,13 +323,15 @@
                                         </div>
                                     </form>
                                     <hr>
-                                    <!-- BOTÕES -->
-                                    <div style="float: right; margin-bottom: 15px;" class="form-actions">
-                                        <button type="submit" class="btn btn-success" onclick="verificarDadosUsuario();">
-                                            <i class="icon-check2"></i> Salvar
-                                        </button>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div style="float: right;" class="form-actions">
+                                                <button type="submit" class="btn btn-success" onclick="verificarDadosUsuario();">
+                                                    <i class="icon-check2"></i> Salvar
+                                                </button>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <br>
                                 </div>
                             </div>
                         </div>

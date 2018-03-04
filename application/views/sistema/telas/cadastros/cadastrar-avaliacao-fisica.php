@@ -218,11 +218,14 @@
                                         </div>  
                                     </form>
                                     <hr>
-                                    <!-- BOTÕES -->
-                                    <div style="float: right; margin-bottom: 15px;" class="form-actions">
-                                        <button type="submit" class="btn btn-success" onclick="verificarDadosAvaliacaoFisica();">
-                                            <i class="icon-check2"></i> Salvar
-                                        </button>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div style="float: right;" class="form-actions">
+                                                <button type="submit" class="btn btn-success" onclick="verificarDadosAvaliacaoFisica();">
+                                                    <i class="icon-check2"></i> Salvar
+                                                </button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

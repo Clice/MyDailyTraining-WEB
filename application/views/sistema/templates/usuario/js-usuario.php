@@ -95,12 +95,12 @@
             success: function (data) {
                 if (data.existe) {
                     if (data.id === idUsuario) {
-                        cadastrarEditarUsuario();
+                        cadEditUsuario();
                     } else {
                         $('#login-cadastrado').modal('show');
                     }
                 } else {
-                    cadastrarEditarUsuario();
+                    cadEditUsuario();
                 }
             },
             error: function (request, status, error) {
@@ -109,7 +109,7 @@
         });
     }
 
-    function cadastrarEditarUsuario() {
+    function cadEditUsuario() {
         $.ajax({
             url: "<?php echo base_url('UsuarioController/cCadastrarEditarUsuario') ?>",
             type: "POST",

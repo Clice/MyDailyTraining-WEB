@@ -18,7 +18,6 @@
                                     </div>
                                     <form class="form" id="formCadEditAluno" name="formCadEditAluno">
                                         <div class="form-body">
-                                            <h4 class="form-section"></h4>
 
                                             <input type="hidden" name="idAluno" id="idAluno" value="<?php echo $idAluno; ?>">
                                             <input type="hidden" name="idAcademia" id="idAcademia" value="<?php echo $idAcademia; ?>">
@@ -506,13 +505,15 @@
                                         </div>
                                     </form>
                                     <hr>
-                                    <!-- BOTÕES -->
-                                    <div style="float: right; margin-bottom: 15px;" class="form-actions">
-                                        <button type="submit" class="btn btn-success" onclick="verificarDadosAluno();">
-                                            <i class="icon-check2"></i> Salvar
-                                        </button>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div style="float: right;" class="form-actions">
+                                                <button type="submit" class="btn btn-success" onclick="verificarDadosAluno();">
+                                                    <i class="icon-check2"></i> Salvar
+                                                </button>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <br>
                                 </div>
                             </div>
                         </div>

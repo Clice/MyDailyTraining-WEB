@@ -439,11 +439,12 @@
                                                     <div class="form-group">
                                                         <label>Licenças do Plano:*</label>
                                                         <label id="qtdLicencasPlano">
-                                                            <?php if ($licencasPlano > 0) {
+                                                            <?php
+                                                            if ($licencasPlano > 0) {
                                                                 echo $licencasPlano;
-                                                            echo $licencasPlano . ' licenças';
+                                                                echo $licencasPlano . ' licenças';
                                                             } else {
-                                                            echo '0 licenças';
+                                                                echo '0 licenças';
                                                             }
                                                             ?></label>
                                                     </div>
@@ -486,13 +487,15 @@
                                         </div>
                                     </form>
                                     <hr>
-                                    <!-- BOTÕES -->
-                                    <div style="float: right; margin-bottom: 15px;" class="form-actions">
-                                        <button type="submit" class="btn btn-success" onclick="verificarDadosAcademia();">
-                                            <i class="icon-check2"></i> Salvar
-                                        </button>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div style="float: right;" class="form-actions">
+                                                <button type="submit" class="btn btn-success" onclick="verificarDadosAcademia();">
+                                                    <i class="icon-check2"></i> Salvar
+                                                </button>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <br>
                                 </div>
                             </div>
                         </div>
@@ -541,7 +544,7 @@
         <div class="modal-content">
             <div class="modal-body">
                 <h4 class="modal-title text-xs-center"><i class="icon-check-circle success"></i> <?php if ($idAcademia !== "novo") { ?> Dados alterados com sucesso 
-                    <?php } else { ?> Dados cadastrados com sucesso <?php } ?></h4>
+<?php } else { ?> Dados cadastrados com sucesso <?php } ?></h4>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" onclick="window.location.href = '<?php echo base_url($voltarPagina); ?>'">Fechar</button>
@@ -557,7 +560,7 @@
         <div class="modal-content">
             <div class="modal-body">
                 <h4 class="modal-title text-xs-center"><i class="icon-remove danger"></i> <?php if ($idAcademia !== "novo") { ?> Erro ao cadastrar os dados 
-                    <?php } else { ?> Erro ao alterar os dados <?php } ?></h4>
+<?php } else { ?> Erro ao alterar os dados <?php } ?></h4>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>

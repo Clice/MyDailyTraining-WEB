@@ -51,7 +51,7 @@
                                                 <div class="card">
                                                     <div class="card-body collapse in">
                                                         <div class="table-responsive">
-                                                            <table class="table table-hover mb-0" id="tabelaAlunosAtivos">
+                                                            <table class="table table-hover mb-0" id="tabelaTreinos">
                                                                 <thead>
                                                                     <tr>
                                                                         <th>Nome do Treino</th>
@@ -68,7 +68,7 @@
                                                                                 <button type="button" class="btn mb-1 btn-success btn-sm" 
                                                                                         onclick="window.location.href = '<?php echo base_url('perfil-treino/' . md5($treino->idTreino)); ?>'"><i class="icon-eye"></i> Ver Perfil</button>
                                                                                 <button type="button" class="btn mb-1 btn-warning btn-sm" 
-                                                                                        onclick="window.location.href = '<?php echo base_url('editar-treino/' . md5($treino->idTreino)); ?>'"><i class="icon-edit"></i> Editar</button>
+                                                                                        onclick="window.location.href = '<?php echo base_url('editar-treino/' . $treino->idTreino); ?>'"><i class="icon-edit"></i> Editar</button>
                                                                                 <button type="button" class="btn mb-1 btn-danger btn-sm" 
                                                                                         onclick="modalExcluirTreino(<?php echo $treino->idTreino; ?>);"><i class="icon-trash-o"></i> Excluir</button>
                                                                             </td>

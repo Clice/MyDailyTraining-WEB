@@ -75,8 +75,10 @@ function pesquisarAluno() {
     var entrada, filtro, i;
     var tabelaAlunosAtivos, trA, tdA;
     var tabelaAlunosBloqueados, trB, tdB;
+    
     entrada = document.getElementById('pesquisarAluno');
     filtro = entrada.value.toUpperCase();
+    
     // PESQUISA OS ALUNOS ATIVOS NA TABELA
     tabelaAlunosAtivos = document.getElementById('tabelaAlunosAtivos');
     trA = tabelaAlunosAtivos.getElementsByTagName('tr');
@@ -91,7 +93,7 @@ function pesquisarAluno() {
         }
     }
 
-// PESQUISA OS ALUNOS BLOQUEADOS NA TABELA
+    // PESQUISA OS ALUNOS BLOQUEADOS NA TABELA
     tabelaAlunosBloqueados = document.getElementById('tabelaAlunosBloqueados');
     trB = tabelaAlunosBloqueados.getElementsByTagName('tr');
     for (i = 0; i < trB.length; i++) {
