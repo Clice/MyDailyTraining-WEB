@@ -55,7 +55,7 @@
                                                                 <thead>
                                                                     <tr>
                                                                         <th>Nome do Treino</th>
-                                                                        <th>Objetivo</th>
+                                                                        <th>Observações</th>
                                                                         <th style="text-align: center; padding: 0px 0px 0.75rem 0px;">Opções</th>
                                                                     </tr>
                                                                 </thead>
@@ -63,7 +63,7 @@
                                                                     <?php foreach ($treinos as $treino) { ?>   
                                                                         <tr>
                                                                             <td><?php echo $treino->nomeTreino; ?></td>
-                                                                            <td><?php echo $treino->objetivoTreino; ?></td>
+                                                                            <td><?php echo $treino->observacoesTreino; ?></td>
                                                                             <td style="text-align: center; padding: 0.75rem 0px 0px 0px;">
                                                                                 <button type="button" class="btn mb-1 btn-success btn-sm" 
                                                                                         onclick="window.location.href = '<?php echo base_url('perfil-treino/' . md5($treino->idTreino)); ?>'"><i class="icon-eye"></i> Ver Perfil</button>

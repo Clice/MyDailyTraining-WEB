@@ -62,8 +62,7 @@ class TreinoModel extends CI_Model {
         $this->db->where('idTreino', $idTreino);
         return $this->db->delete('exerciciostreino');
     }
-
-    // FUNÇÕES PARA OS EXERCÍCIOS
+    
     // FUNÇÃO PARA PEGAR OS DADOS DOS EXERCÍCIOS
     public function mVisualizarExerciciosTreino($idTreino) {
         $this->db->select('*');
@@ -73,6 +72,7 @@ class TreinoModel extends CI_Model {
         return $this->db->get()->result();
     }
 
+    // FUNÇÕES PARA OS EXERCÍCIOS
     // FUNÇÃO PARA PEGAR OS DADOS DOS EXERCÍCIOS
     public function mVisualizarExercicios() {
         $this->db->select('*');

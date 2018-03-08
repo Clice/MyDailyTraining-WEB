@@ -17,8 +17,9 @@
                                         </div>
                                     </div>
                                     <div class="form-body">
-                                        <form name="formCadastrarEditarTreino" id="formCadastrarEditarTreino">
-                                            <input type="hidden" id="idTreino" name="idTreino" value="<?php echo $idTreino; ?>">
+                                        <form name="formCadastrarEditarTreino" id="formCadastrarEditarTreino">    
+                                            <input type="hidden" name="idExercicio" id="idExercicio">                                          
+                                            <input type="hidden" name="idTreino" id="idTreino" value="<?php echo $idTreino; ?>">  
                                             <input type="hidden" id="statusTreino" name="statusTreino" value="<?php echo $statusTreino; ?>">
                                             <div class="row">
                                                 <div class="col-md-12">
@@ -28,22 +29,22 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="row">
-                                                <div class="col-lg-12">
-                                                    <div class="form-group">
-                                                        <div class="form-group position-relative">
-                                                            <label>Nome do Exercício:</label>
-                                                            <input type="text" class="form-control" placeholder="Digite o nome de um exercício..." 
-                                                                   name="pesquisarExercicio" id="pesquisarExercicio" onkeyup="pesquisarExercicio();">
-                                                            <div class="form-control-position" style="margin-top: 38px;">
-                                                                <i class="icon-search4 font-medium-4"></i>
-                                                            </div>
+                                        </form>
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="form-group">
+                                                    <div class="form-group position-relative">
+                                                        <label>Nome do Exercício:</label>
+                                                        <input type="text" class="form-control" placeholder="Digite o nome de um exercício..." 
+                                                               name="pesquisarExercicio" id="pesquisarExercicio" onkeyup="pesquisarExercicio();">
+                                                        <div class="form-control-position" style="margin-top: 38px;">
+                                                            <i class="icon-search4 font-medium-4"></i>
                                                         </div>
                                                     </div>
-                                                </div>                               
-                                            </div>
-                                            <input type="hidden" name="idTreino" id="idTreino" value="<?php echo $idTreino; ?>">  
-                                            <input type="hidden" name="idExercicio" id="idExercicio">  
+                                                </div>
+                                            </div>                               
+                                        </div>
+                                        <form name="formCadEditTreino" id="formCadEditTreino"> 
                                             <div class="content-body">
                                                 <div class="row">
                                                     <div class="card">
@@ -125,22 +126,6 @@
     </div>
 </div>
 
-<!-- MODAL - DADOS CADASTRADOS COM SUCESSO -->
-<div class="modal fade text-xs-left" data-backdrop="static" id="cadastro-sucesso" tabindex="-1" role="dialog" 
-     aria-labelledby="myModalLabel1" 
-     aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-body">
-                <h4 class="modal-title text-xs-center"><i class="icon-check2 success"></i> Dados cadastrados com sucesso.</h4>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-            </div>
-        </div>
-    </div>
-</div>
-
 <script>
     function selecionarExercicio(obj, idExercicio) {
         var strAux = "|" + idExercicio;
@@ -165,7 +150,6 @@
             dataType: "JSON",
             success: function (data) {
                 if (data.success) {
-                    //$('#cadastrao-sucesso').modal('show');
                     window.location.href = '<?php echo base_url('cadastrar-exercicios-treino/'); ?>' +
                             data.idTreino + "/" + data.idTreinoN + document.getElementById('idExercicio').value;
                 } else {

@@ -207,7 +207,7 @@
                                         <!-- BOTÕES -->
                                         <div style="float: left;" class="form-actions">
                                             <?php if ($this->session->userdata('tipoConta') == 4) { ?>
-                                                <button type="button" class="btn btn-indigo" onclick="window.location.href = '<?php echo base_url('lista-treinos/' . md5($aluno->idAluno)); ?>'">
+                                                <button type="button" class="btn btn-indigo" onclick="window.location.href = '<?php echo base_url('definir-treino-aluno/' . $aluno->idAluno . '/novo'); ?>'">
                                                     <i class="icon-IcoMoon"></i> Definir Treino
                                                 </button>
                                                 <?php if ($aluno->statusAluno != 0) { ?>

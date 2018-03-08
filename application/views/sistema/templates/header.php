@@ -60,7 +60,7 @@
                                 <span class="user-name"><?php echo $this->session->userdata('nomeUsuario'); ?></span></a>
                             <div class="dropdown-menu dropdown-menu-right">
                                 <a href="<?php echo base_url('meus-dados'); ?>" class="dropdown-item"><i class="icon-head"></i> Meus Dados</a>
-                                <div class="dropdown-divider"></div><a href="<?php echo base_url('UsuarioController/cLogoutUsuario'); ?>" class="dropdown-item"><i class="icon-power3"></i> Sair</a>
+                                <div class="dropdown-divider"></div><a href="<?php echo base_url('LoginController/cLogoutUsuario'); ?>" class="dropdown-item"><i class="icon-power3"></i> Sair</a>
                             </div>
                         </li>
                     </ul>

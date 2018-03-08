@@ -10,6 +10,7 @@ class AlunoController extends CI_Controller {
 
         if ($this->session->userdata('logado') == true) {
             $this->load->model('AlunoModel');
+            $this->load->model('TreinoModel');
             $this->load->model('AcademiaModel');
         } else {
             redirect(base_url('404_override'));
@@ -116,11 +117,11 @@ class AlunoController extends CI_Controller {
         $dadosAluno['diasTreinoAluno'] = $diasTreinoAluno;
 
         $dadosAcademia = get_object_vars($this->AcademiaModel->mQtdLicencasTotaisEUsadas($dadosAluno['idAcademia'])[0]);
-        
+
         // SE O IDALUNO FOR NOVO, CADASTRAR UM NOVO ALUNO
         if ($dadosAluno['idAluno'] == "novo") {
             if ($dadosAcademia['qtdTotalLicencas'] > $dadosAcademia['qtdLicencasUsadas']) {
-                $dadosAcademia['qtdLicencasUsadas'] += 1;    
+                $dadosAcademia['qtdLicencasUsadas'] += 1;
                 $this->AcademiaModel->mEditarAcademia($dadosAcademia);
                 if ($this->AlunoModel->mCadastrarAluno($dadosAluno)) {
                     $resposta = array('success' => true);

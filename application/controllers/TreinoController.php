@@ -188,6 +188,7 @@ class TreinoController extends CI_Controller {
             if ($this->TreinoModel->mEditarTreino($dadosExercicioTreino)) {
                 $dados['treino'] = get_object_vars($this->TreinoModel->mEncontrarTreino($dadosExercicioTreino)[0]);
                 $dados['idTreino'] = $dados['treino']['idTreino'];
+                $resposta = array('success' => true);
             } else {
                 $resposta = array('success' => false);
             }

@@ -44,8 +44,9 @@ $route['cadastrar-treino/(:any)'] = 'TreinoController/vCadastrarEditarTreino/$1'
 $route['cadastrar-academia/(:any)'] = 'AcademiaController/vCadastrarEditarAcademia/$1';
 $route['cadastrar-instrutor/(:any)'] = 'InstrutorController/vCadastrarEditarInstrutor/$1';
 $route['cadastrar-funcionario/(:any)'] = 'FuncionarioController/vCadastrarEditarFuncionario/$1';
-$route['cadastrar-exercicios-treino/(:any)/(:any)'] = 'TreinoController/vCadastrarEditarExerciciosTreino/$1/$2';
+$route['definir-treino-aluno/(:any)/(:any)'] = 'TreinosAlunoController/vDefinirTreinoAluno/$1/$2';
 $route['cadastrar-avaliacao-fisica/(:any)'] = 'AvaliacaoFisicaController/vCadastrarAvaliacaoFisica/$1';
+$route['cadastrar-exercicios-treino/(:any)/(:any)'] = 'TreinoController/vCadastrarEditarExerciciosTreino/$1/$2';
 $route['cadastrar-administrador/(:any)/(:num)'] = 'AdministradorController/vCadastrarEditarAdministrador/$1/$2';
 
 // ROTAS PARA AS EDIÇÕES

@@ -22,8 +22,8 @@
                     </div>
                 </div>
             </section>
+            
             <!-- EXERCÍCIOS SELEICONADOS PELO INSTRUTOR PARA O TREINO -->
-
             <?php
             foreach ($exercicios as $indice => $exercicio) {
                 ?>
@@ -215,10 +215,10 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-body">
-                <h4 class="modal-title text-xs-center"><i class="icon-check-circle success"></i> Exercício adicionado com sucesso.</h4>
+                <h4 class="modal-title text-xs-center"><i class="icon-check-circle success"></i> Exercício cadastrado com sucesso.</h4>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="window.location.href = '<?php echo base_url('cadastrar-exercicios-treino'); ?>';">Fechar</button>
             </div>
         </div>
     </div>
@@ -254,6 +254,21 @@
     </div>
 </div>
 
+<!-- MODAL - ERRO AO ADICIONAR O EXERCÍCIO -->
+<div class="modal fade text-xs-left" data-backdrop="static" id="erro-treino" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <h4 class="modal-title text-xs-center"><i class="icon-remove danger"></i> Erro ao cadastrar o treino.</h4>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script>
     function cadEditExercicio(idExercicio) {
         var idTreino = $('#idTreino').val();
@@ -277,7 +292,7 @@
             dataType: "JSON",
             success: function (data) {
                 if (data.success) {
-                    $('#sucesso-exercicio').modal('show');
+                    window.location.reload();
                 } else {
                     $('#erro-exercicio').modal('show');
                 }

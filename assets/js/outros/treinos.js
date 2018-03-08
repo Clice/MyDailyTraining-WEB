@@ -77,3 +77,41 @@ function verificarDadosAvaliacaoFisica() {
         cadAvaliacaoFisicaAluno();
     }
 }
+
+function selecionarTreino(obj, idTreino) {
+    var nomeTreino = $('#nomeTreino' + idTreino).val();
+    var strAux = "|" + idTreino;
+    var strIdTreino = document.getElementById('idTreino').value;
+
+    if (obj.checked) {
+        $("#" + idTreino).removeClass("hidden");
+        document.getElementById('nomeCard' + idTreino).innerHTML = nomeTreino;
+        strIdTreino += strAux;
+    } else {
+        $("#" + idTreino).addClass("hidden");
+        if (strIdTreino.search(idTreino) > 0) {
+            strIdTreino = strIdTreino.replace(strAux, "");
+        }
+    }
+
+    document.getElementById('idTreino').value = strIdTreino;
+}
+
+function verificarTreinoAluno(idTreino) {
+    var diasTreino = "";
+    var diasTreinoAluno = document.getElementById('diasTreinoAluno').value;
+
+    var arrayDiasTreinoAluno = diasTreinoAluno.split("|");
+
+    for (var i = 0; i < arrayDiasTreinoAluno.length; i++) {
+        if (document.getElementById(arrayDiasTreinoAluno[i] + idTreino).checked) {
+            diasTreino += "|" + document.getElementById(arrayDiasTreinoAluno[i] + idTreino).value;
+        }
+    }
+
+    if (diasTreino === "") {
+        $('#dados-obrigatorios').modal('show');
+    } else {
+        cadastrarEditarTreinoAluno(idTreino);
+    }
+}

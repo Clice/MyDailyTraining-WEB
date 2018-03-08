@@ -31,7 +31,7 @@
                                     <div class="card-title text-xs-center">
                                         <div class="p-1"><img style="width: 25%;" src="<?php echo base_url('assets/imagens/Icon.png'); ?>"></div>
                                     </div>
-                                    <h4 class="card-subtitle text-xs-center pt-2"><span>Área do Cliente</span></h4>
+                                    <h4 class="card-subtitle text-xs-center pt-2"><span>Área do Administrador</span></h4>
                                 </div>
                                 <!-- CORPO DO LOGIN -->           
                                 <div class="card-body collapse in">
@@ -58,7 +58,7 @@
                                                         <label> Lembre-se de mim</label>
                                                     </div>
                                                     <div class="col-md-6 col-xs-12 text-xs-center text-md-right" data-toggle="modal" data-target="#bloqueado">
-                                                        <a class="blue" href="<?php echo base_url('recuperar-senha'); ?>">Esqueceu a senha?</a></div>
+                                                        <a class="blue" href="#">Esqueceu a senha?</a></div>
                                                 </div>
                                             </div>
                                         </form>
@@ -81,7 +81,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-body">
-                        <h4 class="modal-title text-xs-center"><i class="icon-warning2 warning"></i> Login e/ou Senha Incorreto(s)</h4>
+                        <h4 class="modal-title text-xs-center">Login e/ou Senha Incorreto(s)</h4>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
@@ -96,7 +96,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-body">
-                        <h4 class="modal-title text-xs-center"><i class="icon-warning2 warning"></i> Usuário bloqueado! Por favor contate o(s) administrador(es) para mais informações.</h4>
+                        <h4 class="modal-title text-xs-center">Usuário bloqueado! Por favor contate o(s) administrador(es) para mais informações.</h4>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
@@ -111,7 +111,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-body">
-                        <h4 class="modal-title text-xs-center"><i class="icon-warning2 warning"></i> Academia bloqueada! Por favor contate a academia para mais informações.</h4>
+                        <h4 class="modal-title text-xs-center">Academia bloqueada! Por favor contate a academia para mais informações.</h4>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
@@ -123,7 +123,7 @@
         <!-- JS-->
         <script type="text/javascript">
             function login() {
-                var url = "<?php echo base_url('LoginController/cLogarUsuario') ?>";
+                var url = "<?php echo base_url('sistema/LoginController/cLogarUsuario') ?>";
 
                 $.ajax({
                     url: url,
