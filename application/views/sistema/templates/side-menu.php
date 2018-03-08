@@ -28,22 +28,22 @@
             </li>
             <!-- CADASTROS - PARA REALIZAR CADASTROS NO SISTEMA -->
             <li class=" nav-item"><a href="#"><i class="icon-paper"></i>
-                    <span data-i18n="nav.page_layouts.main" class="menu-title">Cadastros</span></a>
+                    <span data-i18n="nav.cadastros.main" class="menu-title">Cadastros</span></a>
                 <ul class="menu-content">
                     <?php if ($this->session->userdata('tipoConta') == 1) { ?>
-                        <li><a href="<?php echo base_url('cadastrar-academia/novo'); ?>" data-i18n="nav.page_layouts.main" class="menu-item">Academia</a>
+                        <li><a href="<?php echo base_url('cadastrar-academia/novo'); ?>" data-i18n="nav.cadastros.academia" class="menu-item">Academia</a>
                         </li>
                     <?php } else if ($this->session->userdata('tipoConta') == 2) { ?>  
-                        <li><a href="<?php echo base_url('cadastrar-administrador/novo/' . $this->session->userdata('idAcademia')); ?>" data-i18n="nav.page_layouts.main" class="menu-item">Administrador</a>
+                        <li><a href="<?php echo base_url('cadastrar-administrador/novo/' . $this->session->userdata('idAcademia')); ?>" data-i18n="nav.cadastros.administradores" class="menu-item">Administrador</a>
                         </li>      
-                        <li><a href="<?php echo base_url('cadastrar-funcionario/novo'); ?>" data-i18n="nav.page_layouts.main" class="menu-item">Funcionário</a>
+                        <li><a href="<?php echo base_url('cadastrar-funcionario/novo'); ?>" data-i18n="nav.cadastros.funcionario" class="menu-item">Funcionário</a>
                         </li>
-                        <li><a href="<?php echo base_url('cadastrar-instrutor/novo'); ?>" data-i18n="nav.page_layouts.main" class="menu-item">Instrutor</a>
+                        <li><a href="<?php echo base_url('cadastrar-instrutor/novo'); ?>" data-i18n="nav.cadastros.instrtor" class="menu-item">Instrutor</a>
                         </li> 
-                        <li><a href="<?php echo base_url('cadastrar-aluno/novo'); ?>" data-i18n="nav.page_layouts.main" class="menu-item">Aluno</a>
+                        <li><a href="<?php echo base_url('cadastrar-aluno/novo'); ?>" data-i18n="nav.cadastros.aluno" class="menu-item">Aluno</a>
                         </li>
                     <?php } else { ?>
-                        <li><a href="<?php echo base_url('cadastrar-aluno/novo'); ?>" data-i18n="nav.page_layouts.main" class="menu-item">Aluno</a>
+                        <li><a href="<?php echo base_url('cadastrar-aluno/novo'); ?>" data-i18n="nav.cadastros.aluno" class="menu-item">Aluno</a>
                         </li>
                     <?php } ?>
                 </ul>
@@ -51,12 +51,12 @@
             <!-- INFORMAÇÕES SOBRE OS TREINOS -->
             <?php if ($this->session->userdata('tipoConta') == 4) { ?>
                 <li class=" nav-item"><a href="#"><i class="icon-calendar-o"></i>
-                        <span data-i18n="nav.page_layouts.main" class="menu-title">Treinos</span></a>
+                        <span data-i18n="nav.treinos.main" class="menu-title">Treinos</span></a>
                     <ul class="menu-content">    
-                        <li><a href="<?php echo base_url('lista-treinos'); ?>" data-i18n="nav.listas.treinos" 
+                        <li><a href="<?php echo base_url('lista-treinos'); ?>" data-i18n="nav.treinos.lista" 
                                class="menu-item">Lista</a>
                         </li>
-                        <li><a href="<?php echo base_url('cadastrar-treino/novo'); ?>" data-i18n="nav.page_layouts.main" 
+                        <li><a href="<?php echo base_url('cadastrar-treino/novo'); ?>" data-i18n="nav.treinos.cadastro" 
                                class="menu-item">Cadastro</a>
                         </li>  
                     </ul>
@@ -64,7 +64,7 @@
             <?php } ?>
             <!-- RELATÓRIO - RELATÓRIOS QUE O SISTEMA PODE GERAR -->
             <li class=" nav-item"><a href="<?php echo base_url('relatorio'); ?>"><i class="icon-book3"></i>
-                    <span data-i18n="nav.form_layouts.form_layout_basic" class="menu-title">Relatório</span></a></li>          
+                    <span data-i18n="nav.other-pages.relatorio" class="menu-title">Relatório</span></a></li>          
         </ul>
     </div>
 </div>
