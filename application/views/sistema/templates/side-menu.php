@@ -48,20 +48,6 @@
                     <?php } ?>
                 </ul>
             </li>
-            <!-- INFORMAÇÕES SOBRE OS TREINOS -->
-            <?php if ($this->session->userdata('tipoConta') == 4) { ?>
-                <li class=" nav-item"><a href="#"><i class="icon-calendar-o"></i>
-                        <span data-i18n="nav.treinos.main" class="menu-title">Treinos</span></a>
-                    <ul class="menu-content">    
-                        <li><a href="<?php echo base_url('lista-treinos'); ?>" data-i18n="nav.treinos.lista" 
-                               class="menu-item">Lista</a>
-                        </li>
-                        <li><a href="<?php echo base_url('cadastrar-treino/novo'); ?>" data-i18n="nav.treinos.cadastro" 
-                               class="menu-item">Cadastro</a>
-                        </li>  
-                    </ul>
-                </li>
-            <?php } ?>
             <!-- RELATÓRIO - RELATÓRIOS QUE O SISTEMA PODE GERAR -->
             <li class=" nav-item"><a href="<?php echo base_url('relatorio'); ?>"><i class="icon-book3"></i>
                     <span data-i18n="nav.other-pages.relatorio" class="menu-title">Relatório</span></a></li>          

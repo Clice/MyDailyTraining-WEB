@@ -13,13 +13,31 @@
                                     <!-- TÍTULO DO PÁGINA - NOME DO ALUNO -->
                                     <?php foreach ($perfilAluno as $aluno) { ?>
                                         <div class="content-header row">
-                                            <div class="content-header-left col-md-6 col-xs-12 mb-1">
+                                            <div class="content-header-left col-md-12 mb-1">
                                                 <h2 class="content-header-title"><?php echo $aluno->nomeAluno; ?></h2>
                                             </div>
 
+                                            <!-- BOTÕES -->
+                                            <div style="float: right;" class="form-actions">
+                                                <?php if ($this->session->userdata('tipoConta') == 4) { ?>
+                                                    <button type="button" class="btn btn-indigo" onclick="verificarDiasTreinoAluno();">
+                                                        <i class="icon-IcoMoon"></i> Definir Treino
+                                                    </button>
+                                                    <?php if ($aluno->statusAluno != 0) { ?>
+                                                        <button type="button" class="btn btn-blue" onclick="window.location.href = '<?php echo base_url('cadastrar-avaliacao-fisica/' . md5($aluno->idAluno)); ?>'">
+                                                            <i class="icon-user5"></i> Realizar Avaliação Física
+                                                        </button>
+                                                        <?php
+                                                    }
+                                                }
+                                                ?>
+                                                <button type="button" class="btn btn-green" onclick="window.location.href = '<?php echo base_url('imprimir-ficha/' . md5($aluno->idAluno)); ?>'">
+                                                    <i class="icon-print"></i> Imprimir Ficha
+                                                </button>
+                                            </div>
                                         </div>
                                         <hr>
-                                        <input type="hidden" name="idUsuario" id="idUsuario" value="<?php echo $aluno->idAluno; ?>">
+                                        <input type="hidden" name="idAluno" id="idAluno" value="<?php echo $aluno->idAluno; ?>">
                                         <div class="form-body">
                                             <h4 class="form-section"></h4>
                                             <div class="row">
@@ -203,25 +221,7 @@
                                             <?php } ?>
                                         </div>
                                         <br>
-                                        <hr style="margin-top: 4%;">
-                                        <!-- BOTÕES -->
-                                        <div style="float: left;" class="form-actions">
-                                            <?php if ($this->session->userdata('tipoConta') == 4) { ?>
-                                                <button type="button" class="btn btn-indigo" onclick="window.location.href = '<?php echo base_url('definir-treino-aluno/' . $aluno->idAluno . '/novo'); ?>'">
-                                                    <i class="icon-IcoMoon"></i> Definir Treino
-                                                </button>
-                                                <?php if ($aluno->statusAluno != 0) { ?>
-                                                    <button type="button" class="btn btn-blue" onclick="window.location.href = '<?php echo base_url('cadastrar-avaliacao-fisica/' . md5($aluno->idAluno)); ?>'">
-                                                        <i class="icon-user5"></i> Realizar Avaliação Física
-                                                    </button>
-                                                    <?php
-                                                }
-                                            }
-                                            ?>
-                                            <button type="button" class="btn btn-green" onclick="window.location.href = '<?php echo base_url('imprimir-ficha/' . md5($aluno->idAluno)); ?>'">
-                                                <i class="icon-print"></i> Imprimir Ficha
-                                            </button>
-                                        </div>
+                                        <hr>
                                         <div style="float: right;" class="form-actions">
                                             <button type="button"                               
                                             <?php if ($aluno->statusAluno == 1) { ?>
@@ -254,6 +254,139 @@
                     </div>                    
                 </div>       
             </section>
+
+            <section id="basic-form-layouts">
+                <div class="row match-height">
+                    <div class="col-xl-12">
+                        <div class="card">
+                            <div class="card-header bg-blue white">
+                                <h4 class="card-title white">Treinos</h4>
+                                <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
+                            </div>
+                            <input type="hidden" id="idTreino" name="idTreino">
+                            <div class="card-body collapse in">
+                                <div class="card-block-cadastro">
+                                    <div class="form-body">
+                                        <div class="content-body">
+                                            <div class="row">
+                                                <div class="card">
+                                                    <div class="card-body collapse in">
+                                                        <div class="table-responsive">
+                                                            <table class="table table-hover mb-0" id="tabelaTreinos">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Nome do Treino</th>
+                                                                        <th>Dias da Semana</th>
+                                                                        <th style="text-align: center;">Exercícios</th>
+                                                                        <th style="text-align: center;">Opções</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>  
+                                                                    <?php foreach ($treinosAluno as $treinoAluno) { ?>
+                                                                        <tr>
+                                                                            <td><?php echo $treinoAluno->nomeTreino; ?></td>
+                                                                            <td><?php
+                                                                                if ($treinoAluno->domingo == true) {
+                                                                                    echo "Domingo; ";
+                                                                                }
+
+                                                                                if ($treinoAluno->segunda == true) {
+                                                                                    echo "Segunda; ";
+                                                                                }
+
+                                                                                if ($treinoAluno->terca == true) {
+                                                                                    echo "Terça; ";
+                                                                                }
+
+                                                                                if ($treinoAluno->quarta == true) {
+                                                                                    echo "Quarta; ";
+                                                                                }
+
+                                                                                if ($treinoAluno->quinta == true) {
+                                                                                    echo "Quinta; ";
+                                                                                }
+
+                                                                                if ($treinoAluno->sexta == true) {
+                                                                                    echo "Sexta; ";
+                                                                                }
+
+                                                                                if ($treinoAluno->sabado == true) {
+                                                                                    echo "Sábado; ";
+                                                                                }
+                                                                                ?>
+                                                                            </td>  
+                                                                            <td>
+                                                                                <?php
+                                                                                for ($i = 0; $i < count($exerciciosTreinos); $i++) {
+                                                                                    for ($j = 0; $j < count($exerciciosTreinos[$i]); $j++) {
+                                                                                        if ($exerciciosTreinos[$i][$j]['idTreino'] == $treinoAluno->idTreino) {
+                                                                                            echo $exerciciosTreinos[$i][$j]['nomeExercicio'] . "; ";
+                                                                                        }
+                                                                                    }
+                                                                                }
+                                                                                ?>
+                                                                            </td>
+                                                                            <td>
+                                                                                <button type="button" class="btn mb-1 btn-success btn-sm" 
+                                                                                        onclick="window.location.href = '<?php echo base_url('perfil-treino/' . md5($treinoAluno->idTreino)); ?>'"><i class="icon-eye"></i> Ver Perfil</button>
+                                                                                <button type="button" class="btn mb-1 btn-warning btn-sm" 
+                                                                                        onclick="window.location.href = '<?php echo base_url('editar-treino/' . $treinoAluno->idTreino); ?>'"><i class="icon-edit"></i> Editar</button>
+                                                                                <button type="button" class="btn mb-1 btn-danger btn-sm" 
+                                                                                        onclick="modalExcluirTreino(<?php echo $treinoAluno->idTreino; ?>);"><i class="icon-trash-o"></i> Excluir</button>
+                                                                            </td>
+                                                                        </tr>
+                                                                    <?php } ?>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
     </div>
 </div>
+
+<!-- MODAL - DIAS DE TREINO DO ALUNO COMPLETOS -->
+<div class="modal fade text-xs-left" data-backdrop="static" id="erro-dias-completos" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <h4 class="modal-title text-xs-center"><i class="icon-remove danger"></i> Dias de treino do aluno completos.</h4>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function verificarDiasTreinoAluno() {
+        var dados = "idAluno=" + document.getElementById('idAluno').value;
+        $.ajax({
+            url: "<?php echo base_url('TreinoAlunoController/cVerificarDiasTreinosAluno') ?>",
+            type: "POST",
+            data: dados,
+            dataType: "JSON",
+            success: function (data) {
+                if (data.success) {
+                    window.location.href = '<?php echo base_url('cadastrar-treino/' . $idAluno . '/novo'); ?>';
+                } else {
+                    $('#erro-dias-completos').modal('show');
+                }
+            },
+            error: function (request, status, error) {
+                alert("Erro: " + request.responseText);
+            }
+        });
+    }
+</script>

@@ -20,7 +20,6 @@ $route['notificacoes'] = 'PrincipalController/vNotificacoes';
 
 // ROTAS PARA AS LISTAS
 $route['lista-alunos'] = 'AlunoController';
-$route['lista-treinos'] = 'TreinoController';
 $route['lista-academias'] = 'AcademiaController';
 $route['lista-equaltech'] = 'EqualTechController';
 $route['lista-instrutores'] = 'InstrutorController';
@@ -30,8 +29,7 @@ $route['lista-exercicios-treino/(:any)'] = 'TreinoController/vListaExerciciosTre
 $route['lista-administradores-academia'] = 'AdministradorController/vListaAdministradoresAcademia';
 
 // ROTAS PARA OS PERFIS
-$route['perfil-aluno/(:any)'] = 'AlunoController/vPerfilAluno/$1';
-$route['perfil-treino/(:any)'] = 'TreinoController/vPerfilTreino/$1';
+$route['perfil-aluno/(:any)'] = 'TreinoAlunoController/vPerfilAluno/$1';
 $route['perfil-academia/(:any)'] = 'AcademiaController/vPerfilAcademia/$1';
 $route['perfil-equaltech/(:any)'] = 'EqualTechController/vPerfilEqualTech/$1';
 $route['perfil-instrutor/(:any)'] = 'InstrutorController/vPerfilInstrutor/$1';
@@ -40,13 +38,12 @@ $route['perfil-administrador/(:any)'] = 'AdministradorController/vPerfilAdminist
 
 // ROTAS PARA OS CADASTROS
 $route['cadastrar-aluno/(:any)'] = 'AlunoController/vCadastrarEditarAluno/$1';
-$route['cadastrar-treino/(:any)'] = 'TreinoController/vCadastrarEditarTreino/$1';
 $route['cadastrar-academia/(:any)'] = 'AcademiaController/vCadastrarEditarAcademia/$1';
 $route['cadastrar-instrutor/(:any)'] = 'InstrutorController/vCadastrarEditarInstrutor/$1';
+$route['cadastrar-treino/(:any)/(:any)'] = 'TreinoController/vCadastrarEditarTreino/$1/$2';
 $route['cadastrar-funcionario/(:any)'] = 'FuncionarioController/vCadastrarEditarFuncionario/$1';
-$route['definir-treino-aluno/(:any)/(:any)'] = 'TreinosAlunoController/vDefinirTreinoAluno/$1/$2';
 $route['cadastrar-avaliacao-fisica/(:any)'] = 'AvaliacaoFisicaController/vCadastrarAvaliacaoFisica/$1';
-$route['cadastrar-exercicios-treino/(:any)/(:any)'] = 'TreinoController/vCadastrarEditarExerciciosTreino/$1/$2';
+$route['cadastrar-exercicios-treino/(:any)/(:any)/(:any)'] = 'TreinoController/vCadastrarEditarExerciciosTreino/$1/$2/$3';
 $route['cadastrar-administrador/(:any)/(:num)'] = 'AdministradorController/vCadastrarEditarAdministrador/$1/$2';
 
 // ROTAS PARA AS EDIÇÕES

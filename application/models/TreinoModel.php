@@ -34,7 +34,7 @@ class TreinoModel extends CI_Model {
     public function mEncontrarTreino($dadosTreino) {
         $this->db->select('*');
         $this->db->from('treinos');
-        $this->db->where('idUsuario', $dadosTreino['idUsuario']);
+        $this->db->where('idAluno', $dadosTreino['idAluno']);
         $this->db->where('idAcademia', $dadosTreino['idAcademia']);
         $this->db->where('dataTreino', $dadosTreino['dataTreino']);
         $this->db->where('horaTreino', $dadosTreino['horaTreino']);
@@ -50,42 +50,22 @@ class TreinoModel extends CI_Model {
         $this->db->where('statusTreino', true);
         return $this->db->get()->result();
     }
-
-    // FUNÇÕES PARA OS EXERCÍCIOS DO TREINO
-    // FUNÇÃO PARA REALIZAR A INSERÇÃO DAS INFORMAÇÕES DO  EXERCÍCIO DO TREINO NO BANCO
-    public function mCadastrarExercicioTreino($dadosExercicioTreino) {
-        return $this->db->insert('exerciciostreino', $dadosExercicioTreino);
-    }
     
-    // FUNÇÃO PARA EXCLUIR AS INFORMAÇÕES DOS EXERCICIOS DO TREINO DO BANCO
-    public function mExcluirExerciciosTreino($idTreino) {
-        $this->db->where('idTreino', $idTreino);
-        return $this->db->delete('exerciciostreino');
-    }
-    
-    // FUNÇÃO PARA PEGAR OS DADOS DOS EXERCÍCIOS
-    public function mVisualizarExerciciosTreino($idTreino) {
+    // FUNÇÃO PARA ENCONTRAR OS TREINOS DO ALUNO
+    public function mEncontrarTreinosAluno($idAluno) {
         $this->db->select('*');
-        $this->db->from('exerciciostreino');
-        $this->db->join('exercicios', 'exerciciostreino.idExercicio = exercicios.idExercicio');
-        $this->db->where('md5(idTreino)', $idTreino);
+        $this->db->from('treinos');
+        $this->db->where('md5(idAluno)', $idAluno);
+        $this->db->where('statusTreino', true);
         return $this->db->get()->result();
     }
-
-    // FUNÇÕES PARA OS EXERCÍCIOS
-    // FUNÇÃO PARA PEGAR OS DADOS DOS EXERCÍCIOS
-    public function mVisualizarExercicios() {
-        $this->db->select('*');
-        $this->db->from('exercicios');
-        $this->db->order_by('grupoMuscular', 'ASC');
-        return $this->db->get()->result();
-    }
-
-    // FUNÇÃO PARA PEGAR OS DADOS DOS EXERCÍCIOS
-    public function mVisualizarExerciciosSelecionados($idExercicio) {
-        $this->db->select('*');
-        $this->db->from('exercicios');
-        $this->db->where('idExercicio', $idExercicio);
+    
+    // FUNÇÃO PARA SABER QUAIS DIAS DA SEMANA O ALUNO TREINA
+    public function mDiasAlunoTreino($idAluno) {
+        $this->db->select('domingo, segunda, terca, quarta, quinta, sexta, sabado');
+        $this->db->from('treinos');
+        $this->db->where('md5(idAluno)', $idAluno);
+        $this->db->where('statusTreino', true);
         return $this->db->get()->result();
     }
 

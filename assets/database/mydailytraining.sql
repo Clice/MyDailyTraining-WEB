@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Máquina: localhost
--- Data de Criação: 08-Mar-2018 às 04:32
+-- Data de Criação: 08-Mar-2018 às 21:40
 -- Versão do servidor: 5.6.12-log
 -- versão do PHP: 5.4.12
 
@@ -73,7 +73,6 @@ INSERT INTO `academias` (`idAcademia`, `idPlano`, `idPacote`, `nomeAcademia`, `c
 CREATE TABLE IF NOT EXISTS `alunos` (
   `idAluno` int(11) NOT NULL AUTO_INCREMENT,
   `idAcademia` int(11) NOT NULL,
-  `idTreino` int(11) DEFAULT NULL,
   `nomeAluno` varchar(200) DEFAULT NULL,
   `dataNascimentoAluno` date DEFAULT NULL,
   `idadeAluno` int(2) DEFAULT NULL,
@@ -102,23 +101,19 @@ CREATE TABLE IF NOT EXISTS `alunos` (
   PRIMARY KEY (`idAluno`),
   KEY `idAcademia` (`idAcademia`),
   KEY `idAcademia_2` (`idAcademia`),
-  KEY `idAcademia_3` (`idAcademia`),
-  KEY `alunos_ibfk_2` (`idTreino`)
+  KEY `idAcademia_3` (`idAcademia`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=22 ;
 
 --
 -- Extraindo dados da tabela `alunos`
 --
 
-INSERT INTO `alunos` (`idAluno`, `idAcademia`, `idTreino`, `nomeAluno`, `dataNascimentoAluno`, `idadeAluno`, `cpfAluno`, `rgAluno`, `emailAluno`, `sexoAluno`, `loginAluno`, `senhaAluno`, `telefoneAluno`, `enderecoAluno`, `estadoAluno`, `cidadeAluno`, `bairroAluno`, `cepAluno`, `objetivoAluno`, `diaValidadeExame`, `diasTreinoAluno`, `nomeResponsavelAluno`, `telefoneResponsavelAluno`, `statusAluno`, `cirurgias`, `medicamentos`, `doencasFamiliaresAluno`, `diaPagamentoAluno`) VALUES
-(14, 58, NULL, 'Academia Teste', '1985-04-24', 32, '222.222.222-22', '222222222222222', 'renatapaulo@gmail.com', 'Feminino', 'MjIyMjIyMjIyMjI=', 'MjIyMjIyMjIyMjI=', '7777777777', 'Teste', 'Mato Grosso do Sul', 'Crato', 'jygku,yfc', '63132015', 'Força', 10, NULL, 'Mãe', '(33) 33333-3333', 1, 'Cirurgias', 'Medicamentos', 'Doenças Familiares', 15),
-(15, 66, NULL, 'Clice Bezerra Romão', '1994-06-27', 23, '041.522.931-60', '2006034076093', 'clice.bbr@hotmail.com', 'Feminino', 'Vm0wd2QyUXlVWGxWV0d4V1YwZDRWMVl3WkRSWFJteFZVbTVrVl', 'Vm0wd2QyUXlVWGxWV0d4V1YwZDRWMVl3WkRSWFJteFZVbTVrVl', '(88) 98126-6732', 'Rua Dom Pedro II, 248', 'Ceará', 'Crato', 'Centro', '63100-005', 'Força', 10, 'Segunda|Terça|Quarta|Quinta|Sexta', '', '', 1, 'Não', 'Não', 'Não', 5),
-(16, 66, NULL, 'Academia Teste', '1994-06-27', 23, '093.071.000-20', '222222222222222', 'renatapaulo@gmail.com', 'Feminino', 'MDkzMDcxMDAwMjA=', 'MDkzMDcxMDAwMjA=', '7777777777', 'Teste', 'Amazonas', 'Crato', 'dfgthuji', '63132015', 'Força', 10, 'Segunda|Quarta', 'fghjukl', '7777777777', 1, '', '', '', 10),
-(17, 66, NULL, 'Academia Teste', '1994-06-27', 23, '392.947.310-06', '222222222222222', 'renatapaulo@gmail.com', 'Feminino', 'MzkyOTQ3MzEwMDY=', 'MzkyOTQ3MzEwMDY=', '7777777777', 'Teste', 'Amapá', 'Crato', 'dfcghj', '63132015', 'Força', 15, 'Segunda|Terça|Quinta|Sexta', 'fcghbjnk', '7777777777', 1, '', '', '', 10),
-(18, 66, NULL, 'Academia Teste', '1994-06-27', 23, '107.222.210-88', '222222222222222', 'renatapaulo@gmail.com', 'Feminino', 'MTA3MjIyMjEwODg=', 'MTA3MjIyMjEwODg=', '7777777777', 'Teste', 'Amapá', 'Crato', 'dfcghj', '63132015', 'Força', 15, 'Segunda|Terça|Quinta|Sexta', 'fcghbjnk', '7777777777', 1, '', '', '', 10),
-(19, 66, NULL, 'Academia Teste', '1994-06-27', 23, '515.073.040-80', '222222222222222', 'renatapaulo@gmail.com', 'Feminino', 'NTE1MDczMDQwODA=', 'NTE1MDczMDQwODA=', '7777777777', 'Teste', 'Amapá', 'Crato', 'dfcghj', '63132015', 'Força', 15, 'Segunda|Terça|Quinta|Sexta', 'fcghbjnk', '7777777777', 1, '', '', '', 10),
-(20, 66, NULL, 'Academia Teste', '1994-06-27', 23, '455.381.380-70', '222222222222222', 'renatapaulo@gmail.com', 'Feminino', 'NDU1MzgxMzgwNzA=', 'NDU1MzgxMzgwNzA=', '7777777777', 'Teste', 'Amapá', 'Crato', 'dfcghj', '63132015', 'Força', 15, 'Segunda|Terça|Quinta|Sexta', 'fcghbjnk', '7777777777', 1, '', '', '', 10),
-(21, 66, NULL, 'Academia Teste', '1994-06-27', 23, '351.569.980-54', '444444444444444', 'renatapaulo@gmail.com', 'Feminino', 'MzUxNTY5OTgwNTQ=', 'MzUxNTY5OTgwNTQ=', '7777777777', 'Teste', 'Maranhão', 'Crato', 'fgvhbjn', '63132015', 'Emagrecimento', 10, 'Terça|Quarta', 'fgvhbjnkm', '(77) 77777-7779', 1, '', '', '', 15);
+INSERT INTO `alunos` (`idAluno`, `idAcademia`, `nomeAluno`, `dataNascimentoAluno`, `idadeAluno`, `cpfAluno`, `rgAluno`, `emailAluno`, `sexoAluno`, `loginAluno`, `senhaAluno`, `telefoneAluno`, `enderecoAluno`, `estadoAluno`, `cidadeAluno`, `bairroAluno`, `cepAluno`, `objetivoAluno`, `diaValidadeExame`, `diasTreinoAluno`, `nomeResponsavelAluno`, `telefoneResponsavelAluno`, `statusAluno`, `cirurgias`, `medicamentos`, `doencasFamiliaresAluno`, `diaPagamentoAluno`) VALUES
+(14, 58, 'Academia Teste', '1985-04-24', 32, '222.222.222-22', '222222222222222', 'renatapaulo@gmail.com', 'Feminino', 'MjIyMjIyMjIyMjI=', 'MjIyMjIyMjIyMjI=', '7777777777', 'Teste', 'Mato Grosso do Sul', 'Crato', 'jygku,yfc', '63132015', 'Força', 10, NULL, 'Mãe', '(33) 33333-3333', 1, 'Cirurgias', 'Medicamentos', 'Doenças Familiares', 15),
+(15, 66, 'Clice Bezerra Romão', '1994-06-27', 23, '041.522.931-60', '2006034076093', 'clice.bbr@hotmail.com', 'Feminino', 'Vm0wd2QyUXlVWGxWV0d4V1YwZDRWMVl3WkRSWFJteFZVbTVrVl', 'Vm0wd2QyUXlVWGxWV0d4V1YwZDRWMVl3WkRSWFJteFZVbTVrVl', '(88) 98126-6732', 'Rua Dom Pedro II, 248', 'Ceará', 'Crato', 'Centro', '63100-005', 'Força', 10, 'Segunda|Terça|Quarta|Quinta|Sexta', '', '', 1, 'Não', 'Não', 'Não', 5),
+(19, 66, 'Academia Teste', '1994-06-27', 23, '515.073.040-80', '222222222222222', 'renatapaulo@gmail.com', 'Feminino', 'NTE1MDczMDQwODA=', 'NTE1MDczMDQwODA=', '7777777777', 'Teste', 'Amapá', 'Crato', 'dfcghj', '63132015', 'Força', 15, 'Segunda|Terça|Quinta|Sexta', 'fcghbjnk', '7777777777', 0, '', '', '', 10),
+(20, 66, 'Academia Teste', '1994-06-27', 23, '455.381.380-70', '222222222222222', 'renatapaulo@gmail.com', 'Feminino', 'NDU1MzgxMzgwNzA=', 'NDU1MzgxMzgwNzA=', '7777777777', 'Teste', 'Amapá', 'Crato', 'dfcghj', '63132015', 'Força', 15, 'Segunda|Terça|Quinta|Sexta', 'fcghbjnk', '7777777777', 0, '', '', '', 10),
+(21, 66, 'Academia Teste', '1994-06-27', 23, '351.569.980-54', '444444444444444', 'renatapaulo@gmail.com', 'Feminino', 'MzUxNTY5OTgwNTQ=', 'MzUxNTY5OTgwNTQ=', '7777777777', 'Teste', 'Maranhão', 'Crato', 'fgvhbjn', '63132015', 'Emagrecimento', 10, 'Terça|Quarta', 'fgvhbjnkm', '(77) 77777-7779', 0, '', '', '', 15);
 
 -- --------------------------------------------------------
 
@@ -281,7 +276,7 @@ CREATE TABLE IF NOT EXISTS `exerciciostreino` (
   KEY `idExercicio` (`idExercicio`),
   KEY `idTreino` (`idTreino`),
   KEY `idExercicio_2` (`idExercicio`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=46 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=56 ;
 
 --
 -- Extraindo dados da tabela `exerciciostreino`
@@ -312,7 +307,10 @@ INSERT INTO `exerciciostreino` (`idExercicioTreino`, `idExercicio`, `idTreino`, 
 (42, 41, 41, 3, 0, 0, 0, 15, 0),
 (43, 43, 41, 3, 0, 0, 0, 15, 0),
 (44, 27, 42, 0, 2, 30, 0, 0, 7),
-(45, 26, 42, 3, 6, 0, 30, 15, 0);
+(45, 26, 42, 3, 6, 0, 30, 15, 0),
+(53, 25, 49, 3, 5, 0, 0, 15, 0),
+(54, 28, 50, 0, 5, 30, 0, 0, 5),
+(55, 25, 51, 4, 4, 0, 4, 4, 0);
 
 -- --------------------------------------------------------
 
@@ -372,65 +370,36 @@ INSERT INTO `planos` (`idPlano`, `nomePlano`, `valorPacoteTotal`, `valorPacote12
 CREATE TABLE IF NOT EXISTS `treinos` (
   `idTreino` int(11) NOT NULL AUTO_INCREMENT,
   `idAcademia` int(11) NOT NULL,
-  `idUsuario` int(11) NOT NULL,
+  `idAluno` int(11) NOT NULL,
   `nomeTreino` varchar(100) NOT NULL,
-  `objetivoTreino` int(1) NOT NULL,
+  `domingo` tinyint(1) NOT NULL,
+  `segunda` tinyint(1) NOT NULL,
+  `terca` tinyint(1) NOT NULL,
+  `quarta` tinyint(1) NOT NULL,
+  `quinta` tinyint(1) NOT NULL,
+  `sexta` tinyint(1) NOT NULL,
+  `sabado` tinyint(1) NOT NULL,
   `dataTreino` date NOT NULL,
   `horaTreino` time NOT NULL,
   `observacoesTreino` varchar(200) NOT NULL,
   `statusTreino` tinyint(1) NOT NULL,
   PRIMARY KEY (`idTreino`),
-  KEY `idAcademia` (`idAcademia`,`idUsuario`),
-  KEY `idUsuario` (`idUsuario`),
-  KEY `idUsuario_2` (`idUsuario`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=43 ;
+  KEY `idAcademia` (`idAcademia`),
+  KEY `idAluno` (`idAluno`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=52 ;
 
 --
 -- Extraindo dados da tabela `treinos`
 --
 
-INSERT INTO `treinos` (`idTreino`, `idAcademia`, `idUsuario`, `nomeTreino`, `objetivoTreino`, `dataTreino`, `horaTreino`, `observacoesTreino`, `statusTreino`) VALUES
-(39, 66, 66, 'Treino A Básico Hipertrofia', 0, '2018-03-04', '15:51:19', '', 1),
-(40, 66, 66, 'Treino B Básico Hipertrofia', 0, '2018-03-04', '15:56:28', '', 1),
-(41, 66, 66, 'Treino C Básico Hipertrofia', 0, '2018-03-04', '16:01:23', '', 1),
-(42, 66, 66, 'Treino A Qualidade de Vida', 0, '2018-03-06', '16:49:04', 'Treino para aumentar a qualidade de vida.', 1);
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `treinosaluno`
---
-
-CREATE TABLE IF NOT EXISTS `treinosaluno` (
-  `idTreinoAluno` int(11) NOT NULL AUTO_INCREMENT,
-  `idTreino` varchar(30) NOT NULL,
-  `idAluno` int(11) NOT NULL,
-  `diasTreinoAluno` varchar(50) NOT NULL,
-  `statusTreinoAluno` tinyint(1) NOT NULL,
-  PRIMARY KEY (`idTreinoAluno`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=38 ;
-
---
--- Extraindo dados da tabela `treinosaluno`
---
-
-INSERT INTO `treinosaluno` (`idTreinoAluno`, `idTreino`, `idAluno`, `diasTreinoAluno`, `statusTreinoAluno`) VALUES
-(22, '39', 15, 'Segunda|Quinta', 0),
-(23, '40', 15, 'Terça|Sexta', 0),
-(24, '39', 15, 'Terça|Quarta', 0),
-(25, '39', 15, 'Segunda|Quarta', 0),
-(26, '41', 15, 'Segunda|Quinta', 0),
-(27, '39', 15, 'Quarta', 0),
-(28, '40', 15, 'Quarta|Quinta', 0),
-(29, '40', 15, 'Terça', 0),
-(30, '40', 15, 'Quarta', 0),
-(31, '40', 15, 'Quinta', 0),
-(32, '41', 15, 'Quarta', 0),
-(33, '40', 15, 'Sexta', 0),
-(34, '40', 15, 'Terça', 0),
-(35, '40', 15, 'Terça', 0),
-(36, '40', 15, 'Quarta', 0),
-(37, '40', 15, 'Segunda', 0);
+INSERT INTO `treinos` (`idTreino`, `idAcademia`, `idAluno`, `nomeTreino`, `domingo`, `segunda`, `terca`, `quarta`, `quinta`, `sexta`, `sabado`, `dataTreino`, `horaTreino`, `observacoesTreino`, `statusTreino`) VALUES
+(39, 66, 0, 'Treino A Básico Hipertrofia', 0, 0, 0, 0, 0, 0, 0, '0000-00-00', '00:00:00', '', 1),
+(40, 66, 0, 'Treino B Básico Hipertrofia', 0, 0, 0, 0, 0, 0, 0, '0000-00-00', '00:00:00', '', 1),
+(41, 66, 0, 'Treino C Básico Hipertrofia', 0, 0, 0, 0, 0, 0, 0, '0000-00-00', '00:00:00', '', 1),
+(42, 66, 0, 'Treino A Qualidade de Vida', 0, 0, 0, 0, 0, 0, 0, '0000-00-00', '00:00:00', 'Treino para aumentar a qualidade de vida.', 1),
+(49, 66, 15, 'treino', 0, 1, 0, 0, 1, 0, 0, '2018-03-08', '17:09:11', 'rtfghjk', 1),
+(50, 66, 15, 'Treino Simples', 0, 0, 1, 0, 0, 1, 0, '2018-03-08', '18:30:45', '', 1),
+(51, 66, 15, 'drtfghjk', 0, 0, 0, 1, 0, 0, 0, '2018-03-08', '18:31:12', '', 1);
 
 -- --------------------------------------------------------
 
@@ -497,8 +466,7 @@ ALTER TABLE `academias`
 -- Limitadores para a tabela `alunos`
 --
 ALTER TABLE `alunos`
-  ADD CONSTRAINT `alunos_ibfk_1` FOREIGN KEY (`idAcademia`) REFERENCES `academias` (`idAcademia`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `alunos_ibfk_2` FOREIGN KEY (`idTreino`) REFERENCES `treinos` (`idTreino`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `alunos_ibfk_1` FOREIGN KEY (`idAcademia`) REFERENCES `academias` (`idAcademia`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Limitadores para a tabela `avaliacoesfisicas`
@@ -526,8 +494,7 @@ ALTER TABLE `exerciciostreino`
 -- Limitadores para a tabela `treinos`
 --
 ALTER TABLE `treinos`
-  ADD CONSTRAINT `treinos_ibfk_1` FOREIGN KEY (`idAcademia`) REFERENCES `academias` (`idAcademia`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `treinos_ibfk_2` FOREIGN KEY (`idUsuario`) REFERENCES `usuarios` (`idUsuario`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `treinos_ibfk_1` FOREIGN KEY (`idAcademia`) REFERENCES `academias` (`idAcademia`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

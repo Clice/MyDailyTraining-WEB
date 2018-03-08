@@ -11,6 +11,7 @@ class AlunoController extends CI_Controller {
         if ($this->session->userdata('logado') == true) {
             $this->load->model('AlunoModel');
             $this->load->model('TreinoModel');
+            $this->load->model('ExercicioTreinoModel');
             $this->load->model('AcademiaModel');
         } else {
             redirect(base_url('404_override'));
@@ -60,22 +61,6 @@ class AlunoController extends CI_Controller {
         $this->load->view('sistema/templates/header');
         $this->load->view('sistema/templates/side-menu');
         $this->load->view('sistema/telas/cadastros/cadastrar-editar-aluno');
-        $this->load->view('sistema/templates/footer');
-        $this->load->view('sistema/templates/html-footer');
-    }
-
-    // FUNÇÃO DE CARREGAMENTO DA VIEW PERFIL-ALUNO.PHP
-    public function vPerfilAluno($idAluno) {
-        $dadosAluno['nomePagina'] = "Perfil do Aluno";
-        $dadosAluno['urlPagina'] = "perfil-aluno";
-        $dadosAluno['perfilAluno'] = $this->AlunoModel->mVisualizarPerfilAluno($idAluno);
-
-        $this->load->view('sistema/templates/html-header', $dadosAluno);
-        $this->load->view('sistema/templates/header');
-        $this->load->view('sistema/templates/side-menu');
-        $this->load->view('sistema/templates/aluno/modals-aluno');
-        $this->load->view('sistema/templates/aluno/js-aluno');
-        $this->load->view('sistema/telas/perfis/perfil-aluno');
         $this->load->view('sistema/templates/footer');
         $this->load->view('sistema/templates/html-footer');
     }

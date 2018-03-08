@@ -20,12 +20,85 @@
                                         <form name="formCadastrarEditarTreino" id="formCadastrarEditarTreino">    
                                             <input type="hidden" name="idExercicio" id="idExercicio">                                          
                                             <input type="hidden" name="idTreino" id="idTreino" value="<?php echo $idTreino; ?>">  
+                                            <input type="hidden" name="idAluno" id="idAluno" value="<?php echo $idAluno; ?>">  
                                             <input type="hidden" id="statusTreino" name="statusTreino" value="<?php echo $statusTreino; ?>">
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <div class="form-group">
                                                         <label>Descrição do treino:*</label>
                                                         <input type="text" id="nomeTreino" name="nomeTreino" class="form-control" placeholder="Digite a descrição do treino">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <label>Dias de Treino do Aluno:*</label>
+                                                    <div class="input-group" style="margin-top: 13px">
+                                                        <?php for ($i = 0; $i < count($diasTreinoAluno); $i++) { ?>
+                                                            <?php if (strstr($diasTreinoAluno[$i], "Domingo")) { ?>
+                                                                <!-- DOMINGO -->
+                                                                <label class="display-inline-block custom-control custom-checkbox" style="margin-right: 70px;">
+                                                                    <input type="checkbox" name="diasTreinoAluno[]" id="domingo" 
+                                                                           value="Domingo" class="custom-control-input" name="domingo">
+                                                                    <span class="custom-control-indicator"></span>
+                                                                    <span class="custom-control-description ml-0">Domingo</span>
+                                                                </label>
+                                                            <?php } ?>
+                                                            <?php if (strstr($diasTreinoAluno[$i], "Segunda")) { ?>
+                                                                <!-- SEGUNDA -->
+                                                                <label class="display-inline-block custom-control custom-checkbox" style="margin-right: 70px;">
+                                                                    <input type="checkbox" name="diasTreinoAluno[]" id="segunda" 
+                                                                           value="Segunda" class="custom-control-input" name="segunda">
+                                                                    <span class="custom-control-indicator"></span>
+                                                                    <span class="custom-control-description ml-0">Segunda</span>
+                                                                </label>
+                                                            <?php } ?>
+                                                            <?php if (strstr($diasTreinoAluno[$i], "Terça")) { ?>
+                                                                <!-- TERÇA -->
+                                                                <label class="display-inline-block custom-control custom-checkbox" style="margin-right: 70px;">
+                                                                    <input type="checkbox" name="diasTreinoAluno[]" id="terca" 
+                                                                           value="Terça" class="custom-control-input" name="terca">
+                                                                    <span class="custom-control-indicator"></span>
+                                                                    <span class="custom-control-description ml-0">Terça</span>
+                                                                </label>
+                                                            <?php } ?>
+                                                            <?php if (strstr($diasTreinoAluno[$i], "Quarta")) { ?>
+                                                                <!-- QUARTA -->
+                                                                <label class="display-inline-block custom-control custom-checkbox" style="margin-right: 70px;">
+                                                                    <input type="checkbox" name="diasTreinoAluno[]" id="quarta" 
+                                                                           value="Quarta" class="custom-control-input" name="quarta">
+                                                                    <span class="custom-control-indicator"></span>
+                                                                    <span class="custom-control-description ml-0">Quarta</span>
+                                                                </label>
+                                                            <?php } ?>
+                                                            <?php if (strstr($diasTreinoAluno[$i], "Quinta")) { ?>
+                                                                <!-- QUINTA -->
+                                                                <label class="display-inline-block custom-control custom-checkbox" style="margin-right: 70px;">
+                                                                    <input type="checkbox" name="diasTreinoAluno[]" id="quinta" 
+                                                                           value="Quinta" class="custom-control-input" name="quinta">
+                                                                    <span class="custom-control-indicator"></span>
+                                                                    <span class="custom-control-description ml-0">Quinta</span>
+                                                                </label>
+                                                            <?php } ?>
+                                                            <?php if (strstr($diasTreinoAluno[$i], "Sexta")) { ?>
+                                                                <!-- SEXTA -->
+                                                                <label class="display-inline-block custom-control custom-checkbox" style="margin-right: 70px;">
+                                                                    <input type="checkbox" name="diasTreinoAluno[]" id="sexta" 
+                                                                           value="Sexta" class="custom-control-input" name="sexta">
+                                                                    <span class="custom-control-indicator"></span>
+                                                                    <span class="custom-control-description ml-0">Sexta</span>
+                                                                </label>  
+                                                            <?php } ?>
+                                                            <?php if (strstr($diasTreinoAluno[$i], "Sábado")) { ?>
+                                                                <!-- SÁBADO -->
+                                                                <label class="display-inline-block custom-control custom-checkbox" style="margin-right: 70px;">
+                                                                    <input type="checkbox" name="diasTreinoAluno[]" id="sabado" 
+                                                                           value="Sábado" class="custom-control-input" name="sabado">
+                                                                    <span class="custom-control-indicator"></span>
+                                                                    <span class="custom-control-description ml-0">Sábado</span>
+                                                                </label>
+                                                            <?php } ?>
+                                                        <?php } ?>
                                                     </div>
                                                 </div>
                                             </div>
@@ -45,7 +118,7 @@
                                             </div>                               
                                         </div>
                                         <form name="formCadEditTreino" id="formCadEditTreino"> 
-                                            <div class="content-body">
+                                            <div class="content-body">                                                
                                                 <div class="row">
                                                     <div class="card">
                                                         <div class="card-body collapse in">
@@ -143,6 +216,7 @@
     }
 
     function cadEditTreino() {
+        alert($('#formCadastrarEditarTreino').serialize());
         $.ajax({
             url: "<?php echo base_url('TreinoController/cCadastrarEditarTreino') ?>",
             type: "POST",
@@ -150,8 +224,9 @@
             dataType: "JSON",
             success: function (data) {
                 if (data.success) {
-                    window.location.href = '<?php echo base_url('cadastrar-exercicios-treino/'); ?>' +
-                            data.idTreino + "/" + data.idTreinoN + document.getElementById('idExercicio').value;
+                    window.location.href = '<?php echo base_url('cadastrar-exercicios-treino/'); ?>' + 
+                            document.getElementById('idAluno').value + "/" + data.idTreino + "/" + 
+                            data.idTreinoN + document.getElementById('idExercicio').value;
                 } else {
                     alert('entrou erro');
                 }
