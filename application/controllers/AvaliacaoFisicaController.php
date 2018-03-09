@@ -8,6 +8,7 @@ class AvaliacaoFisicaController extends CI_Controller {
     public function __construct() {
         parent::__construct();
 
+        // VERIFICANDO SE TEM ALGUM USUÁRIO LOGADO PARA PERMITIR O ACESSO
         if ($this->session->userdata('logado') == true) {
             $this->load->model('AvaliacaoFisicaModel');
             $this->load->model('AlunoModel');
@@ -16,14 +17,16 @@ class AvaliacaoFisicaController extends CI_Controller {
         }
     }
 
+    // FUNÇÃO PARA CARREGAMENTO DA VIEW CADASTRAR-AVALIAÇÃO-FÍSICA.PHP
     public function vCadastrarAvaliacaoFisica($idAluno) {
         $dadosAluno['nomePagina'] = "Cadastrar Avaliação Física do Aluno";
         $dadosAluno['dataDia'] = formatarData(date('Y-m-d'));
         $dadosAluno['idUsuario'] = $this->session->userdata('idUsuario');
-        //$dadosAluno['perfilAluno'] = $this->AlunoModel->mVisualizarPerfilAluno($idAluno);
 
+        // PEGANDO OS DADOS DO ALUNO PARA A AVALIAÇÃO FÍSICA
         $dadosAluno['dadosAluno'] = $this->AlunoModel->mVisualizarPerfilAluno($idAluno);
 
+        // CARREGANDO AS VIEWS DA PÁGINA
         $this->load->view('sistema/templates/html-header', $dadosAluno);
         $this->load->view('sistema/templates/header');
         $this->load->view('sistema/templates/side-menu');
@@ -32,6 +35,7 @@ class AvaliacaoFisicaController extends CI_Controller {
         $this->load->view('sistema/templates/html-footer');
     }
 
+    // FUNÇÃO CONTROLLER PARA CADASTRAR A AVALIAÇÃO FÍSICA
     public function cCadastrarAvaliacaoFisica() {
         // PEGANDO OS VALORES PASSADOS PELO CADASTRAR-EDITAR-ALUNO.PHP     
         $dadosAvaliacao = array(

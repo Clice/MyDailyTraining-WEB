@@ -8,6 +8,7 @@ class FuncionarioController extends CI_Controller {
     public function __construct() {
         parent::__construct();
 
+        // VERIFICANDO SE TEM ALGUM USUÁRIO LOGADO PARA PERMITIR O ACESSO
         if ($this->session->userdata('logado') == true) {
             $this->load->model('UsuarioModel');
             $this->load->model('FuncionarioModel');
@@ -16,14 +17,16 @@ class FuncionarioController extends CI_Controller {
         }
     }
 
-    // FUNÇÃO DE CARREGAMENTO DA VIEW LISTA-FUNCIONARIOS.PHP
+    // FUNÇÃO CONTROLLER DE CARREGAMENTO DA VIEW LISTA-FUNCIONARIOS.PHP
     public function index() {
         $dadosFuncionario['nomePagina'] = "Lista de Funcionários";
         $dadosFuncionario['urlPagina'] = "lista-funcionarios";
+
+        // PEGANDO AS INFORMAÇÕES DOS FUNCIONÁRIOS ATIVOS E BLOQUEADOS
         $dadosFuncionario['funcionariosAtivos'] = $this->FuncionarioModel->mListarFuncionariosAtivos();
         $dadosFuncionario['funcionariosBloqueados'] = $this->FuncionarioModel->mListarFuncionariosBloqueados();
 
-        // CARREGANDO AS VIEWS PARA FORMAR A TELA DE LISTA DE FUNCIONÁRIOS 
+        // CARREGANDO AS VIEWS DA PÁGINA
         $this->load->view('sistema/templates/html-header', $dadosFuncionario);
         $this->load->view('sistema/templates/header');
         $this->load->view('sistema/templates/side-menu');
@@ -34,7 +37,7 @@ class FuncionarioController extends CI_Controller {
         $this->load->view('sistema/templates/html-footer');
     }
 
-    // FUNÇÃO DE CARREGAMENTO DA VIEW CADASTRAR-EDITAR-FUNCIONARIO.PHP
+    // FUNÇÃO CONTROLLER DE CARREGAMENTO DA VIEW CADASTRAR-EDITAR-FUNCIONARIO.PHP
     public function vCadastrarEditarFuncionario($idFuncionario) {
         // SE UM ID FUNCIONARIO FOI PASSADO OU NÃO
         // PARA REALIZAR A EDIÇÃO OU O CADASTRO DE UM FUNCIONARIO        
@@ -55,6 +58,7 @@ class FuncionarioController extends CI_Controller {
 
         $dadosFuncionario['urlPagina'] = "lista-funcionarios";
 
+        // CARREGANDO AS VIEWS DA PÁGINA
         $this->load->view('sistema/templates/html-header', $dadosFuncionario);
         $this->load->view('sistema/templates/header');
         $this->load->view('sistema/templates/side-menu');
@@ -65,12 +69,15 @@ class FuncionarioController extends CI_Controller {
         $this->load->view('sistema/templates/html-footer');
     }
 
-    // FUNÇÃO DE CARREGAMENTO DA VIEW PERFIL-FUNCIONARIO.PHP
+    // FUNÇÃO CONTROLLER DE CARREGAMENTO DA VIEW PERFIL-FUNCIONARIO.PHP
     public function vPerfilFuncionario($idFuncionario) {
         $dadosFuncionario['nomePagina'] = "Perfil do Funcionário";
         $dadosFuncionario['urlPagina'] = "perfil-funcionario";
+
+        //PEGANDO AS INFORMAÇÕES DO USUÁRIO PARA MOSTRAR NO PERFIL
         $dadosFuncionario['perfilFuncionario'] = $this->UsuarioModel->mVisualizarUsuario($idFuncionario);
 
+        // CARREGANDO AS VIEWS DA PÁGINA
         $this->load->view('sistema/templates/html-header', $dadosFuncionario);
         $this->load->view('sistema/templates/header');
         $this->load->view('sistema/templates/side-menu');

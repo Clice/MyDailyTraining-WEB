@@ -29,6 +29,7 @@ $route['lista-exercicios-treino/(:any)'] = 'TreinoController/vListaExerciciosTre
 $route['lista-administradores-academia'] = 'AdministradorController/vListaAdministradoresAcademia';
 
 // ROTAS PARA OS PERFIS
+$route['perfil-treino/(:any)'] = 'TreinoController/vPerfilTreino/$1';
 $route['perfil-aluno/(:any)'] = 'TreinoAlunoController/vPerfilAluno/$1';
 $route['perfil-academia/(:any)'] = 'AcademiaController/vPerfilAcademia/$1';
 $route['perfil-equaltech/(:any)'] = 'EqualTechController/vPerfilEqualTech/$1';

@@ -8,6 +8,7 @@ class TreinoController extends CI_Controller {
     public function __construct() {
         parent::__construct();
 
+        // VERIFICANDO SE TEM ALGUM USUÁRIO LOGADO PARA PERMITIR O ACESSO
         if ($this->session->userdata('logado') == true) {
             $this->load->model('AlunoModel');
             $this->load->model('TreinoModel');
@@ -111,6 +112,7 @@ class TreinoController extends CI_Controller {
         $dadosTreino['idAluno'] = $idAluno;
         $dadosTreino['exercicios'] = $this->ExercicioTreinoModel->mVisualizarExercicios();
 
+        // CARREGANDO AS VIEWS DA PÁGINA
         $this->load->view('sistema/templates/html-header', $dadosTreino);
         $this->load->view('sistema/templates/header');
         $this->load->view('sistema/templates/side-menu');
@@ -119,7 +121,7 @@ class TreinoController extends CI_Controller {
         $this->load->view('sistema/templates/html-footer');
     }
 
-    // FUNÇÃO DE CARREGAMENTO DA VIEW LISTA-EXERCICIOS-TREINO.PHP
+    // FUNÇÃO DE CARREGAMENTO DA VIEW CADASTRAR-EDITAR-EXERCICIOS-TREINO.PHP
     public function vCadastrarEditarExerciciosTreino($idAluno, $idTreino, $exercicios) {
         $arrayExercicios = explode("%7C", $exercicios);
         $dados['idTreino'] = $arrayExercicios[0];
@@ -167,6 +169,7 @@ class TreinoController extends CI_Controller {
         $dados['nomePagina'] = 'Lista de Exercícios do Treino';
         $dados['statusTreino'] = true;
 
+        // CARREGANDO AS VIEWS DA PÁGINA
         $this->load->view('sistema/templates/html-header', $dados);
         $this->load->view('sistema/templates/header');
         $this->load->view('sistema/templates/side-menu');
@@ -174,6 +177,20 @@ class TreinoController extends CI_Controller {
         $this->load->view('sistema/templates/footer');
         $this->load->view('sistema/templates/html-footer');
     }
+
+    // FUNÇÃO DE CARREGAMENTO DA VIEW PERFIL-TREINO.PHP
+    public function vPerfilTreino($idTreino) {
+        $dados['nomePagina'] = 'Perfil Treino';
+
+        // CARREGANDO AS VIEWS DA PÁGINA
+        $this->load->view('sistema/templates/html-header', $dados);
+        $this->load->view('sistema/templates/header');
+        $this->load->view('sistema/templates/side-menu');
+        $this->load->view('sistema/telas/perfis/perfil-treino');
+        $this->load->view('sistema/templates/footer');
+        $this->load->view('sistema/templates/html-footer');
+    }
+
 
     // FUNÇÃO CONTROLLER PARA CADASTRAR/EDITAR TREINO
     public function cCadastrarEditarTreino() {
@@ -259,6 +276,7 @@ class TreinoController extends CI_Controller {
         echo json_encode($resposta);
     }
 
+    // FUNÇÃO CONTROLLER PARA CADASTRAR/EDITAR OS EXERCICIOS DO TREINO
     public function cCadastrarEditarExercicioTreino() {
         $dadosExercicioTreino = array(
             'idExercicioTreino' => $this->input->post('idExercicioTreino'),

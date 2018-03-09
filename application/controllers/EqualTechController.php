@@ -8,6 +8,7 @@ class EqualTechController extends CI_Controller {
     public function __construct() {
         parent::__construct();
 
+        // VERIFICANDO SE TEM ALGUM USUÁRIO LOGADO PARA PERMITIR O ACESSO
         if ($this->session->userdata('logado') == true) {
             $this->load->model('UsuarioModel');
             $this->load->model('EqualTechModel');
@@ -21,6 +22,7 @@ class EqualTechController extends CI_Controller {
         $dados['nomePagina'] = 'Lista de EqualTech';
         $dados['equaltechs'] = $this->EqualTechModel->mListarEqualTechs();
 
+        // CARREGANDO AS VIEWS DA PÁGINA
         $this->load->view('sistema/templates/html-header', $dados);
         $this->load->view('sistema/templates/header');
         $this->load->view('sistema/templates/side-menu');
@@ -40,7 +42,7 @@ class EqualTechController extends CI_Controller {
             $dadosEqualTech['urlPagina'] = "meus-dados";
         }
 
-        // CARREGANDO AS VIEWS PARA FORMAR A TELA DE EDIÇÃO DO EQUALTECH
+        // CARREGANDO AS VIEWS DA PÁGINA
         $this->load->view('sistema/templates/html-header', $dadosEqualTech);
         $this->load->view('sistema/templates/header');
         $this->load->view('sistema/templates/side-menu');
@@ -56,6 +58,7 @@ class EqualTechController extends CI_Controller {
         $dados['nomePagina'] = 'Perfil EqualTech';
         $dados['perfilEqualTech'] = $this->UsuarioModel->mVisualizarUsuario($idEqualTech);
 
+        // CARREGANDO AS VIEWS DA PÁGINA
         $this->load->view('sistema/templates/html-header', $dados);
         $this->load->view('sistema/templates/header');
         $this->load->view('sistema/templates/side-menu');

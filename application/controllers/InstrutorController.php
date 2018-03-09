@@ -8,6 +8,7 @@ class InstrutorController extends CI_Controller {
     public function __construct() {
         parent::__construct();
 
+        // VERIFICANDO SE TEM ALGUM USUÁRIO LOGADO PARA PERMITIR O ACESSO
         if ($this->session->userdata('logado') == true) {
             $this->load->model('UsuarioModel');
             $this->load->model('InstrutorModel');
@@ -16,14 +17,16 @@ class InstrutorController extends CI_Controller {
         }
     }
 
-    // FUNÇÃO DE CARREGAMENTO DA VIEW LISTA-INSTRUTOR.PHP
+    // FUNÇÃO CONTROLLER DE CARREGAMENTO DA VIEW LISTA-INSTRUTOR.PHP
     public function index() {
         $dadosInstrutor['nomePagina'] = 'Lista de Instrutores';
         $dadosInstrutor['urlPagina'] = 'lista-instrutores';
+
+        // PEGANDO AS INFORMAÇÕES DO INSTRUTORES ATIVOS E BLOQUEADOS
         $dadosInstrutor['instrutoresAtivos'] = $this->InstrutorModel->mListarInstrutoresAtivos();
         $dadosInstrutor['instrutoresBloqueados'] = $this->InstrutorModel->mListarInstrutoresBloqueados();
 
-        // CARREGANDO AS VIEWS PARA FORMAR A TELA DE LISTA DE INSTRUTORES 
+        // CARREGANDO AS VIEWS DA PÁGINA 
         $this->load->view('sistema/templates/html-header', $dadosInstrutor);
         $this->load->view('sistema/templates/header');
         $this->load->view('sistema/templates/side-menu');
@@ -34,7 +37,7 @@ class InstrutorController extends CI_Controller {
         $this->load->view('sistema/templates/html-footer');
     }
 
-    // FUNÇÃO DE CARREGAMENTO DA VIEW CADASTRAR-EDITAR-INSTRUTOR.PHP
+    // FUNÇÃO CONTROLLER DE CARREGAMENTO DA VIEW CADASTRAR-EDITAR-INSTRUTOR.PHP
     public function vCadastrarEditarInstrutor($idInstrutor) {
         // SE UM ID INSTRUTOR FOI PASSADO OU NÃO
         // PARA REALIZAR A EDIÇÃO OU O CADASTRO DE UM INSTRUTOR
@@ -54,7 +57,7 @@ class InstrutorController extends CI_Controller {
 
         $dadosInstrutor['urlPagina'] = 'lista-instrutores';
 
-        // CARREGANDO AS VIEWS PARA FORMAR A TELA DE CADASTRO/EDIÇÃO DO INSTRUTOR  
+        // CARREGANDO AS VIEWS DA PÁGINA 
         $this->load->view('sistema/templates/html-header', $dadosInstrutor);
         $this->load->view('sistema/templates/header');
         $this->load->view('sistema/templates/side-menu');
@@ -65,12 +68,15 @@ class InstrutorController extends CI_Controller {
         $this->load->view('sistema/templates/html-footer');
     }
 
-    // FUNÇÃO DE CARREGAMENTO DA VIEW PERFIL-INSTRUTOR.PHP
+    // FUNÇÃO CONTROLLER DE CARREGAMENTO DA VIEW PERFIL-INSTRUTOR.PHP
     public function vPerfilInstrutor($idInstrutor) {
         $dadosInstrutor['nomePagina'] = "Perfil do Instrutor";
         $dadosInstrutor['urlPagina'] = "perfil-instrutor/" . $idInstrutor;
+
+        // PEGANDO AS INFORMAÇÕES DO INSTRUTOR PARA MOSTRAR NO PERFIL
         $dadosInstrutor['perfilInstrutor'] = $this->UsuarioModel->mVisualizarUsuario($idInstrutor);
 
+        // CARREGANDO AS VIEWS DA PÁGINA
         $this->load->view('sistema/templates/html-header', $dadosInstrutor);
         $this->load->view('sistema/templates/header');
         $this->load->view('sistema/templates/side-menu');

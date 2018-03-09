@@ -8,6 +8,7 @@ class AlunoController extends CI_Controller {
     public function __construct() {
         parent::__construct();
 
+        // VERIFICANDO SE TEM ALGUM USUÁRIO LOGADO PARA PERMITIR O ACESSO
         if ($this->session->userdata('logado') == true) {
             $this->load->model('AlunoModel');
             $this->load->model('TreinoModel');
@@ -18,13 +19,16 @@ class AlunoController extends CI_Controller {
         }
     }
 
-    // FUNÇÃO DE CARREGAMENTO DA VIEW LISTA-ALUNOS.PHP
+    // FUNÇÃO CONTROLLER DE CARREGAMENTO DA VIEW LISTA-ALUNOS.PHP
     public function index() {
         $dadosAluno['nomePagina'] = "Lista de Alunos";
         $dadosAluno['urlPagina'] = "lista-alunos";
+
+        // PEGANDO OS DADOS DOS ALUNOS ATIVOS E BLOQUEADOS
         $dadosAluno['alunosAtivos'] = $this->AlunoModel->mListarAlunosAtivos();
         $dadosAluno['alunosBloqueados'] = $this->AlunoModel->mListarAlunosBloqueados();
 
+        // CARREGANDO AS VIEWS DA PÁGINA
         $this->load->view('sistema/templates/html-header', $dadosAluno);
         $this->load->view('sistema/templates/header');
         $this->load->view('sistema/templates/side-menu');
@@ -35,11 +39,12 @@ class AlunoController extends CI_Controller {
         $this->load->view('sistema/templates/html-footer');
     }
 
-    // FUNÇÃO DE CARREGAMENTO DA VIEW CADASTRAR-EDITAR-ALUNO.PHP
+    // FUNÇÃO CONTROLLER DE CARREGAMENTO DA VIEW CADASTRAR-EDITAR-ALUNO.PHP
     public function vCadastrarEditarAluno($idAluno) {
         // SE UM ID ADMINISTRADOR FOI PASSADO OU NÃO
         // PARA REALIZAR A EDIÇÃO OU O CADASTRO DE UM ADMINISTRADOR
         if ($idAluno != "novo") {
+            // PEGANDO OS DADOS DO ALUNO PARA EDITAR
             $dadosAluno = get_object_vars($this->AlunoModel->mVisualizarPerfilAluno($idAluno)[0]);
             $dadosAluno['nomePagina'] = "Editar Aluno";
         } else {
@@ -57,6 +62,7 @@ class AlunoController extends CI_Controller {
             $dadosAluno['statusAluno'] = true;
         }
 
+        // CARREGANDO AS VIEWS DA PÁGINA
         $this->load->view('sistema/templates/html-header', $dadosAluno);
         $this->load->view('sistema/templates/header');
         $this->load->view('sistema/templates/side-menu');

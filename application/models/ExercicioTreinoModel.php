@@ -4,6 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class ExercicioTreinoModel extends CI_Model {
 
+    ////////// FUNÇÃO PARA OS EXERCICIOSTREINO
     // FUNÇÃO PARA REALIZAR A INSERÇÃO DAS INFORMAÇÕES DO  EXERCÍCIO DO TREINO NO BANCO
     public function mCadastrarExercicioTreino($dadosExercicioTreino) {
         return $this->db->insert('exerciciostreino', $dadosExercicioTreino);
@@ -24,7 +25,7 @@ class ExercicioTreinoModel extends CI_Model {
         return $this->db->delete('exerciciostreino');
     }
 
-    // FUNÇÕES PARA OS EXERCÍCIOS
+    ////////// FUNÇÕES PARA OS EXERCÍCIOS
     // FUNÇÃO PARA PEGAR OS DADOS DOS EXERCÍCIOS
     public function mVisualizarExercicios() {
         $this->db->select('*');
@@ -33,7 +34,7 @@ class ExercicioTreinoModel extends CI_Model {
         return $this->db->get()->result();
     }
 
-    // FUNÇÃO PARA PEGAR OS DADOS DOS EXERCÍCIOS
+    // FUNÇÃO PARA PEGAR OS DADOS DOS EXERCÍCIOS SELECIONADOS
     public function mVisualizarExerciciosSelecionados($idExercicio) {
         $this->db->select('*');
         $this->db->from('exercicios');

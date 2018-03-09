@@ -4,7 +4,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class TreinoModel extends CI_Model {
 
-    // FUNÇÕES PARA O TREINO
     // FUNÇÃO PARA REALIZAR A INSERÇÃO DAS INFORMAÇÕES DO TREINO NO BANCO
     public function mCadastrarTreino($dadosTreino) {
         return $this->db->insert('treinos', $dadosTreino);
@@ -42,7 +41,7 @@ class TreinoModel extends CI_Model {
         return $this->db->get()->result();
     }
 
-    // FUNÇÃO PARA LISTAR OS TREINOS
+    // FUNÇÃO PARA PEGAR TODOS OS TREINOS
     public function mListarTreinos() {
         $this->db->select('*');
         $this->db->from('treinos');

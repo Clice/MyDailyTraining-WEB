@@ -8,6 +8,7 @@ class TreinoAlunoController extends CI_Controller {
     public function __construct() {
         parent::__construct();
 
+        // VERIFICANDO SE TEM ALGUM USUÁRIO LOGADO PARA PERMITIR O ACESSO
         if ($this->session->userdata('logado') == true) {
             $this->load->model('AlunoModel');
             $this->load->model('TreinoModel');
@@ -34,6 +35,7 @@ class TreinoAlunoController extends CI_Controller {
             $i++;
         }
 
+        // CARREGANDO AS VIEWS DA PÁGINA
         $this->load->view('sistema/templates/html-header', $dadosAluno);
         $this->load->view('sistema/templates/header');
         $this->load->view('sistema/templates/side-menu');

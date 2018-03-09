@@ -123,7 +123,7 @@
         <!-- JS-->
         <script type="text/javascript">
             function login() {
-                var url = "<?php echo base_url('LoginController/cLogarUsuario') ?>";
+                var url = "<?php echo base_url('InicialController/cLogarUsuario') ?>";
 
                 $.ajax({
                     url: url,

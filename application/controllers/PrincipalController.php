@@ -7,7 +7,8 @@ class PrincipalController extends CI_Controller {
     // CONSTRUTOR DO USUÁRIO CONTROLLER
     public function __construct() {
         parent::__construct();
-
+        
+        // VERIFICANDO SE TEM ALGUM USUÁRIO LOGADO PARA PERMITIR O ACESSO
         if ($this->session->userdata('logado') == true) {
             $this->load->model('AlunoModel');
             $this->load->model('UsuarioModel');
@@ -34,6 +35,7 @@ class PrincipalController extends CI_Controller {
         $dados['qtdAlunosAtivos'] = count($this->AlunoModel->mQtdAlunosAtivos($this->session->userdata('idAcademia')));
         $dados['qtdAlunosBloqueados'] = count($this->AlunoModel->mQtdAlunosBloqueados($this->session->userdata('idAcademia')));
 
+        // CARREGANDO AS VIEWS DA PÁGINA
         $this->load->view('sistema/templates/html-header', $dados);
         $this->load->view('sistema/templates/header');
         $this->load->view('sistema/templates/side-menu');
@@ -56,6 +58,7 @@ class PrincipalController extends CI_Controller {
             $dados['urlPagina'] = 'editar-instrutor/' . md5($this->session->userdata('idUsuario'));
         }
 
+        // CARREGANDO AS VIEWS DA PÁGINA
         $this->load->view('sistema/templates/html-header', $dados);
         $this->load->view('sistema/templates/header');
         $this->load->view('sistema/templates/side-menu');
@@ -67,6 +70,8 @@ class PrincipalController extends CI_Controller {
     // FUNÇÃO DE CARREGAMENTO DA VIEW NOTIFICACOES.PHP
     public function vNotificacoes() {
         $dados['nomePagina'] = 'Notificações';
+
+        // CARREGANDO AS VIEWS DA PÁGINA
         $this->load->view('sistema/templates/html-header', $dados);
         $this->load->view('sistema/templates/header');
         $this->load->view('sistema/templates/side-menu');
@@ -78,6 +83,8 @@ class PrincipalController extends CI_Controller {
     // FUNÇÃO DE CARREGAMENTO DA VIEW RELARORIO.PHP
     public function vRelatorio() {
         $dados['nomePagina'] = 'Relatório';
+
+        // CARREGANDO AS VIEWS DA PÁGINA
         $this->load->view('sistema/templates/html-header', $dados);
         $this->load->view('sistema/templates/header');
         $this->load->view('sistema/templates/side-menu');

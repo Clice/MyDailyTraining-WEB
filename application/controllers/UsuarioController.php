@@ -8,6 +8,7 @@ class UsuarioController extends CI_Controller {
     public function __construct() {
         parent::__construct();
 
+        // VERIFICANDO SE TEM ALGUM USUÁRIO LOGADO PARA PERMITIR O ACESSO
         if ($this->session->userdata('logado') == true) {
             $this->load->model('UsuarioModel');
         } else {
@@ -149,7 +150,7 @@ class UsuarioController extends CI_Controller {
         echo json_encode($resposta);
     }
 
-    // FUNÇÃO DE CARREGAMENTO DA VIEW ALTERAR-SENHA.PHP
+    // FUNÇÃO CONTROLLER PARA ALTERAR A SENHA
     public function cAlterarSenha() {
         $dadosUsuario = array(
             'cpfUsuario' => $this->input->post('cpfUsuario'),

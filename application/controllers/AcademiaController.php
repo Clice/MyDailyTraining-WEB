@@ -8,6 +8,7 @@ class AcademiaController extends CI_Controller {
     public function __construct() {
         parent::__construct();
 
+        // VERIFICANDO SE TEM ALGUM USUÁRIO LOGADO PARA PERMITIR O ACESSO
         if ($this->session->userdata('logado') == true) {
             $this->load->model('AlunoModel');
             $this->load->model('AcademiaModel');
@@ -21,9 +22,12 @@ class AcademiaController extends CI_Controller {
     public function index() {
         $dadosAcademia['nomePagina'] = "Lista de Academias";
         $dadosAcademia['urlPagina'] = "lista-academias";
+
+        // PEGANDO OS DADOS DAS ACADEMIAS BLOQUEADAS E DESBLOQUEADAS
         $dadosAcademia['academiasAtivas'] = $this->AcademiaModel->mListarAcademiasAtivas();
         $dadosAcademia['academiasBloqueadas'] = $this->AcademiaModel->mListarAcademiasBloqueadas();
 
+        // CARREGANDO AS VIEWS DA PÁGINA
         $this->load->view('sistema/templates/html-header', $dadosAcademia);
         $this->load->view('sistema/templates/header');
         $this->load->view('sistema/templates/side-menu');
@@ -39,6 +43,7 @@ class AcademiaController extends CI_Controller {
         // SE UM ID ACADEMIA FOI PASSADO OU NÃO
         // PARA REALIZAR A EDIÇÃO DE DADOS DE UMA ACADEMIA
         if ($idAcademia != "novo") {
+            // PEGANDO OS DADOS DA ACADEMIA PARA EDITAR
             $dados = get_object_vars($this->AcademiaModel->mVisualizarPerfilAcademia($idAcademia)[0]);
             $plano = get_object_vars($this->PlanoPacoteModel->mQtdLicencasPlano($dados['idPlano'])[0]);
             $pacote = get_object_vars($this->PlanoPacoteModel->mQtdLicencasPacote($dados['idPacote'])[0]);
@@ -67,13 +72,14 @@ class AcademiaController extends CI_Controller {
             $dados['diaPagamentoAcademia'] = 0;
         }
 
+        // DEFININDO QUAL A URL QUE A PÁGINA DEVE VOLTAR
         if ($this->session->userdata('tipoConta') == 1) {
             $dados['voltarPagina'] = "lista-academias";
         } else {
             $dados['voltarPagina'] = "perfil-academia/" . md5($this->session->userdata('idAcademia'));
         }
 
-        // CARREGANDO AS VIEWS PARA FORMAR A TELA DE CADASTRO/EDIÇÃO DA ACADEMIA
+        // CARREGANDO AS VIEWS DA PÁGINA
         $this->load->view('sistema/templates/html-header', $dados);
         $this->load->view('sistema/templates/header');
         $this->load->view('sistema/templates/side-menu');
@@ -85,6 +91,8 @@ class AcademiaController extends CI_Controller {
     // FUNÇÃO DE CARREGAMENTO DA VIEW RELARORIO.PHP
     public function vRelatorio() {
         $dados['nomePagina'] = 'Relatório';
+
+        // CARREGANDO AS VIEWS DA PÁGINA
         $this->load->view('sistema/templates/html-header', $dados);
         $this->load->view('sistema/templates/header');
         $this->load->view('sistema/templates/side-menu');
@@ -97,15 +105,19 @@ class AcademiaController extends CI_Controller {
     public function vPerfilAcademia($idAcademia) {
         $dados['nomePagina'] = "Perfil Academia";
         $dados['urlPagina'] = "perfil-academia/" . $idAcademia;
+
+        // PEGANDO OS DADOS DA ACADEMIA ESCOLHIDA E A QUANTIDADE DE ALUNOS QUE ELA POSSUI
         $dados['perfilAcademia'] = $this->AcademiaModel->mVisualizarPerfilAcademia($idAcademia);
         $dados['qtdAlunos'] = count($this->AlunoModel->mQtdAlunos($idAcademia));
 
+        // DEFININDO QUAL A URL PARA A QUAL DEVE VOLTAR
         if ($this->session->userdata('tipoConta') == 1) {
             $dados['voltarPagina'] = "lista-academias";
         } else {
             $dados['voltarPagina'] = "meus-dados";
         }
 
+        // CARREGANDO AS VIEWS DA PÁGINA
         $this->load->view('sistema/templates/html-header', $dados);
         $this->load->view('sistema/templates/header');
         $this->load->view('sistema/templates/side-menu');
@@ -167,6 +179,7 @@ class AcademiaController extends CI_Controller {
     public function cExcluirAcademia() {
         $idAcademia = $this->input->post('idAcademia');
 
+        // PARA EXCLUIR UMA ACADEMIA DO BANCO TEM QUE EXCLUIR OS ALUNOS E USUÁRIOS
         if ($this->AcademiaModel->mExcluirTodosAlunos($idAcademia)) {
             if ($this->AcademiaModel->mExcluirTodosUsuarios($idAcademia)) {
                 if ($this->AcademiaModel->mExcluirAcademia($idAcademia)) {
