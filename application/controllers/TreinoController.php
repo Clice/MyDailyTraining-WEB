@@ -23,92 +23,28 @@ class TreinoController extends CI_Controller {
         $dadosTreino['perfilAluno'] = $this->AlunoModel->mVisualizarPerfilAluno(md5($idAluno));
         $dadosTreino['diasTreinoAluno'] = explode("|", $dadosTreino['perfilAluno'][0]->diasTreinoAluno);
 
-        if (count($this->TreinoModel->mDiasAlunoTreino(md5($idAluno))) > 0) {
-            for ($i = 0; $i < count($this->TreinoModel->mDiasAlunoTreino(md5($idAluno))); $i++) {
-                $dadosTreino['diasAluno'][$i] = get_object_vars($this->TreinoModel->mDiasAlunoTreino(md5($idAluno))[$i]);
-            }
-
-            $aux = "";
-            $count = 0;
-
-            // LAÇO PARA PEGAR TODOS OS DIAS DA SEMANA QUE O ALUNO JÁ ESTÁ COM
-            // UM TREINO CADASTRADO
-            for ($j = 0; $j < count($dadosTreino['diasAluno']); $j++) {
-                if ($dadosTreino['diasAluno'][$j]['domingo'] == true) {
-                    $aux = $aux . "|Domingo";
-                    $count++;
-                }
-
-                if ($dadosTreino['diasAluno'][$j]['segunda'] == true) {
-                    $aux = $aux . "|Segunda";
-                    $count++;
-                }
-
-                if ($dadosTreino['diasAluno'][$j]['terca'] == true) {
-                    $aux = $aux . "|Terça";
-                    $count++;
-                }
-
-                if ($dadosTreino['diasAluno'][$j]['quarta'] == true) {
-                    $aux = $aux . "|Quarta";
-                    $count++;
-                }
-
-                if ($dadosTreino['diasAluno'][$j]['quinta'] == true) {
-                    $aux = $aux . "|Quinta";
-                    $count++;
-                }
-
-                if ($dadosTreino['diasAluno'][$j]['sexta'] == true) {
-                    $aux = $aux . "|Sexta";
-                    $count++;
-                }
-
-                if ($dadosTreino['diasAluno'][$j]['sabado'] == true) {
-                    $aux = $aux . "|Sábado";
-                    $count++;
-                }
-            }
-
-            $dias = explode("|", $aux);
-            $indice = "";
-
-            // PEGANDO OS INDICES DO VETOR CUJO DIA JÁ ESTÁ CADASTRADO
-            for ($i = 1; $i < count($dias); $i++) {
-                for ($j = 0; $j < count($dadosTreino['diasTreinoAluno']); $j++) {
-                    if ($dias[$i] == $dadosTreino['diasTreinoAluno'][$j]) {
-                        $indice = $indice . "|" . $j;
-                    }
-                }
-            }
-
-            $indices = explode("|", $indice);
-
-            // APAGANDO DO VETOR OS DIAS QUE JÁ FORAM CADASTRADOS
-            for ($k = 1; $k < count($indices); $k++) {
-                $aux2 = $indices[$k];
-                unset($dadosTreino['diasTreinoAluno'][$aux2]);
-            }
-
-            $i = 0;
-            foreach ($dadosTreino['diasTreinoAluno'] as $diasAux) {
-                $dadosTreino['aux'][$i] = $diasAux;
-                $i++;
-            }
-
-            $dadosTreino['diasTreinoAluno'] = $dadosTreino['aux'];
-        }
-
         // SE UM ID TRIENO FOI PASSADO OU NÃO
         // PARA REALIZAR A EDIÇÃO DE DADOS DE UM TREINO
         if ($idTreino != "novo") {
+            $dadosTreino['treino'] = $this->TreinoModel->mVisualizarTreino($idTreino);
+            $dadosTreino['exerciciosTreino'] = $this->ExercicioTreinoModel->mVisualizarExerciciosTreino($idTreino);            
+            $dadosTreino['idTreino'] = $dadosTreino['treino'][0]->idTreino;
+            $dadosTreino['statusTreino'] = $dadosTreino['treino'][0]->statusTreino;
             $dadosTreino['nomePagina'] = 'Editar Academia';
+            $urlPagina = 'editar-treino';
+            $dadosTreino['idExercicio'] = "";
+            
+            for ($i = 0; $i < count($dadosTreino['exerciciosTreino']); $i++) {
+                $dadosTreino['idExercicio'] += "|" . $dadosTreino['exerciciosTreino'][$i]->idExercicio;
+            }
         }
         // PARA REALIZAR O CADASTRO DE UM TREINO
         else {
+            $dadosTreino['diasTreinoAluno'] = $this->cVerificarDiasTreino($idAluno, $dadosTreino['diasTreinoAluno']);
             $dadosTreino['nomePagina'] = 'Definir Treino do Aluno';
             $dadosTreino['idTreino'] = $idTreino;
             $dadosTreino['statusTreino'] = false;
+            $urlPagina = 'cadastrar-treino';
         }
 
         $dadosTreino['idAluno'] = $idAluno;
@@ -118,7 +54,7 @@ class TreinoController extends CI_Controller {
         $this->load->view('sistema/templates/html-header', $dadosTreino);
         $this->load->view('sistema/templates/header');
         $this->load->view('sistema/templates/side-menu');
-        $this->load->view('sistema/telas/cadastros/cadastrar-editar-treino');
+        $this->load->view('sistema/telas/cadastros/' . $urlPagina);
         $this->load->view('sistema/templates/footer');
         $this->load->view('sistema/templates/html-footer');
     }
@@ -241,7 +177,7 @@ class TreinoController extends CI_Controller {
         date_default_timezone_set('America/Fortaleza');
         $dadosTreino['dataTreino'] = date('Y-m-d');
         $dadosTreino['horaTreino'] = date('H:i:s');
-
+        
         if ($dadosTreino['idTreino'] == "novo") {
             if ($this->TreinoModel->mCadastrarTreino($dadosTreino)) {
                 $dados['exercicios'] = $this->input->post('exerciciosSelecionados');
@@ -255,6 +191,7 @@ class TreinoController extends CI_Controller {
             if ($this->TreinoModel->mEditarTreino($dadosTreino)) {
                 $dados['treino'] = get_object_vars($this->TreinoModel->mEncontrarTreino($dadosTreino)[0]);
                 $dados['idTreino'] = $dados['treino']['idTreino'];
+                $resposta = array('success' => true, 'idTreino' => md5($dados['idTreino']), 'idTreinoN' => $dados['idTreino']);
             } else {
                 $resposta = array('success' => false);
             }
@@ -331,6 +268,84 @@ class TreinoController extends CI_Controller {
         }
 
         echo json_encode($resposta);
+    }
+
+    public function cVerificarDiasTreino($idAluno, $diasTreinoAluno) {
+        if (count($this->TreinoModel->mDiasAlunoTreino(md5($idAluno))) > 0) {
+            for ($i = 0; $i < count($this->TreinoModel->mDiasAlunoTreino(md5($idAluno))); $i++) {
+                $dadosTreino['diasAluno'][$i] = get_object_vars($this->TreinoModel->mDiasAlunoTreino(md5($idAluno))[$i]);
+            }
+
+            $aux = "";
+            $count = 0;
+
+            // LAÇO PARA PEGAR TODOS OS DIAS DA SEMANA QUE O ALUNO JÁ ESTÁ COM
+            // UM TREINO CADASTRADO
+            for ($j = 0; $j < count($dadosTreino['diasAluno']); $j++) {
+                if ($dadosTreino['diasAluno'][$j]['domingo'] == true) {
+                    $aux = $aux . "|Domingo";
+                    $count++;
+                }
+
+                if ($dadosTreino['diasAluno'][$j]['segunda'] == true) {
+                    $aux = $aux . "|Segunda";
+                    $count++;
+                }
+
+                if ($dadosTreino['diasAluno'][$j]['terca'] == true) {
+                    $aux = $aux . "|Terça";
+                    $count++;
+                }
+
+                if ($dadosTreino['diasAluno'][$j]['quarta'] == true) {
+                    $aux = $aux . "|Quarta";
+                    $count++;
+                }
+
+                if ($dadosTreino['diasAluno'][$j]['quinta'] == true) {
+                    $aux = $aux . "|Quinta";
+                    $count++;
+                }
+
+                if ($dadosTreino['diasAluno'][$j]['sexta'] == true) {
+                    $aux = $aux . "|Sexta";
+                    $count++;
+                }
+
+                if ($dadosTreino['diasAluno'][$j]['sabado'] == true) {
+                    $aux = $aux . "|Sábado";
+                    $count++;
+                }
+            }
+
+            $dias = explode("|", $aux);
+            $indice = "";
+
+            // PEGANDO OS INDICES DO VETOR CUJO DIA JÁ ESTÁ CADASTRADO
+            for ($i = 1; $i < count($dias); $i++) {
+                for ($j = 0; $j < count($diasTreinoAluno); $j++) {
+                    if ($dias[$i] == $diasTreinoAluno[$j]) {
+                        $indice = $indice . "|" . $j;
+                    }
+                }
+            }
+
+            $indices = explode("|", $indice);
+
+            // APAGANDO DO VETOR OS DIAS QUE JÁ FORAM CADASTRADOS
+            for ($k = 1; $k < count($indices); $k++) {
+                $aux2 = $indices[$k];
+                unset($diasTreinoAluno[$aux2]);
+            }
+
+            $i = 0;
+            foreach ($diasTreinoAluno as $diasAux) {
+                $dadosTreino['aux'][$i] = $diasAux;
+                $i++;
+            }
+        }
+
+        return $dadosTreino['aux'];
     }
 
 }

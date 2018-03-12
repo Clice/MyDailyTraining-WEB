@@ -49,10 +49,10 @@ $route['cadastrar-administrador/(:any)/(:num)'] = 'AdministradorController/vCada
 
 // ROTAS PARA AS EDIÇÕES
 $route['editar-aluno/(:any)'] = 'AlunoController/vCadastrarEditarAluno/$1';
-$route['editar-treino/(:any)'] = 'TreinoController/vCadastrarEditarTreino/$1';
 $route['editar-equaltech/(:any)'] = 'EqualTechController/vEditarEqualTech/$1';
 $route['editar-academia/(:any)'] = 'AcademiaController/vCadastrarEditarAcademia/$1';
 $route['editar-instrutor/(:any)'] = 'InstrutorController/vCadastrarEditarInstrutor/$1';
+$route['editar-treino/(:any)/(:any)'] = 'TreinoController/vCadastrarEditarTreino/$1/$2';
 $route['editar-funcionario/(:any)'] = 'FuncionarioController/vCadastrarEditarFuncionario/$1';
 $route['editar-exercicios-treino/(:any)'] = 'TreinoController/vCadastrarEditarExerciciosTreino/$1';
 $route['editar-administrador/(:any)/(:num)'] = 'AdministradorController/vCadastrarEditarAdministrador/$1/$2';

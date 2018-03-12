@@ -220,7 +220,6 @@
                                                 </div>                                   
                                             <?php } ?>
                                         </div>
-                                        <br>
                                         <hr>
                                         <div class="row">
                                             <div class="col-md-12">
@@ -338,7 +337,7 @@
                                                                                         <button type="button" class="btn mb-1 btn-success btn-sm" 
                                                                                                 onclick="window.location.href = '<?php echo base_url('perfil-treino/' . md5($treinoAluno->idTreino)); ?>'"><i class="icon-eye"></i> Ver Perfil</button>
                                                                                         <button type="button" class="btn mb-1 btn-warning btn-sm" 
-                                                                                                onclick="window.location.href = '<?php echo base_url('editar-treino/' . $treinoAluno->idTreino); ?>'"><i class="icon-edit"></i> Editar</button>
+                                                                                                onclick="window.location.href = '<?php echo base_url('editar-treino/' . $aluno->idAluno . '/' . md5($treinoAluno->idTreino)); ?>'"><i class="icon-edit"></i> Editar</button>
                                                                                         <button type="button" class="btn mb-1 btn-danger btn-sm" 
                                                                                                 onclick="modalExcluirTreino(<?php echo $treinoAluno->idTreino; ?>);"><i class="icon-trash-o"></i> Excluir</button>
                                                                                     </td>

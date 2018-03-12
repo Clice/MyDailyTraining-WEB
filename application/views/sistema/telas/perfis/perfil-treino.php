@@ -55,6 +55,15 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div style="float: right;" class="form-actions">
+                                                    <button type="button" class="btn btn-default" onclick="window.location.href = '<?php echo base_url('perfil-aluno/' . md5($treino->idAluno)); ?>'">
+                                                        <i class="icon-chevron-left2"></i> Voltar
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
                                     <?php } ?>
                                 </div>
                             </div>
