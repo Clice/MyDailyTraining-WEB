@@ -22,6 +22,7 @@ class AcademiaController extends CI_Controller {
     public function index() {
         $dadosAcademia['nomePagina'] = "Lista de Academias";
         $dadosAcademia['urlPagina'] = "lista-academias";
+        $dadosAcademia['voltarPagina'] = "lista-academias";
 
         // PEGANDO OS DADOS DAS ACADEMIAS BLOQUEADAS E DESBLOQUEADAS
         $dadosAcademia['academiasAtivas'] = $this->AcademiaModel->mListarAcademiasAtivas();
@@ -48,6 +49,7 @@ class AcademiaController extends CI_Controller {
             $plano = get_object_vars($this->PlanoPacoteModel->mQtdLicencasPlano($dados['idPlano'])[0]);
             $pacote = get_object_vars($this->PlanoPacoteModel->mQtdLicencasPacote($dados['idPacote'])[0]);
             $dados['nomePagina'] = 'Editar Academia';
+            $dados['valorPacote'] = 0;
             $dados['licencasPlano'] = $plano['qtdLicencas'];
             $dados['licencasPacote'] = $pacote['qtdLicencas'];
         }
@@ -70,6 +72,7 @@ class AcademiaController extends CI_Controller {
             $dados['qtdLicencasUsadas'] = 0;
             $dados['mensalidadeAcademia'] = 0;
             $dados['diaPagamentoAcademia'] = 0;
+            $dados['statusAcademia'] = true;
         }
 
         // DEFININDO QUAL A URL QUE A PÁGINA DEVE VOLTAR
@@ -86,20 +89,7 @@ class AcademiaController extends CI_Controller {
         $this->load->view('sistema/telas/cadastros/cadastrar-editar-academia');
         $this->load->view('sistema/templates/footer');
         $this->load->view('sistema/templates/html-footer');
-    }
-
-    // FUNÇÃO DE CARREGAMENTO DA VIEW RELARORIO.PHP
-    public function vRelatorio() {
-        $dados['nomePagina'] = 'Relatório';
-
-        // CARREGANDO AS VIEWS DA PÁGINA
-        $this->load->view('sistema/templates/html-header', $dados);
-        $this->load->view('sistema/templates/header');
-        $this->load->view('sistema/templates/side-menu');
-        $this->load->view('sistema/telas/relatorio');
-        $this->load->view('sistema/templates/footer');
-        $this->load->view('sistema/templates/html-footer');
-    }
+    }   
 
     // FUNÇÃO DE CARREGAMENTO DA VIEW PERFIL ACADEMIA.PHP
     public function vPerfilAcademia($idAcademia) {
@@ -146,7 +136,7 @@ class AcademiaController extends CI_Controller {
             'nomeResponsavelAcademia' => $this->input->post('nomeResponsavelAcademia'),
             'emailAcademia' => $this->input->post('emailAcademia'),
             'mensalidadeAcademia' => $this->input->post('mensalidadeAcademia'),
-            'statusAcademia' => false,
+            'statusAcademia' => $this->input->post('statusAcademia'),
             'qtdTotalLicencas' => $this->input->post('qtdTotalLicencas'),
             'qtdLicencasUsadas' => 0,
             'valorTotal' => $this->input->post('valorTotal'),
@@ -227,10 +217,10 @@ class AcademiaController extends CI_Controller {
     public function cVerificarCNPJ() {
         $cnpjAcademia = $this->input->post('cnpjAcademia');
 
-        $dadosAcademia = get_object_vars($this->AcademiaModel->mVerificarCNPJ($cnpjAcademia)[0]);
+        $dadosAcademia = $this->AcademiaModel->mVerificarCNPJ($cnpjAcademia);
 
-        if (count($dadosAcademia) === 1) {
-            $resposta = array('existe' => true, 'id' => $dadosAcademia['idAcademia']);
+        if (count($dadosAcademia) == 1) {
+            $resposta = array('existe' => true, 'id' => $dadosAcademia[0]->idAcademia);
         } else {
             $resposta = array('existe' => false);
         }

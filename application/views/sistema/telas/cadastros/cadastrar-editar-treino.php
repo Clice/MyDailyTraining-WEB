@@ -118,14 +118,14 @@
                                             </div>                               
                                         </div>
                                         <form name="formCadEditTreino" id="formCadEditTreino"> 
-                                            <div class="content-body">                                                
+                                            <div class="content-body">                                  
                                                 <div class="row">
                                                     <div class="card">
                                                         <div class="card-body collapse in">
                                                             <div class="table-responsive">
                                                                 <table class="table table-hover mb-0" id="tabelaExercicios">
                                                                     <thead>
-                                                                        <tr>                                                                            
+                                                                        <tr> 
                                                                             <th style="text-align: center; padding: 0px 5px 0.75rem 5px;">Selecione</th>
                                                                             <th>Nome do Exercício</th>
                                                                             <th>Grupo Muscular</th>
@@ -216,7 +216,6 @@
     }
 
     function cadEditTreino() {
-        alert($('#formCadastrarEditarTreino').serialize());
         $.ajax({
             url: "<?php echo base_url('TreinoController/cCadastrarEditarTreino') ?>",
             type: "POST",
@@ -224,8 +223,8 @@
             dataType: "JSON",
             success: function (data) {
                 if (data.success) {
-                    window.location.href = '<?php echo base_url('cadastrar-exercicios-treino/'); ?>' + 
-                            document.getElementById('idAluno').value + "/" + data.idTreino + "/" + 
+                    window.location.href = '<?php echo base_url('cadastrar-exercicios-treino/'); ?>' +
+                            document.getElementById('idAluno').value + "/" + data.idTreino + "/" +
                             data.idTreinoN + document.getElementById('idExercicio').value;
                 } else {
                     alert('entrou erro');

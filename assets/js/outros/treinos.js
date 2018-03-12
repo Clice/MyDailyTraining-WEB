@@ -60,24 +60,6 @@ function pesquisarExercicio() {
     }
 }
 
-// FUNÇÃO PARA VERIFICAR OS DADOS DA AVALIAÇÃO FÍSICA DO ALUNO
-function verificarDadosAvaliacaoFisica() {
-    var idAluno = $('#idAluno').val();
-    var idUsuario = $('#idUsuario').val();
-    var pesoAluno = $('#pesoAluno').val();
-    var estaturaAluno = $('#estaturaAluno').val();
-    var cinturaAluno = $('#cinturaAluno').val();
-    var abdomenAluno = $('#abdomenAluno').val();
-    var quadrilAluno = $('#quadrilAluno').val();
-
-    if ((idAluno === "") || (idUsuario === "") || (pesoAluno === "") || (estaturaAluno === "") || (cinturaAluno === "") ||
-            (abdomenAluno === "") || (quadrilAluno === "")) {
-        $('#dados-obrigatorios-avaliacao-fisica').modal('show');
-    } else {
-        cadAvaliacaoFisicaAluno();
-    }
-}
-
 function selecionarTreino(obj, idTreino) {
     var nomeTreino = $('#nomeTreino' + idTreino).val();
     var strAux = "|" + idTreino;

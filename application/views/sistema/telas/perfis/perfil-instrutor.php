@@ -112,39 +112,43 @@
                                                 </div>                                     
                                             </div>
                                         </div>
-                                        <hr style="margin-top: 4%;">
+                                        <hr>
                                         <!-- BOTÕES -->
-                                        <div style="float: right;" class="form-actions">
-                                            <?php if ($this->session->userdata('tipoConta') == 2) { ?>
-                                                <button type="button"                               
-                                                <?php if ($instrutor->statusConta == 1) { ?>
-                                                            class="btn btn-black"
-                                                            onclick="modalDesBloquearUsuario(this, <?php echo $instrutor->idUsuario; ?>, true);"
-                                                        <?php } else { ?>
-                                                            class="btn btn-blue"
-                                                            onclick="modalDesBloquearUsuario(this, <?php echo $instrutor->idUsuario; ?>, false);"
-                                                        <?php } ?>
-                                                        ><i <?php if ($instrutor->statusConta == 1) { ?>
-                                                            class="icon-lock"
-                                                        <?php } else { ?>
-                                                            class="icon-unlock"
-                                                        <?php } ?>></i><?php if ($instrutor->statusConta) { ?> Bloquear <?php } else { ?> Desbloquear <?php } ?>
-                                                </button>
-                                                <button type="button" class="btn btn-warning" onclick="window.location.href = '<?php echo base_url('editar-instrutor/' . md5($instrutor->idUsuario)); ?>'">
-                                                    <i class="icon-edit"></i> Editar
-                                                </button>
-                                                <button type="button" class="btn btn-danger" onclick="modalExcluirUsuario(<?php echo $instrutor->idUsuario; ?>);">
-                                                    <i class="icon-trash"></i> Excluir
-                                                </button>
-                                            <?php } else if ($this->session->userdata('idUsuario') == $instrutor->idUsuario) { ?>
-                                                <button type="button" class="btn btn-warning" onclick="window.location.href = '<?php echo base_url('editar-instrutor/' . md5($instrutor->idUsuario)); ?>'">
-                                                    <i class="icon-edit"></i> Editar
-                                                </button>
-                                            <?php } ?>
-                                            <button type="button" class="btn btn-default" onclick="window.location.href = '<?php echo base_url('lista-instrutores'); ?>'">
-                                                <i class="icon-chevron-left2"></i> Voltar
-                                            </button>
-                                        </div>                                        
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div style="float: right;" class="form-actions">
+                                                    <?php if ($this->session->userdata('tipoConta') == 2) { ?>
+                                                        <button type="button"                               
+                                                        <?php if ($instrutor->statusConta == 1) { ?>
+                                                                    class="btn btn-black"
+                                                                    onclick="modalDesBloquearUsuario(this, <?php echo $instrutor->idUsuario; ?>, true);"
+                                                                <?php } else { ?>
+                                                                    class="btn btn-blue"
+                                                                    onclick="modalDesBloquearUsuario(this, <?php echo $instrutor->idUsuario; ?>, false);"
+                                                                <?php } ?>
+                                                                ><i <?php if ($instrutor->statusConta == 1) { ?>
+                                                                    class="icon-lock"
+                                                                <?php } else { ?>
+                                                                    class="icon-unlock"
+                                                                <?php } ?>></i><?php if ($instrutor->statusConta) { ?> Bloquear <?php } else { ?> Desbloquear <?php } ?>
+                                                        </button>
+                                                        <button type="button" class="btn btn-warning" onclick="window.location.href = '<?php echo base_url('editar-instrutor/' . md5($instrutor->idUsuario)); ?>'">
+                                                            <i class="icon-edit"></i> Editar
+                                                        </button>
+                                                        <button type="button" class="btn btn-danger" onclick="modalExcluirUsuario(<?php echo $instrutor->idUsuario; ?>);">
+                                                            <i class="icon-trash"></i> Excluir
+                                                        </button>
+                                                    <?php } else if ($this->session->userdata('idUsuario') == $instrutor->idUsuario) { ?>
+                                                        <button type="button" class="btn btn-warning" onclick="window.location.href = '<?php echo base_url('editar-instrutor/' . md5($instrutor->idUsuario)); ?>'">
+                                                            <i class="icon-edit"></i> Editar
+                                                        </button>
+                                                    <?php } ?>
+                                                    <button type="button" class="btn btn-default" onclick="window.location.href = '<?php echo base_url('lista-instrutores'); ?>'">
+                                                        <i class="icon-chevron-left2"></i> Voltar
+                                                    </button>
+                                                </div> 
+                                            </div>
+                                        </div>
                                     <?php } ?>
                                 </div>
                             </div>

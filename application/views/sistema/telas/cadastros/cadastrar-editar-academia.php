@@ -48,7 +48,7 @@
                                                         <input type="text" id="cnpjAcademia" maxlength="18" class="form-control" value="<?php if ($idAcademia != "novo") echo $cnpjAcademia; ?>" 
                                                                placeholder="Digite o CNPJ" name="cnpjAcademia" onchange="verificarCnpj();">
                                                         <small><span id='msnCNPJ'></span></small>
-                                                    </div>                                                                
+                                                    </div> 
                                                 </div>
                                             </div>
                                             <div class="row">
@@ -309,7 +309,7 @@
                                                 <!-- PACOTE DA ACADEMIA -->
                                                 <div class="col-md-7">
                                                     <div class="form-group">
-                                                        <label>Pacotes:</label><?php if ($idPacote !== '2') echo 'novo'; ?>
+                                                        <label>Pacotes:</label>
                                                         <div class="input-group">
                                                             <!-- PACOTE A -->
                                                             <label class="display-inline-block custom-control custom-radio">
@@ -441,7 +441,6 @@
                                                         <label id="qtdLicencasPlano">
                                                             <?php
                                                             if ($licencasPlano > 0) {
-                                                                echo $licencasPlano;
                                                                 echo $licencasPlano . ' licenças';
                                                             } else {
                                                                 echo '0 licenças';
@@ -544,7 +543,7 @@
         <div class="modal-content">
             <div class="modal-body">
                 <h4 class="modal-title text-xs-center"><i class="icon-check-circle success"></i> <?php if ($idAcademia !== "novo") { ?> Dados alterados com sucesso 
-<?php } else { ?> Dados cadastrados com sucesso <?php } ?></h4>
+                    <?php } else { ?> Dados cadastrados com sucesso <?php } ?></h4>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" onclick="window.location.href = '<?php echo base_url($voltarPagina); ?>'">Fechar</button>
@@ -560,7 +559,7 @@
         <div class="modal-content">
             <div class="modal-body">
                 <h4 class="modal-title text-xs-center"><i class="icon-remove danger"></i> <?php if ($idAcademia !== "novo") { ?> Erro ao cadastrar os dados 
-<?php } else { ?> Erro ao alterar os dados <?php } ?></h4>
+                    <?php } else { ?> Erro ao alterar os dados <?php } ?></h4>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>

@@ -22,10 +22,10 @@ class TreinoModel extends CI_Model {
     }
 
     // FUNÇÃO PARA PEGAR OS DADOS DO TREINO
-    public function mVisualizarTreino($idUsuario) {
+    public function mVisualizarTreino($idTreino) {
         $this->db->select('*');
         $this->db->from('treinos');
-        $this->db->where('md5(idTreino)', $idUsuario);
+        $this->db->where('md5(idTreino)', $idTreino);
         return $this->db->get()->result();
     }
 

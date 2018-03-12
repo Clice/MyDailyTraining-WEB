@@ -498,8 +498,8 @@
                                                 <!-- DOENÇAS FAMILIARES DO ALUNO -->
                                                 <div class="form-group col-md-12">
                                                     <label>Doenças Familiares:</label>
-                                                    <textarea id="doencasFamiliaresAluno" name="doencasFamiliaresAluno" class="form-control" maxlengt="200" 
-                                                              placeholder="Descreva as doenças familiares do aluno"><?php if ($idAluno != "novo") if ($doencasFamiliaresAluno != NULL) echo $doencasFamiliaresAluno; ?></textarea>
+                                                    <textarea id="doencasFamiliaresAluno" name="doencasFamiliaresAluno" class="form-control" maxlengt="200"
+                                                              placeholder="Descreva as doenças familiares do aluno"><?php if ($idAluno != "novo") if ($doencasFamiliares != NULL) echo $doencasFamiliares; ?></textarea>
                                                 </div>
                                             </div>
                                         </div>

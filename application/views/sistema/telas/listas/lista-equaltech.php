@@ -59,6 +59,11 @@
                                                                             <td><?php echo $equaltech->telefoneUsuario; ?></td>
                                                                             <td><?php echo $equaltech->enderecoUsuario; ?></td>
                                                                             <td style="text-align: center;">
+                                                                                <?php if ($this->session->userdata('idUsuario') == $equaltech->idUsuario) { ?>
+                                                                                    <button type="button" class="btn mb-1 btn-warning btn-sm" 
+                                                                                            onclick="window.location.href = '<?php echo base_url('editar-equaltech/' . md5($equaltech->idUsuario)); ?>'">
+                                                                                        <i class="icon-edit"></i> Editar</button>
+                                                                                <?php } ?>
                                                                                 <button type="button" class="btn mb-1 btn-success btn-sm" 
                                                                                         onclick="window.location.href = '<?php echo base_url('perfil-equaltech/' . md5($equaltech->idUsuario)); ?>'">
                                                                                     <i class="icon-eye"></i> Ver Perfil</button>

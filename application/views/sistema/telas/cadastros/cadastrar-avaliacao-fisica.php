@@ -20,7 +20,6 @@
                                     <form class="form" id="formCadadastrarAvaliacaoFisicaAluno" name="formCadadastrarAvaliacaoFisicaAluno">
                                         <?php foreach ($dadosAluno as $dadoAluno) { ?>
                                             <input type="hidden" name="idAluno" id="idAluno" value="<?php echo $dadoAluno->idAluno; ?>">
-                                            <input type="hidden" name="idUsuario" id="idUsuario" value="<?php echo $idUsuario; ?>">
                                             <div class="form-body">
                                                 <div class="row">
                                                     <div class="col-md-8">
@@ -36,33 +35,33 @@
                                                 <!-- PESO DO ALUNO -->
                                                 <div class="col-md-3">
                                                     <div class="form-group">
-                                                        <label>Peso:</label>
+                                                        <label>Peso:*</label>
                                                         <input type="text" id="pesoAluno" name="pesoAluno" class="form-control" 
-                                                               placeholder="Digite o valor" minlength="5">
+                                                               placeholder="Digite o valor em kg" minlength="5">
                                                     </div>
                                                 </div>
                                                 <!-- ESTATURA DO ALUNO -->
                                                 <div class="col-md-3">
                                                     <div class="form-group">
-                                                        <label>Estatura:</label>
+                                                        <label>Estatura:*</label>
                                                         <input type="text" id="estaturaAluno" name="estaturaAluno" class="form-control" 
-                                                               placeholder="Digite o valor" minlength="5">
+                                                               placeholder="Digite o valor em metros" minlength="5">
                                                     </div>
                                                 </div>
                                                 <!-- OMBRO DO ALUNO -->
                                                 <div class="col-md-3">
                                                     <div class="form-group">
-                                                        <label>Ombro:</label>
+                                                        <label>Ombro:*</label>
                                                         <input type="text" id="ombroAluno" name="ombroAluno" class="form-control" 
-                                                               placeholder="Digite o valor" minlength="5">
+                                                               placeholder="Digite o valor em cm" minlength="5">
                                                     </div>
                                                 </div>
                                                 <!-- TORAX INSPIRADO DO ALUNO -->
                                                 <div class="col-md-3">
                                                     <div class="form-group">
-                                                        <label>Torax Inspirado:</label>
+                                                        <label>Torax Inspirado:*</label>
                                                         <input type="text" id="toraxInspiradoAluno" name="toraxInspiradoAluno" class="form-control" 
-                                                               placeholder="Digite o valor" minlength="5">
+                                                               placeholder="Digite o valor em cm" minlength="5">
                                                     </div>
                                                 </div>
                                                 <!-- TORAX INSPIRADO DO ALUNO -->
@@ -70,7 +69,7 @@
                                                     <div class="form-group">
                                                         <label>Torax Relaxado:</label>
                                                         <input type="text" id="toraxRelaxadoAluno" name="toraxRelaxadoAluno" class="form-control" 
-                                                               placeholder="Digite o valor" minlength="5">
+                                                               placeholder="Digite o valor em cm" minlength="5">
                                                     </div>
                                                 </div>
                                             </div>
@@ -79,33 +78,33 @@
                                                 <!-- BRAÇO ESQUERDO RELAXADO DO ALUNO -->
                                                 <div class="col-md-3">
                                                     <div class="form-group">
-                                                        <label>Braço Esq. Relaxado:</label>
+                                                        <label>Braço Esquerdo Relaxado:*</label>
                                                         <input type="text" id="bracoEsquerdoReladoAluno" name="bracoEsquerdoReladoAluno" class="form-control" 
-                                                               placeholder="Digite o valor" minlength="5">
+                                                               placeholder="Digite o valor em cm" minlength="5">
                                                     </div>
                                                 </div>
                                                 <!-- BRAÇO DIREITO RELAXADO DO ALUNO -->
                                                 <div class="col-md-3">
                                                     <div class="form-group">
-                                                        <label>Braço Dir. Relaxado:</label>
+                                                        <label>Braço Direito Relaxado:*</label>
                                                         <input type="text" id="bracoDireitoReladoAluno" name="bracoDireitoReladoAluno" class="form-control" 
-                                                               placeholder="Digite o valor" minlength="5">
+                                                               placeholder="Digite o valor em cm" minlength="5">
                                                     </div>
                                                 </div>
                                                 <!-- ANTEBRAÇO ESQUERDO DO ALUNO -->
                                                 <div class="col-md-3">
                                                     <div class="form-group">
-                                                        <label>Antebraço Esquerdo:</label>
+                                                        <label>Antebraço Esquerdo:*</label>
                                                         <input type="text" id="antebracoEsquerdoAluno" name="antebracoEsquerdoAluno" class="form-control" 
-                                                               placeholder="Digite o valor" minlength="5">
+                                                               placeholder="Digite o valor em cm" minlength="5">
                                                     </div>
                                                 </div>
                                                 <!-- ANTEBRAÇO DIREITO DO ALUNO -->
                                                 <div class="col-md-3">
                                                     <div class="form-group">
-                                                        <label>Antebraço Direito:</label>
+                                                        <label>Antebraço Direito:*</label>
                                                         <input type="text" id="antebracoDireitoAluno" name="antebracoDireitoAluno" class="form-control" 
-                                                               placeholder="Digite o valor" minlength="5">
+                                                               placeholder="Digite o valor em cm" minlength="5">
                                                     </div>
                                                 </div>
                                             </div>
@@ -113,17 +112,17 @@
                                                 <!-- BRAÇO ESQUERDO CONTRAÍDO DO ALUNO -->
                                                 <div class="col-md-3">
                                                     <div class="form-group">
-                                                        <label>Braço Esq. Contraído:</label>
+                                                        <label>Braço Esquerdo Contraído:*</label>
                                                         <input type="text" id="bracoEsquerdoContraidoAluno" name="bracoEsquerdoContraidoAluno" class="form-control" 
-                                                               placeholder="Digite o valor" minlength="5">
+                                                               placeholder="Digite o valor em cm" minlength="5">
                                                     </div>
                                                 </div>
                                                 <!-- BRAÇO DIREITO CONTRAÍDO DO ALUNO -->
                                                 <div class="col-md-3">
                                                     <div class="form-group">
-                                                        <label>Braço Dir. Contraído:</label>
+                                                        <label>Braço Direito Contraído:*</label>
                                                         <input type="text" id="bracoDireitoContraidoAluno" name="bracoDireitoContraidoAluno" class="form-control" 
-                                                               placeholder="Digite o valor" minlength="5">
+                                                               placeholder="Digite o valor em cm" minlength="5">
                                                     </div>
                                                 </div>
                                             </div>
@@ -132,25 +131,25 @@
                                                 <!-- CINTURA DO ALUNO -->
                                                 <div class="col-md-4">
                                                     <div class="form-group">
-                                                        <label>Cintura:</label>
+                                                        <label>Cintura:*</label>
                                                         <input type="text" id="cinturaAluno" name="cinturaAluno" class="form-control" 
-                                                               placeholder="Digite o valor" minlength="5">
+                                                               placeholder="Digite o valor em cm" minlength="5">
                                                     </div>
                                                 </div>
                                                 <!-- ABDÔMEN DO ALUNO -->
                                                 <div class="col-md-4">
                                                     <div class="form-group">
-                                                        <label>Abdômen:</label>
+                                                        <label>Abdômen:*</label>
                                                         <input type="text" id="abdomenAluno" name="abdomenAluno" class="form-control" 
-                                                               placeholder="Digite o valor" minlength="5">
+                                                               placeholder="Digite o valor em cm" minlength="5">
                                                     </div>
                                                 </div>
                                                 <!-- QUADRIL DO ALUNO -->
                                                 <div class="col-md-4">
                                                     <div class="form-group">
-                                                        <label>Quadril:</label>
+                                                        <label>Quadril:*</label>
                                                         <input type="text" id="quadrilAluno" name="quadrilAluno" class="form-control" 
-                                                               placeholder="Digite o valor" minlength="5">
+                                                               placeholder="Digite o valor em cm" minlength="5">
                                                     </div>
                                                 </div>
                                             </div>
@@ -159,17 +158,17 @@
                                                 <!-- QUADRIL ESQUERDO DO ALUNO -->
                                                 <div class="col-md-3">
                                                     <div class="form-group">
-                                                        <label>Coxa Esquerda:</label>
-                                                        <input type="text" id="coxaEsquerdoAluno" name="coxaEsquerdoAluno" class="form-control" 
-                                                               placeholder="Digite o valor" minlength="5">
+                                                        <label>Coxa Esquerda:*</label>
+                                                        <input type="text" id="coxaEsquerdaAluno" name="coxaEsquerdaAluno" class="form-control" 
+                                                               placeholder="Digite o valor em cm" minlength="5">
                                                     </div>
                                                 </div>
                                                 <!-- QUADRIL DIREITO DO ALUNO -->
                                                 <div class="col-md-3">
                                                     <div class="form-group">
-                                                        <label>Coxa Direita:</label>
+                                                        <label>Coxa Direita:*</label>
                                                         <input type="text" id="coxaDireitaAluno" name="coxaDireitaAluno" class="form-control" 
-                                                               placeholder="Digite o valor" minlength="5">
+                                                               placeholder="Digite o valor em cm" minlength="5">
                                                     </div>
                                                 </div>
                                                 <!-- PANTURRILHA ESQUERDA DO ALUNO -->
@@ -177,7 +176,7 @@
                                                     <div class="form-group">
                                                         <label>Panturrilha Esquerda:</label>
                                                         <input type="text" id="panturrilhaEsquerdaAluno" name="panturrilhaEsquerdaAluno" class="form-control" 
-                                                               placeholder="Digite o valor" minlength="5">
+                                                               placeholder="Digite o valor em cm" minlength="5">
                                                     </div>
                                                 </div>
                                                 <!-- PANTURRILHA DIREITA DO ALUNO -->
@@ -185,23 +184,23 @@
                                                     <div class="form-group">
                                                         <label>Panturrilha Direita:</label>
                                                         <input type="text" id="panturrilhaDireitaAluno" name="panturrilhaDireitaAluno" class="form-control" 
-                                                               placeholder="Digite o valor" minlength="5">
+                                                               placeholder="Digite o valor em cm" minlength="5">
                                                     </div>
                                                 </div>
                                                 <!-- PERNA ESQUERDA DO ALUNO -->
                                                 <div class="col-md-3">
                                                     <div class="form-group">
-                                                        <label>Perna Esquerda:</label>
+                                                        <label>Perna Esquerda:*</label>
                                                         <input type="text" id="pernaEsquerdaAluno" name="pernaEsquerdaAluno" class="form-control" 
-                                                               placeholder="Digite o valor" minlength="5">
+                                                               placeholder="Digite o valor em cm" minlength="5">
                                                     </div>
                                                 </div>
                                                 <!-- PERNA DIREITA DO ALUNO -->
                                                 <div class="col-md-3">
                                                     <div class="form-group">
-                                                        <label>Perna Direita:</label>
+                                                        <label>Perna Direita:*</label>
                                                         <input type="text" id="pernaDireitaAluno" name="pernaDireitaAluno" class="form-control" 
-                                                               placeholder="Digite o valor" minlength="5">
+                                                               placeholder="Digite o valor em cm" minlength="5">
                                                     </div>
                                                 </div>
                                             </div>
@@ -240,13 +239,13 @@
 
 
 <!--MODAL - DADOS OBRIGATÓRIOS NÃO INFORMADOS -->
-<div class="modal fade text-xs-left" data-backdrop="static" id="dados-obrigatorios-avaliacao-fisica" tabindex="-1" role="dialog"
+<div class="modal fade text-xs-left" data-backdrop="static" id="dados-obrigatorios" tabindex="-1" role="dialog"
      aria-labelledby="myModalLabel1"
      aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-body">
-                <h4 class="modal-title text-xs-center"><i class="icon-warning2 warning"></i> Dados obrigatórios não informados</h4>
+                <h4 class="modal-title text-xs-center"><i class="icon-warning2 warning"></i> Dados obrigatórios não informados.</h4>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
@@ -261,9 +260,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-body">
-                <h4 class="modal-title text-xs-center">
-                    <i class="icon-check-circle success"></i> Dados cadastrados com sucesso
-                </h4>
+                <h4 class="modal-title text-xs-center"><i class="icon-check-circle success"></i> Dados cadastrados com sucesso.</h4>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" onclick="window.location.href = '<?php echo base_url('lista-alunos'); ?>'">Fechar</button>
@@ -278,9 +275,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-body">
-                <h4 class="modal-title text-xs-center">
-                    <i class="icon-remove danger"></i> Erro ao cadastrar os dados
-                </h4>
+                <h4 class="modal-title text-xs-center"><i class="icon-remove danger"></i> Erro ao cadastrar os dados.</h4>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="window.location.reload();">Fechar</button>

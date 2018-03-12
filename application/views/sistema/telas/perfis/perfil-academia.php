@@ -102,44 +102,49 @@
                                                 </div>
                                             </div>
                                         </div>
-
-                                        <hr style="margin-top: 4%;">
+                                        <hr>
                                         <!-- BOTÕES -->
-                                        <div style="float: right;" class="form-actions">
-                                            <?php if ($this->session->userdata('tipoConta') == 1) { ?>                                           
-                                                <button type="button" class="btn btn-purple" onclick="window.location.href = '<?php echo base_url('cadastrar-administrador/novo/' . $academia->idAcademia); ?>'">
-                                                    <i class="icon-plus4"></i> Novo Administrador
-                                                </button>
-                                                <button type="button"                               
-                                                <?php if ($academia->statusAcademia == 1) { ?>
-                                                            class="btn btn-black"
-                                                            onclick="modalDesBloquearAcademia(this, <?php echo $academia->idAcademia; ?>, true);"
-                                                        <?php } else { ?>
-                                                            class="btn btn-blue"
-                                                            onclick="modalDesBloquearAcademia(this, <?php echo $academia->idAcademia; ?>, false);"
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div style="float: right;" class="form-actions">
+                                                    <?php if ($this->session->userdata('tipoConta') == 1) { ?>
+                                                        <?php if ($academia->statusAcademia == true) { ?>
+                                                            <button type="button" class="btn btn-purple" onclick="window.location.href = '<?php echo base_url('cadastrar-administrador/novo/' . $academia->idAcademia); ?>'">
+                                                                <i class="icon-plus4"></i> Novo Administrador
+                                                            </button>
                                                         <?php } ?>
-                                                        ><i <?php if ($academia->statusAcademia == 1) { ?>
-                                                            class="icon-lock"
-                                                        <?php } else { ?>
-                                                            class="icon-unlock"
-                                                        <?php } ?>></i><?php if ($academia->statusAcademia) { ?> Bloquear <?php } else { ?> Desbloquear <?php } ?>
-                                                </button>
-                                                <button type="button" class="btn btn-warning" onclick="window.location.href = '<?php echo base_url('editar-academia/' . md5($academia->idAcademia)); ?>'">
-                                                    <i class="icon-edit"></i> Editar
-                                                </button>
-                                                <button type="button" class="btn btn-danger" onclick="modalExcluirAcademia(<?php echo $academia->idAcademia; ?>);">
-                                                    <i class="icon-trash"></i> Excluir
-                                                </button>
-                                            <?php } else { ?>
-                                                <button type="button" class="btn btn-warning" onclick="window.location.href = '<?php echo base_url('editar-academia/' . md5($academia->idAcademia)); ?>'">
-                                                    <i class="icon-edit"></i> Editar
-                                                </button>
-                                            <?php } ?>
-                                            <button type="button" class="btn btn-default" onclick="window.location.href = '<?php echo base_url($voltarPagina); ?>'">
-                                                <i class="icon-chevron-left2"></i> Voltar
-                                            </button>
-                                        <?php } ?>
-                                    </div>                                        
+                                                        <button type="button"                               
+                                                        <?php if ($academia->statusAcademia == 1) { ?>
+                                                                    class="btn btn-black"
+                                                                    onclick="modalDesBloquearAcademia(this, <?php echo $academia->idAcademia; ?>, true);"
+                                                                <?php } else { ?>
+                                                                    class="btn btn-blue"
+                                                                    onclick="modalDesBloquearAcademia(this, <?php echo $academia->idAcademia; ?>, false);"
+                                                                <?php } ?>
+                                                                ><i <?php if ($academia->statusAcademia == 1) { ?>
+                                                                    class="icon-lock"
+                                                                <?php } else { ?>
+                                                                    class="icon-unlock"
+                                                                <?php } ?>></i><?php if ($academia->statusAcademia) { ?> Bloquear <?php } else { ?> Desbloquear <?php } ?>
+                                                        </button>
+                                                        <button type="button" class="btn btn-warning" onclick="window.location.href = '<?php echo base_url('editar-academia/' . md5($academia->idAcademia)); ?>'">
+                                                            <i class="icon-edit"></i> Editar
+                                                        </button>
+                                                        <button type="button" class="btn btn-danger" onclick="modalExcluirAcademia(<?php echo $academia->idAcademia; ?>);">
+                                                            <i class="icon-trash"></i> Excluir
+                                                        </button>
+                                                    <?php } else { ?>
+                                                        <button type="button" class="btn btn-warning" onclick="window.location.href = '<?php echo base_url('editar-academia/' . md5($academia->idAcademia)); ?>'">
+                                                            <i class="icon-edit"></i> Editar
+                                                        </button>
+                                                    <?php } ?>
+                                                    <button type="button" class="btn btn-default" onclick="window.location.href = '<?php echo base_url($voltarPagina); ?>'">
+                                                        <i class="icon-chevron-left2"></i> Voltar
+                                                    </button>
+                                                <?php } ?>
+                                            </div>                                        
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

@@ -98,7 +98,7 @@ class AlunoController extends CI_Controller {
             'statusAluno' => $this->input->post('statusAluno'),
             'cirurgias' => $this->input->post('cirurgiasAluno'),
             'medicamentos' => $this->input->post('medicamentosAluno'),
-            'doencasFamiliaresAluno' => $this->input->post('doencasFamiliaresAluno'),
+            'doencasFamiliares' => $this->input->post('doencasFamiliaresAluno'),
             'diaPagamentoAluno' => $this->input->post('diaPagamentoAluno')
         );
 

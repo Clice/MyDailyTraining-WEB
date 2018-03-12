@@ -14,7 +14,7 @@
                                         <div class="content-header row">
                                             <div class="content-header-left col-md-6 col-xs-12 mb-1">
                                                 <h2 class="content-header-title"><?php echo $equaltech->nomeUsuario; ?></h2>
-                                                <?php  ?>
+                                                <?php ?>
                                             </div>
                                         </div>                                     
                                         <hr>
@@ -79,13 +79,17 @@
                                             </div>
                                         </div>
                                         <br>
-                                        <hr style="margin-top: 4%;">
+                                        <hr>
                                         <!-- BOTÕES -->
-                                        <div style="float: right;" class="form-actions">
-                                            <button type="button" class="btn btn-default" onclick="window.location.href = '<?php echo base_url('lista-equaltech'); ?>'">
-                                                <i class="icon-chevron-left2"></i> Voltar
-                                            </button>
-                                        </div>  
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div style="float: right;" class="form-actions">
+                                                    <button type="button" class="btn btn-default" onclick="window.location.href = '<?php echo base_url('lista-equaltech'); ?>'">
+                                                        <i class="icon-chevron-left2"></i> Voltar
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
                                     <?php } ?>                                      
                                 </div>
                             </div>

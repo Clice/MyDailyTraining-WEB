@@ -23,79 +23,81 @@ class TreinoController extends CI_Controller {
         $dadosTreino['perfilAluno'] = $this->AlunoModel->mVisualizarPerfilAluno(md5($idAluno));
         $dadosTreino['diasTreinoAluno'] = explode("|", $dadosTreino['perfilAluno'][0]->diasTreinoAluno);
 
-        for ($i = 0; $i < count($this->TreinoModel->mDiasAlunoTreino(md5($idAluno))); $i++) {
-            $dadosTreino['diasAluno'][$i] = get_object_vars($this->TreinoModel->mDiasAlunoTreino(md5($idAluno))[$i]);
-        }
-
-        $aux = "";
-        $count = 0;
-
-        // LAÇO PARA PEGAR TODOS OS DIAS DA SEMANA QUE O ALUNO JÁ ESTÁ COM
-        // UM TREINO CADASTRADO
-        for ($j = 0; $j < count($dadosTreino['diasAluno']); $j++) {
-            if ($dadosTreino['diasAluno'][$j]['domingo'] == true) {
-                $aux = $aux . "|Domingo";
-                $count++;
+        if (count($this->TreinoModel->mDiasAlunoTreino(md5($idAluno))) > 0) {
+            for ($i = 0; $i < count($this->TreinoModel->mDiasAlunoTreino(md5($idAluno))); $i++) {
+                $dadosTreino['diasAluno'][$i] = get_object_vars($this->TreinoModel->mDiasAlunoTreino(md5($idAluno))[$i]);
             }
 
-            if ($dadosTreino['diasAluno'][$j]['segunda'] == true) {
-                $aux = $aux . "|Segunda";
-                $count++;
-            }
+            $aux = "";
+            $count = 0;
 
-            if ($dadosTreino['diasAluno'][$j]['terca'] == true) {
-                $aux = $aux . "|Terça";
-                $count++;
-            }
+            // LAÇO PARA PEGAR TODOS OS DIAS DA SEMANA QUE O ALUNO JÁ ESTÁ COM
+            // UM TREINO CADASTRADO
+            for ($j = 0; $j < count($dadosTreino['diasAluno']); $j++) {
+                if ($dadosTreino['diasAluno'][$j]['domingo'] == true) {
+                    $aux = $aux . "|Domingo";
+                    $count++;
+                }
 
-            if ($dadosTreino['diasAluno'][$j]['quarta'] == true) {
-                $aux = $aux . "|Quarta";
-                $count++;
-            }
+                if ($dadosTreino['diasAluno'][$j]['segunda'] == true) {
+                    $aux = $aux . "|Segunda";
+                    $count++;
+                }
 
-            if ($dadosTreino['diasAluno'][$j]['quinta'] == true) {
-                $aux = $aux . "|Quinta";
-                $count++;
-            }
+                if ($dadosTreino['diasAluno'][$j]['terca'] == true) {
+                    $aux = $aux . "|Terça";
+                    $count++;
+                }
 
-            if ($dadosTreino['diasAluno'][$j]['sexta'] == true) {
-                $aux = $aux . "|Sexta";
-                $count++;
-            }
+                if ($dadosTreino['diasAluno'][$j]['quarta'] == true) {
+                    $aux = $aux . "|Quarta";
+                    $count++;
+                }
 
-            if ($dadosTreino['diasAluno'][$j]['sabado'] == true) {
-                $aux = $aux . "|Sábado";
-                $count++;
-            }
-        }
+                if ($dadosTreino['diasAluno'][$j]['quinta'] == true) {
+                    $aux = $aux . "|Quinta";
+                    $count++;
+                }
 
-        $dias = explode("|", $aux);
-        $indice = "";
+                if ($dadosTreino['diasAluno'][$j]['sexta'] == true) {
+                    $aux = $aux . "|Sexta";
+                    $count++;
+                }
 
-        // PEGANDO OS INDICES DO VETOR CUJO DIA JÁ ESTÁ CADASTRADO
-        for ($i = 1; $i < count($dias); $i++) {
-            for ($j = 0; $j < count($dadosTreino['diasTreinoAluno']); $j++) {
-                if ($dias[$i] == $dadosTreino['diasTreinoAluno'][$j]) {
-                    $indice = $indice . "|" . $j;
+                if ($dadosTreino['diasAluno'][$j]['sabado'] == true) {
+                    $aux = $aux . "|Sábado";
+                    $count++;
                 }
             }
-        }
 
-        $indices = explode("|", $indice);
+            $dias = explode("|", $aux);
+            $indice = "";
 
-        // APAGANDO DO VETOR OS DIAS QUE JÁ FORAM CADASTRADOS
-        for ($k = 1; $k < count($indices); $k++) {
-            $aux2 = $indices[$k];
-            unset($dadosTreino['diasTreinoAluno'][$aux2]);
+            // PEGANDO OS INDICES DO VETOR CUJO DIA JÁ ESTÁ CADASTRADO
+            for ($i = 1; $i < count($dias); $i++) {
+                for ($j = 0; $j < count($dadosTreino['diasTreinoAluno']); $j++) {
+                    if ($dias[$i] == $dadosTreino['diasTreinoAluno'][$j]) {
+                        $indice = $indice . "|" . $j;
+                    }
+                }
+            }
+
+            $indices = explode("|", $indice);
+
+            // APAGANDO DO VETOR OS DIAS QUE JÁ FORAM CADASTRADOS
+            for ($k = 1; $k < count($indices); $k++) {
+                $aux2 = $indices[$k];
+                unset($dadosTreino['diasTreinoAluno'][$aux2]);
+            }
+
+            $i = 0;
+            foreach ($dadosTreino['diasTreinoAluno'] as $diasAux) {
+                $dadosTreino['aux'][$i] = $diasAux;
+                $i++;
+            }
+
+            $dadosTreino['diasTreinoAluno'] = $dadosTreino['aux'];
         }
-        
-        $i = 0;
-        foreach ($dadosTreino['diasTreinoAluno'] as $diasAux) {
-            $dadosTreino['aux'][$i] = $diasAux;
-            $i++;
-        }
-        
-        $dadosTreino['diasTreinoAluno'] = $dadosTreino['aux'];
 
         // SE UM ID TRIENO FOI PASSADO OU NÃO
         // PARA REALIZAR A EDIÇÃO DE DADOS DE UM TREINO
@@ -182,6 +184,9 @@ class TreinoController extends CI_Controller {
     public function vPerfilTreino($idTreino) {
         $dados['nomePagina'] = 'Perfil Treino';
 
+        $dados['perfilTreino'] = $this->TreinoModel->mVisualizarTreino($idTreino);
+        $dados['exerciciosTreino'] = $this->ExercicioTreinoModel->mVisualizarExerciciosTreino($idTreino);
+
         // CARREGANDO AS VIEWS DA PÁGINA
         $this->load->view('sistema/templates/html-header', $dados);
         $this->load->view('sistema/templates/header');
@@ -190,7 +195,6 @@ class TreinoController extends CI_Controller {
         $this->load->view('sistema/templates/footer');
         $this->load->view('sistema/templates/html-footer');
     }
-
 
     // FUNÇÃO CONTROLLER PARA CADASTRAR/EDITAR TREINO
     public function cCadastrarEditarTreino() {

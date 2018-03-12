@@ -136,3 +136,35 @@ function verificarObjetivoAluno() {
         document.getElementById('objetivoAluno').value = 'Res. Aeróbica';
     }
 }
+
+// FUNÇÃO PARA VERIFICAR OS DADOS DA AVALIAÇÃO FÍSICA DO ALUNO
+function verificarDadosAvaliacaoFisica() {
+    var idAluno = $('#idAluno').val();
+    var pesoAluno = $('#pesoAluno').val();
+    var estaturaAluno = $('#estaturaAluno').val();
+    var ombroAluno = $('#ombroAluno').val();
+    var toraxInspiradoAluno = $('#toraxInspiradoAluno').val();
+    var bracoEsquerdoReladoAluno = $('#bracoEsquerdoReladoAluno').val();
+    var bracoDireitoReladoAluno = $('#bracoDireitoReladoAluno').val();
+    var antebracoEsquerdoAluno = $('#antebracoEsquerdoAluno').val();
+    var antebracoDireitoAluno = $('#antebracoDireitoAluno').val();
+    var bracoEsquerdoContraidoAluno = $('#bracoEsquerdoContraidoAluno').val();
+    var bracoDireitoContraidoAluno = $('#bracoDireitoContraidoAluno').val();
+    var cinturaAluno = $('#cinturaAluno').val();
+    var abdomenAluno = $('#abdomenAluno').val();
+    var quadrilAluno = $('#quadrilAluno').val();
+    var coxaEsquerdaAluno = $('#coxaEsquerdaAluno').val();
+    var coxaDireitaAluno = $('#coxaDireitaAluno').val();
+    var pernaEsquerdaAluno = $('#pernaEsquerdaAluno').val();
+    var pernaDireitaAluno = $('#pernaDireitaAluno').val();
+
+    if ((idAluno === "") || (pesoAluno === "") || (estaturaAluno === "") || (ombroAluno === "") || (toraxInspiradoAluno === "") ||
+            (bracoEsquerdoReladoAluno === "") || (bracoDireitoReladoAluno === "") || (antebracoEsquerdoAluno === "") || 
+            (antebracoDireitoAluno === "") || (bracoEsquerdoContraidoAluno === "") || (bracoDireitoContraidoAluno === "") || 
+            (cinturaAluno === "") || (abdomenAluno === "") || (quadrilAluno === "") || (coxaEsquerdaAluno === "") || 
+            (coxaDireitaAluno === "") || (pernaEsquerdaAluno === "") || (pernaDireitaAluno === "")) {
+        $('#dados-obrigatorios').modal('show');
+    } else {
+        cadAvaliacaoFisicaAluno();
+    }
+}

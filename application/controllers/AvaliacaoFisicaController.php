@@ -40,7 +40,6 @@ class AvaliacaoFisicaController extends CI_Controller {
         // PEGANDO OS VALORES PASSADOS PELO CADASTRAR-EDITAR-ALUNO.PHP     
         $dadosAvaliacao = array(
             'idAluno' => $this->input->post('idAluno'),
-            'idUsuario' => $this->input->post('idUsuario'),
             'dataAvaliacaoFisica' => date('Y-m-d'),
             'pesoAluno' => str_replace(",", ".", $this->input->post('pesoAluno')),
             'estaturaAluno' => str_replace(",", ".", $this->input->post('estaturaAluno')),
