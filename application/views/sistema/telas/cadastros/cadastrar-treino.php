@@ -17,8 +17,8 @@
                                         </div>
                                     </div>
                                     <div class="form-body">
-                                        <form name="formCadastrarEditarTreino" id="formCadastrarEditarTreino">    
-                                            <input type="hidden" name="idExercicio" id="idExercicio">                                          
+                                        <form name="formCadastrarEditarTreino" id="formCadastrarEditarTreino">
+                                            <input type="hidden" name="idExercicio" id="idExercicio">
                                             <input type="hidden" name="idTreino" id="idTreino" value="<?php echo $idTreino; ?>">  
                                             <input type="hidden" name="idAluno" id="idAluno" value="<?php echo $idAluno; ?>">  
                                             <input type="hidden" id="statusTreino" name="statusTreino" value="<?php echo $statusTreino; ?>">

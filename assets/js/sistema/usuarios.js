@@ -1,1 +1,0 @@
-// FUNÇÃO DE REALIZAÇÃO DO LOGIN 

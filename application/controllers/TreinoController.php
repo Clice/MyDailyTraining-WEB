@@ -27,21 +27,24 @@ class TreinoController extends CI_Controller {
         // PARA REALIZAR A EDIÇÃO DE DADOS DE UM TREINO
         if ($idTreino != "novo") {
             $dadosTreino['treino'] = $this->TreinoModel->mVisualizarTreino($idTreino);
-            $dadosTreino['exerciciosTreino'] = $this->ExercicioTreinoModel->mVisualizarExerciciosTreino($idTreino);            
+            $dadosTreino['exerciciosTreino'] = $this->ExercicioTreinoModel->mVisualizarExerciciosTreino($idTreino);
             $dadosTreino['idTreino'] = $dadosTreino['treino'][0]->idTreino;
             $dadosTreino['statusTreino'] = $dadosTreino['treino'][0]->statusTreino;
             $dadosTreino['nomePagina'] = 'Editar Academia';
             $urlPagina = 'editar-treino';
             $dadosTreino['idExercicio'] = "";
-            
+
             for ($i = 0; $i < count($dadosTreino['exerciciosTreino']); $i++) {
-                $dadosTreino['idExercicio'] += "|" . $dadosTreino['exerciciosTreino'][$i]->idExercicio;
+                $dadosTreino['idExercicio'] = $dadosTreino['idExercicio'] . "|" . $dadosTreino['exerciciosTreino'][$i]->idExercicio;
             }
         }
         // PARA REALIZAR O CADASTRO DE UM TREINO
         else {
-            $dadosTreino['diasTreinoAluno'] = $this->cVerificarDiasTreino($idAluno, $dadosTreino['diasTreinoAluno']);
-            $dadosTreino['nomePagina'] = 'Definir Treino do Aluno';
+            if ($this->cVerificarDiasTreino($idAluno, $dadosTreino['diasTreinoAluno']) != "") {
+                $dadosTreino['diasTreinoAluno'] = $this->cVerificarDiasTreino($idAluno, $dadosTreino['diasTreinoAluno']);
+            }
+
+            $dadosTreino['nomePagina'] = 'Cadastrar Treino';
             $dadosTreino['idTreino'] = $idTreino;
             $dadosTreino['statusTreino'] = false;
             $urlPagina = 'cadastrar-treino';
@@ -177,7 +180,7 @@ class TreinoController extends CI_Controller {
         date_default_timezone_set('America/Fortaleza');
         $dadosTreino['dataTreino'] = date('Y-m-d');
         $dadosTreino['horaTreino'] = date('H:i:s');
-        
+
         if ($dadosTreino['idTreino'] == "novo") {
             if ($this->TreinoModel->mCadastrarTreino($dadosTreino)) {
                 $dados['exercicios'] = $this->input->post('exerciciosSelecionados');
@@ -343,6 +346,8 @@ class TreinoController extends CI_Controller {
                 $dadosTreino['aux'][$i] = $diasAux;
                 $i++;
             }
+        } else {
+            $dadosTreino['aux'] = "";
         }
 
         return $dadosTreino['aux'];

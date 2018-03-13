@@ -52,32 +52,32 @@
                                                         <div class="col-md-3">
                                                             <div class="form-group">
                                                                 <h4><strong>Séries:</strong></h4>
-                                                                <h4><?php echo $exercicios[$indice]['serieExercicioTreino']; ?></h4>
+                                                                <h4><?php echo $exercicios[$indice]['serieExercicioTreino'] . " vezes"; ?></h4>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-3">
                                                             <div class="form-group">
                                                                 <h4><strong>Repetições:</strong></h4>
-                                                                <h4><?php echo $exercicios[$indice]['repeticoesExercicioTreino']; ?></h4>
+                                                                <h4><?php echo $exercicios[$indice]['repeticoesExercicioTreino'] . " vezes"; ?></h4>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-3">
                                                             <div class="form-group">
                                                                 <h4><strong>Carga:</strong></h4>
-                                                                <h4><?php echo $exercicios[$indice]['cargaExercicioTreino']; ?></h4>
+                                                                <h4><?php echo $exercicios[$indice]['cargaExercicioTreino'] . " kg"; ?></h4>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-3">
                                                             <div class="form-group">
                                                                 <h4><strong>Tempo de Descanso:</strong></h4>
-                                                                <h4><?php echo $exercicios[$indice]['descansoExercicioTreino']; ?></h4>
+                                                                <h4><?php echo $exercicios[$indice]['descansoExercicioTreino']  . " segundos"; ?></h4>
                                                             </div>
                                                         </div>                                                    
                                                     <?php } else { ?>
                                                         <div class="col-md-4">
                                                             <div class="form-group">
                                                                 <h4><strong>Tempo:</strong></h4>
-                                                                <h4><?php echo $exercicios[$indice]['tempoExercicioTreino']; ?></h4>
+                                                                <h4><?php echo $exercicios[$indice]['tempoExercicioTreino'] . " minutos"; ?></h4>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-4">
@@ -89,7 +89,7 @@
                                                         <div class="col-md-4">
                                                             <div class="form-group">
                                                                 <h4><strong>Carga:</strong></h4>
-                                                                <h4><?php echo $exercicios[$indice]['cargaExercicioTreino']; ?></h4>
+                                                                <h4><?php echo $exercicios[$indice]['cargaExercicioTreino'] . " kg"; ?></h4>
                                                             </div>
                                                         </div>
                                                     <?php } ?>
