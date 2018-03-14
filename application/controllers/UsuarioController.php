@@ -7,13 +7,7 @@ class UsuarioController extends CI_Controller {
     // CONSTRUTOR DO USUÁRIO CONTROLLER
     public function __construct() {
         parent::__construct();
-
-        // VERIFICANDO SE TEM ALGUM USUÁRIO LOGADO PARA PERMITIR O ACESSO
-        if ($this->session->userdata('logado') == true) {
-            $this->load->model('UsuarioModel');
-        } else {
-            redirect(base_url('404_override'));
-        }
+        $this->load->model('UsuarioModel');
     }
 
     // FUNÇÃO CONTROLLER PARA CADASTRAR/EDITAR USUÁRIO
