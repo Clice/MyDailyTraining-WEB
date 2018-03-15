@@ -1,5 +1,5 @@
 
-<!-- FORM DE CADASTRO DO ADMINISTRADOR -->
+<!-- FORM DE CADASTRO DO EQUALTECH -->
 <div class="app-content content container-fluid">
     <div class="content-wrapper">      
         <!-- CONTEÚDO DA PÁGINA - CAMPOS DE PREENCHIMENTO -->
@@ -10,7 +10,7 @@
                         <div class="card">
                             <div class="card-body collapse in">
                                 <div class="card-block-cadastro">
-                                    <!-- TÍTULO DA PÁGINA - CADASTRAR ADMINISTRADOR -->
+                                    <!-- TÍTULO DA PÁGINA - CADASTRAR EQUALTECH -->
                                     <div class="content-header row">
                                         <div class="content-header-left col-md-6 col-xs-12 mb-1">
                                             <h2 class="content-header-title"><?php echo $nomePagina ?></h2>
@@ -28,16 +28,16 @@
                                             <input type="hidden" name="tipoConta" id="tipoConta" value="<?php echo $tipoConta; ?>">
 
                                             <div class="row">
-                                                <!-- NOME DO ADMINISTRADOR -->
+                                                <!-- NOME DO EQUALTECH -->
                                                 <div class="col-md-7">
                                                     <div class="form-group">
-                                                        <label>Nome do Administrador:*</label>
+                                                        <label>Nome:*</label>
                                                         <input type="text" id="nomeUsuario" name="nomeUsuario" class="form-control" 
                                                                placeholder="Digite o nome do administrador" minlength="5"
                                                                value="<?php if ($idUsuario != "novo") echo $nomeUsuario; ?>">
                                                     </div>
                                                 </div>
-                                                <!-- E-MAIL DO ADMINISTRADOR -->
+                                                <!-- E-MAIL DO EQUALTECH -->
                                                 <div class="col-md-5">
                                                     <div class="form-group">
                                                         <label>E-mail:*</label>
@@ -48,7 +48,7 @@
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                <!-- LOGIN DO ADMINISTRADOR -->
+                                                <!-- LOGIN DO EQUALTECH -->
                                                 <div class="col-md-4">
                                                     <div class="form-group">
                                                         <label>Login:*</label>
@@ -57,7 +57,7 @@
                                                                value="<?php if ($idUsuario != "novo") echo base64_decode($loginUsuario); ?>">
                                                     </div>                                                                
                                                 </div>
-                                                <!-- SENHA DO ADMINISTRADOR -->
+                                                <!-- SENHA DO EQUALTECH -->
                                                 <div class="col-md-4">
                                                     <div class="form-group">
                                                         <label>Senha:*</label>
@@ -67,7 +67,7 @@
                                                         <small><span id='msnSenha'></span></small>
                                                     </div>                                                                
                                                 </div>
-                                                <!-- CONFIRMA SENHA DO ADMINISTRADOR -->
+                                                <!-- CONFIRMA SENHA DO EQUALTECH -->
                                                 <div class="col-md-4">
                                                     <div class="form-group">
                                                         <label>Confirme a Senha:*</label>
@@ -79,7 +79,7 @@
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                <!-- CPF DO ADMINISTRADOR -->
+                                                <!-- CPF DO EQUALTECH -->
                                                 <div class="col-md-2">
                                                     <div class="form-group">
                                                         <label>CPF:*</label>
@@ -89,7 +89,7 @@
                                                         <small><span id='msnCPF'></span></small>
                                                     </div>                                                                
                                                 </div>
-                                                <!-- RG DO ADMINISTRADOR -->
+                                                <!-- RG DO EQUALTECH -->
                                                 <div class="col-md-3">
                                                     <div class="form-group">
                                                         <label>RG:*</label>
@@ -98,7 +98,7 @@
                                                                value="<?php if ($idUsuario != "novo") echo $rgUsuario; ?>">
                                                     </div>                                                                
                                                 </div>
-                                                <!-- DATA NASCIMENTO DO ADMINISTRADOR -->
+                                                <!-- DATA NASCIMENTO DO EQUALTECH -->
                                                 <div class="col-md-3">
                                                     <div class="form-group has-icon-left">
                                                         <label>Data de Nascimento:*</label>
@@ -111,7 +111,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <!-- SEXO DO ADMINISTRADOR -->
+                                                <!-- SEXO DO EQUALTECH -->
                                                 <div class="col-md-4"
                                                      <label>Sexo:*</label>
                                                     <div class="input-group" style="margin-top: 13px">
@@ -140,7 +140,7 @@
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                <!-- ENDEREÇO DO ADMINISTRADOR -->
+                                                <!-- ENDEREÇO DO EQUALTECH -->
                                                 <div class="col-md-9">
                                                     <div class="form-group">
                                                         <label>Endereço:*</label>
@@ -148,7 +148,7 @@
                                                                placeholder="Digite o endereço" value="<?php if ($idUsuario != "novo") echo $enderecoUsuario; ?>">
                                                     </div>
                                                 </div>
-                                                <!-- TELEFONE DO ADMINISTRADOR -->
+                                                <!-- TELEFONE DO EQUALTECH -->
                                                 <div class="col-md-3">
                                                     <div class="form-group">
                                                         <label>Telefone:*</label>
@@ -158,7 +158,7 @@
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                <!-- ESTADO DO ADMINISTRADOR -->
+                                                <!-- ESTADO DO EQUALTECH -->
                                                 <div class="col-md-3">
                                                     <div class="form-group">
                                                         <label>Estado:*</label>
@@ -306,7 +306,7 @@
                                                         </select>
                                                     </div>
                                                 </div>
-                                                <!-- CIDADE DO ADMINISTRADOR -->
+                                                <!-- CIDADE DO EQUALTECH -->
                                                 <div class="col-md-3">
                                                     <div class="form-group">
                                                         <label>Cidade:*</label>
@@ -314,7 +314,7 @@
                                                                value="<?php if ($idUsuario != "novo") echo $cidadeUsuario; ?>">
                                                     </div>
                                                 </div>
-                                                <!-- BAIRRO DO ADMINISTRADOR -->
+                                                <!-- BAIRRO DO EQUALTECH -->
                                                 <div class="col-md-3">
                                                     <div class="form-group">
                                                         <label>Bairro:*</label>
@@ -322,7 +322,7 @@
                                                                value="<?php if ($idUsuario != "novo") echo $bairroUsuario; ?>">
                                                     </div>
                                                 </div>
-                                                <!-- CEP DO ADMINISTRADOR -->
+                                                <!-- CEP DO EQUALTECH -->
                                                 <div class="col-md-3">
                                                     <div class="form-group">
                                                         <label>CEP:*</label>

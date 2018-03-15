@@ -17,6 +17,7 @@ $route['recuperar-senha'] = 'InicialController/vRecuperarSenha';
 $route['relatorio'] = 'PrincipalController/vRelatorio';
 $route['meus-dados'] = 'PrincipalController/vMeusDados';
 $route['notificacoes'] = 'PrincipalController/vNotificacoes';
+$route['imprimir-ficha/(:any)'] = 'AlunoController/vImprimirFichaTreino/$1';
 
 // ROTAS PARA AS LISTAS
 $route['lista-alunos'] = 'AlunoController';

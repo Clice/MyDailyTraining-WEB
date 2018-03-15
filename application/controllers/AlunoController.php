@@ -2,6 +2,8 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+//require_once APPPATH . '/third_party/dompdf/autoload.inc.php"';
+
 class AlunoController extends CI_Controller {
 
     // CONSTRUTOR DO ALUNO CONTROLLER
@@ -69,6 +71,58 @@ class AlunoController extends CI_Controller {
         $this->load->view('sistema/telas/cadastros/cadastrar-editar-aluno');
         $this->load->view('sistema/templates/footer');
         $this->load->view('sistema/templates/html-footer');
+    }
+
+    public function vImprimirFichaTreino($idAluno) {
+        //$this->load->library('pdf');
+        /* $this->load->helper('file');
+
+          $domdpf = new DOMPDF();
+          $domdpf->loadHtml('<h1>HELLO WORLD</h1>');
+          $domdpf->setPaper('A4', 'Portrait');
+          $domdpf->render();
+          $this->load->library('pdf');
+          $domdpf->stream(); */
+
+//        $this->load->library('Dompdf_gen');
+//        $domdpf = new DOMPDF();
+//        $this->pdf->load_view('sistema/telas/imprimir-ficha-treino');
+//        $domdpf->setPaper('A4', 'Portrait');
+//        $this->pdf->render();
+//        $this->pdf->stream("welcome.pdf");
+//
+//        $dadosAluno['perfilAluno'] = $this->AlunoModel->mVisualizarPerfilAluno($idAluno);
+//        $dadosAluno['treinosAluno'] = $this->TreinoModel->mEncontrarTreinosAluno($idAluno);
+//        $dadosAluno['exerciciosTreino'] = $this->ExercicioTreinoModel->mVisualizarExerciciosTreino($idAluno);
+//
+//        $i = 0;
+//        foreach ($dadosAluno['treinosAluno'] as $treinosAluno) {
+//            for ($j = 0; $j < count($this->ExercicioTreinoModel->mVisualizarExerciciosTreino(md5($treinosAluno->idTreino))); $j++) {
+//                $dadosAluno['exerciciosTreinos'][$i][$j] = get_object_vars($this->ExercicioTreinoModel->mVisualizarExerciciosTreino(md5($treinosAluno->idTreino))[$j]);
+//            }
+//            $i++;
+//        }
+//
+
+
+        $dadosAluno['perfilAluno'] = $this->AlunoModel->mVisualizarPerfilAluno($idAluno);
+        $dadosAluno['treinosAluno'] = $this->TreinoModel->mEncontrarTreinosAluno($idAluno);
+        $dadosAluno['exerciciosTreino'] = $this->ExercicioTreinoModel->mVisualizarExerciciosTreino($idAluno);
+
+        $i = 0;
+        foreach ($dadosAluno['treinosAluno'] as $treinosAluno) {
+            for ($j = 0; $j < count($this->ExercicioTreinoModel->mVisualizarExerciciosTreino(md5($treinosAluno->idTreino))); $j++) {
+                $dadosAluno['exerciciosTreinos'][$i][$j] = get_object_vars($this->ExercicioTreinoModel->mVisualizarExerciciosTreino(md5($treinosAluno->idTreino))[$j]);
+            }
+            $i++;
+        }
+
+        $this->load->view('sistema/templates/html-header', $dadosAluno);
+        $this->load->library('pdf');
+        $this->pdf->load_view('sistema/telas/imprimir-ficha-treino');
+        $this->pdf->set_paper('letter', 'landscape');
+        $this->pdf->render();
+        $this->pdf->stream("Ficha de Treino - " . $dadosAluno['perfilAluno'][0]->nomeAluno . ".pdf", array("Attachment" => false));
     }
 
     // FUNÇÃO CONTROLLER PARA CADASTRAR/EDITAR ALUNO

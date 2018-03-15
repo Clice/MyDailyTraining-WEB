@@ -66,7 +66,6 @@
                                                                     <tr>
                                                                         <th>Nome</th>
                                                                         <th style="padding: 0px 0px 0.75rem 0px;">Telefone</th>
-                                                                        <th>Endereço</th>
                                                                         <th style="text-align: center; padding: 0px 5px 0.75rem 5px;">Dia do Pagamento</th>
                                                                         <th style="text-align: center; padding: 0px 0px 0.75rem 0px;">Opções</th>
                                                                         <th style="text-align: center; padding: 0px 5px 0.75rem 5px;">Bloqueado</th>
@@ -77,7 +76,6 @@
                                                                         <tr>
                                                                             <td><?php echo $alunoAtivo->nomeAluno; ?></td>
                                                                             <td style="padding: 0.75rem 0px 0px 0px;"><?php echo $alunoAtivo->telefoneAluno; ?></td>
-                                                                            <td><?php echo $alunoAtivo->enderecoAluno; ?></td>
                                                                             <td style="text-align: center"><?php echo $alunoAtivo->diaPagamentoAluno; ?></td>
                                                                             <td style="text-align: center; padding: 0.75rem 0px 0px 0px;">
                                                                                 <button type="button" class="btn mb-1 btn-success btn-sm" 

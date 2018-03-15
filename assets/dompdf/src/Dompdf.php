@@ -1197,8 +1197,7 @@ class Dompdf
      * @param string $basePath
      * @return $this
      */
-    public function setBasePath($basePath)
-    {
+    public function setBasePath($basePath) {
         $this->basePath = $basePath;
         return $this;
     }
