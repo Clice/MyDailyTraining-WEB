@@ -8,8 +8,14 @@ class ExercicioTreinoModel extends CI_Model {
     // FUNÇÃO PARA REALIZAR A INSERÇÃO DAS INFORMAÇÕES DO  EXERCÍCIO DO TREINO NO BANCO
     public function mCadastrarExercicioTreino($dadosExercicioTreino) {
         return $this->db->insert('exerciciostreino', $dadosExercicioTreino);
-    }   
-    
+    }
+
+    // FUNÇÃO PARA REALIZAR A ATUALIZAÇÃO DAS INFORMAÇÕES DO  EXERCÍCIO DO TREINO NO BANCO
+    public function mEditarExercicioTreino($dadosExercicioTreino) {
+        $this->db->where('idExercicioTreino', $dadosExercicioTreino['idExercicioTreino']);
+        return $this->db->update('exerciciostreino', $dadosExercicioTreino);
+    }
+
     // FUNÇÃO PARA PEGAR OS DADOS DOS EXERCÍCIOS
     public function mVisualizarExerciciosTreino($idTreino) {
         $this->db->select('*');

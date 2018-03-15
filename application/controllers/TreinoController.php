@@ -244,9 +244,7 @@ class TreinoController extends CI_Controller {
         }
         // SE O ID DO EXERCÍCIO TREINO FOR DIFERENTE DE NOVO
         else {
-            if ($this->TreinoModel->mEditarTreino($dadosExercicioTreino)) {
-                $dados['treino'] = get_object_vars($this->TreinoModel->mEncontrarTreino($dadosExercicioTreino)[0]);
-                $dados['idTreino'] = $dados['treino']['idTreino'];
+            if ($this->ExercicioTreinoModel->mEditarExercicioTreino($dadosExercicioTreino)) {
                 $resposta = array('success' => true);
             } else {
                 $resposta = array('success' => false);

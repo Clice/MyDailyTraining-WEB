@@ -32,6 +32,8 @@ function verificarDadosUsuario() {
         if (tipoConta > 1) {
             if (idAcademia === "") {
                 $('#dados-obrigatorios').modal('show');
+            } else {
+                $('#dados-obrigatorios').modal('show');
             }
         } else {
             $('#dados-obrigatorios').modal('show');

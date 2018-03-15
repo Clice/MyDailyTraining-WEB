@@ -20,7 +20,7 @@
     </style>
 
     <body>
-        <div style="border: 2px solid #000; padding: 5px; border-radius: 20px;">
+        <div>
             <h2 align="center" class="text-center">FICHA DE TREINO</h2>
             <br>
             <div style="padding: 5px;">
@@ -32,110 +32,49 @@
                 <br><br>
                 <div>
                     <!-- TABELA DOS EXERCÍCIOS -->
-                    <table border="2" cellspacing="0" cellpadding="2" bordercolor="#00" style="border: 4px solid #000;">
+                    <table border="1" cellspacing="0" cellpadding="2" bordercolor="666633" style="width: 100%; text-align: center; 
+                           border-collapse: collapse;">
                         <thead>
                             <tr>
-                                <th style="padding: 15px">EXERCÍCIO</th>
-                                <th style="padding: 10px">SÉRIE</th>
-                                <th style="padding: 10px">REPETIÇÕES</th>
-                                <th style="padding: 10px">CARGA</th>
-                                <th style="padding: 10px">PESO</th>
-                                <th style="padding: 5px">DOM</th>
-                                <th style="padding: 5px">SEG</th>
-                                <th style="padding: 5px">TER</th>
-                                <th style="padding: 5px">QUA</th>
-                                <th style="padding: 5px">QUI</th>
-                                <th style="padding: 5px">SEX</th>
-                                <th style="padding: 5px">SAB</th>
+                                <th style="padding: 15px; background-color: #A9A9A9;">EXERCÍCIO</th>
+                                <th style="padding: 10px; background-color: #A9A9A9;">SÉRIE</th>
+                                <th style="padding: 10px; background-color: #A9A9A9;">REPETIÇÕES</th>
+                                <th style="padding: 10px; background-color: #A9A9A9;">CARGA (kg)</th>
+                                <th style="padding: 5px; background-color: #A9A9A9;">DOM</th>
+                                <th style="padding: 5px; background-color: #A9A9A9;">SEG</th>
+                                <th style="padding: 5px; background-color: #A9A9A9;">TER</th>
+                                <th style="padding: 5px; background-color: #A9A9A9;">QUA</th>
+                                <th style="padding: 5px; background-color: #A9A9A9;">QUI</th>
+                                <th style="padding: 5px; background-color: #A9A9A9;">SEX</th>
+                                <th style="padding: 5px; background-color: #A9A9A9;">SAB</th>
                             </tr>
                         </thead>
                         <tbody>  
-                            <?php foreach ($treinosAluno as $treinoAluno) { ?>
-                                <tr>
-                                    <td>
-                                        <?php
-                                        for ($i = 0; $i < count($exerciciosTreinos); $i++) {
-                                            for ($j = 0; $j < count($exerciciosTreinos[$i]); $j++) {
-                                                if ($exerciciosTreinos[$i][$j]['idTreino'] == $treinoAluno->idTreino) {
-                                                    echo $exerciciosTreinos[$i][$j]['nomeExercicio'] . "; ";
-                                                }
-                                            }
+                            <?php
+                            foreach ($treinosAluno as $treinoAluno) {
+                                for ($i = 0; $i < count($exerciciosTreinos); $i++) {
+                                    for ($j = 0; $j < count($exerciciosTreinos[$i]); $j++) {
+                                        if ($exerciciosTreinos[$i][$j]['idTreino'] == $treinoAluno->idTreino) {
+                                            ?>
+                                            <tr>
+                                                <td><?php echo $exerciciosTreinos[$i][$j]['nomeExercicio']; ?></td>
+                                                <td><?php echo $exerciciosTreinos[$i][$j]['serieExercicioTreino']; ?></td>
+                                                <td><?php echo $exerciciosTreinos[$i][$j]['repeticoesExercicioTreino']; ?></td>
+                                                <td><?php echo $exerciciosTreinos[$i][$j]['cargaExercicioTreino']; ?></td>
+                                                <td><?php if ($treinoAluno->domingo == true) echo "X" ?></td>
+                                                <td><?php if ($treinoAluno->segunda == true) echo "X" ?></td>
+                                                <td><?php if ($treinoAluno->terca == true) echo "X" ?></td>
+                                                <td><?php if ($treinoAluno->quarta == true) echo "X" ?></td>
+                                                <td><?php if ($treinoAluno->quinta == true) echo "X" ?></td>
+                                                <td><?php if ($treinoAluno->sexta == true) echo "X" ?></td>
+                                                <td><?php if ($treinoAluno->sabado == true) echo "X" ?></td>                                                
+                                            </tr>
+                                            <?php
                                         }
-                                        ?>
-                                    </td>
-                                    <td><?php echo $treinoAluno->nomeTreino; ?></td>
-
-                                    <td>
-                                        <?php
-                                        for ($i = 0; $i < count($exerciciosTreinos); $i++) {
-                                            for ($j = 0; $j < count($exerciciosTreinos[$i]); $j++) {
-                                                if ($exerciciosTreinos[$i][$j]['idTreino'] == $treinoAluno->idTreino) {
-                                                    echo $exerciciosTreinos[$i][$j]['nomeExercicio'] . "; ";
-                                                }
-                                            }
-                                        }
-                                        ?>
-                                    </td>
-                                    <td></td>
-                                    <td></td>
-                                    <!-- DOMINGO -->
-                                    <td style="text-align: center">
-                                        <?php
-                                        if ($treinoAluno->domingo == true) {
-                                            echo "X";
-                                        }
-                                        ?>
-                                    </td>
-                                    <!-- SEGUNDA -->
-                                    <td style="text-align: center">
-                                        <?php
-                                        if ($treinoAluno->segunda == true) {
-                                            echo "X";
-                                        }
-                                        ?>
-                                    </td>
-                                    <!-- TERÇA -->
-                                    <td style="text-align: center">
-                                        <?php
-                                        if ($treinoAluno->terca == true) {
-                                            echo "X";
-                                        }
-                                        ?>
-                                    </td>
-                                    <!-- QUARTA -->
-                                    <td style="text-align: center">
-                                        <?php
-                                        if ($treinoAluno->quarta == true) {
-                                            echo "X";
-                                        }
-                                        ?>
-                                    </td>
-                                    <!-- QUINTA -->
-                                    <td style="text-align: center">
-                                        <?php
-                                        if ($treinoAluno->quinta == true) {
-                                            echo "X";
-                                        }
-                                        ?>
-                                    </td>
-                                    <!-- SEXTA -->
-                                    <td style="text-align: center">
-                                        <?php
-                                        if ($treinoAluno->sexta == true) {
-                                            echo "X";
-                                        }
-                                        ?>
-                                    </td>
-                                    <!-- SÁBADO -->
-                                    <td style="text-align: center">
-                                        <?php
-                                        if ($treinoAluno->sabado == true) {
-                                            echo "X";
-                                        }
-                                        ?>
-                                    </td>  
-                                </tr>
-                            <?php } ?>
+                                    }
+                                }
+                            }
+                            ?>
                         </tbody>
                     </table>
                 </div>
