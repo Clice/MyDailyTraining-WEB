@@ -23,6 +23,19 @@ class InstrutorModel extends CI_Model {
         $this->db->where('statusConta', FALSE);
         return $this->db->get()->result();
     }
+    
+    // FUNÇÃO PARA BUSCAR TODOS OS CHAMADOS
+    public function mListarChamadosInstrutores($idInstrutor) {
+        $dataAtual = date("Y-m-d");
+             
+        $this->db->select('*');
+        $this->db->from('chamados');
+        $this->db->where('idUsuario', $this->session->userdata('idUsuario'));
+        $this->db->where('dataChamado', $dataAtual);
+        $this->db->join('alunos', 'chamados.idAluno = alunos.idAluno');
+        $this->db->order_by('horarioChamado', 'ASC');
+        return $this->db->get()->result();
+    }
 
     // FUNÇÃO PARA SABER A QUANTIDADE DE INSTRUTORES DESBLOQUEADOS
     public function mQtdInstAtivos($idAcademia) {

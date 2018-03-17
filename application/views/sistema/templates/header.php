@@ -29,8 +29,19 @@
                     <ul class="nav navbar-nav float-xs-right">
                         <?php if ($this->session->userdata('tipoConta') == 4) { ?>
                             <!-- SINO DE NOTIFICAÇÃO DOS CHAMADOS -->
-                            <li class="dropdown dropdown-notification nav-item"><a href="#" data-toggle="dropdown" class="nav-link nav-link-label">
-                                    <i class="ficon icon-bell4"></i><span class="tag tag-pill tag-default tag-danger tag-default tag-up">1</span></a>
+                            <li class="dropdown dropdown-notification nav-item">
+                                <a href="#" data-toggle="dropdown" class="nav-link nav-link-label">
+                                    <i class="ficon icon-bell4"></i>
+                                    <?php
+                                    $qtdNotificacoes = 0;
+
+                                    foreach ($chamadosInstrutor as $chamadoInstrutor) {
+                                        $chamadoInstrutor->nomeAluno;
+                                        ++$qtdNotificacoes;
+                                    }
+                                    ?>
+                                    <span class="tag tag-pill tag-default tag-danger tag-default tag-up"><?php echo $qtdNotificacoes; ?></span>
+                                </a>
                                 <!-- CORPO DO SINO DE NOTIFICAÇÃO DOS CHAMADOS -->
                                 <ul class="dropdown-menu dropdown-menu-media dropdown-menu-right">
                                     <!-- TÍTULO DO CORPO -->
@@ -38,19 +49,21 @@
                                         <h6 class="dropdown-header m-0"><span class="grey darken-2">Chamados</span></h6>
                                     </li>
                                     <!-- CHAMADOS -->
-                                    <li class="list-group scrollable-container">
-                                        <a href="javascript:void(0)" class="list-group-item">
-                                            <div class="media">
-                                                <div class="media-left valign-middle"><i class="icon-monitor3 icon-bg-circle bg-red bg-darken-1"></i></div>
-                                                <div class="media-body">
-                                                    <h6 class="media-heading black darken-1">'Nome do Usuário' está solicitando atendimento</h6>
-                                                    <time datetime="2015-06-11T18:29:20+08:00" class="media-meta text-muted">Tempo</time>
+                                    <?php foreach ($chamadosInstrutor as $chamadoInstrutor) { ?>
+                                        <li class="list-group scrollable-container">
+                                            <a href="javascript:void(0)" class="list-group-item">
+                                                <div class="media">
+                                                    <div class="media-left valign-middle"><i class="icon-user5 icon-bg-circle bg-red bg-darken-1"></i></div>
+                                                    <div class="media-body">
+                                                        <h6 class="media-heading black darken-1"><?php echo $chamadoInstrutor->nomeAluno; ?> está solicitando atendimento</h6>
+                                                        <time class="media-meta text-muted"><?php echo $chamadoInstrutor->horarioChamado; ?></time>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </a>
-                                    </li>
+                                            </a>
+                                        </li>
+                                    <?php } ?>
                                     <!-- RODAPÉ DA CAIXA DE CHAMADOS - TODOS OS CHAMADOS -->
-                                    <li class="dropdown-menu-footer"><a href="<?php echo base_url('notificacoes'); ?>" class="dropdown-item text-muted text-xs-center">
+                                    <li class="dropdown-menu-footer"><a href="<?php echo base_url('lista-chamados/' . md5($this->session->userdata('idUsuario'))); ?>" class="dropdown-item text-muted text-xs-center">
                                             Ver todos os chamados</a></li>
                                 </ul>
                             </li>

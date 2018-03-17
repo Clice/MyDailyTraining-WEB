@@ -12,6 +12,7 @@ class AvaliacaoFisicaController extends CI_Controller {
         if ($this->session->userdata('logado') == true) {
             $this->load->model('AvaliacaoFisicaModel');
             $this->load->model('AlunoModel');
+            $this->load->model('InstrutorModel');
         } else {
             redirect(base_url('404_override'));
         }
@@ -25,6 +26,10 @@ class AvaliacaoFisicaController extends CI_Controller {
 
         // PEGANDO OS DADOS DO ALUNO PARA A AVALIAÇÃO FÍSICA
         $dadosAluno['dadosAluno'] = $this->AlunoModel->mVisualizarPerfilAluno($idAluno);
+        
+        if ($this->session->userdata('tipoConta') == 4) {
+            $dadosAluno['chamadosInstrutor'] = $this->InstrutorModel->mListarChamadosInstrutores($this->session->userdata('idUsuario'));
+        }
 
         // CARREGANDO AS VIEWS DA PÁGINA
         $this->load->view('sistema/templates/html-header', $dadosAluno);

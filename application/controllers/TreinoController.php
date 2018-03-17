@@ -13,6 +13,7 @@ class TreinoController extends CI_Controller {
             $this->load->model('AlunoModel');
             $this->load->model('TreinoModel');
             $this->load->model('ExercicioTreinoModel');
+            $this->load->model('InstrutorModel');
         } else {
             redirect(base_url('404_override'));
         }
@@ -52,6 +53,11 @@ class TreinoController extends CI_Controller {
 
         $dadosTreino['idAluno'] = $idAluno;
         $dadosTreino['exercicios'] = $this->ExercicioTreinoModel->mVisualizarExercicios();
+
+
+        if ($this->session->userdata('tipoConta') == 4) {
+            $dadosTreino['chamadosInstrutor'] = $this->InstrutorModel->mListarChamadosInstrutores($this->session->userdata('idUsuario'));
+        }
 
         // CARREGANDO AS VIEWS DA PÁGINA
         $this->load->view('sistema/templates/html-header', $dadosTreino);
@@ -110,6 +116,10 @@ class TreinoController extends CI_Controller {
         $dados['nomePagina'] = 'Lista de Exercícios do Treino';
         $dados['statusTreino'] = true;
 
+        if ($this->session->userdata('tipoConta') == 4) {
+            $dados['chamadosInstrutor'] = $this->InstrutorModel->mListarChamadosInstrutores($this->session->userdata('idUsuario'));
+        }
+
         // CARREGANDO AS VIEWS DA PÁGINA
         $this->load->view('sistema/templates/html-header', $dados);
         $this->load->view('sistema/templates/header');
@@ -125,6 +135,10 @@ class TreinoController extends CI_Controller {
 
         $dados['perfilTreino'] = $this->TreinoModel->mVisualizarTreino($idTreino);
         $dados['exerciciosTreino'] = $this->ExercicioTreinoModel->mVisualizarExerciciosTreino($idTreino);
+
+        if ($this->session->userdata('tipoConta') == 4) {
+            $dados['chamadosInstrutor'] = $this->InstrutorModel->mListarChamadosInstrutores($this->session->userdata('idUsuario'));
+        }
 
         // CARREGANDO AS VIEWS DA PÁGINA
         $this->load->view('sistema/templates/html-header', $dados);

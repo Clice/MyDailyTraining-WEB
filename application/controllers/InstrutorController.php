@@ -25,6 +25,11 @@ class InstrutorController extends CI_Controller {
         // PEGANDO AS INFORMAÇÕES DO INSTRUTORES ATIVOS E BLOQUEADOS
         $dadosInstrutor['instrutoresAtivos'] = $this->InstrutorModel->mListarInstrutoresAtivos();
         $dadosInstrutor['instrutoresBloqueados'] = $this->InstrutorModel->mListarInstrutoresBloqueados();
+        
+                
+        if ($this->session->userdata('tipoConta') == 4) {
+            $dadosInstrutor['chamadosInstrutor'] = $this->InstrutorModel->mListarChamadosInstrutores($this->session->userdata('idUsuario'));
+        }
 
         // CARREGANDO AS VIEWS DA PÁGINA 
         $this->load->view('sistema/templates/html-header', $dadosInstrutor);
@@ -56,6 +61,10 @@ class InstrutorController extends CI_Controller {
         }
 
         $dadosInstrutor['urlPagina'] = 'lista-instrutores';
+                
+        if ($this->session->userdata('tipoConta') == 4) {
+            $dadosInstrutor['chamadosInstrutor'] = $this->InstrutorModel->mListarChamadosInstrutores($this->session->userdata('idUsuario'));
+        }
 
         // CARREGANDO AS VIEWS DA PÁGINA 
         $this->load->view('sistema/templates/html-header', $dadosInstrutor);
@@ -75,6 +84,7 @@ class InstrutorController extends CI_Controller {
 
         // PEGANDO AS INFORMAÇÕES DO INSTRUTOR PARA MOSTRAR NO PERFIL
         $dadosInstrutor['perfilInstrutor'] = $this->UsuarioModel->mVisualizarUsuario($idInstrutor);
+        $dadosInstrutor['chamadosInstrutor'] = $this->InstrutorModel->mListarChamadosInstrutores($idInstrutor);
 
         // CARREGANDO AS VIEWS DA PÁGINA
         $this->load->view('sistema/templates/html-header', $dadosInstrutor);
@@ -83,6 +93,23 @@ class InstrutorController extends CI_Controller {
         $this->load->view('sistema/templates/usuario/modals-instrutor');
         $this->load->view('sistema/templates/usuario/js-usuario');
         $this->load->view('sistema/telas/perfis/perfil-instrutor');
+        $this->load->view('sistema/templates/footer');
+        $this->load->view('sistema/templates/html-footer');
+    }
+
+    // FUNÇÃO CONTROLLER DE CARREGAMENTO DA VIEW LISTA-CHAMADOS.PHP
+    public function vListaChamados($idInstrutor) {
+        $dadosInstrutor['nomePagina'] = "Lista de Chamados";
+        $dadosInstrutor['urlPagina'] = "lista-chamados/" . md5($idInstrutor);
+
+        // PEGANDO AS INFORMAÇÕES DO INSTRUTOR PARA OS CHAMADOS
+        $dadosInstrutor['chamadosInstrutor'] = $this->InstrutorModel->mListarChamadosInstrutores($idInstrutor);
+
+        // CARREGANDO AS VIEWS DA PÁGINA
+        $this->load->view('sistema/templates/html-header', $dadosInstrutor);
+        $this->load->view('sistema/templates/header');
+        $this->load->view('sistema/templates/side-menu');
+        $this->load->view('sistema/telas/listas/lista-chamados');
         $this->load->view('sistema/templates/footer');
         $this->load->view('sistema/templates/html-footer');
     }

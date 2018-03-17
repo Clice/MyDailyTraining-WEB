@@ -12,6 +12,7 @@ class FuncionarioController extends CI_Controller {
         if ($this->session->userdata('logado') == true) {
             $this->load->model('UsuarioModel');
             $this->load->model('FuncionarioModel');
+            $this->load->model('InstrutorModel');
         } else {
             redirect(base_url('404_override'));
         }
@@ -25,6 +26,10 @@ class FuncionarioController extends CI_Controller {
         // PEGANDO AS INFORMAÇÕES DOS FUNCIONÁRIOS ATIVOS E BLOQUEADOS
         $dadosFuncionario['funcionariosAtivos'] = $this->FuncionarioModel->mListarFuncionariosAtivos();
         $dadosFuncionario['funcionariosBloqueados'] = $this->FuncionarioModel->mListarFuncionariosBloqueados();
+                
+        if ($this->session->userdata('tipoConta') == 4) {
+            $dadosFuncionario['chamadosInstrutor'] = $this->InstrutorModel->mListarChamadosInstrutores($this->session->userdata('idUsuario'));
+        }
 
         // CARREGANDO AS VIEWS DA PÁGINA
         $this->load->view('sistema/templates/html-header', $dadosFuncionario);
@@ -76,6 +81,10 @@ class FuncionarioController extends CI_Controller {
 
         //PEGANDO AS INFORMAÇÕES DO USUÁRIO PARA MOSTRAR NO PERFIL
         $dadosFuncionario['perfilFuncionario'] = $this->UsuarioModel->mVisualizarUsuario($idFuncionario);
+        
+        if ($this->session->userdata('tipoConta') == 4) {
+            $dadosFuncionario['chamadosInstrutor'] = $this->InstrutorModel->mListarChamadosInstrutores($this->session->userdata('idUsuario'));
+        }
 
         // CARREGANDO AS VIEWS DA PÁGINA
         $this->load->view('sistema/templates/html-header', $dadosFuncionario);

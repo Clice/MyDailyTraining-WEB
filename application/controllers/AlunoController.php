@@ -16,6 +16,7 @@ class AlunoController extends CI_Controller {
             $this->load->model('TreinoModel');
             $this->load->model('ExercicioTreinoModel');
             $this->load->model('AcademiaModel');
+            $this->load->model('InstrutorModel');
         } else {
             redirect(base_url('404_override'));
         }
@@ -29,6 +30,10 @@ class AlunoController extends CI_Controller {
         // PEGANDO OS DADOS DOS ALUNOS ATIVOS E BLOQUEADOS
         $dadosAluno['alunosAtivos'] = $this->AlunoModel->mListarAlunosAtivos();
         $dadosAluno['alunosBloqueados'] = $this->AlunoModel->mListarAlunosBloqueados();
+               
+        if ($this->session->userdata('tipoConta') == 4) {
+            $dadosAluno['chamadosInstrutor'] = $this->InstrutorModel->mListarChamadosInstrutores($this->session->userdata('idUsuario'));
+        }
 
         // CARREGANDO AS VIEWS DA PÁGINA
         $this->load->view('sistema/templates/html-header', $dadosAluno);
@@ -63,6 +68,10 @@ class AlunoController extends CI_Controller {
             $dadosAluno['diaPagamentoAluno'] = "";
             $dadosAluno['statusAluno'] = true;
         }
+        
+        if ($this->session->userdata('tipoConta') == 4) {
+            $dadosAluno['chamadosInstrutor'] = $this->InstrutorModel->mListarChamadosInstrutores($this->session->userdata('idUsuario'));
+        }
 
         // CARREGANDO AS VIEWS DA PÁGINA
         $this->load->view('sistema/templates/html-header', $dadosAluno);
@@ -74,37 +83,6 @@ class AlunoController extends CI_Controller {
     }
 
     public function vImprimirFichaTreino($idAluno) {
-        //$this->load->library('pdf');
-        /* $this->load->helper('file');
-
-          $domdpf = new DOMPDF();
-          $domdpf->loadHtml('<h1>HELLO WORLD</h1>');
-          $domdpf->setPaper('A4', 'Portrait');
-          $domdpf->render();
-          $this->load->library('pdf');
-          $domdpf->stream(); */
-
-//        $this->load->library('Dompdf_gen');
-//        $domdpf = new DOMPDF();
-//        $this->pdf->load_view('sistema/telas/imprimir-ficha-treino');
-//        $domdpf->setPaper('A4', 'Portrait');
-//        $this->pdf->render();
-//        $this->pdf->stream("welcome.pdf");
-//
-//        $dadosAluno['perfilAluno'] = $this->AlunoModel->mVisualizarPerfilAluno($idAluno);
-//        $dadosAluno['treinosAluno'] = $this->TreinoModel->mEncontrarTreinosAluno($idAluno);
-//        $dadosAluno['exerciciosTreino'] = $this->ExercicioTreinoModel->mVisualizarExerciciosTreino($idAluno);
-//
-//        $i = 0;
-//        foreach ($dadosAluno['treinosAluno'] as $treinosAluno) {
-//            for ($j = 0; $j < count($this->ExercicioTreinoModel->mVisualizarExerciciosTreino(md5($treinosAluno->idTreino))); $j++) {
-//                $dadosAluno['exerciciosTreinos'][$i][$j] = get_object_vars($this->ExercicioTreinoModel->mVisualizarExerciciosTreino(md5($treinosAluno->idTreino))[$j]);
-//            }
-//            $i++;
-//        }
-//
-
-
         $dadosAluno['perfilAluno'] = $this->AlunoModel->mVisualizarPerfilAluno($idAluno);
         $dadosAluno['treinosAluno'] = $this->TreinoModel->mEncontrarTreinosAluno($idAluno);
         $dadosAluno['exerciciosTreino'] = $this->ExercicioTreinoModel->mVisualizarExerciciosTreino($idAluno);

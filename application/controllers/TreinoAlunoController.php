@@ -13,6 +13,7 @@ class TreinoAlunoController extends CI_Controller {
             $this->load->model('AlunoModel');
             $this->load->model('TreinoModel');
             $this->load->model('ExercicioTreinoModel');
+            $this->load->model('InstrutorModel');
         } else {
             redirect(base_url('404_override'));
         }
@@ -33,6 +34,10 @@ class TreinoAlunoController extends CI_Controller {
                 $dadosAluno['exerciciosTreinos'][$i][$j] = get_object_vars($this->ExercicioTreinoModel->mVisualizarExerciciosTreino(md5($treinosAluno->idTreino))[$j]);
             }
             $i++;
+        }
+                  
+        if ($this->session->userdata('tipoConta') == 4) {
+            $dadosAluno['chamadosInstrutor'] = $this->InstrutorModel->mListarChamadosInstrutores($this->session->userdata('idUsuario'));
         }
 
         // CARREGANDO AS VIEWS DA PÁGINA
