@@ -96,7 +96,7 @@ class AlunoController extends CI_Controller {
         }
 
         $this->load->view('sistema/templates/html-header', $dadosAluno);
-        $this->load->library('pdf');
+        $this->load->library('Pdf');
         $this->pdf->load_view('sistema/telas/imprimir-ficha-treino');
         $this->pdf->set_paper('letter', 'landscape');
         $this->pdf->render();

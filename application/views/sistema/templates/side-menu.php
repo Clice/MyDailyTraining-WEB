@@ -48,9 +48,14 @@
                     <?php } ?>
                 </ul>
             </li>
-            <!-- RELATÓRIO - RELATÓRIOS QUE O SISTEMA PODE GERAR -->
-            <li class=" nav-item"><a href="<?php echo base_url('relatorio'); ?>"><i class="icon-book3"></i>
-                    <span data-i18n="nav.other-pages.relatorio" class="menu-title">Relatório</span></a></li>          
+            <?php if ($this->session->userdata('tipoConta') == 2) { ?>
+                <!-- RELATÓRIO - RELATÓRIOS QUE O SISTEMA PODE GERAR -->
+                <li class=" nav-item">
+                    <a href="<?php echo base_url('relatorio'); ?>"><i class="icon-book3"></i>
+                        <span data-i18n="nav.other-pages.relatorio" class="menu-title">Relatório</span>
+                    </a>
+                </li>
+            <?php } ?>
         </ul>
     </div>
 </div>
