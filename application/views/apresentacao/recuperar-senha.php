@@ -90,7 +90,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-body">
-                        <h4 class="modal-title text-xs-center"><i class="icon-warning2 warning"></i> Nenhum usuário encontrado</h4>
+                        <h4 class="modal-title text-xs-center"><i class="icon-warning2 warning"></i> Nenhum usuário encontrado.</h4>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
@@ -105,7 +105,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-body">
-                        <h4 class="modal-title text-xs-center"><i class="icon-warning2 warning"></i> Senhas diferentes</h4>
+                        <h4 class="modal-title text-xs-center"><i class="icon-warning2 warning"></i> Senhas diferentes.</h4>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
@@ -120,7 +120,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-body">
-                        <h4 class="modal-title text-xs-center"><i class="icon-check-circle success"></i> Senha alterada com sucesso</h4>
+                        <h4 class="modal-title text-xs-center"><i class="icon-check-circle success"></i> Senha alterada com sucesso.</h4>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" onclick="window.location.href = '<?php echo base_url('login'); ?>'" data-dismiss="modal">Fechar</button>
@@ -135,7 +135,22 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-body">
-                        <h4 class="modal-title text-xs-center"><i class="icon-remove danger"></i> Erro ao alterar a senha</h4>
+                        <h4 class="modal-title text-xs-center"><i class="icon-remove danger"></i> Erro ao alterar a senha.</h4>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- MODAL - FALHA AO SE CONECTAR COM A INTERNET -->
+        <div class="modal fade text-xs-left" data-backdrop="static" id="falha-internet" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
+             aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <h4 class="modal-title text-xs-center"><i class="icon-warning2 warning"></i> Sem conexão com a Internet.</h4>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
@@ -165,7 +180,7 @@
                         }
                     },
                     error: function (request, status, error) {
-                        alert("Erro: " + request.responseText);
+                        $('#falha-internet').modal('show');
                     }
                 });
             }
@@ -190,7 +205,7 @@
                             }
                         },
                         error: function (request, status, error) {
-                            alert("Erro: " + request.responseText);
+                            $('#falha-internet').modal('show');
                         }
                     });
                 }

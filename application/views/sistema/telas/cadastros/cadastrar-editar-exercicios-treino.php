@@ -22,11 +22,9 @@
                     </div>
                 </div>
             </section>
-            
+
             <!-- EXERCÍCIOS SELEICONADOS PELO INSTRUTOR PARA O TREINO -->
-            <?php
-            foreach ($exercicios as $indice => $exercicio) {
-                ?>
+            <?php foreach ($exercicios as $indice => $exercicio) { ?>
                 <section id="card-actions">
                     <div class="row">
                         <div class="col-xs-12">
@@ -34,16 +32,16 @@
                                 <div class="card-header bg-blue white">
                                     <h4 class="card-title white"><?php echo $exercicios[$indice]['nomeExercicio']; ?></h4>
                                     <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
-                                </div>
-
-                                <form name="formCadastrarEditarExercicioTreino" id="formCadastrarEditarExercicioTreino">
-                                    <input type="hidden" id="idExercicioTreino<?php echo $exercicios[$indice]['idExercicio']; ?>" 
-                                           name="idExercicioTreino" value="<?php echo $exercicios[$indice]['idExercicioTreino']; ?>">
-                                    <input type="hidden" id="idTreino" name="idTreino" value="<?php echo $idTreino; ?>">
-                                    <input type="hidden" id="statusTreino" name="statusTreino" value="<?php echo $statusTreino; ?>">
-                                    <input type="hidden" id="idExercicio" name="idExercicio" value="<?php echo $exercicios[$indice]['idExercicio']; ?>">
-                                    <div class="card-body collapse in">
-                                        <div class="card-block">
+                                </div>                                     
+                                <div class="card-body collapse in">
+                                    <div class="card-block">
+                                        <form name="formCadastrarEditarExercicioTreino<?php echo $exercicios[$indice]['idExercicio']; ?>" 
+                                              id="formCadastrarEditarExercicioTreino<?php echo $exercicios[$indice]['idExercicio']; ?>">
+                                            <input type="hidden" id="idExercicioTreino<?php echo $exercicios[$indice]['idExercicio']; ?>" 
+                                                   name="idExercicioTreino" value="<?php echo $exercicios[$indice]['idExercicioTreino']; ?>">
+                                            <input type="hidden" id="idTreino" name="idTreino" value="<?php echo $idTreino; ?>">
+                                            <input type="hidden" id="statusTreino" name="statusTreino" value="<?php echo $statusTreino; ?>">
+                                            <input type="hidden" id="idExercicio" name="idExercicio" value="<?php echo $exercicios[$indice]['idExercicio']; ?>">
                                             <div class="row">
                                                 <!-- SE O EXERCÍCIO JÁ FOI SALVO NO BANCO DE DADOS -->
                                                 <?php if ($exercicios[$indice]['idExercicioTreino'] != "novo") { ?>
@@ -70,7 +68,7 @@
                                                         <div class="col-md-3">
                                                             <div class="form-group">
                                                                 <h4><strong>Tempo de Descanso:</strong></h4>
-                                                                <h4><?php echo $exercicios[$indice]['descansoExercicioTreino']  . " segundos"; ?></h4>
+                                                                <h4><?php echo $exercicios[$indice]['descansoExercicioTreino'] . " segundos"; ?></h4>
                                                             </div>
                                                         </div>                                                    
                                                     <?php } else { ?>
@@ -156,19 +154,18 @@
                                                     <?php } ?>
                                                 <?php } ?>
                                             </div>
-                                            <?php if ($exercicios[$indice]['idExercicioTreino'] == "novo") { ?>
-                                                <div class="row">
-                                                    <div class="col-md-12 ">
-                                                        <button style="float: right;" type="submit" class="btn btn-primary" id="btAdicionarExercicio"
-                                                                name="btAdicionarExercicio" onclick="cadEditExercicio(<?php echo $exercicios[$indice]['idExercicio']; ?>)">
-                                                            <i class="icon-plus4"></i> Adicionar
-                                                        </button>
-                                                    </div>
+                                        </form>
+                                        <?php if ($exercicios[$indice]['idExercicioTreino'] == "novo") { ?>
+                                            <div class="row">
+                                                <div class="col-md-12 ">
+                                                    <button style="float: right;" type="submit" class="btn btn-primary" onclick="cadEditExercicio(<?php echo $exercicios[$indice]['idExercicio']; ?>)">
+                                                        <i class="icon-plus4"></i> Adicionar
+                                                    </button>
                                                 </div>
-                                            <?php } ?>
-                                        </div>
+                                            </div>
+                                        <?php } ?>
                                     </div>
-                                </form>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -218,7 +215,7 @@
                 <h4 class="modal-title text-xs-center"><i class="icon-check-circle success"></i> Exercício cadastrado com sucesso.</h4>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="window.location.href = '<?php echo base_url('cadastrar-exercicios-treino'); ?>';">Fechar</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="window.location.href = '<?php echo base_url('cadastrar-exercicios-treino/' . $urlPagina); ?>';">Fechar</button>
             </div>
         </div>
     </div>
@@ -271,19 +268,13 @@
 
 <script>
     function cadEditExercicio(idExercicio) {
-        var idTreino = $('#idTreino').val();
-        var idExercicioTreino = $('#idExercicioTreino' + idExercicio).val();
-        var serieExercicioTreino = $('#serieExercicioTreino' + idExercicio).val();
-        var cargaExercicioTreino = $('#cargaExercicioTreino' + idExercicio).val();
-        var tempoExercicioTreino = $('#tempoExercicioTreino' + idExercicio).val();
-        var descansoExercicioTreino = $('#descansoExercicioTreino' + idExercicio).val();
-        var repeticoesExercicioTreino = $('#repeticoesExercicioTreino' + idExercicio).val();
-        var velocidadeExercicioTreino = $('#velocidadeExercicioTreino' + idExercicio).val();
-
-        var dados = "idTreino=" + idTreino + "&idExercicioTreino=" + idExercicioTreino + "&idExercicio=" + idExercicio +
-                "&serieExercicioTreino=" + serieExercicioTreino + "&cargaExercicioTreino=" + cargaExercicioTreino +
-                "&tempoExercicioTreino=" + tempoExercicioTreino + "&descansoExercicioTreino=" + descansoExercicioTreino +
-                "&repeticoesExercicioTreino=" + repeticoesExercicioTreino + "&velocidadeExercicioTreino=" + velocidadeExercicioTreino;
+        var dados = "idTreino=" + $('#idTreino').val() + "&idExercicioTreino=" + $('#idExercicioTreino' + idExercicio).val() +
+                "&idExercicio=" + idExercicio + "&serieExercicioTreino=" + $('#serieExercicioTreino' + idExercicio).val() +
+                "&cargaExercicioTreino=" + $('#cargaExercicioTreino' + idExercicio).val() +
+                "&tempoExercicioTreino=" + $('#tempoExercicioTreino' + idExercicio).val() +
+                "&descansoExercicioTreino=" + $('#descansoExercicioTreino' + idExercicio).val() +
+                "&repeticoesExercicioTreino=" + $('#repeticoesExercicioTreino' + idExercicio).val() +
+                "&velocidadeExercicioTreino=" + $('#velocidadeExercicioTreino' + idExercicio).val();
 
         $.ajax({
             url: "<?php echo base_url('TreinoController/cCadastrarEditarExercicioTreino') ?>",
@@ -292,7 +283,7 @@
             dataType: "JSON",
             success: function (data) {
                 if (data.success) {
-                    window.location.reload();
+                    $('#sucesso-exercicio').modal('show');
                 } else {
                     $('#erro-exercicio').modal('show');
                 }

@@ -1,7 +1,6 @@
 function getPagination(table) {
     $('.pagination').html('');
     var trnum = 0;
-    //var maxRows = parseInt($(this).val());
     var maxRows = 10;
     var totalRows = $(table + ' tbody tr').length;
     $(table + ' tr:gt(0)').each(function () {

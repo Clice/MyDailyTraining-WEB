@@ -90,6 +90,21 @@
             </div>
         </div>
 
+        <!-- MODAL - CAMPOS NÃO PREENCHIDOS -->
+        <div class="modal fade text-xs-left" data-backdrop="static" id="campos-nao-preenchidos" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
+             aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <h4 class="modal-title text-xs-center"><i class="icon-warning2 warning"></i> Campo(s) não preenchido(s).</h4>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- MODAL - USUÁRIO BLOQUEADO -->
         <div class="modal fade text-xs-left" data-backdrop="static" id="usuario-bloqueado" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
              aria-hidden="true">
@@ -119,34 +134,55 @@
                 </div>
             </div>
         </div>
+        
+        <!-- MODAL - FALHA AO SE CONECTAR COM A INTERNET -->
+        <div class="modal fade text-xs-left" data-backdrop="static" id="falha-internet" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
+             aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <h4 class="modal-title text-xs-center"><i class="icon-warning2 warning"></i> Sem conexão com a Internet.</h4>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <!-- JS-->
         <script type="text/javascript">
             function login() {
-                var url = "<?php echo base_url('InicialController/cLogarUsuario') ?>";
+                var loginUsuario = $('#loginUsuario').val();
+                var senhaUsuario = $('#senhaUsuario').val();
 
-                $.ajax({
-                    url: url,
-                    type: "POST",
-                    data: $('#formLogin').serialize(),
-                    dataType: "JSON",
-                    success: function (data) {
-                        if (data.success) {
-                            window.location.href = "<?php echo base_url('pagina-principal'); ?>";
-                        } else {
-                            if (data.statusAcademia === false) {
-                                $('#academia-bloqueada').modal('show');
-                            } else if (data.statusConta === false) {
-                                $('#usuario-bloqueado').modal('show');
+                if ((loginUsuario === "") || (senhaUsuario === "")) {
+                    $('#campos-nao-preenchidos').modal('show');
+                } else {
+                    var url = "<?php echo base_url('InicialController/cLogarUsuario') ?>";
+                    $.ajax({
+                        url: url,
+                        type: "POST",
+                        data: $('#formLogin').serialize(),
+                        dataType: "JSON",
+                        success: function (data) {
+                            if (data.success) {
+                                window.location.href = "<?php echo base_url('pagina-principal'); ?>";
                             } else {
-                                $('#incorreto').modal('show');
+                                if (data.statusAcademia === false) {
+                                    $('#academia-bloqueada').modal('show');
+                                } else if (data.statusConta === false) {
+                                    $('#usuario-bloqueado').modal('show');
+                                } else {
+                                    $('#incorreto').modal('show');
+                                }
                             }
+                        },
+                        error: function (request, status, error) {
+                            $('#falha-internet').modal('show');
                         }
-                    },
-                    error: function (request, status, error) {
-                        alert("Erro: " + request.responseText);
-                    }
-                });
+                    });
+                }
             }
         </script>
         <script src="<?php echo base_url('assets/js/sistema/jquery.min.js'); ?>" type="text/javascript"></script>

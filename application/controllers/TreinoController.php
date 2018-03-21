@@ -73,6 +73,7 @@ class TreinoController extends CI_Controller {
         $arrayExercicios = explode("%7C", $exercicios);
         $dados['idTreino'] = $arrayExercicios[0];
         $dados['idAluno'] = $idAluno;
+        $dados['urlPagina'] = $idAluno . '/' . $idTreino . '/' . $exercicios;
 
         // SE UM ID TRIENO FOI PASSADO OU NÃO
         // PARA REALIZAR A EDIÇÃO DE DADOS DE UM TREINO
@@ -285,6 +286,7 @@ class TreinoController extends CI_Controller {
         echo json_encode($resposta);
     }
 
+    // FUNÇÃO CONTROLLER PARA VERIFICAR DIAS DE TREINO
     public function cVerificarDiasTreino($idAluno, $diasTreinoAluno) {
         if (count($this->TreinoModel->mDiasAlunoTreino(md5($idAluno))) > 0) {
             for ($i = 0; $i < count($this->TreinoModel->mDiasAlunoTreino(md5($idAluno))); $i++) {
