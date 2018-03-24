@@ -33,6 +33,7 @@ if ($rsBuscarExercicioAluno->rowCount() > 0) {
     }
 
     $vetorFormatado = implode('/', $vetor);
+    
     echo "exercicioSuccess/" . $vetorFormatado;
 } else {
     echo "nenhumExercicio";

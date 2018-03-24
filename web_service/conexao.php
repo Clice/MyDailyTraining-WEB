@@ -7,10 +7,10 @@ define('MYSQL_PASSWORD', '');
 define('MYSQL_DB_NAME', 'mydailytraining');
 
 //// Configurações para o servidor ////
-/*define('MYSQL_HOST', 'localhost');
-define('MYSQL_USER', 'root');
-define('MYSQL_PASSWORD', '');
-define('MYSQL_DB_NAME', 'mydailytraining');*/
+//define('MYSQL_HOST', 'localhost');
+//define('MYSQL_USER', 'mydai319_user_db');
+//define('MYSQL_PASSWORD', '2TIUqR3K9L^^');
+//define('MYSQL_DB_NAME', 'mydai319_mydailytraining_db');
 
 error_reporting(E_ALL & ~ E_NOTICE & ~ E_DEPRECATED);
 
@@ -24,5 +24,4 @@ try {
 } catch (PDOException $e) {
     echo 'Erro ao conectar com o MySQL: ' . $e->getMessage();
 }
-
 ?>
