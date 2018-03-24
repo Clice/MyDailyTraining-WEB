@@ -22,8 +22,8 @@
                                             <input type="hidden" name="idAluno" id="idAluno" value="<?php echo $idAluno; ?>">
                                             <input type="hidden" name="idAcademia" id="idAcademia" value="<?php echo $idAcademia; ?>">
                                             <input type="hidden" name="sexoAluno" id="sexoAluno" value="<?php echo $sexoAluno; ?>">
-                                            <input type="hidden" name="loginAluno" id="loginAluno" value="<?php echo $loginAluno; ?>">
-                                            <input type="hidden" name="senhaAluno" id="senhaAluno" value="<?php echo $senhaAluno; ?>">
+                                            <input type="hidden" name="loginAluno" id="loginAluno" value="<?php echo base64_decode($loginAluno); ?>">
+                                            <input type="hidden" name="senhaAluno" id="senhaAluno" value="<?php echo base64_decode($senhaAluno); ?>">
                                             <input type="hidden" name="objetivoAluno" id="objetivoAluno" value="<?php echo $objetivoAluno; ?>">
                                             <input type="hidden" name="statusAluno" id="statusAluno" value="<?php echo $statusAluno; ?>">
 
@@ -531,22 +531,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-body">
-                <h4 class="modal-title text-xs-center"><i class="icon-warning2 warning"></i> Dados obrigatórios não informados</h4>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!--MODAL - SENHAS DIFERENTES -->
-<div class="modal fade text-xs-left" data-backdrop="static" id="senhas-diferentes" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1"
-     aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-body">
-                <h4 class="modal-title text-xs-center"><i class="icon-warning2 warning"></i> Senhas diferentes</h4>
+                <h4 class="modal-title text-xs-center"><i class="icon-warning2 warning"></i> Dados obrigatórios não informados.</h4>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
@@ -561,22 +546,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-body">
-                <h4 class="modal-title text-xs-center"><i class="icon-warning2 warning"></i> CPF já cadastrado</h4>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!--MODAL - LOGIN CADASTRADO -->
-<div class="modal fade text-xs-left" data-backdrop="static" id="login-cadastrado" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1"
-     aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-body">
-                <h4 class="modal-title text-xs-center"><i class="icon-warning2 warning"></i> Login já cadastrado</h4>
+                <h4 class="modal-title text-xs-center"><i class="icon-warning2 warning"></i> CPF já cadastrado.</h4>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
@@ -591,8 +561,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-body">
-                <h4 class="modal-title text-xs-center"><i class="icon-warning2 warning"></i> Quantidade máxima permitida de alunos já cadastrados. 
-                    Se necessitar de mais licenças, entre em contato com o(s) administrador(es) do sistema para maiores informações.</h4>
+                <h4 class="modal-title text-xs-center"><i class="icon-warning2 warning"></i> Quantidade máxima permitida de alunos já cadastrados. Se necessitar de mais licenças, entre em contato com o(s) administrador(es) do sistema para maiores informações.</h4>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
@@ -608,8 +577,8 @@
         <div class="modal-content">
             <div class="modal-body">
                 <h4 class="modal-title text-xs-center"><i class="icon-check-circle success"></i>
-                    <?php if (isset($idAluno)) { ?> Dados cadastrados com sucesso 
-                    <?php } else { ?> Dados alterados com sucesso  <?php } ?></h4>
+                    <?php if (isset($idAluno)) { ?>  Dados alterados com sucesso.
+                    <?php } else { ?> Dados cadastrados com sucesso. <?php } ?></h4>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" onclick="window.location.href = '<?php echo base_url('lista-alunos'); ?>'">Fechar</button>
@@ -625,8 +594,23 @@
         <div class="modal-content">
             <div class="modal-body">
                 <h4 class="modal-title text-xs-center"><i class="icon-remove danger"></i>
-                    <?php if (isset($idAluno)) { ?> Erro ao cadastrar os dados 
-                    <?php } else { ?> Erro ao alterar os dados <?php } ?></h4>
+                    <?php if (isset($idAluno)) { ?> Erro ao alterar os dados.
+                    <?php } else { ?> Erro ao cadastrar os dados. <?php } ?></h4>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL - FALHA AO SE CONECTAR COM A INTERNET -->
+<div class="modal fade text-xs-left" data-backdrop="static" id="falha-internet" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <h4 class="modal-title text-xs-center"><i class="icon-warning2 warning"></i> Sem conexão com a Internet.</h4>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
@@ -655,7 +639,7 @@
                 }
             },
             error: function (request, status, error) {
-                alert("Erro: " + request.responseText);
+                $('#falha-internet').modal('show');
             }
         });
     }
@@ -678,7 +662,7 @@
                 }
             },
             error: function (request, status, error) {
-                alert("Erro: " + request.responseText);
+                $('#falha-internet').modal('show');
             }
         });
     }

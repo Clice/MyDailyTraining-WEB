@@ -13,7 +13,9 @@ $diasdasemana = array(1 => "segunda", 2 => "terça", 3 => "quarta", 4 => "quinta
 $hoje = getdate();
 $dia = $hoje["mday"];
 $diadasemana = $hoje["wday"];
-$nomediadasemana = $diasdasemana[$diadasemana];
+//$nomediadasemana = $diasdasemana[$diadasemana];
+
+$nomediadasemana = "segunda";
 
 $buscarExerciciosAluno = "SELECT exercicios.nomeExercicio, exerciciostreino.serieExercicioTreino, exerciciostreino.cargaExercicioTreino, exerciciostreino.descansoExercicioTreino, exerciciostreino.repeticoesExercicioTreino FROM treinos INNER JOIN exerciciostreino ON treinos.idTreino = exerciciostreino.idTreino INNER JOIN exercicios ON exercicios.idExercicio = exerciciostreino.idExercicio WHERE treinos.idAluno = ? AND treinos." . $nomediadasemana . " = true";
 $rsBuscarExercicioAluno = $PDO->prepare($buscarExerciciosAluno);
@@ -35,4 +37,3 @@ if ($rsBuscarExercicioAluno->rowCount() > 0) {
 } else {
     echo "nenhumExercicio";
 }
-?>

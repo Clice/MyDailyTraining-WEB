@@ -1,5 +1,21 @@
 <?php
 
+require 'conexao.php';
+ini_set('default_charset', 'UTF-8');
+
+$idInstrutor = $_POST['idInstrutor'];
+
+//$idInstrutor = 66;
+
+$buscarTokenInstrutor = "SELECT tokenUsuario FROM tokens WHERE idUsuario = ?";
+$rsBuscarTokenInstrutor = $PDO->prepare($buscarTokenInstrutor);
+$rsBuscarTokenInstrutor->bindParam(1, $idInstrutor);
+$rsBuscarTokenInstrutor->execute();
+
+while ($dadosToken = $rsBuscarTokenInstrutor->fetch(PDO::FETCH_ASSOC)) {
+    $tokenInstrutor = $dadosToken['tokenUsuario'];
+}
+
 define('API_ACCESS_KEY', 'AIzaSyBzpNepTsuoPrlxk79DOi54WfHjwo_QDto');
 
 //$tokenInstrutor = "davl59DDSrE:APA91bHH96Yap7PBjG06P1K3joMvKEiZfXyZ4X8sExynfBNw8wkfrQ-yET4mlHVbsVPD9L_jBfznsKx9YF3ZSSgXQsMt07mTl9MfXf6JyDE1J-b3UTttrSAS9L_raSlwOwkMgyUhpmf5";
@@ -7,7 +23,7 @@ define('API_ACCESS_KEY', 'AIzaSyBzpNepTsuoPrlxk79DOi54WfHjwo_QDto');
 $nomeAluno = "Lucas";
 
 //$nomeAluno = $_POST['nomeAluno'];
-$tokenInstrutor = $_POST['tokenInstrutor'];
+//$tokenInstrutor = $_POST['tokenInstrutor'];
 
 $registrationIds = ["$tokenInstrutor"];
 
