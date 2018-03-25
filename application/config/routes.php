@@ -18,6 +18,7 @@ $route['relatorio'] = 'PrincipalController/vRelatorio';
 $route['meus-dados'] = 'PrincipalController/vMeusDados';
 $route['notificacoes'] = 'PrincipalController/vNotificacoes';
 $route['imprimir-ficha/(:any)'] = 'AlunoController/vImprimirFichaTreino/$1';
+$route['imprimir-relatorio/(:any)/(:any)'] = 'PrincipalController/vImprimirRelatorio/$1/$2';
 
 // ROTAS PARA AS LISTAS
 $route['lista-alunos'] = 'AlunoController';

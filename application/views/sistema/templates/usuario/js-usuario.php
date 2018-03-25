@@ -16,7 +16,7 @@
                 }
             },
             error: function (request, status, error) {
-                alert("Erro: " + request.responseText);
+                $('#falha-internet').modal('show');
             }
         });
     }
@@ -36,7 +36,7 @@
                 }
             },
             error: function (request, status, error) {
-                alert("Erro: " + request.responseText);
+                $('#falha-internet').modal('show');
             }
         });
     }
@@ -56,7 +56,7 @@
                 }
             },
             error: function (request, status, error) {
-                alert("Erro: " + request.responseText);
+                $('#falha-internet').modal('show');
             }
         });
     }
@@ -80,7 +80,7 @@
                 }
             },
             error: function (request, status, error) {
-                alert("Erro: " + request.responseText);
+                $('#falha-internet').modal('show');
             }
         });
     }
@@ -104,7 +104,7 @@
                 }
             },
             error: function (request, status, error) {
-                alert("Erro: " + request.responseText);
+                $('#falha-internet').modal('show');
             }
         });
     }
@@ -123,7 +123,7 @@
                 }
             },
             error: function (request, status, error) {
-                alert("Erro: " + request.responseText);
+                $('#falha-internet').modal('show');
             }
         });
     }

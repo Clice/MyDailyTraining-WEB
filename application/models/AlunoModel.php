@@ -60,6 +60,14 @@ class AlunoModel extends CI_Model {
         return $this->db->get()->result();
     }
 
+    // FUNÇÃO PARA BUSCAR TODOS ALUNOS NO BANCO DE DADOS
+    public function mListarTodosAlunos() {
+        $this->db->select('idAluno, nomeAluno, enderecoAluno, telefoneAluno, cpfAluno, diaPagamentoAluno, statusAluno');
+        $this->db->from('alunos');
+        $this->db->where('idAcademia', $this->session->userdata('idAcademia'));
+        return $this->db->get()->result();
+    }
+
     // FUNÇÃO PARA CONTAR A QUANTIDADE TOTAL DE ALUNOS DA ACADEMIA
     public function mQtdAlunos($idAcademia) {
         $this->db->where('md5(idAcademia)', $idAcademia);

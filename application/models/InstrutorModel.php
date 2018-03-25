@@ -6,7 +6,7 @@ class InstrutorModel extends CI_Model {
 
     // FUNÇÃO PARA BUSCAR TODOS OS INSTRUTORES DESBLOQUEADOS
     public function mListarInstrutoresAtivos() {
-        $this->db->select('idUsuario, idAcademia, nomeUsuario, enderecoUsuario, telefoneUsuario');
+        $this->db->select('idUsuario, idAcademia, nomeUsuario, enderecoUsuario, telefoneUsuario, cpfUsuario, tipoConta, statusConta');
         $this->db->from('usuarios');
         $this->db->where('idAcademia', $this->session->userdata('idAcademia'));
         $this->db->where('tipoConta', 4);
@@ -16,11 +16,20 @@ class InstrutorModel extends CI_Model {
 
     // FUNÇÃO PARA BUSCAR TODOS OS INSTRUTORES BLOQUEADOS
     public function mListarInstrutoresBloqueados() {
-        $this->db->select('idUsuario, idAcademia, nomeUsuario, enderecoUsuario, telefoneUsuario');
+        $this->db->select('idUsuario, idAcademia, nomeUsuario, enderecoUsuario, telefoneUsuario, cpfUsuario, tipoConta, statusConta');
         $this->db->from('usuarios');
         $this->db->where('idAcademia', $this->session->userdata('idAcademia'));
         $this->db->where('tipoConta', 4);
         $this->db->where('statusConta', FALSE);
+        return $this->db->get()->result();
+    }
+
+    // FUNÇÃO PARA BUSCAR TODOS OS INSTRUTORES
+    public function mListarTodosInstrutores() {
+        $this->db->select('idUsuario, nomeUsuario, enderecoUsuario, telefoneUsuario, cpfUsuario, tipoConta, statusConta');
+        $this->db->from('usuarios');
+        $this->db->where('idAcademia', $this->session->userdata('idAcademia'));
+        $this->db->where('tipoConta', 4);
         return $this->db->get()->result();
     }
     

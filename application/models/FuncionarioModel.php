@@ -6,7 +6,7 @@ class FuncionarioModel extends CI_Model {
 
     // FUNÇÃO PARA PEGAR TODOS OS FUNCIONÁRIOS DESBLOQUEADOS
     public function mListarFuncionariosAtivos() {
-        $this->db->select('idUsuario, idAcademia, nomeUsuario, enderecoUsuario, telefoneUsuario');
+        $this->db->select('idUsuario, idAcademia, nomeUsuario, enderecoUsuario, telefoneUsuario, cpfUsuario, tipoConta, statusConta');
         $this->db->from('usuarios');
         $this->db->where('idAcademia', $this->session->userdata('idAcademia'));
         $this->db->where('tipoConta', 3);
@@ -16,11 +16,20 @@ class FuncionarioModel extends CI_Model {
 
     // FUNÇÃO PARA PEGAR TODOS OS FUNCIONÁRIOS BLOQUEADOS
     public function mListarFuncionariosBloqueados() {
-        $this->db->select('idUsuario, idAcademia, nomeUsuario, enderecoUsuario, telefoneUsuario');
+        $this->db->select('idUsuario, idAcademia, nomeUsuario, enderecoUsuario, telefoneUsuario, cpfUsuario, tipoConta, statusConta');
         $this->db->from('usuarios');
         $this->db->where('idAcademia', $this->session->userdata('idAcademia'));
         $this->db->where('tipoConta', 3);
         $this->db->where('statusConta', FALSE);
+        return $this->db->get()->result();
+    }
+
+    // FUNÇÃO PARA PEGAR TODOS OS FUNCIONÁRIOS
+    public function mListarTodosFuncionarios() {
+        $this->db->select('idUsuario, nomeUsuario, enderecoUsuario, telefoneUsuario, cpfUsuario, tipoConta, statusConta');
+        $this->db->from('usuarios');
+        $this->db->where('idAcademia', $this->session->userdata('idAcademia'));
+        $this->db->where('tipoConta', 3);
         return $this->db->get()->result();
     }
 

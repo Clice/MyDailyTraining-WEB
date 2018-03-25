@@ -157,3 +157,15 @@ function verificarSexoUsuario() {
         document.getElementById('sexoUsuario').value = 'Outros';
     }
 }
+
+// FUNÇÃO PARA VERIFICAR OS DADOS SELECIONADOS PARA GERAR O RELATÓRIO
+function verificarDadosRelatorio() {
+    var tipoConta = $('#tipoConta').val();
+    var statusConta = $('#statusConta').val();
+
+    if ((tipoConta === "") || (statusConta === "")) {
+        $('#dados-obrigatorios').modal('show');
+    } else {
+        gerarRelatorio();
+    }
+} 

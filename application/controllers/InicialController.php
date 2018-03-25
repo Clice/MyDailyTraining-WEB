@@ -7,7 +7,6 @@ class InicialController extends CI_Controller {
     // CONSTRUTOR DO INICIAL CONTROLLER
     public function __construct() {
         parent::__construct();
-        $this->load->model('UsuarioModel');
     }
 
     // FUNÇÃO CONTROLLER DE CARREGAMENTO DA VIEW PAGINA-INICIAL.PHP
@@ -37,7 +36,9 @@ class InicialController extends CI_Controller {
     }
 
     // FUNÇÃO CONTROLLER PARA VERIFICAÇÃO DAS INFORMAÇÕES PASSADAS PARA REALIZAR O LOGIN NO SISTEMA
-    public function cLogarUsuario() {
+    public function cLogarUsuario() {        
+        $this->load->model('UsuarioModel');
+
         // PEGANDO AS INFORMAÇÕES DE LOGIN E SENHA PASSADAS E COLOCANDO EM UM VETOR
         $dadosLogin = array(
             'loginUsuario' => base64_encode($this->input->post('loginUsuario')),
@@ -77,6 +78,8 @@ class InicialController extends CI_Controller {
     // FUNÇÃO CONTROLLER PARA AUXILIAR PARA REALIZAR O LOGIN DOS USUÁRIOS 
     // CUJOS TIPO DE CONTA SEJA DIFERENTES DE 1
     public function cVerificarDadosUsuario($dadosUsuario) {
+        $this->load->model('UsuarioModel');
+        
         // VERIFICANDO SE O STATUS DA ACADEMIA ESTÁ TRUE 
         // PARA QUE O USUÁRIO POSSA LOGAR
         $dadosAux = $this->UsuarioModel->mVerificarStatusAcademia($dadosUsuario['idAcademia']);

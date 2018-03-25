@@ -5,7 +5,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-body">
-                <h4 class="modal-title text-xs-center"><i class="icon-warning2 warning"></i> Dados obrigatórios não informados</h4>
+                <h4 class="modal-title text-xs-center"><i class="icon-warning2 warning"></i> Dados obrigatórios não informados.</h4>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
@@ -20,7 +20,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-body">
-                <h4 class="modal-title text-xs-center"><i class="icon-warning2 warning"></i> Senhas diferentes</h4>
+                <h4 class="modal-title text-xs-center"><i class="icon-warning2 warning"></i> Senhas diferentes.</h4>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
@@ -35,7 +35,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-body">
-                <h4 class="modal-title text-xs-center"><i class="icon-warning2 warning"></i> CPF já cadastrado</h4>
+                <h4 class="modal-title text-xs-center"><i class="icon-warning2 warning"></i> CPF já cadastrado.</h4>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
@@ -50,7 +50,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-body">
-                <h4 class="modal-title text-xs-center"><i class="icon-warning2 warning"></i> Login já cadastrado</h4>
+                <h4 class="modal-title text-xs-center"><i class="icon-warning2 warning"></i> Login já cadastrado.</h4>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
@@ -66,8 +66,8 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-body">
-                <h4 class="modal-title text-xs-center"><i class="icon-check-circle success"></i><?php if ($idUsuario !== "novo") { ?> Dados alterados com sucesso 
-                    <?php } else { ?> Dados cadastrados com sucesso <?php } ?></h4>
+                <h4 class="modal-title text-xs-center"><i class="icon-check-circle success"></i><?php if ($idUsuario !== "novo") { ?> Dados alterados com sucesso. 
+                    <?php } else { ?> Dados cadastrados com sucesso. <?php } ?></h4>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" onclick="window.location.href = '<?php echo base_url($urlPagina); ?>'">Fechar</button>
@@ -82,8 +82,23 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-body">
-                <h4 class="modal-title text-xs-center"><i class="icon-remove danger"></i> <?php if ($idUsuario !== "novo") { ?> Erro ao alterar os dados  
-                    <?php } else { ?> Erro ao cadastrar os dados <?php } ?></h4>
+                <h4 class="modal-title text-xs-center"><i class="icon-remove danger"></i> <?php if ($idUsuario !== "novo") { ?> Erro ao alterar os dados.  
+                    <?php } else { ?> Erro ao cadastrar os dados. <?php } ?></h4>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL - FALHA AO SE CONECTAR COM A INTERNET -->
+<div class="modal fade text-xs-left" data-backdrop="static" id="falha-internet" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <h4 class="modal-title text-xs-center"><i class="icon-warning2 warning"></i> Sem conexão com a Internet.</h4>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
