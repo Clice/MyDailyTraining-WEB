@@ -22,7 +22,6 @@ define('API_ACCESS_KEY', 'AIzaSyBzpNepTsuoPrlxk79DOi54WfHjwo_QDto');
 
 $nomeAluno = "Lucas";
 //$nomeAluno = $_POST['nomeAluno'];
-
 //$tokenInstrutor = $_POST['tokenInstrutor'];
 
 $registrationIds = ["$tokenInstrutor"];

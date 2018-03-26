@@ -53,13 +53,13 @@ class PrincipalController extends CI_Controller {
         $dados['nomePagina'] = 'Meus Dados';
 
         if ($this->session->userdata('tipoConta') == 1) {
-            $dados['urlPagina'] = 'editar-equaltech/' . md5($this->session->userdata('idUsuario'));
+            $dados['urlPagina'] = 'editar-equaltech/' . md5($this->session->userdata('idUsuario')) . '/meus-dados';
         } else if ($this->session->userdata('tipoConta') == 2) {
-            $dados['urlPagina'] = 'editar-administrador/' . md5($this->session->userdata('idUsuario')) . '/' . $this->session->userdata('idAcademia');
+            $dados['urlPagina'] = 'editar-administrador/' . md5($this->session->userdata('idUsuario')) . '/' . $this->session->userdata('idAcademia') . '/meus-dados';
         } else if ($this->session->userdata('tipoConta') == 3) {
-            $dados['urlPagina'] = 'editar-funcionario/' . md5($this->session->userdata('idUsuario'));
+            $dados['urlPagina'] = 'editar-funcionario/' . md5($this->session->userdata('idUsuario')) . '/meus-dados';
         } else if ($this->session->userdata('tipoConta') == 4) {
-            $dados['urlPagina'] = 'editar-instrutor/' . md5($this->session->userdata('idUsuario'));
+            $dados['urlPagina'] = 'editar-instrutor/' . md5($this->session->userdata('idUsuario')) . '/meus-dados';
             $dados['chamadosInstrutor'] = $this->InstrutorModel->mListarChamadosInstrutores($this->session->userdata('idUsuario'));
         }
 

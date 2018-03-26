@@ -40,7 +40,7 @@ class AcademiaController extends CI_Controller {
     }
 
     // FUNÇÃO DE CARREGAMENTO DA VIEW CADASTRAR-EDITAR-ACADEMIA.PHP
-    public function vCadastrarEditarAcademia($idAcademia) {
+    public function vCadastrarEditarAcademia($idAcademia, $voltarPara) {
         // SE UM ID ACADEMIA FOI PASSADO OU NÃO
         // PARA REALIZAR A EDIÇÃO DE DADOS DE UMA ACADEMIA
         if ($idAcademia != "novo") {
@@ -76,10 +76,10 @@ class AcademiaController extends CI_Controller {
         }
 
         // DEFININDO QUAL A URL QUE A PÁGINA DEVE VOLTAR
-        if ($this->session->userdata('tipoConta') == 1) {
-            $dados['voltarPagina'] = "lista-academias";
+        if ($voltarPara == "perfil-academia") {            
+            $dados['voltarPagina'] = "perfil-academia/" . $idAcademia;
         } else {
-            $dados['voltarPagina'] = "perfil-academia/" . md5($this->session->userdata('idAcademia'));
+            $dados['voltarPagina'] = "lista-academias";
         }
 
         // CARREGANDO AS VIEWS DA PÁGINA

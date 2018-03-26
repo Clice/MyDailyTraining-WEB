@@ -43,7 +43,7 @@ class InstrutorController extends CI_Controller {
     }
 
     // FUNÇÃO CONTROLLER DE CARREGAMENTO DA VIEW CADASTRAR-EDITAR-INSTRUTOR.PHP
-    public function vCadastrarEditarInstrutor($idInstrutor) {
+    public function vCadastrarEditarInstrutor($idInstrutor, $voltarPara) {
         // SE UM ID INSTRUTOR FOI PASSADO OU NÃO
         // PARA REALIZAR A EDIÇÃO OU O CADASTRO DE UM INSTRUTOR
         if ($idInstrutor != "novo") {
@@ -60,7 +60,12 @@ class InstrutorController extends CI_Controller {
             $dadosInstrutor['tipoConta'] = 4;
         }
 
-        $dadosInstrutor['urlPagina'] = 'lista-instrutores';
+        // DEFININDO A URL PARA A QUAL DEVE VOLTAR
+        if ($voltarPara == "perfil-instrutor") {
+            $dadosInstrutor['voltarPara'] = $voltarPara . '/' . $idInstrutor;
+        } else {
+            $dadosInstrutor['voltarPara'] = $voltarPara;
+        }
                 
         if ($this->session->userdata('tipoConta') == 4) {
             $dadosInstrutor['chamadosInstrutor'] = $this->InstrutorModel->mListarChamadosInstrutores($this->session->userdata('idUsuario'));

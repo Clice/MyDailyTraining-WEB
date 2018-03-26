@@ -132,15 +132,21 @@
                                                                     class="icon-unlock"
                                                                 <?php } ?>></i><?php if ($administrador->statusConta) { ?> Bloquear <?php } else { ?> Desbloquear <?php } ?>
                                                         </button>
-                                                        <button type="button" class="btn btn-warning" onclick="window.location.href = '<?php echo base_url('editar-administrador/' . md5($administrador->idUsuario) . '/' . $this->session->userdata('idAcademia')); ?>'">
+                                                        <button type="button" class="btn btn-warning" onclick="window.location.href = '<?php echo base_url('editar-administrador/' . md5($administrador->idUsuario) . '/' . $administrador->idAcademia . '/perfil-administrador'); ?>'">
                                                             <i class="icon-edit"></i> Editar
                                                         </button>
                                                         <button type="button" class="btn btn-danger" onclick="modalExcluirUsuario(<?php echo $administrador->idUsuario; ?>);">
                                                             <i class="icon-trash"></i> Excluir
                                                         </button>
                                                     <?php } else if ($this->session->userdata('idUsuario') == $administrador->idUsuario) { ?>
-                                                        <button type="button" class="btn btn-warning" onclick="window.location.href = '<?php echo base_url('editar-administrador/' . md5($administrador->idUsuario) . '/' . $this->session->userdata('idAcademia')); ?>'">
+                                                        <button type="button" class="btn btn-warning" onclick="window.location.href = '<?php echo base_url('editar-administrador/' . md5($administrador->idUsuario) . '/' . $this->session->userdata('idAcademia') . '/perfil-administrador'); ?>'">
                                                             <i class="icon-edit"></i> Editar
+                                                        </button>
+                                                    <?php } ?>
+                                                    <?php if (($this->session->userdata('idAcademia') > 0) && ($this->session->userdata('tipoConta') == 2)) { ?>
+                                                        <button type="button" class="btn btn-success" 
+                                                                onclick="window.location.href = '<?php echo base_url('perfil-academia/' . md5($this->session->userdata('idAcademia'))); ?>';">
+                                                            <i class="icon-eye"></i> Perfil Academia
                                                         </button>
                                                     <?php } ?>
                                                     <button type="button" class="btn btn-default" onclick="window.location.href = '<?php echo base_url('lista-administradores-academia'); ?>'">

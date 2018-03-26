@@ -32,14 +32,20 @@ class EqualTechController extends CI_Controller {
     }
 
     // FUNÇÃO DE CARREGAMENTO DA VIEW EDITAR-EQUALTECH.PHP
-    public function vEditarEqualTech($idEqualTech) {
+    public function vEditarEqualTech($idEqualTech, $voltarPara) {
         // PARA REALIZAR A EDIÇÃO DE UM EQUALTECH
         if ($idEqualTech != "novo") {
             $dadosEqualTech = get_object_vars($this->UsuarioModel->mVisualizarUsuario($idEqualTech)[0]);
             $dadosEqualTech['nomePagina'] = 'Editar EqualTech';
             $dadosEqualTech['crefUsuario'] = "";
             $dadosEqualTech['statusConta'] = false;
-            $dadosEqualTech['urlPagina'] = "meus-dados";
+            $dadosEqualTech['urlPagina'] = "meus-dados";            
+
+            if ($voltarPara == "perfil-equaltech") {
+                $dadosEqualTech['voltarPara'] = $voltarPara . '/' . $idEqualTech;
+            } else {
+                $dadosEqualTech['voltarPara'] = $voltarPara;    
+            }
         }
 
         // CARREGANDO AS VIEWS DA PÁGINA

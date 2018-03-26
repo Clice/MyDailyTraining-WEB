@@ -132,14 +132,14 @@
                                                                     class="icon-unlock"
                                                                 <?php } ?>></i><?php if ($funcionario->statusConta) { ?> Bloquear <?php } else { ?> Desbloquear <?php } ?>
                                                         </button>
-                                                        <button type="button" class="btn btn-warning" onclick="window.location.href = '<?php echo base_url('editar-funcionario/' . md5($funcionario->idUsuario)); ?>'">
+                                                        <button type="button" class="btn btn-warning" onclick="window.location.href = '<?php echo base_url('editar-funcionario/' . md5($funcionario->idUsuario) . '/perfil-funcionario'); ?>'">
                                                             <i class="icon-edit"></i> Editar
                                                         </button>
                                                         <button type="button" class="btn btn-danger" onclick="modalExcluirFuncionario(<?php echo $funcionario->idUsuario; ?>);">
                                                             <i class="icon-trash"></i> Excluir
                                                         </button>
                                                     <?php } else if ($this->session->userdata('idUsuario') == $funcionario->idUsuario) { ?>
-                                                        <button type="button" class="btn btn-warning" onclick="window.location.href = '<?php echo base_url('editar-funcionario/' . md5($funcionario->idUsuario)); ?>'">
+                                                        <button type="button" class="btn btn-warning" onclick="window.location.href = '<?php echo base_url('editar-funcionario/' . md5($funcionario->idUsuario) . '/perfil-funcionario'); ?>'">
                                                             <i class="icon-edit"></i> Editar
                                                         </button>
                                                     <?php } ?>

@@ -2,19 +2,19 @@
 
 require 'conexao.php';
 
-date_default_timezone_set("America/Fortaleza"); 
+date_default_timezone_set("America/Fortaleza");
 
-/*$idAluno = $_POST['idAluno'];
+$idAluno = $_POST['idAluno'];
 $idAcademia = $_POST['idAcademia'];
 $idInstrutor = $_POST['idUsuario'];
 $dataChamado = date("Y-m-d");
-$horarioChamado = date("H:i:s");*/
-
-$idAluno = 3;
-$idAcademia = 2;
-$idInstrutor = $_POST['idUsuario'];
-$dataChamado = date("Y-m-d");
 $horarioChamado = date("H:i:s");
+
+//$idAluno = 3;
+//$idAcademia = 2;
+//$idInstrutor = $_POST['idUsuario'];
+//$dataChamado = date("Y-m-d");
+//$horarioChamado = date("H:i:s");
 
 $salvarChamado = "INSERT INTO chamados (idAluno,idUsuario,idAcademia,dataChamado,horarioChamado) VALUES (?,?,?,?,?)";
 $rsSalvarChamado = $PDO->prepare($salvarChamado);
@@ -26,9 +26,7 @@ $rsSalvarChamado->bindParam(5, $horarioChamado);
 $rsSalvarChamado->execute();
 
 if ($rsSalvarChamado) {
-	echo "chamadoSuccess";
+    echo "chamadoSuccess";
 } else {
-	echo "chamadoError";
+    echo "chamadoError";
 }
-
-?>

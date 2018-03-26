@@ -109,7 +109,7 @@
                                                 <div style="float: right;" class="form-actions">
                                                     <?php if ($this->session->userdata('tipoConta') == 1) { ?>
                                                         <?php if ($academia->statusAcademia == true) { ?>
-                                                            <button type="button" class="btn btn-purple" onclick="window.location.href = '<?php echo base_url('cadastrar-administrador/novo/' . $academia->idAcademia); ?>'">
+                                                            <button type="button" class="btn btn-purple" onclick="window.location.href = '<?php echo base_url('cadastrar-administrador/novo/' . $academia->idAcademia . '/perfil-academia'); ?>'">
                                                                 <i class="icon-plus4"></i> Novo Administrador
                                                             </button>
                                                         <?php } ?>
@@ -127,14 +127,14 @@
                                                                     class="icon-unlock"
                                                                 <?php } ?>></i><?php if ($academia->statusAcademia) { ?> Bloquear <?php } else { ?> Desbloquear <?php } ?>
                                                         </button>
-                                                        <button type="button" class="btn btn-warning" onclick="window.location.href = '<?php echo base_url('editar-academia/' . md5($academia->idAcademia)); ?>'">
+                                                        <button type="button" class="btn btn-warning" onclick="window.location.href = '<?php echo base_url('editar-academia/' . md5($academia->idAcademia) . '/perfil-academia'); ?>'">
                                                             <i class="icon-edit"></i> Editar
                                                         </button>
                                                         <button type="button" class="btn btn-danger" onclick="modalExcluirAcademia(<?php echo $academia->idAcademia; ?>);">
                                                             <i class="icon-trash"></i> Excluir
                                                         </button>
                                                     <?php } else { ?>
-                                                        <button type="button" class="btn btn-warning" onclick="window.location.href = '<?php echo base_url('editar-academia/' . md5($academia->idAcademia)); ?>'">
+                                                        <button type="button" class="btn btn-warning" onclick="window.location.href = '<?php echo base_url('editar-academia/' . md5($academia->idAcademia) . '/perfil-academia'); ?>'">
                                                             <i class="icon-edit"></i> Editar
                                                         </button>
                                                     <?php } ?>

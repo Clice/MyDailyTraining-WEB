@@ -88,12 +88,12 @@
                                                                                         onclick="window.location.href = '<?php echo base_url('perfil-instrutor/' . md5($instrutorAtivo->idUsuario)); ?>'"><i class="icon-eye"></i> Ver Perfil</button>
                                                                                         <?php if ($this->session->userdata('tipoConta') == 2) { ?>
                                                                                     <button type="button" class="btn mb-1 btn-warning btn-sm" 
-                                                                                            onclick="window.location.href = '<?php echo base_url('editar-instrutor/' . md5($instrutorAtivo->idUsuario)); ?>'"><i class="icon-edit"></i> Editar</button>
+                                                                                            onclick="window.location.href = '<?php echo base_url('editar-instrutor/' . md5($instrutorAtivo->idUsuario)) . '/lista-instrutores'; ?>'"><i class="icon-edit"></i> Editar</button>
                                                                                     <button type="button" class="btn mb-1 btn-danger btn-sm" 
                                                                                             onclick="modalExcluirUsuario(<?php echo $instrutorAtivo->idUsuario; ?>);"><i class="icon-trash-o"></i> Excluir</button>
                                                                                         <?php } if ($this->session->userdata('idUsuario') == $instrutorAtivo->idUsuario) { ?>
                                                                                     <button type="button" class="btn mb-1 btn-warning btn-sm" 
-                                                                                            onclick="window.location.href = '<?php echo base_url('editar-instrutor/' . md5($instrutorAtivo->idUsuario)); ?>'"><i class="icon-edit"></i> Editar</button>
+                                                                                            onclick="window.location.href = '<?php echo base_url('editar-instrutor/' . md5($instrutorAtivo->idUsuario)) . '/lista-instrutores'; ?>'"><i class="icon-edit"></i> Editar</button>
                                                                                         <?php } ?>
                                                                             </td>
                                                                             <?php if ($this->session->userdata('tipoConta') == 2) { ?>
@@ -137,7 +137,7 @@
                                                                                     <button type="button" class="btn mb-1 btn-success btn-sm" 
                                                                                             onclick="window.location.href = '<?php echo base_url('perfil-instrutor/' . md5($instrutorBloqueado->idUsuario)); ?>'"><i class="icon-eye"></i> Ver Perfil</button>
                                                                                     <button type="button" class="btn mb-1 btn-warning btn-sm" 
-                                                                                            onclick="window.location.href = '<?php echo base_url('editar-instrutor/' . md5($instrutorBloqueado->idUsuario)); ?>'"><i class="icon-edit"></i> Editar</button>
+                                                                                            onclick="window.location.href = '<?php echo base_url('editar-instrutor/' . md5($instrutorBloqueado->idUsuario)) . '/lista-instrutores'; ?>'"><i class="icon-edit"></i> Editar</button>
                                                                                     <button type="button" class="btn mb-1 btn-danger btn-sm" 
                                                                                             onclick="modalExcluirUsuario(<?php echo $instrutorBloqueado->idUsuario; ?>);"><i class="icon-trash-o"></i> Excluir</button>
                                                                                 </td>

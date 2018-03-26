@@ -83,7 +83,7 @@
                                                                                 <button type="button" class="btn mb-1 btn-success btn-sm" 
                                                                                         onclick="window.location.href = '<?php echo base_url('perfil-academia/' . md5($academiaAtiva->idAcademia)); ?>'"><i class="icon-eye"></i> Ver Perfil</button>
                                                                                 <button type="button" class="btn mb-1 btn-warning btn-sm" 
-                                                                                        onclick="window.location.href = '<?php echo base_url('editar-academia/' . md5($academiaAtiva->idAcademia)); ?>'"><i class="icon-edit"></i> Editar</button>
+                                                                                        onclick="window.location.href = '<?php echo base_url('editar-academia/' . md5($academiaAtiva->idAcademia) . '/lista-academias'); ?>'"><i class="icon-edit"></i> Editar</button>
                                                                                 <button type="button" class="btn mb-1 btn-danger btn-sm" 
                                                                                         onclick="modalExcluirAcademia(<?php echo $academiaAtiva->idAcademia; ?>);"><i class="icon-trash-o"></i> Excluir</button>
                                                                             </td>
@@ -125,7 +125,7 @@
                                                                                 <button type="button" class="btn mb-1 btn-success btn-sm" 
                                                                                         onclick="window.location.href = '<?php echo base_url('perfil-academia/' . md5($academiaBloqueada->idAcademia)); ?>'"><i class="icon-eye"></i> Ver Perfil</button>
                                                                                 <button type="button" class="btn mb-1 btn-warning btn-sm" 
-                                                                                        onclick="window.location.href = '<?php echo base_url('editar-academia/' . md5($academiaBloqueada->idAcademia)); ?>'"><i class="icon-edit"></i> Editar</button>
+                                                                                        onclick="window.location.href = '<?php echo base_url('editar-academia/' . md5($academiaBloqueada->idAcademia) . '/lista-academias'); ?>'"><i class="icon-edit"></i> Editar</button>
                                                                                 <button type="button" class="btn mb-1 btn-danger btn-sm" 
                                                                                         onclick="modalExcluirAcademia(<?php echo $academiaBloqueada->idAcademia; ?>);"><i class="icon-trash-o"></i> Excluir</button>
                                                                             </td>

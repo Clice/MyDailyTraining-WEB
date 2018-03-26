@@ -238,7 +238,7 @@
                                                                 class="icon-unlock"
                                                             <?php } ?>></i><?php if ($aluno->statusAluno) { ?> Bloquear <?php } else { ?> Desbloquear <?php } ?>
                                                     </button>
-                                                    <button type="button" class="btn btn-warning" onclick="window.location.href = '<?php echo base_url('editar-aluno/' . md5($aluno->idAluno)); ?>'">
+                                                    <button type="button" class="btn btn-warning" onclick="window.location.href = '<?php echo base_url('editar-aluno/' . md5($aluno->idAluno) . '/perfil-aluno'); ?>'">
                                                         <i class="icon-edit"></i> Editar
                                                     </button>
                                                     <button type="button" class="btn btn-danger" onclick="modalExcluirAluno(<?php echo $aluno->idAluno; ?>);">

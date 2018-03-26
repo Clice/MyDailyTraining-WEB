@@ -132,14 +132,14 @@
                                                                     class="icon-unlock"
                                                                 <?php } ?>></i><?php if ($instrutor->statusConta) { ?> Bloquear <?php } else { ?> Desbloquear <?php } ?>
                                                         </button>
-                                                        <button type="button" class="btn btn-warning" onclick="window.location.href = '<?php echo base_url('editar-instrutor/' . md5($instrutor->idUsuario)); ?>'">
+                                                        <button type="button" class="btn btn-warning" onclick="window.location.href = '<?php echo base_url('editar-instrutor/' . md5($instrutor->idUsuario) . '/perfil-instrutor'); ?>'">
                                                             <i class="icon-edit"></i> Editar
                                                         </button>
                                                         <button type="button" class="btn btn-danger" onclick="modalExcluirUsuario(<?php echo $instrutor->idUsuario; ?>);">
                                                             <i class="icon-trash"></i> Excluir
                                                         </button>
                                                     <?php } else if ($this->session->userdata('idUsuario') == $instrutor->idUsuario) { ?>
-                                                        <button type="button" class="btn btn-warning" onclick="window.location.href = '<?php echo base_url('editar-instrutor/' . md5($instrutor->idUsuario)); ?>'">
+                                                        <button type="button" class="btn btn-warning" onclick="window.location.href = '<?php echo base_url('editar-instrutor/' . md5($instrutor->idUsuario) . '/perfil-instrutor'); ?>'">
                                                             <i class="icon-edit"></i> Editar
                                                         </button>
                                                     <?php } ?>

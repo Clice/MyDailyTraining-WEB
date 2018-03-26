@@ -43,7 +43,7 @@ class FuncionarioController extends CI_Controller {
     }
 
     // FUNÇÃO CONTROLLER DE CARREGAMENTO DA VIEW CADASTRAR-EDITAR-FUNCIONARIO.PHP
-    public function vCadastrarEditarFuncionario($idFuncionario) {
+    public function vCadastrarEditarFuncionario($idFuncionario, $voltarPara) {
         // SE UM ID FUNCIONARIO FOI PASSADO OU NÃO
         // PARA REALIZAR A EDIÇÃO OU O CADASTRO DE UM FUNCIONARIO        
         if ($idFuncionario != "novo") {
@@ -61,7 +61,12 @@ class FuncionarioController extends CI_Controller {
             $dadosFuncionario['tipoConta'] = 3;
         }
 
-        $dadosFuncionario['urlPagina'] = "lista-funcionarios";
+        // DEFININDO A URL PARA A QUAL DEVE VOLTAR
+        if ($voltarPara == "perfil-funcionario") {
+            $dadosFuncionario['voltarPara'] = $voltarPara . '/' . $idFuncionario;
+        } else {
+            $dadosFuncionario['voltarPara'] = $voltarPara;
+        }
 
         // CARREGANDO AS VIEWS DA PÁGINA
         $this->load->view('sistema/templates/html-header', $dadosFuncionario);

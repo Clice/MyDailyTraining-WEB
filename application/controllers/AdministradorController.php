@@ -23,7 +23,7 @@ class AdministradorController extends CI_Controller {
     public function index() {
         // PEGANDO AS INFORMAÇÕES NECESSÁRIAS
         $dadosAdministrador['nomePagina'] = "Lista de Administradores";
-        $dadosAdministrador['urlPagina'] = "lista-administradores";
+        $dadosAdministrador['voltarPara'] = "lista-administradores";
 
         // PEGANDO OS DADOS DOS ADMINISTRADORES ATIVOS E BLOQUEADOS
         $dadosAdministrador['administradoresAtivos'] = $this->AdministradorModel->mListarAdministradoresAtivos(0);
@@ -45,7 +45,7 @@ class AdministradorController extends CI_Controller {
     public function vListaAdministradoresAcademia() {
         // PEGANDO AS INFORMAÇÕES NECESSÁRIAS
         $dadosAdministrador['nomePagina'] = "Lista de Administradores da Academia";
-        $dadosAdministrador['urlPagina'] = "lista-administradores-academia";
+        $dadosAdministrador['voltarPara'] = "lista-administradores-academia";
 
         // PEGANDO OS DADOS DOS ADMINISTRADORES ATIVOS E NÃO ATIVOS
         $dadosAdministrador['administradoresAtivos'] = $this->AdministradorModel->mListarAdministradoresAtivos($this->session->userdata('idAcademia'));
@@ -67,7 +67,7 @@ class AdministradorController extends CI_Controller {
     }
 
     // FUNÇÃO CONTROLLER DE CARREGAMENTO DA VIEW CADASTRAR-EDITAR-ADMINISTRADOR.PHP
-    public function vCadastrarEditarAdministrador($idAdministrador, $idAcademia) {
+    public function vCadastrarEditarAdministrador($idAdministrador, $idAcademia, $voltarPara) {
         // SE UM ID ADMINISTRADOR FOI PASSADO OU NÃO
         // PARA REALIZAR A EDIÇÃO OU O CADASTRO DE UM ADMINISTRADOR
         if ($idAdministrador != "novo") {
@@ -87,12 +87,10 @@ class AdministradorController extends CI_Controller {
         }
 
         // DEFININDO A URL PARA A QUAL DEVE VOLTAR
-        if ($this->session->userdata('idAcademia') != NULL) {
-            $dadosAdministrador['voltarPagina'] = "lista-administradores-academia";
-            $dadosAdministrador['urlPagina'] = "lista-administradores-academia";
+        if ($voltarPara == "perfil-administrador") {
+            $dadosAdministrador['voltarPara'] = $voltarPara . '/' . $idAdministrador;
         } else {
-            $dadosAdministrador['voltarPagina'] = "lista-administradores";
-            $dadosAdministrador['urlPagina'] = "lista-administradores";
+            $dadosAdministrador['voltarPara'] = $voltarPara;
         }
 
         // CARREGANDO AS VIEWS DA PÁGINA 

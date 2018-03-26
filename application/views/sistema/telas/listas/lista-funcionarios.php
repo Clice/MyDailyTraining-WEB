@@ -88,10 +88,10 @@
                                                                                         onclick="window.location.href = '<?php echo base_url('perfil-funcionario/' . md5($funcionarioAtivo->idUsuario)); ?>'"><i class="icon-eye"></i> Ver Perfil</button>
                                                                                         <?php if ($this->session->userdata('idUsuario') == $funcionarioAtivo->idUsuario) { ?>
                                                                                     <button type="button" class="btn mb-1 btn-warning btn-sm" 
-                                                                                            onclick="window.location.href = '<?php echo base_url('editar-funcionario/' . md5($funcionarioAtivo->idUsuario)); ?>'"><i class="icon-edit"></i> Editar</button>
+                                                                                            onclick="window.location.href = '<?php echo base_url('editar-funcionario/' . md5($funcionarioAtivo->idUsuario)) . '/lista-funcionarios'; ?>'"><i class="icon-edit"></i> Editar</button>
                                                                                         <?php } else if ($this->session->userdata('tipoConta') == 2) { ?>
                                                                                     <button type="button" class="btn mb-1 btn-warning btn-sm" 
-                                                                                            onclick="window.location.href = '<?php echo base_url('editar-funcionario/' . md5($funcionarioAtivo->idUsuario)); ?>'"><i class="icon-edit"></i> Editar</button>
+                                                                                            onclick="window.location.href = '<?php echo base_url('editar-funcionario/' . md5($funcionarioAtivo->idUsuario)) . '/lista-funcionarios'; ?>'"><i class="icon-edit"></i> Editar</button>
                                                                                     <button type="button" class="btn mb-1 btn-danger btn-sm" 
                                                                                             onclick="modalExcluirUsuario(<?php echo $funcionarioAtivo->idUsuario; ?>);"><i class="icon-trash-o"></i> Excluir</button>
                                                                                         <?php } ?>
@@ -138,7 +138,7 @@
                                                                                     <button type="button" class="btn mb-1 btn-success btn-sm" 
                                                                                             onclick="window.location.href = '<?php echo base_url('perfil-funcionario/' . md5($funcionarioBloqueado->idUsuario)); ?>'"><i class="icon-eye"></i> Ver Perfil</button>
                                                                                     <button type="button" class="btn mb-1 btn-warning btn-sm" 
-                                                                                            onclick="window.location.href = '<?php echo base_url('editar-funcionario/' . md5($funcionarioBloqueado->idUsuario)); ?>'"><i class="icon-edit"></i> Editar</button>
+                                                                                            onclick="window.location.href = '<?php echo base_url('editar-funcionario/' . md5($funcionarioBloqueado->idUsuario)) . '/lista-funcionarios'; ?>'"><i class="icon-edit"></i> Editar</button>
                                                                                     <button type="button" class="btn mb-1 btn-danger btn-sm" 
                                                                                             onclick="modalExcluirUsuario(<?php echo $funcionarioBloqueado->idUsuario; ?>);"><i class="icon-trash-o"></i> Excluir</button>
                                                                                 </td>

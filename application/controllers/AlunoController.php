@@ -45,7 +45,7 @@ class AlunoController extends CI_Controller {
     }
 
     // FUNÇÃO CONTROLLER DE CARREGAMENTO DA VIEW CADASTRAR-EDITAR-ALUNO.PHP
-    public function vCadastrarEditarAluno($idAluno) {
+    public function vCadastrarEditarAluno($idAluno, $voltarPara) {
         // SE UM ID ADMINISTRADOR FOI PASSADO OU NÃO
         // PARA REALIZAR A EDIÇÃO OU O CADASTRO DE UM ADMINISTRADOR
         if ($idAluno != "novo") {
@@ -65,6 +65,12 @@ class AlunoController extends CI_Controller {
             $dadosAluno['estadoAluno'] = "";
             $dadosAluno['diaPagamentoAluno'] = "";
             $dadosAluno['statusAluno'] = true;
+        }
+        
+        if ($voltarPara == "perfil-aluno") {
+            $dadosAluno['voltarPara'] = $voltarPara . '/' . $idAluno;
+        } else {
+            $dadosAluno['voltarPara'] = $voltarPara;
         }
         
         if ($this->session->userdata('tipoConta') == 4) {

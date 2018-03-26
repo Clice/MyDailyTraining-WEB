@@ -81,7 +81,7 @@
                                                                                 <button type="button" class="btn mb-1 btn-success btn-sm" 
                                                                                         onclick="window.location.href = '<?php echo base_url('perfil-aluno/' . md5($alunoAtivo->idAluno)); ?>'"><i class="icon-eye"></i> Ver Perfil</button>
                                                                                 <button type="button" class="btn mb-1 btn-warning btn-sm" 
-                                                                                        onclick="window.location.href = '<?php echo base_url('editar-aluno/' . md5($alunoAtivo->idAluno)); ?>'"><i class="icon-edit"></i> Editar</button>
+                                                                                        onclick="window.location.href = '<?php echo base_url('editar-aluno/' . md5($alunoAtivo->idAluno) . '/lista-alunos'); ?>'"><i class="icon-edit"></i> Editar</button>
                                                                                 <button type="button" class="btn mb-1 btn-danger btn-sm" 
                                                                                         onclick="modalExcluirAluno(<?php echo $alunoAtivo->idAluno; ?>);"><i class="icon-trash-o"></i> Excluir</button>
                                                                             </td>
@@ -126,7 +126,7 @@
                                                                                 <button type="button" class="btn mb-1 btn-success btn-sm" 
                                                                                         onclick="window.location.href = '<?php echo base_url('perfil-aluno/' . md5($alunoBloqueado->idAluno)); ?>'"><i class="icon-eye"></i> Ver Perfil</button>
                                                                                 <button type="button" class="btn mb-1 btn-warning btn-sm" 
-                                                                                        onclick="window.location.href = '<?php echo base_url('editar-aluno/' . md5($alunoBloqueado->idAluno)); ?>'"><i class="icon-edit"></i> Editar</button>
+                                                                                        onclick="window.location.href = '<?php echo base_url('editar-aluno/' . md5($alunoBloqueado->idAluno) . '/lista-alunos'); ?>'"><i class="icon-edit"></i> Editar</button>
                                                                                 <button type="button" class="btn mb-1 btn-danger btn-sm" 
                                                                                         onclick="modalExcluirAluno(<?php echo $alunoBloqueado->idAluno; ?>);"><i class="icon-trash-o"></i> Excluir</button>
                                                                             </td>

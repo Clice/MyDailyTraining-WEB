@@ -70,7 +70,7 @@
                     <?php } else { ?> Dados cadastrados com sucesso. <?php } ?></h4>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" onclick="window.location.href = '<?php echo base_url($urlPagina); ?>'">Fechar</button>
+                <button type="button" class="btn btn-secondary" onclick="window.location.href = '<?php echo base_url($voltarPara); ?>'">Fechar</button>
             </div>
         </div>
     </div>

@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 ini_set('default_charset', 'UTF-8');
 require 'conexao.php';
@@ -19,8 +19,7 @@ $rsAlterarDados->bindParam(5, $idAluno);
 $rsAlterarDados->execute();
 
 if ($rsAlterarDados) {
-	echo "success";
+    echo "success";
 } else {
-	echo "error";
+    echo "error";
 }
-?>

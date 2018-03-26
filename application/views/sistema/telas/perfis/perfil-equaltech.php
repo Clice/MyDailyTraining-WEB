@@ -84,6 +84,12 @@
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div style="float: right;" class="form-actions">
+                                                    <?php if ($this->session->userdata('idUsuario') == $equaltech->idUsuario) { ?>
+                                                        <button type="button" class="btn btn-warning" 
+                                                                onclick="window.location.href = '<?php echo base_url('editar-equaltech/' . md5($equaltech->idUsuario) . '/perfil-equaltech'); ?>'">
+                                                            <i class="icon-edit"></i> Editar
+                                                        </button>
+                                                    <?php } ?>
                                                     <button type="button" class="btn btn-default" onclick="window.location.href = '<?php echo base_url('lista-equaltech'); ?>'">
                                                         <i class="icon-chevron-left2"></i> Voltar
                                                     </button>
