@@ -15,14 +15,14 @@ $senhaUsuario = base64_encode($_POST['senhaUsuario']);
 
 //$loginUsuario = str_replace(array(".","-"), '', $loginUsuario);
 
-$sqlUsuario = "SELECT * FROM alunos INNER JOIN academias ON alunos.idAcademia = academias.idAcademia "
-        . "WHERE alunos.loginAluno = ? AND alunos.senhaAluno = ?";
+$sqlUsuario = "SELECT * FROM alunos INNER JOIN academias ON alunos.idAcademia = academias.idAcademia WHERE alunos.loginAluno = ? AND alunos.senhaAluno = ?";
 $rsLogin = $PDO->prepare($sqlUsuario);
 $rsLogin->bindParam(1, $loginUsuario);
 $rsLogin->bindParam(2, $senhaUsuario);
 $rsLogin->execute();
 
 if ($rsLogin->rowCount() > 0) {
+
     while ($dados = $rsLogin->fetch(PDO::FETCH_ASSOC)) {
         $idAluno = $dados['idAluno'];
         $idAcademia = $dados['idAcademia'];
@@ -46,9 +46,11 @@ if ($rsLogin->rowCount() > 0) {
     } else if ($statusAluno == 0) {
         echo "alunoBloqueado";
     } else {
-        echo "loginSucesso" . "/" . $idAluno . "/" . $idAcademia . "/" . $nomeAluno . "/" . $emailAluno . "/" . $loginAluno 
-                . "/" . $senhaAluno . "/" . $enderecoAluno . "/" . $telefoneAluno . "/" . $sexoAluno;
+
+        echo "loginSucesso" . "/" . $idAluno . "/" . $idAcademia . "/" . $nomeAluno . "/" . $emailAluno . "/" . $loginAluno . "/" . $senhaAluno .
+        "/" . $enderecoAluno . "/" . $telefoneAluno . "/" . $sexoAluno;
     }
 } else {
     echo "loginErro";
 }
+?>

@@ -40,21 +40,10 @@ class AcademiaController extends CI_Controller {
     }
 
     // FUNÇÃO DE CARREGAMENTO DA VIEW CADASTRAR-EDITAR-ACADEMIA.PHP
-    public function vCadastrarEditarAcademia($idAcademia, $voltarPara) {
+    public function vCadastrarAcademia($idAcademia) {
         // SE UM ID ACADEMIA FOI PASSADO OU NÃO
         // PARA REALIZAR A EDIÇÃO DE DADOS DE UMA ACADEMIA
-        if ($idAcademia != "novo") {
-            // PEGANDO OS DADOS DA ACADEMIA PARA EDITAR
-            $dados = get_object_vars($this->AcademiaModel->mVisualizarPerfilAcademia($idAcademia)[0]);
-            $plano = get_object_vars($this->PlanoPacoteModel->mQtdLicencasPlano($dados['idPlano'])[0]);
-            $pacote = get_object_vars($this->PlanoPacoteModel->mQtdLicencasPacote($dados['idPacote'])[0]);
-            $dados['nomePagina'] = 'Editar Academia';
-            $dados['valorPacote'] = 0;
-            $dados['licencasPlano'] = $plano['qtdLicencas'];
-            $dados['licencasPacote'] = $pacote['qtdLicencas'];
-        }
-        // PARA REALIZAR O CADASTRO DE UMA ACADEMIA
-        else {
+        if ($idAcademia == "novo") {
             $dados['nomePagina'] = 'Cadastrar Academia';
             $dados['idPlano'] = 0;
             $dados['idPacote'] = 0;
@@ -74,9 +63,35 @@ class AcademiaController extends CI_Controller {
             $dados['diaPagamentoAcademia'] = 0;
             $dados['statusAcademia'] = true;
         }
+        
+        $dados['voltarPagina'] = "lista-academias";
+
+        // CARREGANDO AS VIEWS DA PÁGINA
+        $this->load->view('sistema/templates/html-header', $dados);
+        $this->load->view('sistema/templates/header');
+        $this->load->view('sistema/templates/side-menu');
+        $this->load->view('sistema/telas/cadastros/cadastrar-editar-academia');
+        $this->load->view('sistema/templates/footer');
+        $this->load->view('sistema/templates/html-footer');
+    }
+
+    // FUNÇÃO DE CARREGAMENTO DA VIEW CADASTRAR-EDITAR-ACADEMIA.PHP
+    public function vEditarAcademia($idAcademia, $voltarPara) {
+        // SE UM ID ACADEMIA FOI PASSADO OU NÃO
+        // PARA REALIZAR A EDIÇÃO DE DADOS DE UMA ACADEMIA
+        if ($idAcademia != "novo") {
+            // PEGANDO OS DADOS DA ACADEMIA PARA EDITAR
+            $dados = get_object_vars($this->AcademiaModel->mVisualizarPerfilAcademia($idAcademia)[0]);
+            $plano = get_object_vars($this->PlanoPacoteModel->mQtdLicencasPlano($dados['idPlano'])[0]);
+            $pacote = get_object_vars($this->PlanoPacoteModel->mQtdLicencasPacote($dados['idPacote'])[0]);
+            $dados['nomePagina'] = 'Editar Academia';
+            $dados['valorPacote'] = 0;
+            $dados['licencasPlano'] = $plano['qtdLicencas'];
+            $dados['licencasPacote'] = $pacote['qtdLicencas'];
+        }
 
         // DEFININDO QUAL A URL QUE A PÁGINA DEVE VOLTAR
-        if ($voltarPara == "perfil-academia") {            
+        if ($voltarPara == "perfil-academia") {
             $dados['voltarPagina'] = "perfil-academia/" . $idAcademia;
         } else {
             $dados['voltarPagina'] = "lista-academias";
@@ -89,7 +104,7 @@ class AcademiaController extends CI_Controller {
         $this->load->view('sistema/telas/cadastros/cadastrar-editar-academia');
         $this->load->view('sistema/templates/footer');
         $this->load->view('sistema/templates/html-footer');
-    }   
+    }
 
     // FUNÇÃO DE CARREGAMENTO DA VIEW PERFIL ACADEMIA.PHP
     public function vPerfilAcademia($idAcademia) {

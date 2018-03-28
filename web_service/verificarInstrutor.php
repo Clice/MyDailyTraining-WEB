@@ -13,6 +13,7 @@ $rsProcurarUsuario->bindParam(1, $cpfUsuario);
 $rsProcurarUsuario->execute();
 
 if ($rsProcurarUsuario->rowCount() > 0) {
+
     while ($dadosUsuario = $rsProcurarUsuario->fetch(PDO::FETCH_ASSOC)) {
         $idUsuario = $dadosUsuario['idUsuario'];
         $cpfUsuario = $dadosUsuario['cpfUsuario'];

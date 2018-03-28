@@ -13,14 +13,14 @@ $senhaUsuario = base64_encode($_POST['senhaUsuario']);
 //$loginUsuario = base64_encode($loginUsuario);
 //$senhaUsuario = base64_encode('111111');
 
-$sqlUsuario = "SELECT * FROM usuarios INNER JOIN academias ON usuarios.idAcademia = academias.idAcademia "
-        . "WHERE usuarios.cpfUsuario = ? AND usuarios.senhaUsuario = ?";
+$sqlUsuario = "SELECT * FROM usuarios INNER JOIN academias ON usuarios.idAcademia = academias.idAcademia WHERE usuarios.cpfUsuario = ? AND usuarios.senhaUsuario = ?";
 $rsLogin = $PDO->prepare($sqlUsuario);
 $rsLogin->bindParam(1, $loginUsuario);
 $rsLogin->bindParam(2, $senhaUsuario);
 $rsLogin->execute();
 
 if ($rsLogin->rowCount() > 0) {
+
     while ($dados = $rsLogin->fetch(PDO::FETCH_ASSOC)) {
         $idInstrutor = $dados['idUsuario'];
         $idAcademia = $dados['idAcademia'];
@@ -40,10 +40,10 @@ if ($rsLogin->rowCount() > 0) {
     } else if ($statusInstrutor == 1) {
         echo "instrutorBloqueado";
     } else {
-        echo "loginSucesso" . "/" . $idInstrutor . "/" . $idAcademia . "/" . $nomeInstrutor . "/" . $emailInstrutor
-        . "/" . $loginInstrutor . "/" . $senhaInstrutor . "/" . $enderecoInstrutor . "/" . $telefoneInstrutor
-        . "/" . $sexoInstrutor;
+
+        echo "loginSucesso" . "/" . $idInstrutor . "/" . $idAcademia . "/" . $nomeInstrutor . "/" . $emailInstrutor . "/" . $loginInstrutor . "/" . $senhaInstrutor . "/" . $enderecoInstrutor . "/" . $telefoneInstrutor . "/" . $sexoInstrutor;
     }
 } else {
     echo "loginErro";
 }
+?>

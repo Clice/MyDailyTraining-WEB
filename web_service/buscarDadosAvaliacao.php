@@ -8,8 +8,7 @@ $parteCorpoAluno = $_POST['parteCorpoAluno'];
 //$idAluno = 3;
 //$parteCorpoAluno = 'pesoAluno';
 
-$buscarDadosAvaliacao = "SELECT " . $parteCorpoAluno . ",dataAvaliacaoFisica FROM avaliacoesfisicas WHERE idAluno = ? "
-        . "ORDER BY dataAvaliacaoFisica DESC LIMIT 4 ";
+$buscarDadosAvaliacao = "SELECT " . $parteCorpoAluno . ",dataAvaliacaoFisica FROM avaliacoesfisicas WHERE idAluno = ? ORDER BY dataAvaliacaoFisica DESC LIMIT 4 ";
 $rsBuscarDadosAvaliacao = $PDO->prepare($buscarDadosAvaliacao);
 $rsBuscarDadosAvaliacao->bindParam(1, $idAluno);
 $rsBuscarDadosAvaliacao->execute();
@@ -29,3 +28,4 @@ if ($rsBuscarDadosAvaliacao->rowCount() > 0) {
 } else {
     echo "buscaError";
 }
+?>

@@ -3,22 +3,22 @@
 ini_set('default_charset', 'UTF-8');
 require 'conexao.php';
 
-$idAluno = $_POST['idAluno'];
-$emailAluno = $_POST['emailAluno'];
-$senhaAluno = base64_encode($_POST['senhaAluno']);
-$enderecoAluno = $_POST['enderecoAluno'];
-$telefoneAluno = $_POST['telefoneAluno'];
+$idUsuario = $_POST['idUsuario'];
+$emailUsuario = $_POST['emailUsuario'];
+$senhaUsuario = base64_encode($_POST['senhaUsuario']);
+$enderecoUsuario = $_POST['enderecoUsuario'];
+$telefoneUsuario = $_POST['telefoneUsuario'];
 
-$alterarDados = "UPDATE alunos SET emailAluno = ?, senhaAluno = ?, enderecoAluno = ?, telefoneAluno = ? WHERE idAluno = ?";
-$rsAlterarDados = $PDO->prepare($alterarDados);
-$rsAlterarDados->bindParam(1, $emailAluno);
-$rsAlterarDados->bindParam(2, $senhaAluno);
-$rsAlterarDados->bindParam(3, $enderecoAluno);
-$rsAlterarDados->bindParam(4, $telefoneAluno);
-$rsAlterarDados->bindParam(5, $idAluno);
-$rsAlterarDados->execute();
+$alterarDadosInstrutor = "UPDATE usuarios SET emailUsuario = ?, senhaUsuario = ?, enderecoUsuario = ?, telefoneUsuario = ? WHERE idUsuario = ? AND tipoConta = 4";
+$rsAlterarDadosInstrutor = $PDO->prepare($alterarDadosInstrutor);
+$rsAlterarDadosInstrutor->bindParam(1, $emailUsuario);
+$rsAlterarDadosInstrutor->bindParam(2, $senhaUsuario);
+$rsAlterarDadosInstrutor->bindParam(3, $enderecoUsuario);
+$rsAlterarDadosInstrutor->bindParam(4, $telefoneUsuario);
+$rsAlterarDadosInstrutor->bindParam(5, $idUsuario);
+$rsAlterarDadosInstrutor->execute();
 
-if ($rsAlterarDados) {
+if ($rsAlterarDadosInstrutor->rowCount() > 0) {
     echo "success";
 } else {
     echo "error";

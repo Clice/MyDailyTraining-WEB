@@ -8,8 +8,7 @@ $tokenInstrutorAtual = $_POST['tokenUsuario'];
 //$idInstrutor = 66;
 //$tokenInstrutorAtual = "f0couPbU374:APA91bGmj_VJrV0XoaqlPZWvBJ_UganSdahDSYzngJIbb6yP7FBtT21RL-pF3yrba5FWcsgdQvM8iC3oOw3szQJQPV-69tF7xNzi8Y48qBKmTESA3L04mexCJ2lc8Z2RPopx6_nD-rWO";
 
-$buscarTokenInstrutor = "SELECT tokens.tokenUsuario FROM tokens INNER JOIN usuarios ON tokens.idUsuario = usuarios.idUsuario "
-        . "WHERE usuarios.idUsuario = ?";
+$buscarTokenInstrutor = "SELECT tokens.tokenUsuario FROM tokens INNER JOIN usuarios ON tokens.idUsuario = usuarios.idUsuario WHERE usuarios.idUsuario = ?";
 $rsBuscarTokenInstrutor = $PDO->prepare($buscarTokenInstrutor);
 $rsBuscarTokenInstrutor->bindParam(1, $idInstrutor);
 $rsBuscarTokenInstrutor->execute();
@@ -43,3 +42,4 @@ if ($rsBuscarTokenInstrutor->rowCount() > 0) {
         echo "cadastroTokenError";
     }
 }
+?>

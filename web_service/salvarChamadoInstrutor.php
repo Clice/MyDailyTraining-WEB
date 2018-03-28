@@ -30,3 +30,4 @@ if ($rsSalvarChamado) {
 } else {
     echo "chamadoError";
 }
+?>
