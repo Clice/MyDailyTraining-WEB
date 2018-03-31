@@ -25,7 +25,7 @@ body{overflow-x:hidden;font-family:"Roboto Slab","Helvetica Neue",Helvetica,Aria
 
 .btn-xl{color:#209AED;background-color:#fff;border-color:#209AED;border-radius:8px;font-size:18px;padding:20px 40px}
 
-.btn-xl.active,.btn-xl:active,.btn-xl:focus,.btn-xl:hover,.open .dropdown-toggle.btn-xl{color:#fff;background-color:#185b88;border-color:#185b88}.btn-xl.disabled,.btn-xl.disabled.active,.btn-xl.disabled:active,.btn-xl.disabled:focus,.btn-xl.disabled:hover,.btn-xl[disabled],.btn-xl[disabled].active,.btn-xl[disabled]:active,.btn-xl[disabled]:focus,.btn-xl[disabled]:hover,fieldset[disabled] .btn-xl,fieldset[disabled] .btn-xl.active,fieldset[disabled] .btn-xl:active,fieldset[disabled] .btn-xl:focus,fieldset[disabled] .btn-xl:hover{background-color:#209AED;border-color:#209AED}.btn-xl .badge{color:#209AED;background-color:#fff}
+.btn-xl.active,.btn-xl:active,.btn-xl:focus,.btn-xl:hover,.open .dropdown-toggle.btn-xl{color: #209AED;font-weight: bold;}.btn-xl.disabled,.btn-xl.disabled.active,.btn-xl.disabled:active,.btn-xl.disabled:focus,.btn-xl.disabled:hover,.btn-xl[disabled],.btn-xl[disabled].active,.btn-xl[disabled]:active,.btn-xl[disabled]:focus,.btn-xl[disabled]:hover,fieldset[disabled] .btn-xl,fieldset[disabled] .btn-xl.active,fieldset[disabled] .btn-xl:active,fieldset[disabled] .btn-xl:focus,fieldset[disabled] .btn-xl:hover{background-color:#209AED;border-color:#209AED}.btn-xl .badge{color:#209AED;background-color:#fff}
 
 .navbar-custom{background-color:#209AED;border-color:transparent}.navbar-custom 
 
@@ -79,5 +79,6 @@ section#contatos .text-danger{color:#e74c3c}footer{padding:25px 0;text-align:cen
 
 .modal:before {content: ''; display: inline-block; height: 100%; vertical-align: middle; margin-right: -4px;}
 
-.modal-dialog {display: inline-block; text-align: left; vertical-align: middle;
-}
+.modal-dialog {display: inline-block; text-align: left; vertical-align: middle;}
+
+.timeline>li .timeline-image:hover{border: 5px solid #209AED;}

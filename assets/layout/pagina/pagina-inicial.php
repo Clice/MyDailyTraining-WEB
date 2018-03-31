@@ -4,12 +4,15 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <title>MyDailyTraining - Sistema para Gerenciamento de Academias e Acompanhamento de Alunos</title>
 
-        <!-- Bootstrap Core CSS -->
+        <!-- IMPORT CSS -->
         <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/agency.min.css" rel="stylesheet">
+        <link href="css/planos.css" rel="stylesheet">
+        
 
         <!-- IMPORT FONTS -->
         <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -19,9 +22,8 @@
         <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
         <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
 
-        <!-- IMPORT CSS -->
-        <link href="css/agency.min.css" rel="stylesheet">
-        <link href="css/planos.css" rel="stylesheet">
+        
+
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -74,7 +76,6 @@
             <div class="container">
                 <div class="intro-text">
                     <img style="float: right;" src="img/Icon 256 x 256.png" class="img-fluid" alt="MyDailyTraining">
-
                     <div class="intro-lead-in">Bem-vindo ao MyDailyTraining!</div>
                     <div class="intro-heading">It's Nice To Meet You</div>
                     <a href="https://www.mydailytraining.com.br/login" class="page-scroll btn btn-xl">Acesse a Plataforma</a>
