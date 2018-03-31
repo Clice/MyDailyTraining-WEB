@@ -11,7 +11,7 @@
         <!-- Bootstrap Core CSS -->
         <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-        <!-- Custom Fonts -->
+        <!-- IMPORT FONTS -->
         <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
@@ -19,7 +19,7 @@
         <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
         <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
 
-        <!-- Theme CSS -->
+        <!-- IMPORT CSS -->
         <link href="css/agency.min.css" rel="stylesheet">
         <link href="css/planos.css" rel="stylesheet">
 
@@ -59,10 +59,10 @@
                             <a class="page-scroll" href="#contatos">Contatos</a>
                         </li>
                         <li>
-                            <a class="page-scroll" href="#team">Team</a>
+                            <a class="page-scroll" href="#sobre">Sobre</a>
                         </li>
                         <li>
-                            <a class="page-scroll" href="#about">Sobre</a>
+                            <a class="page-scroll" href="#equaltech">EqualTech</a>
                         </li>
                     </ul>
                 </div>
@@ -88,7 +88,6 @@
                 <div class="row">
                     <div class="col-lg-12 text-center">
                         <h2 class="section-heading">Recursos</h2>
-                        <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
                     </div>
                 </div>
                 <div class="row">
@@ -97,7 +96,7 @@
                             <!-- FICHA DE TREINAMENTO -->
                             <li>
                                 <div class="timeline-image">
-                                    <img class="img-circle img-responsive" src="img/recursos/1.jpg" alt="">
+                                    <img class="img-circle img-responsive" src="img/recursos/1.png" alt="">
                                 </div>
                                 <div class="timeline-panel">
                                     <br>
@@ -113,7 +112,7 @@
                             <!-- AVALIAÇÃO FÍSICA -->
                             <li class="timeline-inverted">
                                 <div class="timeline-image">
-                                    <img class="img-circle img-responsive" src="img/about/2.jpg" alt="">
+                                    <img class="img-circle img-responsive" src="img/recursos/2.png" alt="">
                                 </div>
                                 <div class="timeline-panel">
                                     <br>
@@ -129,7 +128,7 @@
                             <!-- GERENCIAMENTO DO TREINO -->
                             <li>
                                 <div class="timeline-image">
-                                    <img class="img-circle img-responsive" src="img/recursos/1.png" alt="">
+                                    <img class="img-circle img-responsive" src="img/recursos/3.png" alt="">
                                 </div>
                                 <div class="timeline-panel">
                                     <br>
@@ -145,7 +144,7 @@
                             <!-- ACOMPANHAR DESEMPENHO -->
                             <li class="timeline-inverted">
                                 <div class="timeline-image">
-                                    <img class="img-circle img-responsive" src="img/about/4.jpg" alt="">
+                                    <img class="img-circle img-responsive" src="img/recursos/4.png" alt="">
                                 </div>
                                 <div class="timeline-panel">
                                     <br>
@@ -197,7 +196,7 @@
                                     </ul>
                                     <br>
                                     <div class="cart1">
-                                        <a class="popup-with-zoom-anim" href="#contatos">Fale Conosco</a>
+                                        <a class="popup-with-zoom-anim page-scroll" href="#contatos">Fale Conosco</a>
                                     </div>
                                 </div>
                             </div>
@@ -223,7 +222,7 @@
                                         </li>
                                     </ul>
                                     <div class="cart2">
-                                        <a class="popup-with-zoom-anim" href="#small-dialog">Fale Conosco</a>
+                                        <a class="popup-with-zoom-anim page-scroll" href="#contatos">Fale Conosco</a>
                                     </div>
                                 </div>
                             </div>
@@ -248,7 +247,7 @@
                                     </ul>
                                     <br><br>
                                     <div class="cart3">
-                                        <a class="popup-with-zoom-anim" href="#small-dialog">Fale Conosco</a>
+                                        <a class="popup-with-zoom-anim page-scroll" href="#contatos">Fale Conosco</a>
                                     </div>
                                 </div>
                             </div>
@@ -271,7 +270,7 @@
 
                                     </div>
                                     <div class="cart4">
-                                        <a class="popup-with-zoom-anim" href="#small-dialog">Fale Conosco</a>
+                                        <a class="popup-with-zoom-anim page-scroll" href="#contatos">Fale Conosco</a>
                                     </div>
                                 </div>
                             </div>
@@ -288,59 +287,75 @@
                 <div class="row">
                     <div class="col-lg-12 text-center">
                         <h2 class="section-heading">Nossos Contatos</h2>
-                        <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                        <h3 class="section-subheading">Entre em contato conosco para qualquer eventual dúvida.</h3>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-lg-12">
-                        <form name="sentMessage" id="contactForm" novalidate>
+                        <form name="fomrContato" id="fomrContato">
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Your Name *" id="name" required data-validation-required-message="Please enter your name.">
+                                        <input type="text" id="nomeContato" class="form-control" placeholder="Seu nome *" required data-validation-required-message="Please enter your name.">
                                         <p class="help-block text-danger"></p>
                                     </div>
                                     <div class="form-group">
-                                        <input type="email" class="form-control" placeholder="Your Email *" id="email" required data-validation-required-message="Please enter your email address.">
+                                        <input type="email" id="emailContato" class="form-control" placeholder="Seu e-mail *" required data-validation-required-message="Please enter your email address.">
                                         <p class="help-block text-danger"></p>
                                     </div>
                                     <div class="form-group">
-                                        <input type="tel" class="form-control" placeholder="Your Phone *" id="phone" required data-validation-required-message="Please enter your phone number.">
+                                        <input type="tel" id="telefoneContato" class="form-control" placeholder="Seu telefone *" required data-validation-required-message="Please enter your phone number.">
                                         <p class="help-block text-danger"></p>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <textarea class="form-control" placeholder="Your Message *" id="message" required data-validation-required-message="Please enter a message."></textarea>
+                                        <textarea id="mensagemContato" class="form-control" placeholder="Digite sua mensagem aqui..." required data-validation-required-message="Please enter a message."></textarea>
                                         <p class="help-block text-danger"></p>
                                     </div>
                                 </div>
                                 <div class="clearfix"></div>
                                 <div class="col-lg-12 text-center">
                                     <div id="success"></div>
-                                    <button type="submit" class="btn btn-xl">Send Message</button>
+                                    <button type="submit" id="enviarContato" name="enviarContato" class="btn btn-xl" onclick="verificarEmail();"><i class="fa fa-envelope"></i> Enviar</button>
                                 </div>
                             </div>
                         </form>
                     </div>
                 </div>
+                <hr>
+                <div class="row">
+                    <div class="col-lg-6 ml-auto text-center">
+                        <i class="fa fa-phone fa-3x"></i>
+                        <h4><br>(xx) xxxxx-xxxx</h4>
+                        <h4>(xx) xxxxx-xxxx</h4>
+                    </div>
+                    <div class="col-lg-6 mr-auto text-center">
+                        <i class="fa fa-envelope-o fa-3x"></i>
+                        <h4><br>contato@mydailytraining.com.br<br></h4>
+                    </div>
+                </div>
             </div>
         </section>        
 
-        <!-- Services Section -->
-        <section id="services">
+        <!-- SOBRE O MYDAILYTRAINING -->
+        <section id="sobre">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12 text-center">
-                        <h2 class="section-heading">Services</h2>
-                        <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                        <h2 class="section-heading">Sobre o MyDailyTraining</h2>
+                        <h3 class="section-subheading text-muted">O MyDailyTraining busca inovar na 
+                            forma que os alunos praticam atividades físicas dentro da academia, que podem encontrar dificuldade na 
+                            comunicação com os instrutores e em receber auxílio deles durante a realização dos 
+                            exercícios, além de precisarem acompanhar os seus treinos, trazendo mais comodidade e 
+                            praticidade a vida dos alunos.</h3>
                     </div>
                 </div>
                 <div class="row text-center">
                     <div class="col-md-4">
                         <span class="fa-stack fa-4x">
                             <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                            <i class="fa fa-shopping-cart fa-stack-1x fa-inverse"></i>
+                            <i class="fa fa-android fa-stack-1x fa-inverse"></i>
                         </span>
                         <h4 class="service-heading">E-Commerce</h4>
                         <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
@@ -350,74 +365,95 @@
                             <i class="fa fa-circle fa-stack-2x text-primary"></i>
                             <i class="fa fa-laptop fa-stack-1x fa-inverse"></i>
                         </span>
-                        <h4 class="service-heading">Responsive Design</h4>
-                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                        <h4 class="service-heading">Design Responsivo</h4>
+                        <p class="text-muted">Acesse o MyDailyTraining de qualquer dispositivo, pois o sistema conta com um layout simples e prático possibilitando que o usuário realize suas tarefas de forma rápida.</p>
                     </div>
                     <div class="col-md-4">
                         <span class="fa-stack fa-4x">
                             <i class="fa fa-circle fa-stack-2x text-primary"></i>
                             <i class="fa fa-lock fa-stack-1x fa-inverse"></i>
                         </span>
-                        <h4 class="service-heading">Web Security</h4>
+                        <h4 class="service-heading">Segurança</h4>
                         <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Team Section -->
-        <section id="team" class="bg-light-gray">
+        <!-- SOBRE A EQUALTECH -->
+        <section id="equaltech" class="bg-light-gray">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12 text-center">
-                        <h2 class="section-heading">Our Amazing Team</h2>
-                        <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                        <h2 class="section-heading">EqualTech</h2>
+                        <h3 class="section-subheading text-muted">A EqualTech é uma empresa comprometida com a qualidade de seus produtos e com a satisfação de seus clientes. Tendo como principais características a flexibilidade e o tempo de resposta de acordo com a velocidade exigida pelo mercado, com o foco no desenvolvimento de soluções comerciais para pequenas e médias empresas.</h3>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="col-lg-6 text-center">
+                            <h2 class="section-subheading">Missão</h2>
+                            <h3 class="section-subheading text-muted">Inovar por meio do desenvolvimento de aplicações tecnológicas, buscando trazer qualidade de vida e bom atendimento.</h3>
+                        </div>
+                        <div class="col-lg-6 text-center">
+                            <h2 class="section-subheading">Missão</h2>
+                            <h3 class="section-subheading text-muted">Estar ativo no mercado, sendo referência na promoção de soluções de software.</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <h2 class="section-heading">Nossa Equipe</h2>
                     </div>
                 </div>
                 <div class="row">
+                    <!-- CLICE BEZERRA -->
                     <div class="col-sm-4">
                         <div class="team-member">
-                            <img src="img/team/1.jpg" class="img-responsive img-circle" alt="">
-                            <h4>Kay Garland</h4>
-                            <p class="text-muted">Lead Designer</p>
-                            <ul class="list-inline social-buttons">
-                                <li><a href="#"><i class="fa fa-twitter"></i></a>
-                                </li>
-                                <li><a href="#"><i class="fa fa-facebook"></i></a>
-                                </li>
-                                <li><a href="#"><i class="fa fa-linkedin"></i></a>
-                                </li>
-                            </ul>
+                            <img src="img/equaltech/clice_romao.jpeg" class="img-responsive img-circle" alt="">
+                            <h4>Clice Romão</h4>
+                            <p class="text-muted">Gerente de Projeto e Desenvolvedora</p>
                         </div>
                     </div>
+                    <!-- LUCAS COSTA -->
                     <div class="col-sm-4">
                         <div class="team-member">
-                            <img src="img/team/2.jpg" class="img-responsive img-circle" alt="">
-                            <h4>Larry Parker</h4>
-                            <p class="text-muted">Lead Marketer</p>
-                            <ul class="list-inline social-buttons">
-                                <li><a href="#"><i class="fa fa-twitter"></i></a>
-                                </li>
-                                <li><a href="#"><i class="fa fa-facebook"></i></a>
-                                </li>
-                                <li><a href="#"><i class="fa fa-linkedin"></i></a>
-                                </li>
-                            </ul>
+                            <img src="img/equaltech/lucas_costa.jpeg" class="img-responsive img-circle" alt="">
+                            <h4>Lucas Costa</h4>
+                            <p class="text-muted">Desenvolvedor e Designer</p>
                         </div>
                     </div>
+                    <!-- TATIANE MORAIS -->
                     <div class="col-sm-4">
                         <div class="team-member">
-                            <img src="img/team/3.jpg" class="img-responsive img-circle" alt="">
-                            <h4>Diana Pertersen</h4>
-                            <p class="text-muted">Lead Developer</p>
-                            <ul class="list-inline social-buttons">
-                                <li><a href="#"><i class="fa fa-twitter"></i></a>
-                                </li>
-                                <li><a href="#"><i class="fa fa-facebook"></i></a>
-                                </li>
-                                <li><a href="#"><i class="fa fa-linkedin"></i></a>
-                                </li>
-                            </ul>
+                            <img src="img/equaltech/3.jpg" class="img-responsive img-circle" alt="">
+                            <h4>Tatiane Morais</h4>
+                            <p class="text-muted">Analista de Negócios</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <!-- ALEXANDRE BARBOSA -->
+                    <div class="col-sm-4">
+                        <div class="team-member">
+                            <img src="img/equaltech/2.jpg" class="img-responsive img-circle" alt="">
+                            <h4>Alexandre Barbosa</h4>
+                            <p class="text-muted">Analista de Sistemas</p>
+                        </div>
+                    </div>
+                    <!-- WESLEY SARAIVA -->
+                    <div class="col-sm-4">
+                        <div class="team-member">
+                            <img src="img/equaltech/2.jpg" class="img-responsive img-circle" alt="">
+                            <h4>Wesley Saraiva</h4>
+                            <p class="text-muted">Gerente de Testes</p>
+                        </div>
+                    </div>
+                    <!-- IZIDORIO FEITOSA -->
+                    <div class="col-sm-4">
+                        <div class="team-member">
+                            <img src="img/equaltech/2.jpg" class="img-responsive img-circle" alt="">
+                            <h4>Izidorio Feitosa</h4>
+                            <p class="text-muted">Analista de Testes</p>
                         </div>
                     </div>
                 </div>
@@ -461,22 +497,28 @@
             </div>
         </footer>
 
-        <!-- jQuery -->
+        <!-- IMPORT SCRIPTS -->
         <script src="vendor/jquery/jquery.min.js"></script>
-
-        <!-- Bootstrap Core JavaScript -->
         <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-
-        <!-- Plugin JavaScript -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-
-        <!-- Contact Form JavaScript -->
         <script src="js/jqBootstrapValidation.js"></script>
-        <script src="js/contact_me.js"></script>
-
-        <!-- Theme JavaScript -->
+        <script src="js/validarContato.js"></script>
         <script src="js/agency.min.js"></script>
-
     </body>
-
 </html>
+
+<!-- MODAL - CAMPOS OBRIGATÓRIOS NÃO PREENCHIDOS -->
+<div class="modal fade text-xs-left" id="dados-obrigatorios-contato" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title text-center"><i class="fa fa-warning"></i> Dados obrigatórios não preenchidos!</h4>
+                <h5 class="modal-body text-center">Por favor preencha todos os campos para enviar e-mail de contato. Agredecemos a sua compreensão.
+                    <br><br>Atenciosamente EqualTech</h5>
+                <div class="modal-footer">                
+                    <button type="button" class="btn grey btn-secondary" data-dismiss="modal">Techar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
