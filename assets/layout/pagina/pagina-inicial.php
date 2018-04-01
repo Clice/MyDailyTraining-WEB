@@ -75,7 +75,7 @@
         <header>
             <div class="container">
                 <div class="intro-text">
-                    <img style="float: right;" src="img/Icon 256 x 256.png" class="img-fluid" alt="MyDailyTraining">
+                    <img src="img/Icon 256 x 256.png" class="img-fluid" alt="MyDailyTraining">
                     <div class="intro-lead-in">Bem-vindo ao MyDailyTraining!</div>
                     <div class="intro-heading">It's Nice To Meet You</div>
                     <a href="https://www.mydailytraining.com.br/login" class="page-scroll btn btn-xl">Acesse a Plataforma</a>
@@ -333,7 +333,7 @@
                     </div>
                     <div class="col-lg-6 mr-auto text-center">
                         <i class="fa fa-envelope-o fa-3x"></i>
-                        <h4><br>contato@mydailytraining.com.br<br></h4>
+                        <h5><br>contato@mydailytraining.com.br<br></h5>
                     </div>
                 </div>
             </div>
@@ -344,7 +344,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12 text-center">
-                        <h2 class="section-heading">Sobre o MyDailyTraining</h2>
+                        <h2 class="section-heading">Sobre o MDT</h2>
                         <h3 class="section-subheading text-muted">O MyDailyTraining busca inovar na 
                             forma que os alunos praticam atividades físicas dentro da academia, que podem encontrar dificuldade na 
                             comunicação com os instrutores e em receber auxílio deles durante a realização dos 
@@ -517,7 +517,7 @@
                 <h5 class="modal-body text-center">Por favor preencha todos os campos para enviar e-mail de contato. Agredecemos a sua compreensão.
                     <br><br>Atenciosamente EqualTech</h5>
                 <div class="modal-footer">                
-                    <button type="button" class="btn grey btn-secondary" data-dismiss="modal">Techar</button>
+                    <button type="button" class="btn grey btn-secondary" data-dismiss="modal">Fechar</button>
                 </div>
             </div>
         </div>

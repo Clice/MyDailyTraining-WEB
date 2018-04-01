@@ -4,10 +4,9 @@
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
  */
 
-.btn-primary.active,.btn-primary:active,.btn-xl.active,.btn-xl:active,.open .dropdown-toggle.btn-primary,.open .dropdown-toggle.btn-xl{
-    background-image:none}
+.btn-primary.active,.btn-primary:active,.btn-xl.active,.btn-xl:active,.open .dropdown-toggle.btn-primary,.open .dropdown-toggle.btn-xl{background-image:none}
 
-body{overflow-x:hidden;font-family:"Roboto Slab","Helvetica Neue",Helvetica,Arial,sans-serif;webkit-tap-highlight-color:#00BFF}
+body{overflow-x:hidden;font-family:"Roboto Slab","Helvetica Neue",Helvetica,Arial,sans-serif; webkit-tap-highlight-color:#00BFF;}
 
 .btn-primary,.btn-xl,h1,h2,h3,h4,h5,h6{font-family:Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;text-transform:uppercase;font-weight:700}.text-muted{color:#777}.text-primary,a{color:#209AED}p{font-size:14px;line-height:1.75}p.large{font-size:16px}a,a.active,a:active,a:focus,a:hover{outline:0}.img-centered{margin:0 auto}
 
@@ -23,11 +22,11 @@ body{overflow-x:hidden;font-family:"Roboto Slab","Helvetica Neue",Helvetica,Aria
 
 .btn-primary.active,.btn-primary:active,.btn-primary:focus,.btn-primary:hover,.open .dropdown-toggle.btn-primary{color:#fff;background-color:#fec503;border-color:#f6bf01}.btn-primary.disabled,.btn-primary.disabled.active,.btn-primary.disabled:active,.btn-primary.disabled:focus,.btn-primary.disabled:hover,.btn-primary[disabled],.btn-primary[disabled].active,.btn-primary[disabled]:active,.btn-primary[disabled]:focus,.btn-primary[disabled]:hover,fieldset[disabled] .btn-primary,fieldset[disabled] .btn-primary.active,fieldset[disabled] .btn-primary:active,fieldset[disabled] .btn-primary:focus,fieldset[disabled] .btn-primary:hover{background-color:#209AED;border-color:#209AED}.btn-primary .badge{color:#209AED;background-color:#fff}
 
-.btn-xl{color:#209AED;background-color:#fff;border-color:#209AED;border-radius:8px;font-size:18px;padding:20px 40px}
+.btn-xl{color:#209AED;background-color:#fff;border-color:#209AED;border-radius:8px;font-size:15px;padding:20px 40px}
 
-.btn-xl.active,.btn-xl:active,.btn-xl:focus,.btn-xl:hover,.open .dropdown-toggle.btn-xl{color: #209AED;font-weight: bold;}.btn-xl.disabled,.btn-xl.disabled.active,.btn-xl.disabled:active,.btn-xl.disabled:focus,.btn-xl.disabled:hover,.btn-xl[disabled],.btn-xl[disabled].active,.btn-xl[disabled]:active,.btn-xl[disabled]:focus,.btn-xl[disabled]:hover,fieldset[disabled] .btn-xl,fieldset[disabled] .btn-xl.active,fieldset[disabled] .btn-xl:active,fieldset[disabled] .btn-xl:focus,fieldset[disabled] .btn-xl:hover{background-color:#209AED;border-color:#209AED}.btn-xl .badge{color:#209AED;background-color:#fff}
+.btn-xl.active,.btn-xl:active,.btn-xl:focus,.btn-xl:hover,.open .dropdown-toggle.btn-xl{color: #fff; background-color: #0092f4; border-color: #fff;}.btn-xl.disabled,.btn-xl.disabled.active,.btn-xl.disabled:active,.btn-xl.disabled:focus,.btn-xl.disabled:hover,.btn-xl[disabled],.btn-xl[disabled].active,.btn-xl[disabled]:active,.btn-xl[disabled]:focus,.btn-xl[disabled]:hover,fieldset[disabled] .btn-xl,fieldset[disabled] .btn-xl.active,fieldset[disabled] .btn-xl:active,fieldset[disabled] .btn-xl:focus,fieldset[disabled] .btn-xl:hover{background-color:#209AED;border-color:#209AED}.btn-xl .badge{color:#209AED;background-color:#fff}
 
-.navbar-custom{background-color:#209AED;border-color:transparent}.navbar-custom 
+.navbar-custom{background-color:#185b88;border-color:transparent}.navbar-custom 
 
 .navbar-brand{color:#fff; font-family: 'Righteous', cursive;}
 
@@ -39,11 +38,15 @@ body{overflow-x:hidden;font-family:"Roboto Slab","Helvetica Neue",Helvetica,Aria
 
 .navbar-custom .navbar-nav>.active>a:focus,.navbar-custom .navbar-nav>.active>a:hover{color:#209AED;background-color:#fff}
 
-@media (min-width:768px){.navbar-custom{background-color:transparent;padding:25px 0;-webkit-transition:padding .3s;-moz-transition:padding .3s;transition:padding .3s;border:none}.navbar-custom .navbar-brand{font-size:2em;-webkit-transition:all .3s;-moz-transition:all .3s;transition:all .3s}.navbar-custom .navbar-nav>.active>a{border-radius:3px}
+@media (min-width:768px){
+    .navbar-custom{background-color:transparent;padding:25px 0;-webkit-transition:padding .3s;-moz-transition:padding .3s;transition:padding .3s;border:none}.navbar-custom .navbar-brand{font-size:2em;-webkit-transition:all .3s;-moz-transition:all .3s;transition:all .3s}.navbar-custom .navbar-nav>.active>a{border-radius:3px}
 
-                         .navbar-custom.affix{background-color:#185b88;padding:10px 0}
+    .navbar-custom.affix{background-color:#185b88;padding:10px 0}
 
-                         .navbar-custom.affix .navbar-brand{font-size:1.5em}}header{background-image:url(../img/header-bg.jpg);background-repeat:no-repeat;background-attachment:scroll;background-position:center center;-webkit-background-size:cover;-moz-background-size:cover;background-size:cover;-o-background-size:cover;text-align:center;color:#fff}header .intro-text{padding-top:100px;padding-bottom:50px}header .intro-text .intro-lead-in{font-family:"Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;font-style:italic;font-size:22px;line-height:22px;margin-bottom:25px}header .intro-text .intro-heading{font-family:Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;text-transform:uppercase;font-weight:700;font-size:50px;line-height:50px;margin-bottom:25px}@media (min-width:768px){header .intro-text{padding-top:250px;padding-bottom:200px}header .intro-text .intro-lead-in{font-family:"Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;font-style:italic;font-size:40px;line-height:40px;margin-bottom:25px}header .intro-text .intro-heading{font-family:Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;text-transform:uppercase;font-weight:700;font-size:75px;line-height:75px;margin-bottom:50px}}
+    .navbar-custom.affix .navbar-brand{font-size:1.5em}
+}
+
+header{background-image:url(../img/header-bg.jpg);background-repeat:no-repeat;background-attachment:scroll;background-position:center center;-webkit-background-size:cover;-moz-background-size:cover;background-size:cover;-o-background-size:cover;text-align:center;color:#fff}header .intro-text{padding-top:100px;padding-bottom:50px}header .intro-text .intro-lead-in{font-family:"Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;font-style:italic;font-size:22px;line-height:22px;margin-bottom:25px}header .intro-text .intro-heading{font-family:Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;text-transform:uppercase;font-weight:700;font-size:50px;line-height:50px;margin-bottom:25px}@media (min-width:768px){header .intro-text{padding-top:100px;padding-bottom:200px}header .intro-text .intro-lead-in{font-family:"Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;font-style:italic;font-size:40px;line-height:40px;margin-bottom:25px}header .intro-text .intro-heading{font-family:Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;text-transform:uppercase;font-weight:700;font-size:75px;line-height:75px;margin-bottom:50px}}
 
 #portfolio .portfolio-item .portfolio-caption p,section h3.section-subheading{font-family:"Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;font-style:italic}section{padding:100px 0}section h2.section-heading{font-size:40px;margin-top:0;margin-bottom:15px}
 

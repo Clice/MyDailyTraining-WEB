@@ -36,7 +36,7 @@ class InicialController extends CI_Controller {
     }
 
     // FUNÇÃO CONTROLLER PARA VERIFICAÇÃO DAS INFORMAÇÕES PASSADAS PARA REALIZAR O LOGIN NO SISTEMA
-    public function cLogarUsuario() {        
+    public function cLogarUsuario() {
         $this->load->model('UsuarioModel');
 
         // PEGANDO AS INFORMAÇÕES DE LOGIN E SENHA PASSADAS E COLOCANDO EM UM VETOR
@@ -79,7 +79,7 @@ class InicialController extends CI_Controller {
     // CUJOS TIPO DE CONTA SEJA DIFERENTES DE 1
     public function cVerificarDadosUsuario($dadosUsuario) {
         $this->load->model('UsuarioModel');
-        
+
         // VERIFICANDO SE O STATUS DA ACADEMIA ESTÁ TRUE 
         // PARA QUE O USUÁRIO POSSA LOGAR
         $dadosAux = $this->UsuarioModel->mVerificarStatusAcademia($dadosUsuario['idAcademia']);
@@ -110,6 +110,36 @@ class InicialController extends CI_Controller {
     public function cLogoutUsuario() {
         $this->session->sess_destroy();
         redirect(base_url());
+    }
+
+    public function cEnviarEmailContato() {
+
+        $this->load->library('email');
+
+        $nomeContato = $this->input->post('nomeContato');
+        $emailContato = $this->input->post('emailContato');
+        $telefoneContato = $this->input->post('telefoneContato');
+        $mensagemContato = $this->input->post('mensagemContato');
+
+        $config['protocol'] = 'mail';
+        $config['wordwrap'] = TRUE;
+        $config['validate'] = TRUE;
+        $config['mailtype'] = 'text';
+
+        $this->email->initialize($config);
+
+        $this->email->from($emailContato, $nomeContato);
+        $this->email->to('contato@mydailytraining.com.br', 'EqualTech');
+        $this->email->subject('Contato - ' . $nomeContato);
+        $this->email->message($mensagemContato . '\nTelefone: ' . $telefoneContato);
+
+        if ($this->email->send()) {
+            $resposta = array('success' => true);
+        } else {
+            $resposta = array('success' => false);
+        }
+
+        echo json_encode($resposta);
     }
 
 }
