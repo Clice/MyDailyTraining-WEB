@@ -63,7 +63,7 @@ class AcademiaController extends CI_Controller {
             $dados['diaPagamentoAcademia'] = 0;
             $dados['statusAcademia'] = true;
         }
-        
+
         $dados['voltarPagina'] = "lista-academias";
 
         // CARREGANDO AS VIEWS DA PÁGINA
@@ -135,7 +135,7 @@ class AcademiaController extends CI_Controller {
 
     // FUNÇÃO CONTROLLER PARA CADASTRAR/EDITAR ACADEMIA
     public function cCadastrarEditarAcademia() {
-        // PEGANDO OS VALORES PASSADOS PELO CADASTRAR-EDITAR-ACADEMIA.PHP     
+        // PEGANDO OS VALORES PASSADOS PELO CADASTRAR-EDITAR-ACADEMIA.PHP
         $dadosAcademia = array(
             'idAcademia' => $this->input->post('idAcademia'),
             'idPlano' => $this->input->post('idPlano'),

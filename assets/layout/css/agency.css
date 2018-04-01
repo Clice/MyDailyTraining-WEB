@@ -18,6 +18,12 @@ body {
 .text-primary {
     color: #209AED;
 }
+.bg-light-blue-mdt {
+    background-color: #209AED;
+}
+.bg-dark-blue-mdt {
+    background-color: #185b88;
+}
 p {
     font-size: 14px;
     line-height: 1.75;
@@ -39,7 +45,7 @@ a:hover,
 a:focus,
 a:active,
 a.active {
-    color: #fec503;
+    color: #185b88;
 }
 h1,
 h2,
@@ -50,6 +56,9 @@ h6 {
     font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
     text-transform: uppercase;
     font-weight: 700;
+}
+hr {
+    border-color: #185b88;
 }
 .img-centered {
     margin: 0 auto;
@@ -104,6 +113,46 @@ fieldset[disabled] .btn-primary.active {
     color: #209AED;
     background-color: white;
 }
+.btn-md {
+    color: #209AED;
+    background-color: white;
+    border-color: white;
+    font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+    border-radius: 3px;
+    font-size: 18px;
+    padding: 15px 30px;
+}
+.btn-md:hover,
+.btn-md:focus,
+.btn-md:active,
+.btn-md.active,
+.open .dropdown-toggle.btn-md {
+    color: white;
+    background-color: #185b88;
+    border-color: #185b88;
+}
+.btn-lg {
+    color: white;
+    background-color: #209AED;
+    border-color: #209AED;
+    font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+    border-radius: 3px;
+    font-size: 18px;
+    padding: 15px 30px;
+}
+.btn-lg:hover,
+.btn-lg:focus,
+.btn-lg:active,
+.btn-lg.active,
+.open .dropdown-toggle.btn-lg {
+    color: #209AED;
+    background-color: white;
+    border-color: white;
+}
 .btn-xl {
     color: white;
     background-color: #209AED;
@@ -113,7 +162,7 @@ fieldset[disabled] .btn-primary.active {
     font-weight: 700;
     border-radius: 3px;
     font-size: 18px;
-    padding: 20px 40px;
+    padding: 15px 30px;
 }
 .btn-xl:hover,
 .btn-xl:focus,
@@ -156,14 +205,14 @@ fieldset[disabled] .btn-xl.active {
     border-color: transparent;
 }
 .navbar-custom .navbar-brand {
-    color: #209AED;
-    font-family: "Kaushan Script", "Helvetica Neue", Helvetica, Arial, cursive;
+    color: white; 
+    font-family: 'Righteous', cursive;
 }
 .navbar-custom .navbar-brand:hover,
 .navbar-custom .navbar-brand:focus,
 .navbar-custom .navbar-brand:active,
 .navbar-custom .navbar-brand.active {
-    color: #fec503;
+    color: white;
 }
 .navbar-custom .navbar-collapse {
     border-color: rgba(255, 255, 255, 0.02);
@@ -189,18 +238,21 @@ fieldset[disabled] .btn-xl.active {
 }
 .navbar-custom .nav li a:hover,
 .navbar-custom .nav li a:focus {
-    color: #209AED;
+    color: white;
     outline: none;
+    font-weight: bold;
 }
 .navbar-custom .navbar-nav > .active > a {
     border-radius: 0;
-    color: white;
-    background-color: #209AED;
+    color: #209AED;
+    background-color: white;
+    font-weight: bold;
 }
 .navbar-custom .navbar-nav > .active > a:hover,
 .navbar-custom .navbar-nav > .active > a:focus {
-    color: white;
-    background-color: #fec503;
+    color: #209AED;
+    background-color: white;
+    font-weight: bold;
 }
 @media (min-width: 768px) {
     .navbar-custom {
@@ -223,7 +275,7 @@ fieldset[disabled] .btn-xl.active {
 }
 @media (min-width: 768px) {
     .navbar-custom.affix {
-        background-color: #222222;
+        background-color: #185b88;
         padding: 10px 0;
     }
     .navbar-custom.affix .navbar-brand {
@@ -231,7 +283,7 @@ fieldset[disabled] .btn-xl.active {
     }
 }
 header {
-    background-image: url('../img/header-bg.jpg');
+    background-color: #185b88;
     background-repeat: no-repeat;
     background-attachment: scroll;
     background-position: center center;
@@ -263,7 +315,7 @@ header .intro-text .intro-heading {
 }
 @media (min-width: 768px) {
     header .intro-text {
-        padding-top: 300px;
+        padding-top: 200px;
         padding-bottom: 200px;
     }
     header .intro-text .intro-lead-in {
@@ -300,7 +352,7 @@ section h3.section-subheading {
 }
 @media (min-width: 768px) {
     section {
-        padding: 150px 0;
+        padding: 95px 0;
     }
 }
 .service-heading {
@@ -558,59 +610,59 @@ section h3.section-subheading {
 aside.clients img {
     margin: 50px auto;
 }
-section#contatos {
+section#contact {
     background-color: #222222;
     background-image: url('../img/map-image.png');
     background-position: center;
     background-repeat: no-repeat;
 }
-section#contatos .section-heading {
+section#contact .section-heading {
     color: white;
 }
-section#contatos .form-group {
+section#contact .form-group {
     margin-bottom: 25px;
 }
-section#contatos .form-group input,
-section#contatos .form-group textarea {
+section#contact .form-group input,
+section#contact .form-group textarea {
     padding: 20px;
 }
-section#contatos .form-group input.form-control {
+section#contact .form-group input.form-control {
     height: auto;
 }
-section#contatos .form-group textarea.form-control {
+section#contact .form-group textarea.form-control {
     height: 236px;
 }
-section#contatos .form-control:focus {
+section#contact .form-control:focus {
     border-color: #209AED;
     box-shadow: none;
 }
-section#contatos ::-webkit-input-placeholder {
+section#contact ::-webkit-input-placeholder {
     font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
     text-transform: uppercase;
     font-weight: 700;
     color: #eeeeee;
 }
-section#contatos :-moz-placeholder {
+section#contact :-moz-placeholder {
     /* Firefox 18- */
     font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
     text-transform: uppercase;
     font-weight: 700;
     color: #eeeeee;
 }
-section#contatos ::-moz-placeholder {
+section#contact ::-moz-placeholder {
     /* Firefox 19+ */
     font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
     text-transform: uppercase;
     font-weight: 700;
     color: #eeeeee;
 }
-section#contatos :-ms-input-placeholder {
+section#contact :-ms-input-placeholder {
     font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
     text-transform: uppercase;
     font-weight: 700;
     color: #eeeeee;
 }
-section#contatos .text-danger {
+section#contact .text-danger {
     color: #e74c3c;
 }
 footer {
@@ -631,7 +683,8 @@ footer ul.quicklinks {
     text-transform: none;
 }
 ul.social-buttons {
-    margin-bottom: 0;
+    margin-bottom: 10px;
+    margin-top: 10px;
 }
 ul.social-buttons li a {
     display: block;

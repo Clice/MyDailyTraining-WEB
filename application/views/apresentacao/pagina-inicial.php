@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html lang="portuguese-brasilian">
+<html lang="pt-br">
 
     <head>
+
         <!-- INFORMAÇÕES DA PÁGINA -->
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,24 +13,17 @@
         <title>MyDailyTraining - Sistema para Gerenciamento de Academias e Acompanhamento de Alunos</title>
 
         <!-- CSS -->
-        <link href="<?php echo base_url('assets/layout/pagina/vendor/bootstrap/css/bootstrap.min.css'); ?>" rel="stylesheet">
-        <link href="<?php echo base_url('assets/layout/pagina/css/agency.min.css'); ?>" rel="stylesheet">
-        <link href="<?php echo base_url('assets/layout/pagina/css/planos.css'); ?>" rel="stylesheet">
+        <link href="<?php echo base_url('assets/layout/vendor/bootstrap/css/bootstrap.min.css'); ?>" rel="stylesheet">
+        <link href="<?php echo base_url('assets/layout/css/agency.css'); ?>" rel="stylesheet">
+        <link href="<?php echo base_url('assets/css/apresentacao/planos.css'); ?>" rel="stylesheet">
 
         <!-- FONTES -->
-        <link href="<?php echo base_url('assets/layout/pagina/vendor/font-awesome/css/font-awesome.min.css'); ?>" rel="stylesheet" type="text/css">
+        <link href="<?php echo base_url('assets/layout/vendor/font-awesome/css/font-awesome.min.css'); ?>" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
         <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
         <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
         <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
-
-        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
-            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
 
     </head>
 
@@ -51,6 +45,9 @@
                             <a href="#page-top"></a>
                         </li>
                         <li>
+                            <a class="page-scroll" href="#sobre">Sobre</a>
+                        </li>
+                        <li>
                             <a class="page-scroll" href="#recursos">Recursos</a>
                         </li>
                         <li>
@@ -58,9 +55,6 @@
                         </li>
                         <li>
                             <a class="page-scroll" href="#contatos">Contatos</a>
-                        </li>
-                        <li>
-                            <a class="page-scroll" href="#sobre">Sobre</a>
                         </li>
                         <li>
                             <a class="page-scroll" href="#equaltech">EqualTech</a>
@@ -74,20 +68,70 @@
         <header>
             <div class="container">
                 <div class="intro-text">
-                    <img src="<?php echo base_url('assets/layout/pagina/img/Icon 256 x 256.png'); ?>" class="img-fluid" alt="MyDailyTraining">
+                    <div class="intro-lead-in">
+                        <img src="<?php echo base_url('assets/imagens/Icon 256 x 256.png'); ?>" class="img-fluid" alt="MyDailyTraining">
+                    </div>
                     <div class="intro-lead-in">Bem-vindo ao MyDailyTraining!</div>
-                    <div class="intro-heading">It's Nice To Meet You</div>
-                    <a href="<?php echo base_url('login'); ?>" class="page-scroll btn btn-xl">Acesse a Plataforma</a>
+                    <div class="intro-heading"></div>
+                    <a href="<?php echo base_url('login'); ?>" class="page-scroll btn btn-lg">Acesse a Plataforma</a>
                 </div>
             </div>
         </header>
 
+        <!-- SOBRE O MYDAILYTRAINING -->
+        <section id="sobre" class="bg-light-gray">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <h2 class="section-heading">Sobre o MDT</h2><br>
+                        <h3 class="section-subheading text-muted">O MyDailyTraining busca inovar na
+                            forma que os alunos praticam atividades físicas dentro da academia, que podem encontrar dificuldade na
+                            comunicação com os instrutores e em receber auxílio deles durante a realização dos
+                            exercícios, além de precisarem acompanhar os seus treinos, trazendo mais comodidade e
+                            praticidade a vida dos alunos.</h3>
+                    </div>
+                </div>
+                <div class="row text-center">
+                    <!-- APLICATIVO MOBILE -->
+                    <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+                            <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fa fa-android fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h4 class="service-heading">Aplicativo Android</h4>
+                        <p class="text-muted">O MyDailyTraining possui um Aplicativo Mobile Android voltado para os alunos
+                            da academia onde eles podem acompanhar seu desempenho, gerenciar seu treino e solicitar
+                            atendimento do instrutor.</p>
+                    </div>
+                    <!-- DESIGN RESPONSIVO -->
+                    <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+                            <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fa fa-laptop fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h4 class="service-heading">Design Responsivo</h4>
+                        <p class="text-muted">Acesse o MyDailyTraining de qualquer dispositivo, pois o sistema conta com um layout simples e prático possibilitando que o usuário realize suas tarefas de forma rápida.</p>
+                    </div>
+                    <!-- SEGURANÇA -->
+                    <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+                            <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fa fa-lock fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h4 class="service-heading">Segurança</h4>
+                        <p class="text-muted">Prezamos pela segurança de todos os dados no sistema desde instrutores, funcionários e alunos. Assim mantendo a máxima confiabilidade dos nossos usuários.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- RECURSOS DO SISTEMA -->
-        <section id="recursos">
+        <section id="recursos" class="bg-light-gray">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12 text-center">
                         <h2 class="section-heading">Recursos</h2>
+                        <h3 class="section-subheading text-muted"></h3>
                     </div>
                 </div>
                 <div class="row">
@@ -96,7 +140,7 @@
                             <!-- FICHA DE TREINAMENTO -->
                             <li>
                                 <div class="timeline-image">
-                                    <img class="img-circle img-responsive" src="<?php echo base_url('assets/layout/pagina/img/recursos/1.png'); ?>" alt="">
+                                    <img class="img-circle img-responsive" src="<?php echo base_url('assets/imagens/recursos/1.png'); ?>" alt="">
                                 </div>
                                 <div class="timeline-panel">
                                     <br>
@@ -112,7 +156,7 @@
                             <!-- AVALIAÇÃO FÍSICA -->
                             <li class="timeline-inverted">
                                 <div class="timeline-image">
-                                    <img class="img-circle img-responsive" src="<?php echo base_url('assets/layout/pagina/img/recursos/2.png'); ?>" alt="">
+                                    <img class="img-circle img-responsive" src="<?php echo base_url('assets/imagens/recursos/2.png'); ?>" alt="">
                                 </div>
                                 <div class="timeline-panel">
                                     <br>
@@ -128,7 +172,7 @@
                             <!-- GERENCIAMENTO DO TREINO -->
                             <li>
                                 <div class="timeline-image">
-                                    <img class="img-circle img-responsive" src="<?php echo base_url('assets/layout/pagina/img/recursos/3.png'); ?>" alt="">
+                                    <img class="img-circle img-responsive" src="<?php echo base_url('assets/imagens/recursos/3.png'); ?>" alt="">
                                 </div>
                                 <div class="timeline-panel">
                                     <br>
@@ -144,7 +188,7 @@
                             <!-- ACOMPANHAR DESEMPENHO -->
                             <li class="timeline-inverted">
                                 <div class="timeline-image">
-                                    <img class="img-circle img-responsive" src="<?php echo base_url('assets/layout/pagina/img/recursos/4.png'); ?>" alt="">
+                                    <img class="img-circle img-responsive" src="<?php echo base_url('assets/imagens/recursos/4.png'); ?>" alt="">
                                 </div>
                                 <div class="timeline-panel">
                                     <br>
@@ -160,7 +204,7 @@
                     </div>
                 </div>
             </div>
-        </section>        
+        </section>
 
         <!-- PLANOS DO SISTEMA -->
         <section id="planos" class="bg-light-gray">
@@ -261,7 +305,7 @@
                                 <div class="price-bg">
                                     <br>
                                     <ul style="line-height: 35px;">
-                                        <li>Pacote A: 50 Licenças (R$ 10,00)</li>      
+                                        <li>Pacote A: 50 Licenças (R$ 10,00)</li>
                                         <li>Pacote B: 100 Licenças (R$ 17,00)</li>
                                         <li>Pacote C: 150 Licenças (R$ 25,00)</li>
                                         <li>Pacote D: 200 Licenças (R$ 30,00)</li>
@@ -299,7 +343,7 @@
                                         <input type="text" id="nomeContato" class="form-control" placeholder="Seu nome *" required>
                                     </div>
                                     <div class="form-group">
-                                        <input type="email" id="emailContato" class="form-control" placeholder="Seu e-mail *" required> 
+                                        <input type="email" id="emailContato" class="form-control" placeholder="Seu e-mail *" required>
                                     </div>
                                     <div class="form-group">
                                         <input type="tel" id="telefoneContato" class="form-control" placeholder="Seu telefone *" required>
@@ -313,7 +357,7 @@
                                 <div class="clearfix"></div>
                                 <div class="col-lg-12 text-center">
                                     <div id="success"></div>
-                                    <button type="submit" id="enviarContato" name="enviarContato" class="btn btn-xl" onclick="enviarEmailContato();"><i class="fa fa-envelope"></i> Enviar</button>
+                                    <button type="submit" id="enviarContato" name="enviarContato" class="btn btn-md" onclick="enviarEmailContato();"><i class="fa fa-envelope"></i> Enviar</button>
                                 </div>
                             </div>
                         </form>
@@ -332,53 +376,6 @@
                     </div>
                 </div>
             </div>
-        </section>        
-
-        <!-- SOBRE O MYDAILYTRAINING -->
-        <section id="sobre">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12 text-center">
-                        <h2 class="section-heading">Sobre o MDT</h2>
-                        <h3 class="section-subheading text-muted">O MyDailyTraining busca inovar na 
-                            forma que os alunos praticam atividades físicas dentro da academia, que podem encontrar dificuldade na 
-                            comunicação com os instrutores e em receber auxílio deles durante a realização dos 
-                            exercícios, além de precisarem acompanhar os seus treinos, trazendo mais comodidade e 
-                            praticidade a vida dos alunos.</h3>
-                    </div>
-                </div>
-                <div class="row text-center">
-                    <!-- APLICATIVO MOBILE -->
-                    <div class="col-md-4">
-                        <span class="fa-stack fa-4x">
-                            <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                            <i class="fa fa-android fa-stack-1x fa-inverse"></i>
-                        </span>
-                        <h4 class="service-heading">Aplicativo Android</h4>
-                        <p class="text-muted">O MyDailyTraining possui um Aplicativo Mobile Android voltado para os alunos
-                            da academia onde eles podem acompanhar seu desempenho, gerenciar seu treino e solicitar 
-                            atendimento do instrutor.</p>
-                    </div>
-                    <!-- DESIGN RESPONSIVO -->
-                    <div class="col-md-4">
-                        <span class="fa-stack fa-4x">
-                            <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                            <i class="fa fa-laptop fa-stack-1x fa-inverse"></i>
-                        </span>
-                        <h4 class="service-heading">Design Responsivo</h4>
-                        <p class="text-muted">Acesse o MyDailyTraining de qualquer dispositivo, pois o sistema conta com um layout simples e prático possibilitando que o usuário realize suas tarefas de forma rápida.</p>
-                    </div>
-                    <!-- SEGURANÇA -->
-                    <div class="col-md-4">
-                        <span class="fa-stack fa-4x">
-                            <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                            <i class="fa fa-lock fa-stack-1x fa-inverse"></i>
-                        </span>
-                        <h4 class="service-heading">Segurança</h4>
-                        <p class="text-muted">Prezamos pela segurança de todos os dados no sistema desde instrutores, funcionários e alunos. Assim mantendo a máxima confiabilidade dos nossos usuários.</p>
-                    </div>
-                </div>
-            </div>
         </section>
 
         <!-- SOBRE A EQUALTECH -->
@@ -390,13 +387,20 @@
                         <h3 class="section-subheading text-muted">A EqualTech é uma empresa comprometida com a qualidade de seus produtos e com a satisfação de seus clientes. Tendo como principais características a flexibilidade e o tempo de resposta de acordo com a velocidade exigida pelo mercado, com o foco no desenvolvimento de soluções comerciais para pequenas e médias empresas. Sempre buscamos atender bens os nossos clientes e principalmente a satisfação completa do consumidor.</h3>
                     </div>
                     <div class="col-lg-12">
-                        <div class="col-lg-6 text-center">
+                        <div class="col-lg-4 text-center">
                             <h2 class="section-subheading">Missão</h2>
-                            <h3 class="section-subheading text-muted">Inovar por meio do desenvolvimento de aplicações tecnológicas, buscando trazer qualidade de vida e bom atendimento.</h3>
+                            <h3 class="section-subheading text-muted">Inovar por meio do desenvolvimento de aplicações tecnológicas, buscando trazer
+                                qualidade de vida e bom atendimento.</h3>
                         </div>
-                        <div class="col-lg-6 text-center">
-                            <h2 class="section-subheading">Missão</h2>
-                            <h3 class="section-subheading text-muted">Estar ativo no mercado, sendo referência na promoção de soluções de software.</h3>
+                        <div class="col-lg-4 text-center">
+                            <h2 class="section-subheading">Visão</h2>
+                            <h3 class="section-subheading text-muted">Estar ativo no mercado, sendo referência na promoção de soluções de software para
+                                academias.</h3>
+                        </div>
+                        <div class="col-lg-4 text-center">
+                            <h2 class="section-subheading">Valores</h2>
+                            <h3 class="section-subheading text-muted">Fornecer produtos de confiança aos clientes, com ética, honestidade, responsabilidade e
+                                compromisso para com eles e o mercado..</h3>
                         </div>
                     </div>
                 </div>
@@ -410,7 +414,7 @@
                     <!-- CLICE BEZERRA -->
                     <div class="col-sm-4">
                         <div class="team-member">
-                            <img src="<?php echo base_url('assets/layout/pagina/img/equaltech/clice_romao.jpeg'); ?>" class="img-responsive img-circle" alt="">
+                            <img src="<?php echo base_url('assets/imagens/equaltech/clice_romao.jpeg'); ?>" class="img-responsive img-circle" alt="">
                             <h4>Clice Romão</h4>
                             <p class="text-muted">Gerente de Projeto e Desenvolvedora</p>
                         </div>
@@ -418,7 +422,7 @@
                     <!-- LUCAS COSTA -->
                     <div class="col-sm-4">
                         <div class="team-member">
-                            <img src="<?php echo base_url('assets/layout/pagina/img/equaltech/lucas_costa.jpeg'); ?>" class="img-responsive img-circle" alt="">
+                            <img src="<?php echo base_url('assets/imagens/equaltech/lucas_costa.jpeg'); ?>" class="img-responsive img-circle" alt="">
                             <h4>Lucas Costa</h4>
                             <p class="text-muted">Desenvolvedor e Designer</p>
                         </div>
@@ -426,7 +430,7 @@
                     <!-- TATIANE MORAIS -->
                     <div class="col-sm-4">
                         <div class="team-member">
-                            <img src="<?php echo base_url('assets/layout/pagina/img/equaltech/3.jpg'); ?>" class="img-responsive img-circle" alt="">
+                            <img src="<?php echo base_url('assets/imagens/equaltech/3.jpg'); ?>" class="img-responsive img-circle" alt="">
                             <h4>Tatiane Morais</h4>
                             <p class="text-muted">Analista de Negócios</p>
                         </div>
@@ -436,7 +440,7 @@
                     <!-- ALEXANDRE BARBOSA -->
                     <div class="col-sm-4">
                         <div class="team-member">
-                            <img src="<?php echo base_url('assets/layout/pagina/img/equaltech/2.jpg'); ?>" class="img-responsive img-circle" alt="">
+                            <img src="<?php echo base_url('assets/imagens/equaltech/2.jpg'); ?>" class="img-responsive img-circle" alt="">
                             <h4>Alexandre Barbosa</h4>
                             <p class="text-muted">Analista de Sistemas</p>
                         </div>
@@ -444,7 +448,7 @@
                     <!-- WESLEY SARAIVA -->
                     <div class="col-sm-4">
                         <div class="team-member">
-                            <img src="<?php echo base_url('assets/layout/pagina/img/equaltech/2.jpg'); ?>" class="img-responsive img-circle" alt="">
+                            <img src="<?php echo base_url('assets/imagens/equaltech/2.jpg'); ?>" class="img-responsive img-circle" alt="">
                             <h4>Wesley Saraiva</h4>
                             <p class="text-muted">Gerente de Testes</p>
                         </div>
@@ -452,15 +456,10 @@
                     <!-- IZIDORIO FEITOSA -->
                     <div class="col-sm-4">
                         <div class="team-member">
-                            <img src="<?php echo base_url('assets/layout/pagina/img/equaltech/2.jpg'); ?>" class="img-responsive img-circle" alt="">
+                            <img src="<?php echo base_url('assets/imagens/equaltech/2.jpg'); ?>" class="img-responsive img-circle" alt="">
                             <h4>Izidorio Feitosa</h4>
                             <p class="text-muted">Analista de Testes</p>
                         </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2 text-center">
-                        <p class="large text-muted text-center"><i>"Não é o mais forte que sobrevive, nem o mais inteligente.<br>Quem sobrevive é o mais disposto à mudança."</i><br>Charles Darwin.</p>
                     </div>
                 </div>
             </div>
@@ -472,8 +471,6 @@
                 <div class="row">
                     <div class="col-md-4">
                         <ul class="list-inline social-buttons">
-                            <li><a href="#"><i class="fa fa-twitter"></i></a>
-                            </li>
                             <li><a href="http://www.facebook.com.br/mydailytraining"><i class="fa fa-facebook"></i></a>
                             </li>
                             <li><a href="http://www.instagram.com/mydailytraining"><i class="fa fa-instagram"></i></a>
@@ -482,7 +479,7 @@
                     </div>
                     <div class="col-md-5">
                         <span class="copyright">
-                            <p>&copy; 2017 - <?php echo date('Y') ?> MyDailyTraining. Todos os direitos reservados.</p>
+                            <p style="margin-top: 10px;">&copy; 2017 - <?php echo date('Y') ?> MyDailyTraining. Todos os direitos reservados.</p>
                             <p>Desenvolvido pela EqualTech</p>
                         </span>
                     </div>
@@ -530,12 +527,12 @@
                 }
             }
         </script>
-        <script src="<?php echo base_url('assets/layout/pagina/vendor/jquery/jquery.min.js'); ?>"></script>
-        <script src="<?php echo base_url('assets/layout/pagina/vendor/bootstrap/js/bootstrap.min.js'); ?>"></script>
+        <script src="<?php echo base_url('assets/layout/vendor/jquery/jquery.min.js'); ?>"></script>
+        <script src="<?php echo base_url('assets/layout/vendor/bootstrap/js/bootstrap.min.js'); ?>"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-        <script src="<?php echo base_url('assets/layout/pagina/js/jqBootstrapValidation.js'); ?>"></script>
-        <script src="<?php echo base_url('assets/layout/pagina/js/validarContato.js'); ?>"></script>
-        <script src="<?php echo base_url('assets/layout/pagina/js/agency.min.js'); ?>"></script>
+        <script src="<?php echo base_url('assets/layout/js/jqBootstrapValidation.js'); ?>"></script>
+        <script src="<?php echo base_url('assets/layout/js/validarContato.js'); ?>"></script>
+        <script src="<?php echo base_url('assets/layout/js/agency.min.js'); ?>"></script>
     </body>
 </html>
 
@@ -547,7 +544,7 @@
                 <h4 class="modal-title text-center"><i class="fa fa-warning"></i> Dados obrigatórios não preenchidos!</h4>
                 <h5 class="modal-body text-center">Por favor preencha todos os campos para enviar e-mail de contato. Agredecemos a sua compreensão.
                     <br><br>Atenciosamente EqualTech</h5>
-                <div class="modal-footer">                
+                <div class="modal-footer">
                     <button type="button" class="btn grey btn-secondary" data-dismiss="modal">Fechar</button>
                 </div>
             </div>
@@ -563,7 +560,7 @@
                 <h4 class="modal-title text-center"><i class="fa fa-check"></i> E-mail enviado com sucesso!</h4>
                 <h5 class="modal-body text-center">Obrigado pela preferência, responderemos o mais rápido possível.
                     <br><br>Atenciosamente EqualTech</h5>
-                <div class="modal-footer">                
+                <div class="modal-footer">
                     <button type="button" class="btn grey btn-secondary" data-dismiss="modal" onclick="window.location.reload();">Fechar</button>
                 </div>
             </div>
@@ -579,7 +576,7 @@
                 <h4 class="modal-title text-center"><i class="fa fa-remove"></i> Erro ao enviar o e-mail!</h4>
                 <h5 class="modal-body text-center">Aconteceu algum erro, por favor preencha todos os campos e tente novamente.
                     <br><br>Atenciosamente EqualTech</h5>
-                <div class="modal-footer">                
+                <div class="modal-footer">
                     <button type="button" class="btn grey btn-secondary" data-dismiss="modal">Fechar</button>
                 </div>
             </div>
