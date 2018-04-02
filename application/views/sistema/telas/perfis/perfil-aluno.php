@@ -16,7 +16,6 @@
                                             <div class="content-header-left col-md-5 mb-1">
                                                 <h2 class="content-header-title"><?php echo $aluno->nomeAluno; ?></h2>
                                             </div>
-
                                             <!-- BOTÕES -->
                                             <div style="float: right;" class="form-actions">
                                                 <?php if ($this->session->userdata('tipoConta') == 4) { ?>

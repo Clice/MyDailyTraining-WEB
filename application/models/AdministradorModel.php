@@ -47,4 +47,5 @@ class AdministradorModel extends CI_Model {
         $this->db->where('statusConta', false);
         return $this->db->get('usuarios')->result();
     }
+
 }

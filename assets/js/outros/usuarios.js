@@ -168,4 +168,4 @@ function verificarDadosRelatorio() {
     } else {
         gerarRelatorio();
     }
-} 
+}

@@ -49,7 +49,7 @@ class TreinoModel extends CI_Model {
         $this->db->where('statusTreino', true);
         return $this->db->get()->result();
     }
-    
+
     // FUNÇÃO PARA ENCONTRAR OS TREINOS DO ALUNO
     public function mEncontrarTreinosAluno($idAluno) {
         $this->db->select('*');
@@ -58,7 +58,7 @@ class TreinoModel extends CI_Model {
         $this->db->where('statusTreino', true);
         return $this->db->get()->result();
     }
-    
+
     // FUNÇÃO PARA SABER QUAIS DIAS DA SEMANA O ALUNO TREINA
     public function mDiasAlunoTreino($idAluno) {
         $this->db->select('domingo, segunda, terca, quarta, quinta, sexta, sabado');

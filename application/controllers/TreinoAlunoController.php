@@ -35,7 +35,7 @@ class TreinoAlunoController extends CI_Controller {
             }
             $i++;
         }
-                  
+
         if ($this->session->userdata('tipoConta') == 4) {
             $dadosAluno['chamadosInstrutor'] = $this->InstrutorModel->mListarChamadosInstrutores($this->session->userdata('idUsuario'));
         }
@@ -61,7 +61,7 @@ class TreinoAlunoController extends CI_Controller {
         $perfilAluno = $this->AlunoModel->mVisualizarPerfilAluno($idAluno);
 
         $diasTreino = explode("|", $perfilAluno[0]->diasTreinoAluno);
-        
+
         $count = 0;
         foreach ($treinosAluno as $treinoAluno) {
             for ($i = 0; $i < count($diasTreino); $i++) {
@@ -91,7 +91,7 @@ class TreinoAlunoController extends CI_Controller {
 
         if (count($diasTreino) == $count) {
             $resposta = array('success' => false);
-        } else {            
+        } else {
             $resposta = array('success' => true);
         }
 

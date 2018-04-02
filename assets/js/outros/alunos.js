@@ -31,7 +31,7 @@ function verificarDadosAluno() {
             (diaValidadeExame === "Selecione o dia") || (diaPagamentoAluno === "Selecione o dia")) {
         $('#dados-obrigatorios-aluno').modal('show');
     } else {
-        if (msnCPF === "CPF válido!") {            
+        if (msnCPF === "CPF válido!") {
             verificarCPF(cpfAluno, idAluno);
         } else if (idAluno !== "novo") {
             verificarCPF(cpfAluno, idAluno);
@@ -75,10 +75,10 @@ function pesquisarAluno() {
     var entrada, filtro, i;
     var tabelaAlunosAtivos, trA, tdA;
     var tabelaAlunosBloqueados, trB, tdB;
-    
+
     entrada = document.getElementById('pesquisarAluno');
     filtro = entrada.value.toUpperCase();
-    
+
     // PESQUISA OS ALUNOS ATIVOS NA TABELA
     tabelaAlunosAtivos = document.getElementById('tabelaAlunosAtivos');
     trA = tabelaAlunosAtivos.getElementsByTagName('tr');
@@ -159,9 +159,9 @@ function verificarDadosAvaliacaoFisica() {
     var pernaDireitaAluno = $('#pernaDireitaAluno').val();
 
     if ((idAluno === "") || (pesoAluno === "") || (estaturaAluno === "") || (ombroAluno === "") || (toraxInspiradoAluno === "") ||
-            (bracoEsquerdoReladoAluno === "") || (bracoDireitoReladoAluno === "") || (antebracoEsquerdoAluno === "") || 
-            (antebracoDireitoAluno === "") || (bracoEsquerdoContraidoAluno === "") || (bracoDireitoContraidoAluno === "") || 
-            (cinturaAluno === "") || (abdomenAluno === "") || (quadrilAluno === "") || (coxaEsquerdaAluno === "") || 
+            (bracoEsquerdoReladoAluno === "") || (bracoDireitoReladoAluno === "") || (antebracoEsquerdoAluno === "") ||
+            (antebracoDireitoAluno === "") || (bracoEsquerdoContraidoAluno === "") || (bracoDireitoContraidoAluno === "") ||
+            (cinturaAluno === "") || (abdomenAluno === "") || (quadrilAluno === "") || (coxaEsquerdaAluno === "") ||
             (coxaDireitaAluno === "") || (pernaEsquerdaAluno === "") || (pernaDireitaAluno === "")) {
         $('#dados-obrigatorios').modal('show');
     } else {

@@ -16,7 +16,6 @@
                                             <div class="content-header-left col-md-6 col-xs-12 mb-1">
                                                 <h2 class="content-header-title"><?php echo $funcionario->nomeUsuario; ?></h2>
                                             </div>
-
                                         </div>
                                         <hr>
                                         <input type="hidden" name="idUsuario" id="idUsuario" value="<?php echo $funcionario->idUsuario; ?>">

@@ -128,9 +128,7 @@ function valorPlanoPacote() {
 
         valorPlano = 600;
         qtdLicencasPlano = 150;
-    } 
-    
-    else if (document.getElementById('planoMedio').checked) {
+    } else if (document.getElementById('planoMedio').checked) {
         document.getElementById('valorPlano').innerHTML = 'R$ 840,00';
         document.getElementById('idPlano').value = 2;
 
@@ -143,9 +141,7 @@ function valorPlanoPacote() {
 
         valorPlano = 840;
         qtdLicencasPlano = 300;
-    } 
-    
-    else if (document.getElementById('planoPro').checked) {
+    } else if (document.getElementById('planoPro').checked) {
         document.getElementById('valorPlano').innerHTML = 'R$ 1080,00';
         document.getElementById('idPlano').value = 3;
 

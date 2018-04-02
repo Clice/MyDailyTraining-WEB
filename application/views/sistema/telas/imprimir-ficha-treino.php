@@ -13,7 +13,7 @@
             margin: -15px;
             padding: -10px;
         }
-        
+
         tr:nth-child(even) {
             background-color: #f2f2f2;
         }

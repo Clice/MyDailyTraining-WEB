@@ -26,7 +26,7 @@ class AvaliacaoFisicaController extends CI_Controller {
 
         // PEGANDO OS DADOS DO ALUNO PARA A AVALIAÇÃO FÍSICA
         $dadosAluno['dadosAluno'] = $this->AlunoModel->mVisualizarPerfilAluno($idAluno);
-        
+
         if ($this->session->userdata('tipoConta') == 4) {
             $dadosAluno['chamadosInstrutor'] = $this->InstrutorModel->mListarChamadosInstrutores($this->session->userdata('idUsuario'));
         }

@@ -54,7 +54,7 @@ class AdministradorController extends CI_Controller {
         if ($this->session->userdata('tipoConta') == 4) {
             $dadosAdministrador['chamadosInstrutor'] = $this->InstrutorModel->mListarChamadosInstrutores($this->session->userdata('idUsuario'));
         }
-        
+
         // CARREGANDO AS VIEWS DA PÁGINA
         $this->load->view('sistema/templates/html-header', $dadosAdministrador);
         $this->load->view('sistema/templates/header');
@@ -109,8 +109,8 @@ class AdministradorController extends CI_Controller {
         $dadosAdministrador['nomePagina'] = "Perfil Administrador";
         $dadosAdministrador['urlPagina'] = "perfil-administrador/" . $idAdministrador;
         $dadosAdministrador['perfilAdministrador'] = $this->UsuarioModel->mVisualizarUsuario($idAdministrador);
-        
-                
+
+
         if ($this->session->userdata('tipoConta') == 4) {
             $dadosAdministrador['chamadosInstrutor'] = $this->InstrutorModel->mListarChamadosInstrutores($this->session->userdata('idUsuario'));
         }

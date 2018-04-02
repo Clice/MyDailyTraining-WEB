@@ -143,7 +143,7 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- MODAL - FALHA AO SE CONECTAR COM A INTERNET -->
         <div class="modal fade text-xs-left" data-backdrop="static" id="falha-internet" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
              aria-hidden="true">

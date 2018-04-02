@@ -26,7 +26,7 @@ class FuncionarioController extends CI_Controller {
         // PEGANDO AS INFORMAÇÕES DOS FUNCIONÁRIOS ATIVOS E BLOQUEADOS
         $dadosFuncionario['funcionariosAtivos'] = $this->FuncionarioModel->mListarFuncionariosAtivos();
         $dadosFuncionario['funcionariosBloqueados'] = $this->FuncionarioModel->mListarFuncionariosBloqueados();
-                
+
         if ($this->session->userdata('tipoConta') == 4) {
             $dadosFuncionario['chamadosInstrutor'] = $this->InstrutorModel->mListarChamadosInstrutores($this->session->userdata('idUsuario'));
         }
@@ -86,7 +86,7 @@ class FuncionarioController extends CI_Controller {
 
         //PEGANDO AS INFORMAÇÕES DO USUÁRIO PARA MOSTRAR NO PERFIL
         $dadosFuncionario['perfilFuncionario'] = $this->UsuarioModel->mVisualizarUsuario($idFuncionario);
-        
+
         if ($this->session->userdata('tipoConta') == 4) {
             $dadosFuncionario['chamadosInstrutor'] = $this->InstrutorModel->mListarChamadosInstrutores($this->session->userdata('idUsuario'));
         }

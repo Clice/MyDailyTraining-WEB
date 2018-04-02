@@ -39,12 +39,12 @@ class EqualTechController extends CI_Controller {
             $dadosEqualTech['nomePagina'] = 'Editar EqualTech';
             $dadosEqualTech['crefUsuario'] = "";
             $dadosEqualTech['statusConta'] = false;
-            $dadosEqualTech['urlPagina'] = "meus-dados";            
+            $dadosEqualTech['urlPagina'] = "meus-dados";
 
             if ($voltarPara == "perfil-equaltech") {
                 $dadosEqualTech['voltarPara'] = $voltarPara . '/' . $idEqualTech;
             } else {
-                $dadosEqualTech['voltarPara'] = $voltarPara;    
+                $dadosEqualTech['voltarPara'] = $voltarPara;
             }
         }
 

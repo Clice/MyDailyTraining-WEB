@@ -18,7 +18,7 @@
         <link href="<?php echo base_url('assets/css/apresentacao/planos.css'); ?>" rel="stylesheet">
 
         <!-- FONTES -->
-        <link href="<?php echo base_url('assets/layout/vendor/font-awesome/css/font-awesome.min.css'); ?>" rel="stylesheet" type="text/css">
+        <link href="<?php echo base_url('assets/fonts/font-awesome/css/font-awesome.min.css'); ?>" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
         <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>

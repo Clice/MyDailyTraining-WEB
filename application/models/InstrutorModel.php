@@ -32,11 +32,11 @@ class InstrutorModel extends CI_Model {
         $this->db->where('tipoConta', 4);
         return $this->db->get()->result();
     }
-    
+
     // FUNÇÃO PARA BUSCAR TODOS OS CHAMADOS
     public function mListarChamadosInstrutores($idInstrutor) {
         $dataAtual = date("Y-m-d");
-             
+
         $this->db->select('*');
         $this->db->from('chamados');
         $this->db->where('idUsuario', $this->session->userdata('idUsuario'));
@@ -55,7 +55,7 @@ class InstrutorModel extends CI_Model {
         $this->db->where('statusConta', true);
         return $this->db->get('usuarios')->result();
     }
-    
+
     // FUNÇÃO PARA SABER A QUANTIDADE DE INSTRUTORES BLOQUEADOS
     public function mQtdInstBloqueados($idAcademia) {
         if ($idAcademia > 0) {

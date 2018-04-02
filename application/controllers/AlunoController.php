@@ -28,7 +28,7 @@ class AlunoController extends CI_Controller {
         // PEGANDO OS DADOS DOS ALUNOS ATIVOS E BLOQUEADOS
         $dadosAluno['alunosAtivos'] = $this->AlunoModel->mListarAlunosAtivos();
         $dadosAluno['alunosBloqueados'] = $this->AlunoModel->mListarAlunosBloqueados();
-               
+
         if ($this->session->userdata('tipoConta') == 4) {
             $dadosAluno['chamadosInstrutor'] = $this->InstrutorModel->mListarChamadosInstrutores($this->session->userdata('idUsuario'));
         }
@@ -66,13 +66,13 @@ class AlunoController extends CI_Controller {
             $dadosAluno['diaPagamentoAluno'] = "";
             $dadosAluno['statusAluno'] = true;
         }
-        
+
         if ($voltarPara == "perfil-aluno") {
             $dadosAluno['voltarPara'] = $voltarPara . '/' . $idAluno;
         } else {
             $dadosAluno['voltarPara'] = $voltarPara;
         }
-        
+
         if ($this->session->userdata('tipoConta') == 4) {
             $dadosAluno['chamadosInstrutor'] = $this->InstrutorModel->mListarChamadosInstrutores($this->session->userdata('idUsuario'));
         }
@@ -98,7 +98,7 @@ class AlunoController extends CI_Controller {
             }
             $i++;
         }
-        
+
         $dadosAluno['nomeAluno'] = $dadosAluno['perfilAluno'][0]->nomeAluno;
 
         $this->load->view('sistema/templates/html-header', $dadosAluno);

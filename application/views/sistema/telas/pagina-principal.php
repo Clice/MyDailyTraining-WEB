@@ -4,23 +4,23 @@
         <div class="content-body"><!-- Statistics -->
             <div class="row">
                 <?php if ($this->session->userdata('tipoConta') == 1) { ?>
-                <div class="col-xl-3 col-lg-6 col-xs-12">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="media">
-                                <div class="p-2 text-xs-center bg-cyan bg-darken-2 media-left media-middle">
-                                    <i class="icon-user5 font-large-2 white"></i>
-                                </div>
-                                <div class="p-2 bg-cyan white media-body">
-                                    <h5>Academias</h5>
-                                    <h5 class="text-bold-400"><?php echo 'Ativas: ' . $qtdAcademiasAtivas; ?></h5>
-                                    <h5 class="text-bold-400"><?php echo 'Bloqueadas: ' . $qtdAcademiasBloqueadas; ?></h5>
-                                    <h5 class="text-bold-400"><?php echo 'Total: ' . ($qtdAcademiasAtivas + $qtdAcademiasBloqueadas); ?></h5>
+                    <div class="col-xl-3 col-lg-6 col-xs-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="media">
+                                    <div class="p-2 text-xs-center bg-cyan bg-darken-2 media-left media-middle">
+                                        <i class="icon-user5 font-large-2 white"></i>
+                                    </div>
+                                    <div class="p-2 bg-cyan white media-body">
+                                        <h5>Academias</h5>
+                                        <h5 class="text-bold-400"><?php echo 'Ativas: ' . $qtdAcademiasAtivas; ?></h5>
+                                        <h5 class="text-bold-400"><?php echo 'Bloqueadas: ' . $qtdAcademiasBloqueadas; ?></h5>
+                                        <h5 class="text-bold-400"><?php echo 'Total: ' . ($qtdAcademiasAtivas + $qtdAcademiasBloqueadas); ?></h5>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
                 <?php } ?>
                 <div class="col-xl-3 col-lg-6 col-xs-12">
                     <div class="card">

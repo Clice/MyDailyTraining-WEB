@@ -1,6 +1,5 @@
 <body data-open="click" data-menu="vertical-menu" data-col="2-columns" class="vertical-layout vertical-menu 2-columns  fixed-navbar">
 
-
     <!-- CABEÇALHO DA PÁGINA - BARRA DE MENU SUPERIOR -->
     <nav class="header-navbar navbar navbar-with-menu navbar-fixed-top navbar-semi-dark navbar-shadow" style="box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);" >
         <div class="navbar-wrapper">
@@ -15,7 +14,9 @@
                                  data-collapse="<?php echo base_url('assets/imagens/Icon35px.png'); ?>" class="brand-logo">
                         </a>
                     </li>
-                    <li class="nav-item hidden-md-up float-xs-right"><a data-toggle="collapse" data-target="#navbar-mobile" class="nav-link open-navbar-container"><i class="icon-ellipsis pe-2x icon-icon-rotate-right-right"></i></a></li>
+                    <li class="nav-item hidden-md-up float-xs-right">
+                        <a data-toggle="collapse" data-target="#navbar-mobile" class="nav-link open-navbar-container">
+                            <i class="icon-ellipsis pe-2x icon-icon-rotate-right-right"></i></a></li>
                 </ul>
             </div>
             <!-- BARRA SUPERIOR - MENU SUPERIOR -->
@@ -23,7 +24,8 @@
                 <div id="navbar-mobile" class="collapse navbar-toggleable-sm">
                     <!-- BOTÃO TOGGLE PARA O MENU LATERAL -->
                     <ul class="nav navbar-nav">
-                        <li class="nav-item hidden-sm-down"><a class="nav-link nav-menu-main menu-toggle hidden-xs"><i class="icon-menu5">         </i></a></li>
+                        <li class="nav-item hidden-sm-down"><a class="nav-link nav-menu-main menu-toggle hidden-xs">
+                                <i class="icon-menu5"></i></a></li>
                     </ul>
                     <!-- MENU DO CANTO SUPERIOR DIREITO -->
                     <ul class="nav navbar-nav float-xs-right">
@@ -40,7 +42,8 @@
                                         ++$qtdNotificacoes;
                                     }
                                     ?>
-                                    <span class="tag tag-pill tag-default tag-danger tag-default tag-up"><?php echo $qtdNotificacoes; ?></span>
+                                    <span class="tag tag-pill tag-default tag-danger tag-default tag-up">
+                                        <?php echo $qtdNotificacoes; ?></span>
                                 </a>
                                 <!-- CORPO DO SINO DE NOTIFICAÇÃO DOS CHAMADOS -->
                                 <ul class="dropdown-menu dropdown-menu-media dropdown-menu-right">
@@ -55,8 +58,10 @@
                                                 <div class="media">
                                                     <div class="media-left valign-middle"><i class="icon-user5 icon-bg-circle bg-red bg-darken-1"></i></div>
                                                     <div class="media-body">
-                                                        <h6 class="media-heading black darken-1"><?php echo $chamadoInstrutor->nomeAluno; ?> está solicitando atendimento</h6>
-                                                        <time class="media-meta text-muted"><?php echo $chamadoInstrutor->horarioChamado; ?></time>
+                                                        <h6 class="media-heading black darken-1">
+                                                            <?php echo $chamadoInstrutor->nomeAluno; ?> está solicitando atendimento</h6>
+                                                        <time class="media-meta text-muted">
+                                                            <?php echo $chamadoInstrutor->horarioChamado; ?></time>
                                                     </div>
                                                 </div>
                                             </a>

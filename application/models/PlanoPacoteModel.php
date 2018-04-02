@@ -11,7 +11,7 @@ class PlanoPacoteModel extends CI_Model {
         $this->db->where('idPlano', $idPlano);
         return $this->db->get()->result();
     }
-    
+
     // FUNÇÃO PARA PEGAR AS INFORMAÇÕES DO PACOTE DA ACADEMIA
     public function mQtdLicencasPacote($idPacote) {
         $this->db->select('qtdLicencas');

@@ -53,11 +53,7 @@
                                                                    name="senhaUsuario">
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-6 col-xs-12 text-xs-center text-md-left">
-                                                        <input type="checkbox" id="remember-me" class="chk-remember">
-                                                        <label> Lembre-se de mim</label>
-                                                    </div>
-                                                    <div class="col-md-6 col-xs-12 text-xs-center text-md-right" data-toggle="modal" data-target="#bloqueado">
+                                                    <div class="col-md-12 col-xs-12 text-xs-center text-md-right" data-toggle="modal" data-target="#bloqueado">
                                                         <a class="blue" href="<?php echo base_url('recuperar-senha'); ?>">Esqueceu a senha?</a></div>
                                                 </div>
                                             </div>
@@ -134,7 +130,7 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- MODAL - FALHA AO SE CONECTAR COM A INTERNET -->
         <div class="modal fade text-xs-left" data-backdrop="static" id="falha-internet" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
              aria-hidden="true">
