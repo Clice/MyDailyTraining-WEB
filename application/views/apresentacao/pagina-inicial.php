@@ -462,6 +462,11 @@
                         </div>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2 text-center">
+                        <p class="large text-muted text-center"><i>"Não é o mais forte que sobrevive, nem o mais inteligente.<br>Quem sobrevive é o mais disposto à mudança."</i><br>Charles Darwin.</p>
+                    </div>
+                </div>
             </div>
         </section>
 

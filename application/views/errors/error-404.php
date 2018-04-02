@@ -19,7 +19,7 @@
                         </div>
                         <div class="card-footer bg-transparent pb-0">
                             <div class="row">
-                                <p class="text-muted text-xs-center col-xs-12 py-1">&copy; EqualTech 2017 - <?php echo date('Y'); ?></p>
+                                <p class="text-muted text-xs-center col-xs-12 py-1">&copy; 2017 - <?php echo date('Y'); ?> EqualTech</p>
                                 <div class="text-xs-center">
                                     <a href="#" class="btn btn-social-icon mr-1 mb-1 btn-outline-facebook"><span class="icon-facebook3"></span></a>
                                     <a href="#" class="btn btn-social-icon mr-1 mb-1 btn-outline-twitter"><span class="icon-twitter3"></span></a>
