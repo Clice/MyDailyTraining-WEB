@@ -22,6 +22,7 @@ class AcademiaController extends CI_Controller {
     public function index() {
         $dadosAcademia['nomePagina'] = "Lista de Academias";
         $dadosAcademia['urlPagina'] = "lista-academias";
+        $dadosAcademia['urlPagina2'] = "lista-academias";
         $dadosAcademia['voltarPagina'] = "lista-academias";
 
         // PEGANDO OS DADOS DAS ACADEMIAS BLOQUEADAS E DESBLOQUEADAS
@@ -109,6 +110,7 @@ class AcademiaController extends CI_Controller {
     // FUNÇÃO DE CARREGAMENTO DA VIEW PERFIL ACADEMIA.PHP
     public function vPerfilAcademia($idAcademia) {
         $dados['nomePagina'] = "Perfil Academia";
+        $dados['urlPagina2'] = "lista-academias";
         $dados['urlPagina'] = "perfil-academia/" . $idAcademia;
 
         // PEGANDO OS DADOS DA ACADEMIA ESCOLHIDA E A QUANTIDADE DE ALUNOS QUE ELA POSSUI
