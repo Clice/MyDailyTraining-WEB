@@ -24,7 +24,7 @@ body{overflow-x:hidden;font-family:"Roboto Slab","Helvetica Neue",Helvetica,Aria
 
 .btn-xl{color:#209AED;background-color:#fff;border-color:#209AED;border-radius:8px;font-size:15px;padding:20px 40px}
 
-.btn-xl.active,.btn-xl:active,.btn-xl:focus,.btn-xl:hover,.open .dropdown-toggle.btn-xl{color: #fff; background-color: #0092f4; border-color: #fff;}.btn-xl.disabled,.btn-xl.disabled.active,.btn-xl.disabled:active,.btn-xl.disabled:focus,.btn-xl.disabled:hover,.btn-xl[disabled],.btn-xl[disabled].active,.btn-xl[disabled]:active,.btn-xl[disabled]:focus,.btn-xl[disabled]:hover,fieldset[disabled] .btn-xl,fieldset[disabled] .btn-xl.active,fieldset[disabled] .btn-xl:active,fieldset[disabled] .btn-xl:focus,fieldset[disabled] .btn-xl:hover{background-color:#209AED;border-color:#209AED}.btn-xl .badge{color:#209AED;background-color:#fff}
+.btn-xl.active,.btn-xl:active,.btn-xl:focus,.btn-xl:hover,.open .dropdown-toggle.btn-xl{color: #fff; background-color: #185b88; border-color: #fff;}.btn-xl.disabled,.btn-xl.disabled.active,.btn-xl.disabled:active,.btn-xl.disabled:focus,.btn-xl.disabled:hover,.btn-xl[disabled],.btn-xl[disabled].active,.btn-xl[disabled]:active,.btn-xl[disabled]:focus,.btn-xl[disabled]:hover,fieldset[disabled] .btn-xl,fieldset[disabled] .btn-xl.active,fieldset[disabled] .btn-xl:active,fieldset[disabled] .btn-xl:focus,fieldset[disabled] .btn-xl:hover{background-color:#209AED;border-color:#209AED}.btn-xl .badge{color:#209AED;background-color:#fff}
 
 .btn-lg {color: white; background-color: #209AED; border-color: #209AED; font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif; text-transform: uppercase; font-weight: 700; border-radius: 3px; font-size: 18px; padding: 15px 30px;}
 
@@ -104,7 +104,7 @@ body{overflow-x:hidden;font-family:"Roboto Slab","Helvetica Neue",Helvetica,Aria
 }
 
 header{
-    background-image:url(../../imagens/apresentacao/header-bg.jpg);
+    background-color: #185b88;
     background-repeat:no-repeat;
     background-attachment:scroll;
     background-position:center center;

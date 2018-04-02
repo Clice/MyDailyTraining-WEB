@@ -149,7 +149,7 @@
                                                             <i class="icon-eye"></i> Perfil Academia
                                                         </button>
                                                     <?php } ?>
-                                                    <button type="button" class="btn btn-default" onclick="window.location.href = '<?php echo base_url('lista-administradores-academia'); ?>'">
+                                                    <button type="button" class="btn btn-default" onclick="window.location.href = '<?php echo base_url($voltarPagina); ?>'">
                                                         <i class="icon-chevron-left2"></i> Voltar
                                                     </button> 
                                                 </div> 

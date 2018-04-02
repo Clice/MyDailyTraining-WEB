@@ -23,7 +23,9 @@ class AdministradorController extends CI_Controller {
     public function index() {
         // PEGANDO AS INFORMAÇÕES NECESSÁRIAS
         $dadosAdministrador['nomePagina'] = "Lista de Administradores";
+        $dadosAdministrador['voltarPagina'] = "lista-administradores";
         $dadosAdministrador['voltarPara'] = "lista-administradores";
+        $dadosAdministrador['urlPagina'] = "lista-administradores";
 
         // PEGANDO OS DADOS DOS ADMINISTRADORES ATIVOS E BLOQUEADOS
         $dadosAdministrador['administradoresAtivos'] = $this->AdministradorModel->mListarAdministradoresAtivos(0);
@@ -45,7 +47,9 @@ class AdministradorController extends CI_Controller {
     public function vListaAdministradoresAcademia() {
         // PEGANDO AS INFORMAÇÕES NECESSÁRIAS
         $dadosAdministrador['nomePagina'] = "Lista de Administradores da Academia";
+        $dadosAdministrador['voltarPagina'] = "lista-administradores-academia";
         $dadosAdministrador['voltarPara'] = "lista-administradores-academia";
+        $dadosAdministrador['urlPagina'] = "lista-administradores-academia";
 
         // PEGANDO OS DADOS DOS ADMINISTRADORES ATIVOS E NÃO ATIVOS
         $dadosAdministrador['administradoresAtivos'] = $this->AdministradorModel->mListarAdministradoresAtivos($this->session->userdata('idAcademia'));
@@ -89,6 +93,8 @@ class AdministradorController extends CI_Controller {
         // DEFININDO A URL PARA A QUAL DEVE VOLTAR
         if ($voltarPara == "perfil-administrador") {
             $dadosAdministrador['voltarPara'] = $voltarPara . '/' . $idAdministrador;
+        } else if ($voltarPara == "perfil-academia") {
+            $dadosAdministrador['voltarPara'] = $voltarPara . '/' . md5($idAcademia);
         } else {
             $dadosAdministrador['voltarPara'] = $voltarPara;
         }
@@ -116,7 +122,7 @@ class AdministradorController extends CI_Controller {
         }
 
         // DEFININDO A URL PARA A QUAL DEVE VOLTAR
-        if ($this->session->userdata('idAcademia') != NULL) {
+        if ($this->session->userdata('tipoConta') > 1) {
             $dadosAdministrador['voltarPagina'] = "lista-administradores-academia";
         } else {
             $dadosAdministrador['voltarPagina'] = "lista-administradores";
