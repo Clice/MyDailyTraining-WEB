@@ -52,7 +52,7 @@ $route['cadastrar-administrador/(:any)/(:num)/(:any)'] = 'AdministradorControlle
 
 // ROTAS PARA AS EDIÇÕES
 $route['editar-aluno/(:any)/(:any)'] = 'AlunoController/vEditarAluno/$1/$2';
-$route['editar-equaltech/(:any)/(:any)'] = 'EqualTechController/vEqualTech/$1/$2';
+$route['editar-equaltech/(:any)/(:any)'] = 'EqualTechController/vEditarEqualTech/$1/$2';
 $route['editar-academia/(:any)/(:any)'] = 'AcademiaController/vEditarAcademia/$1/$2';
 $route['editar-instrutor/(:any)/(:any)'] = 'InstrutorController/vEditarInstrutor/$1/$2';
 $route['editar-treino/(:any)/(:any)'] = 'TreinoController/vEditarTreino/$1/$2';
