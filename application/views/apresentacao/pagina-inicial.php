@@ -126,7 +126,7 @@
         </section>
 
         <!-- RECURSOS DO SISTEMA -->
-        <section id="recursos" class="bg-light-gray">
+        <section id="recursos">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12 text-center">
@@ -140,7 +140,7 @@
                             <!-- FICHA DE TREINAMENTO -->
                             <li>
                                 <div class="timeline-image">
-                                    <img class="img-circle img-responsive" src="<?php echo base_url('assets/imagens/recursos/1.png'); ?>" alt="">
+                                    <img class="img-circle img-responsive" src="<?php echo base_url('assets/imagens/apresentacao/recursos/1.png'); ?>" alt="">
                                 </div>
                                 <div class="timeline-panel">
                                     <br>
@@ -156,7 +156,7 @@
                             <!-- AVALIAÇÃO FÍSICA -->
                             <li class="timeline-inverted">
                                 <div class="timeline-image">
-                                    <img class="img-circle img-responsive" src="<?php echo base_url('assets/imagens/recursos/2.png'); ?>" alt="">
+                                    <img class="img-circle img-responsive" src="<?php echo base_url('assets/imagens/apresentacao/recursos/2.png'); ?>" alt="">
                                 </div>
                                 <div class="timeline-panel">
                                     <br>
@@ -172,7 +172,7 @@
                             <!-- GERENCIAMENTO DO TREINO -->
                             <li>
                                 <div class="timeline-image">
-                                    <img class="img-circle img-responsive" src="<?php echo base_url('assets/imagens/recursos/3.png'); ?>" alt="">
+                                    <img class="img-circle img-responsive" src="<?php echo base_url('assets/imagens/apresentacao/recursos/3.png'); ?>" alt="">
                                 </div>
                                 <div class="timeline-panel">
                                     <br>
@@ -188,7 +188,7 @@
                             <!-- ACOMPANHAR DESEMPENHO -->
                             <li class="timeline-inverted">
                                 <div class="timeline-image">
-                                    <img class="img-circle img-responsive" src="<?php echo base_url('assets/imagens/recursos/4.png'); ?>" alt="">
+                                    <img class="img-circle img-responsive" src="<?php echo base_url('assets/imagens/apresentacao/recursos/4.png'); ?>" alt="">
                                 </div>
                                 <div class="timeline-panel">
                                     <br>
@@ -331,7 +331,7 @@
                 <div class="row">
                     <div class="col-lg-12 text-center">
                         <h2 class="section-heading">Nossos Contatos</h2>
-                        <h3 class="section-subheading">Entre em contato conosco para qualquer eventual dúvida.</h3>
+                        <h3 class="text-white section-subheading">Entre em contato conosco para qualquer eventual dúvida.</h3>
                     </div>
                 </div>
                 <div class="row">
@@ -357,7 +357,7 @@
                                 <div class="clearfix"></div>
                                 <div class="col-lg-12 text-center">
                                     <div id="success"></div>
-                                    <button type="submit" id="enviarContato" name="enviarContato" class="btn btn-md" onclick="enviarEmailContato();"><i class="fa fa-envelope"></i> Enviar</button>
+                                    <button type="submit" id="enviarContato" name="enviarContato" class="btn btn-xl" onclick="enviarEmailContato();"><i class="fa fa-envelope"></i> Enviar</button>
                                 </div>
                             </div>
                         </form>
@@ -366,13 +366,13 @@
                 <hr>
                 <div class="row">
                     <div class="col-lg-6 ml-auto text-center">
-                        <i class="fa fa-phone fa-3x"></i>
-                        <h4><br>(xx) xxxxx-xxxx</h4>
-                        <h4>(xx) xxxxx-xxxx</h4>
+                        <i class="fa fa-phone fa-3x text-white"></i>
+                        <h4 class="text-white"><br>(xx) xxxxx-xxxx</h4>
+                        <h4 class="text-white">(xx) xxxxx-xxxx</h4>
                     </div>
                     <div class="col-lg-6 mr-auto text-center">
-                        <i class="fa fa-envelope-o fa-3x"></i>
-                        <h5><br>contato@mydailytraining.com.br<br></h5>
+                        <i class="fa fa-envelope-o fa-3x text-white"></i>
+                        <h5 class="text-white"><br>contato@mydailytraining.com.br<br></h5>
                     </div>
                 </div>
             </div>
@@ -414,7 +414,7 @@
                     <!-- CLICE BEZERRA -->
                     <div class="col-sm-4">
                         <div class="team-member">
-                            <img src="<?php echo base_url('assets/imagens/equaltech/clice_romao.jpeg'); ?>" class="img-responsive img-circle" alt="">
+                            <img src="<?php echo base_url('assets/imagens/apresentacao/equaltech/clice_romao.jpeg'); ?>" class="img-responsive img-circle" alt="">
                             <h4>Clice Romão</h4>
                             <p class="text-muted">Gerente de Projeto e Desenvolvedora</p>
                         </div>
@@ -422,7 +422,7 @@
                     <!-- LUCAS COSTA -->
                     <div class="col-sm-4">
                         <div class="team-member">
-                            <img src="<?php echo base_url('assets/imagens/equaltech/lucas_costa.jpeg'); ?>" class="img-responsive img-circle" alt="">
+                            <img src="<?php echo base_url('assets/imagens/apresentacao/equaltech/lucas_costa.jpeg'); ?>" class="img-responsive img-circle" alt="">
                             <h4>Lucas Costa</h4>
                             <p class="text-muted">Desenvolvedor e Designer</p>
                         </div>
@@ -430,7 +430,7 @@
                     <!-- TATIANE MORAIS -->
                     <div class="col-sm-4">
                         <div class="team-member">
-                            <img src="<?php echo base_url('assets/imagens/equaltech/3.jpg'); ?>" class="img-responsive img-circle" alt="">
+                            <img src="<?php echo base_url('assets/imagens/apresentacao/equaltech/tatiane_morais.jpeg'); ?>" class="img-responsive img-circle" alt="">
                             <h4>Tatiane Morais</h4>
                             <p class="text-muted">Analista de Negócios</p>
                         </div>
@@ -440,7 +440,7 @@
                     <!-- ALEXANDRE BARBOSA -->
                     <div class="col-sm-4">
                         <div class="team-member">
-                            <img src="<?php echo base_url('assets/imagens/equaltech/2.jpg'); ?>" class="img-responsive img-circle" alt="">
+                            <img src="<?php echo base_url('assets/imagens/apresentacao/equaltech/2.jpg'); ?>" class="img-responsive img-circle" alt="">
                             <h4>Alexandre Barbosa</h4>
                             <p class="text-muted">Analista de Sistemas</p>
                         </div>
@@ -448,7 +448,7 @@
                     <!-- WESLEY SARAIVA -->
                     <div class="col-sm-4">
                         <div class="team-member">
-                            <img src="<?php echo base_url('assets/imagens/equaltech/2.jpg'); ?>" class="img-responsive img-circle" alt="">
+                            <img src="<?php echo base_url('assets/imagens/apresentacao/equaltech/2.jpg'); ?>" class="img-responsive img-circle" alt="">
                             <h4>Wesley Saraiva</h4>
                             <p class="text-muted">Gerente de Testes</p>
                         </div>
@@ -456,7 +456,7 @@
                     <!-- IZIDORIO FEITOSA -->
                     <div class="col-sm-4">
                         <div class="team-member">
-                            <img src="<?php echo base_url('assets/imagens/equaltech/2.jpg'); ?>" class="img-responsive img-circle" alt="">
+                            <img src="<?php echo base_url('assets/imagens/apresentacao/equaltech/2.jpg'); ?>" class="img-responsive img-circle" alt="">
                             <h4>Izidorio Feitosa</h4>
                             <p class="text-muted">Analista de Testes</p>
                         </div>
