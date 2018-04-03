@@ -116,7 +116,6 @@ class AdministradorController extends CI_Controller {
         $dadosAdministrador['urlPagina'] = "perfil-administrador/" . $idAdministrador;
         $dadosAdministrador['perfilAdministrador'] = $this->UsuarioModel->mVisualizarUsuario($idAdministrador);
 
-
         if ($this->session->userdata('tipoConta') == 4) {
             $dadosAdministrador['chamadosInstrutor'] = $this->InstrutorModel->mListarChamadosInstrutores($this->session->userdata('idUsuario'));
         }

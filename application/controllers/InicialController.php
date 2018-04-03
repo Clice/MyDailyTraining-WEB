@@ -4,11 +4,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class InicialController extends CI_Controller {
 
-    // CONSTRUTOR DO INICIAL CONTROLLER
-    public function __construct() {
-        parent::__construct();
-    }
-
     // FUNÇÃO CONTROLLER DE CARREGAMENTO DA VIEW PAGINA-INICIAL.PHP
     public function index() {
         $this->load->view('apresentacao/pagina-inicial');
@@ -30,7 +25,8 @@ class InicialController extends CI_Controller {
 
     // FUNÇÃO CONTROLLER DE CARREGAMENTO DA VIEW RECUPERAR-SENHA.PHP
     public function vError404() {
-        $this->load->view('sistema/templates/html-header');
+        $dados['nomePagina'] = "Erro 404";
+        $this->load->view('sistema/templates/html-header', $dados);
         $this->load->view('errors/error-404');
         $this->load->view('sistema/templates/html-footer');
     }

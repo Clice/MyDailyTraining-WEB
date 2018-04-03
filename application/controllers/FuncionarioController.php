@@ -22,6 +22,7 @@ class FuncionarioController extends CI_Controller {
     public function index() {
         $dadosFuncionario['nomePagina'] = "Lista de Funcionários";
         $dadosFuncionario['urlPagina'] = "lista-funcionarios";
+        $dadosFuncionario['voltarPagina'] = "lista-funcionarios";
 
         // PEGANDO AS INFORMAÇÕES DOS FUNCIONÁRIOS ATIVOS E BLOQUEADOS
         $dadosFuncionario['funcionariosAtivos'] = $this->FuncionarioModel->mListarFuncionariosAtivos();
@@ -43,23 +44,34 @@ class FuncionarioController extends CI_Controller {
     }
 
     // FUNÇÃO CONTROLLER DE CARREGAMENTO DA VIEW CADASTRAR-EDITAR-FUNCIONARIO.PHP
-    public function vCadastrarEditarFuncionario($idFuncionario, $voltarPara) {
-        // SE UM ID FUNCIONARIO FOI PASSADO OU NÃO
-        // PARA REALIZAR A EDIÇÃO OU O CADASTRO DE UM FUNCIONARIO        
-        if ($idFuncionario != "novo") {
-            $dadosFuncionario = get_object_vars($this->UsuarioModel->mVisualizarUsuario($idFuncionario)[0]);
-            $dadosFuncionario['nomePagina'] = "Editar Funcionário";
-            $dadosFuncionario['crefUsuario'] = "";
-        } else {
-            $dadosFuncionario['nomePagina'] = "Cadastrar Funcionário";
-            $dadosFuncionario['idUsuario'] = "novo";
-            $dadosFuncionario['idAcademia'] = $this->session->userdata('idAcademia');
-            $dadosFuncionario['sexoUsuario'] = "";
-            $dadosFuncionario['crefUsuario'] = "";
-            $dadosFuncionario['estadoUsuario'] = "";
-            $dadosFuncionario['statusConta'] = true;
-            $dadosFuncionario['tipoConta'] = 3;
-        }
+    public function vCadastrarFuncionario($idFuncionario) {
+        $dadosFuncionario['nomePagina'] = "Cadastrar Funcionário";
+        $dadosFuncionario['idUsuario'] = "novo";
+        $dadosFuncionario['idAcademia'] = $this->session->userdata('idAcademia');
+        $dadosFuncionario['sexoUsuario'] = "";
+        $dadosFuncionario['crefUsuario'] = "";
+        $dadosFuncionario['estadoUsuario'] = "";
+        $dadosFuncionario['statusConta'] = true;
+        $dadosFuncionario['tipoConta'] = 3;
+
+        $dadosFuncionario['voltarPara'] = 'lista-funcionarios';
+
+        // CARREGANDO AS VIEWS DA PÁGINA
+        $this->load->view('sistema/templates/html-header', $dadosFuncionario);
+        $this->load->view('sistema/templates/header');
+        $this->load->view('sistema/templates/side-menu');
+        $this->load->view('sistema/templates/usuario/modals-cadastro-usuario');
+        $this->load->view('sistema/templates/usuario/js-usuario');
+        $this->load->view('sistema/telas/cadastros/cadastrar-editar-funcionario');
+        $this->load->view('sistema/templates/footer');
+        $this->load->view('sistema/templates/html-footer');
+    }
+
+    // FUNÇÃO CONTROLLER DE CARREGAMENTO DA VIEW CADASTRAR-EDITAR-FUNCIONARIO.PHP
+    public function vEditarFuncionario($idFuncionario, $voltarPara) {  
+        $dadosFuncionario = get_object_vars($this->UsuarioModel->mVisualizarUsuario($idFuncionario)[0]);
+        $dadosFuncionario['nomePagina'] = "Editar Funcionário";
+        $dadosFuncionario['crefUsuario'] = "";
 
         // DEFININDO A URL PARA A QUAL DEVE VOLTAR
         if ($voltarPara == "perfil-funcionario") {
@@ -82,7 +94,8 @@ class FuncionarioController extends CI_Controller {
     // FUNÇÃO CONTROLLER DE CARREGAMENTO DA VIEW PERFIL-FUNCIONARIO.PHP
     public function vPerfilFuncionario($idFuncionario) {
         $dadosFuncionario['nomePagina'] = "Perfil do Funcionário";
-        $dadosFuncionario['urlPagina'] = "perfil-funcionario";
+        $dadosFuncionario['urlPagina'] = "perfil-funcionario/" . $idFuncionario;
+        $dadosFuncionario['voltarPagina'] = "lista-funcionarios";
 
         //PEGANDO AS INFORMAÇÕES DO USUÁRIO PARA MOSTRAR NO PERFIL
         $dadosFuncionario['perfilFuncionario'] = $this->UsuarioModel->mVisualizarUsuario($idFuncionario);

@@ -448,7 +448,7 @@
                     <!-- WESLEY SARAIVA -->
                     <div class="col-sm-4">
                         <div class="team-member">
-                            <img src="<?php echo base_url('assets/imagens/apresentacao/equaltech/2.jpg'); ?>" class="img-responsive img-circle" alt="">
+                            <img src="<?php echo base_url('assets/imagens/apresentacao/equaltech/wesley_saraiva.jpeg'); ?>" class="img-responsive img-circle" alt="">
                             <h4>Wesley Saraiva</h4>
                             <p class="text-muted">Gerente de Testes</p>
                         </div>
@@ -456,7 +456,7 @@
                     <!-- IZIDORIO FEITOSA -->
                     <div class="col-sm-4">
                         <div class="team-member">
-                            <img src="<?php echo base_url('assets/imagens/apresentacao/equaltech/2.jpg'); ?>" class="img-responsive img-circle" alt="">
+                            <img src="<?php echo base_url('assets/imagens/apresentacao/equaltech/francisco_izidorio.jpeg'); ?>" class="img-responsive img-circle" alt="">
                             <h4>Izidorio Feitosa</h4>
                             <p class="text-muted">Analista de Testes</p>
                         </div>

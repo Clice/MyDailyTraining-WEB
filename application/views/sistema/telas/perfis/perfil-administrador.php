@@ -117,7 +117,7 @@
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div style="float: right;" class="form-actions">
-                                                    <?php if ($this->session->userdata('tipoConta') < 2) { ?>                                            
+                                                    <?php if ($this->session->userdata('tipoConta') < 2) { ?>
                                                         <button type="button" 
                                                         <?php if ($administrador->statusConta == 1) { ?>
                                                                     class="btn btn-black"

@@ -45,27 +45,39 @@ class AlunoController extends CI_Controller {
     }
 
     // FUNÇÃO CONTROLLER DE CARREGAMENTO DA VIEW CADASTRAR-EDITAR-ALUNO.PHP
-    public function vCadastrarEditarAluno($idAluno, $voltarPara) {
-        // SE UM ID ADMINISTRADOR FOI PASSADO OU NÃO
-        // PARA REALIZAR A EDIÇÃO OU O CADASTRO DE UM ADMINISTRADOR
-        if ($idAluno != "novo") {
-            // PEGANDO OS DADOS DO ALUNO PARA EDITAR
-            $dadosAluno = get_object_vars($this->AlunoModel->mVisualizarPerfilAluno($idAluno)[0]);
-            $dadosAluno['nomePagina'] = "Editar Aluno";
-        } else {
-            $dadosAluno['idAluno'] = "novo";
-            $dadosAluno['nomePagina'] = "Cadastrar Aluno";
-            $dadosAluno['idAcademia'] = $this->session->userdata('idAcademia');
-            $dadosAluno['loginAluno'] = "";
-            $dadosAluno['senhaAluno'] = "";
-            $dadosAluno['sexoAluno'] = "";
-            $dadosAluno['objetivoAluno'] = "";
-            $dadosAluno['diasTreinoAluno'] = "";
-            $dadosAluno['diaValidadeExame'] = "";
-            $dadosAluno['estadoAluno'] = "";
-            $dadosAluno['diaPagamentoAluno'] = "";
-            $dadosAluno['statusAluno'] = true;
+    public function vCadastrarAluno($idAluno) {        
+        $dadosAluno['idAluno'] = "novo";
+        $dadosAluno['nomePagina'] = "Cadastrar Aluno";
+        $dadosAluno['idAcademia'] = $this->session->userdata('idAcademia');
+        $dadosAluno['loginAluno'] = "";
+        $dadosAluno['senhaAluno'] = "";
+        $dadosAluno['sexoAluno'] = "";
+        $dadosAluno['objetivoAluno'] = "";
+        $dadosAluno['diasTreinoAluno'] = "";
+        $dadosAluno['diaValidadeExame'] = "";
+        $dadosAluno['estadoAluno'] = "";
+        $dadosAluno['diaPagamentoAluno'] = "";
+        $dadosAluno['statusAluno'] = true;
+
+        $dadosAluno['voltarPara'] = 'lista-alunos';
+
+        if ($this->session->userdata('tipoConta') == 4) {
+            $dadosAluno['chamadosInstrutor'] = $this->InstrutorModel->mListarChamadosInstrutores($this->session->userdata('idUsuario'));
         }
+
+        // CARREGANDO AS VIEWS DA PÁGINA
+        $this->load->view('sistema/templates/html-header', $dadosAluno);
+        $this->load->view('sistema/templates/header');
+        $this->load->view('sistema/templates/side-menu');
+        $this->load->view('sistema/telas/cadastros/cadastrar-editar-aluno');
+        $this->load->view('sistema/templates/footer');
+        $this->load->view('sistema/templates/html-footer');
+    }
+
+    // FUNÇÃO CONTROLLER DE CARREGAMENTO DA VIEW CADASTRAR-EDITAR-ALUNO.PHP
+    public function vEditarAluno($idAluno, $voltarPara) {
+        $dadosAluno = get_object_vars($this->AlunoModel->mVisualizarPerfilAluno($idAluno)[0]);
+        $dadosAluno['nomePagina'] = "Editar Aluno";
 
         if ($voltarPara == "perfil-aluno") {
             $dadosAluno['voltarPara'] = $voltarPara . '/' . $idAluno;
