@@ -29,6 +29,7 @@ class InicialController extends CI_Controller {
         $this->load->view('sistema/templates/html-header', $dados);
         $this->load->view('errors/error-404');
         $this->load->view('sistema/templates/html-footer');
+        $this->load->view('sistema/templates/html-footer-usuarios');
     }
 
     // FUNÇÃO CONTROLLER PARA VERIFICAÇÃO DAS INFORMAÇÕES PASSADAS PARA REALIZAR O LOGIN NO SISTEMA
@@ -109,7 +110,6 @@ class InicialController extends CI_Controller {
     }
 
     public function cEnviarEmailContato() {
-
         $this->load->library('email');
 
         $nomeContato = $this->input->post('nomeContato');

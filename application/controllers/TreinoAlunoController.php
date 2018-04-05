@@ -51,6 +51,7 @@ class TreinoAlunoController extends CI_Controller {
         $this->load->view('sistema/telas/perfis/perfil-aluno');
         $this->load->view('sistema/templates/footer');
         $this->load->view('sistema/templates/html-footer');
+        $this->load->view('sistema/templates/html-footer-alunos');
     }
 
     // FUNÇÃO CONTROLLER PARA VERIFICAR O CPF

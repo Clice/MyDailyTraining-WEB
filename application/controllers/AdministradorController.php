@@ -40,6 +40,7 @@ class AdministradorController extends CI_Controller {
         $this->load->view('sistema/templates/usuario/js-usuario');
         $this->load->view('sistema/templates/footer');
         $this->load->view('sistema/templates/html-footer');
+        $this->load->view('sistema/templates/html-footer-usuarios');
     }
 
     // FUNÇÃO CONTROLLER DE CARREGAMENTO DA VIEW LISTA-ADMINISTRADORES.PHP PARA OS USUÁRIOS
@@ -68,6 +69,7 @@ class AdministradorController extends CI_Controller {
         $this->load->view('sistema/templates/usuario/js-usuario');
         $this->load->view('sistema/templates/footer');
         $this->load->view('sistema/templates/html-footer');
+        $this->load->view('sistema/templates/html-footer-usuarios');
     }
 
     // FUNÇÃO CONTROLLER DE CARREGAMENTO DA VIEW CADASTRAR-EDITAR-ADMINISTRADOR.PHP
@@ -108,6 +110,8 @@ class AdministradorController extends CI_Controller {
         $this->load->view('sistema/telas/cadastros/cadastrar-editar-administrador');
         $this->load->view('sistema/templates/footer');
         $this->load->view('sistema/templates/html-footer');
+        $this->load->view('sistema/templates/html-footer-cadastros');
+        $this->load->view('sistema/templates/html-footer-usuarios');
     }
 
     // FUNÇÃO CONTROLLER DE CARREGAMENTO DA VIEW PERFIL ADMINISTRADOR.PHP
@@ -136,6 +140,7 @@ class AdministradorController extends CI_Controller {
         $this->load->view('sistema/telas/perfis/perfil-administrador');
         $this->load->view('sistema/templates/footer');
         $this->load->view('sistema/templates/html-footer');
+        $this->load->view('sistema/templates/html-footer-usuarios');
     }
 
 }

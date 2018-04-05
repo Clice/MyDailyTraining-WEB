@@ -29,6 +29,7 @@ class EqualTechController extends CI_Controller {
         $this->load->view('sistema/telas/listas/lista-equaltech');
         $this->load->view('sistema/templates/footer');
         $this->load->view('sistema/templates/html-footer');
+        $this->load->view('sistema/templates/html-footer-usuarios');
     }
 
     // FUNÇÃO DE CARREGAMENTO DA VIEW EDITAR-EQUALTECH.PHP
@@ -57,6 +58,8 @@ class EqualTechController extends CI_Controller {
         $this->load->view('sistema/telas/cadastros/editar-equaltech');
         $this->load->view('sistema/templates/footer');
         $this->load->view('sistema/templates/html-footer');
+        $this->load->view('sistema/templates/html-footer-cadastros');
+        $this->load->view('sistema/templates/html-footer-usuarios');
     }
 
     // FUNÇÃO DE CARREGAMENTO DA VIEW PERFIL-EQUALTECH.PHP
@@ -71,6 +74,7 @@ class EqualTechController extends CI_Controller {
         $this->load->view('sistema/telas/perfis/perfil-equaltech');
         $this->load->view('sistema/templates/footer');
         $this->load->view('sistema/templates/html-footer');
+        $this->load->view('sistema/templates/html-footer-usuarios');
     }
 
 }

@@ -38,6 +38,7 @@ class AvaliacaoFisicaController extends CI_Controller {
         $this->load->view('sistema/telas/cadastros/cadastrar-avaliacao-fisica');
         $this->load->view('sistema/templates/footer');
         $this->load->view('sistema/templates/html-footer');
+        $this->load->view('sistema/templates/html-footer-alunos');
     }
 
     // FUNÇÃO CONTROLLER PARA CADASTRAR A AVALIAÇÃO FÍSICA

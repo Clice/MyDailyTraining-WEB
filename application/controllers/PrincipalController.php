@@ -46,6 +46,7 @@ class PrincipalController extends CI_Controller {
         $this->load->view('sistema/telas/pagina-principal');
         $this->load->view('sistema/templates/footer');
         $this->load->view('sistema/templates/html-footer');
+        $this->load->view('sistema/templates/html-footer-usuarios');
     }
 
     // FUNÇÃO DE CARREGAMENTO DA VIEW PERFIL.PHP
@@ -70,6 +71,7 @@ class PrincipalController extends CI_Controller {
         $this->load->view('sistema/telas/meus-dados');
         $this->load->view('sistema/templates/footer');
         $this->load->view('sistema/templates/html-footer');
+        $this->load->view('sistema/templates/html-footer-usuarios');
     }
 
     // FUNÇÃO DE CARREGAMENTO DA VIEW NOTIFICACOES.PHP
@@ -87,6 +89,7 @@ class PrincipalController extends CI_Controller {
         $this->load->view('sistema/telas/notificacoes');
         $this->load->view('sistema/templates/footer');
         $this->load->view('sistema/templates/html-footer');
+        $this->load->view('sistema/templates/html-footer-usuarios');
     }
 
     // FUNÇÃO DE CARREGAMENTO DA VIEW RELARORIO.PHP
@@ -100,6 +103,7 @@ class PrincipalController extends CI_Controller {
         $this->load->view('sistema/telas/relatorio');
         $this->load->view('sistema/templates/footer');
         $this->load->view('sistema/templates/html-footer');
+        $this->load->view('sistema/templates/html-footer-usuarios');
     }
 
     // FUNÇÃO DE CARREGAMENTO DA VIEW RELARORIO.PHP

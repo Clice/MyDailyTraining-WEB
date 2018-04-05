@@ -38,6 +38,7 @@ class AcademiaController extends CI_Controller {
         $this->load->view('sistema/templates/academia/js-academia');
         $this->load->view('sistema/templates/footer');
         $this->load->view('sistema/templates/html-footer');
+        $this->load->view('sistema/templates/html-footer-academias');
     }
 
     // FUNÇÃO DE CARREGAMENTO DA VIEW CADASTRAR-EDITAR-ACADEMIA.PHP
@@ -74,6 +75,8 @@ class AcademiaController extends CI_Controller {
         $this->load->view('sistema/telas/cadastros/cadastrar-editar-academia');
         $this->load->view('sistema/templates/footer');
         $this->load->view('sistema/templates/html-footer');
+        $this->load->view('sistema/templates/html-footer-cadastros');
+        $this->load->view('sistema/templates/html-footer-academias');
     }
 
     // FUNÇÃO DE CARREGAMENTO DA VIEW CADASTRAR-EDITAR-ACADEMIA.PHP
@@ -105,6 +108,8 @@ class AcademiaController extends CI_Controller {
         $this->load->view('sistema/telas/cadastros/cadastrar-editar-academia');
         $this->load->view('sistema/templates/footer');
         $this->load->view('sistema/templates/html-footer');
+        $this->load->view('sistema/templates/html-footer-cadastros');
+        $this->load->view('sistema/templates/html-footer-academias');
     }
 
     // FUNÇÃO DE CARREGAMENTO DA VIEW PERFIL ACADEMIA.PHP
@@ -133,6 +138,7 @@ class AcademiaController extends CI_Controller {
         $this->load->view('sistema/templates/academia/js-academia');
         $this->load->view('sistema/templates/footer');
         $this->load->view('sistema/templates/html-footer');
+        $this->load->view('sistema/templates/html-footer-academias');
     }
 
     // FUNÇÃO CONTROLLER PARA CADASTRAR/EDITAR ACADEMIA

@@ -18,7 +18,7 @@
         <link href="<?php echo base_url('assets/css/apresentacao/planos.css'); ?>" rel="stylesheet">
 
         <!-- FONTES -->
-        <link href="<?php echo base_url('assets/fonts/font-awesome/css/font-awesome.min.css'); ?>" rel="stylesheet" type="text/css">
+        <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
         <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
@@ -440,7 +440,7 @@
                     <!-- ALEXANDRE BARBOSA -->
                     <div class="col-sm-4">
                         <div class="team-member">
-                            <img src="<?php echo base_url('assets/imagens/apresentacao/equaltech/2.jpg'); ?>" class="img-responsive img-circle" alt="">
+                            <img src="<?php echo base_url('assets/imagens/apresentacao/equaltech/alexandre_barbosa.jpeg'); ?>" class="img-responsive img-circle" alt="">
                             <h4>Alexandre Barbosa</h4>
                             <p class="text-muted">Analista de Sistemas</p>
                         </div>

@@ -21,6 +21,7 @@ class InstrutorController extends CI_Controller {
     public function index() {
         $dadosInstrutor['nomePagina'] = 'Lista de Instrutores';
         $dadosInstrutor['urlPagina'] = 'lista-instrutores';
+        $dadosInstrutor['voltarPagina'] = 'lista-instrutores';
 
         // PEGANDO AS INFORMAÇÕES DO INSTRUTORES ATIVOS E BLOQUEADOS
         $dadosInstrutor['instrutoresAtivos'] = $this->InstrutorModel->mListarInstrutoresAtivos();
@@ -40,6 +41,7 @@ class InstrutorController extends CI_Controller {
         $this->load->view('sistema/templates/usuario/js-usuario');
         $this->load->view('sistema/templates/footer');
         $this->load->view('sistema/templates/html-footer');
+        $this->load->view('sistema/templates/html-footer-usuarios');
     }
 
     // FUNÇÃO CONTROLLER DE CARREGAMENTO DA VIEW CADASTRAR-EDITAR-INSTRUTOR.PHP
@@ -68,6 +70,8 @@ class InstrutorController extends CI_Controller {
         $this->load->view('sistema/telas/cadastros/cadastrar-editar-instrutor');
         $this->load->view('sistema/templates/footer');
         $this->load->view('sistema/templates/html-footer');
+        $this->load->view('sistema/templates/html-footer-cadastros');
+        $this->load->view('sistema/templates/html-footer-usuarios');
     }
 
     // FUNÇÃO CONTROLLER DE CARREGAMENTO DA VIEW CADASTRAR-EDITAR-INSTRUTOR.PHP
@@ -95,6 +99,8 @@ class InstrutorController extends CI_Controller {
         $this->load->view('sistema/telas/cadastros/cadastrar-editar-instrutor');
         $this->load->view('sistema/templates/footer');
         $this->load->view('sistema/templates/html-footer');
+        $this->load->view('sistema/templates/html-footer-cadastros');
+        $this->load->view('sistema/templates/html-footer-usuarios');
     }
 
     // FUNÇÃO CONTROLLER DE CARREGAMENTO DA VIEW PERFIL-INSTRUTOR.PHP
@@ -116,6 +122,7 @@ class InstrutorController extends CI_Controller {
         $this->load->view('sistema/telas/perfis/perfil-instrutor');
         $this->load->view('sistema/templates/footer');
         $this->load->view('sistema/templates/html-footer');
+        $this->load->view('sistema/templates/html-footer-usuarios');
     }
 
     // FUNÇÃO CONTROLLER DE CARREGAMENTO DA VIEW LISTA-CHAMADOS.PHP
@@ -133,6 +140,7 @@ class InstrutorController extends CI_Controller {
         $this->load->view('sistema/telas/listas/lista-chamados');
         $this->load->view('sistema/templates/footer');
         $this->load->view('sistema/templates/html-footer');
+        $this->load->view('sistema/templates/html-footer-usuarios');
     }
 
 }

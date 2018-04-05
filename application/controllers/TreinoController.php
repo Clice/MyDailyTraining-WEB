@@ -66,6 +66,7 @@ class TreinoController extends CI_Controller {
         $this->load->view('sistema/telas/cadastros/' . $urlPagina);
         $this->load->view('sistema/templates/footer');
         $this->load->view('sistema/templates/html-footer');
+        $this->load->view('sistema/templates/html-footer-treinos');
     }
 
     // FUNÇÃO DE CARREGAMENTO DA VIEW CADASTRAR-EDITAR-EXERCICIOS-TREINO.PHP
@@ -128,6 +129,7 @@ class TreinoController extends CI_Controller {
         $this->load->view('sistema/telas/cadastros/cadastrar-editar-exercicios-treino');
         $this->load->view('sistema/templates/footer');
         $this->load->view('sistema/templates/html-footer');
+        $this->load->view('sistema/templates/html-footer-treinos');
     }
 
     // FUNÇÃO DE CARREGAMENTO DA VIEW PERFIL-TREINO.PHP
@@ -148,6 +150,7 @@ class TreinoController extends CI_Controller {
         $this->load->view('sistema/telas/perfis/perfil-treino');
         $this->load->view('sistema/templates/footer');
         $this->load->view('sistema/templates/html-footer');
+        $this->load->view('sistema/templates/html-footer-treinos');
     }
 
     // FUNÇÃO CONTROLLER PARA CADASTRAR/EDITAR TREINO

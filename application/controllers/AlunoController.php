@@ -42,6 +42,7 @@ class AlunoController extends CI_Controller {
         $this->load->view('sistema/templates/aluno/modals-aluno');
         $this->load->view('sistema/templates/aluno/js-aluno');
         $this->load->view('sistema/templates/html-footer');
+        $this->load->view('sistema/templates/html-footer-alunos');
     }
 
     // FUNÇÃO CONTROLLER DE CARREGAMENTO DA VIEW CADASTRAR-EDITAR-ALUNO.PHP
@@ -72,6 +73,8 @@ class AlunoController extends CI_Controller {
         $this->load->view('sistema/telas/cadastros/cadastrar-editar-aluno');
         $this->load->view('sistema/templates/footer');
         $this->load->view('sistema/templates/html-footer');
+        $this->load->view('sistema/templates/html-footer-cadastros');
+        $this->load->view('sistema/templates/html-footer-alunos');
     }
 
     // FUNÇÃO CONTROLLER DE CARREGAMENTO DA VIEW CADASTRAR-EDITAR-ALUNO.PHP
@@ -96,6 +99,8 @@ class AlunoController extends CI_Controller {
         $this->load->view('sistema/telas/cadastros/cadastrar-editar-aluno');
         $this->load->view('sistema/templates/footer');
         $this->load->view('sistema/templates/html-footer');
+        $this->load->view('sistema/templates/html-footer-cadastros');
+        $this->load->view('sistema/templates/html-footer-alunos');
     }
 
     public function vImprimirFichaTreino($idAluno) {

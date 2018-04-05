@@ -41,6 +41,7 @@ class FuncionarioController extends CI_Controller {
         $this->load->view('sistema/templates/usuario/js-usuario');
         $this->load->view('sistema/templates/footer');
         $this->load->view('sistema/templates/html-footer');
+        $this->load->view('sistema/templates/html-footer-usuarios');
     }
 
     // FUNÇÃO CONTROLLER DE CARREGAMENTO DA VIEW CADASTRAR-EDITAR-FUNCIONARIO.PHP
@@ -65,6 +66,8 @@ class FuncionarioController extends CI_Controller {
         $this->load->view('sistema/telas/cadastros/cadastrar-editar-funcionario');
         $this->load->view('sistema/templates/footer');
         $this->load->view('sistema/templates/html-footer');
+        $this->load->view('sistema/templates/html-footer-cadastros');
+        $this->load->view('sistema/templates/html-footer-usuarios');
     }
 
     // FUNÇÃO CONTROLLER DE CARREGAMENTO DA VIEW CADASTRAR-EDITAR-FUNCIONARIO.PHP
@@ -89,6 +92,8 @@ class FuncionarioController extends CI_Controller {
         $this->load->view('sistema/telas/cadastros/cadastrar-editar-funcionario');
         $this->load->view('sistema/templates/footer');
         $this->load->view('sistema/templates/html-footer');
+        $this->load->view('sistema/templates/html-footer-cadastros');
+        $this->load->view('sistema/templates/html-footer-usuarios');
     }
 
     // FUNÇÃO CONTROLLER DE CARREGAMENTO DA VIEW PERFIL-FUNCIONARIO.PHP
@@ -113,6 +118,7 @@ class FuncionarioController extends CI_Controller {
         $this->load->view('sistema/telas/perfis/perfil-funcionario');
         $this->load->view('sistema/templates/footer');
         $this->load->view('sistema/templates/html-footer');
+        $this->load->view('sistema/templates/html-footer-usuarios');
     }
 
 }

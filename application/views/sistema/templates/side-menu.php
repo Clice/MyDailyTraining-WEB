@@ -34,7 +34,7 @@
                         <li><a href="<?php echo base_url('cadastrar-academia/novo'); ?>" data-i18n="nav.cadastros.academia" class="menu-item">Academia</a>
                         </li>
                     <?php } else if ($this->session->userdata('tipoConta') == 2) { ?>  
-                        <li><a href="<?php echo base_url('cadastrar-administrador/novo/' . $this->session->userdata('idAcademia')); ?>" data-i18n="nav.cadastros.administradores" class="menu-item">Administrador</a>
+                        <li><a href="<?php echo base_url('cadastrar-administrador/novo/' . $this->session->userdata('idAcademia') . '/lista-administradores'); ?>" data-i18n="nav.cadastros.administradores" class="menu-item">Administrador</a>
                         </li>      
                         <li><a href="<?php echo base_url('cadastrar-funcionario/novo'); ?>" data-i18n="nav.cadastros.funcionario" class="menu-item">Funcionário</a>
                         </li>
