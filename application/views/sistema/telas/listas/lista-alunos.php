@@ -11,6 +11,7 @@
                                 </div>
                             </div>
                             <input type="hidden" name="idAluno" id="idAluno">
+                            <input type="hidden" name="idAcademia" id="idAcademia" value="<?php echo $this->session->userdata('idAcademia'); ?>">
                             <div class="row">
                                 <div class="col-lg-4">
                                     <div class="form-group">

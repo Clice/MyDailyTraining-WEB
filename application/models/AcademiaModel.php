@@ -106,5 +106,19 @@ class AcademiaModel extends CI_Model {
         $this->db->where('idAcademia', $idAcademia);
         return $this->db->get('academias')->result();
     }
+    
+    // FUNÇÃO PARA SABER A QUANTIDADE DE ALUNOS DA ACADEMIA
+    public function mVerificarQtdAlunos($idAcademia) {
+        $this->db->select('qtdTotalLicencas, qtdLicencasUsadas');
+        $this->db->where('idAcademia', $idAcademia); 
+        return $this->db->get('academias')->result();
+    }
+
+    // FUNÇÃO PARA DIMINUIR ALUNOS DA ACADEMIA
+    public function mDiminuirQtdAlunos($idAcademia, $qtdLicencasUsadas) {
+        $dadosAcademia['qtdLicencasUsadas'] = $qtdLicencasUsadas;
+        $this->db->where('idAcademia', $idAcademia);
+        return $this->db->update('academias', $dadosAcademia);
+    }
 
 }

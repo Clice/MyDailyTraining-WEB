@@ -37,6 +37,7 @@
                                         </div>
                                         <hr>
                                         <input type="hidden" name="idAluno" id="idAluno" value="<?php echo $aluno->idAluno; ?>">
+                                        <input type="hidden" name="idAcademia" id="idAcademia" value="<?php echo $this->session->userdata('idAcademia'); ?>">
                                         <div class="form-body">
                                             <h4 class="form-section"></h4>
                                             <div class="row">

@@ -161,10 +161,10 @@ class AcademiaController extends CI_Controller {
             'mensalidadeAcademia' => $this->input->post('mensalidadeAcademia'),
             'statusAcademia' => $this->input->post('statusAcademia'),
             'qtdTotalLicencas' => $this->input->post('qtdTotalLicencas'),
-            'qtdLicencasUsadas' => 0,
+            'qtdLicencasUsadas' => $this->input->post('qtdLicencasUsadas'),
             'valorTotal' => $this->input->post('valorTotal'),
-            'valorPago' => 0,
-            'qtdParcelas' => 12,
+            'valorPago' => $this->input->post('valorPago'),
+            'qtdParcelas' => $this->input->post('qtdParcelas'),
             'diaPagamentoAcademia' => $this->input->post('diaPagamentoAcademia')
         );
 
@@ -247,6 +247,37 @@ class AcademiaController extends CI_Controller {
         } else {
             $resposta = array('existe' => false);
         }
+
+        echo json_encode($resposta);
+    }
+
+    // FUNÇÃO CONTROLLER PARA VERIFICAR QUANTIDADE DE ALUNOS
+    public function cVerificarQtdAlunos() {
+        $idAcademia = $this->input->post('idAcademia');
+
+        $dadosAcademia = $this->AcademiaModel->mVerificarQtdAlunos($idAcademia);       
+
+        if ($dadosAcademia[0]->qtdLicencasUsadas < $dadosAcademia[0]->qtdTotalLicencas) {
+            $resposta = array('success' => true);
+        } else {
+            $resposta = array('success' => false);
+        }
+
+        echo json_encode($resposta);
+    }
+
+    // FUNÇÃO CONTROLLER PARA DIMINUIR A QUANTIDADE DE ALUNOS
+    public function cDiminuirQtdAlunos() {
+        $idAcademia = $this->input->post('idAcademia');
+
+        $dadosAcademia = $this->AcademiaModel->mVerificarQtdAlunos($idAcademia);
+        $qtdLicencasUsadas = $dadosAcademia[0]->qtdLicencasUsadas - 1; 
+
+        if ($this->AcademiaModel->mDiminuirQtdAlunos($idAcademia, $qtdLicencasUsadas)) {
+            $resposta = array('success' => true);
+        } else {
+            $resposta = array('success' => false);
+        } 
 
         echo json_encode($resposta);
     }

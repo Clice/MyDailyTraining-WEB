@@ -11,6 +11,27 @@
             success: function (data) {
                 $('#excluir-aluno').modal('hide');
                 if (data.success) {
+                    diminuirQtdAluno();
+                } else {
+                    $('#excluir-erro-aluno').modal('show');
+                }
+            },
+            error: function (request, status, error) {
+                $('#falha-internet').modal('show');
+            }
+        });
+    }
+
+    function diminuirQtdAluno() {
+        var dados = "idAcademia=" + $('#idAcademia').val();
+        $.ajax({
+            url: "<?php echo base_url('AcademiaController/cDiminuirQtdAlunos'); ?>",
+            type: "POST",
+            data: dados,
+            dataType: 'json',
+            success: function (data) {
+                $('#excluir-aluno').modal('hide');
+                if (data.success) {
                     $('#excluir-sucesso-aluno').modal('show');
                 } else {
                     $('#excluir-erro-aluno').modal('show');
