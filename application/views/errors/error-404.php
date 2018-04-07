@@ -21,8 +21,8 @@
                             <div class="row">
                                 <p class="text-muted text-xs-center col-xs-12 py-1">&copy; 2017 - <?php echo date('Y'); ?> EqualTech</p>
                                 <div class="text-xs-center">
-                                    <a href="#" class="btn btn-social-icon mr-1 mb-1 btn-outline-facebook"><span class="icon-facebook3"></span></a>
-                                    <a href="#" class="btn btn-social-icon mr-1 mb-1 btn-outline-instagram"><span class="icon-instagram"></span></a>
+                                    <a href="http://www.facebook.com.br/mydailytraining" class="btn btn-social-icon mr-1 mb-1 btn-outline-facebook"><span class="icon-facebook3"></span></a>
+                                    <a href="https://www.instagram.com/mydailytraining_equaltech/" class="btn btn-social-icon mr-1 mb-1 btn-outline-instagram"><span class="icon-instagram"></span></a>
                                 </div>
                             </div>
                         </div>
