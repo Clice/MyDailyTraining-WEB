@@ -84,9 +84,9 @@
                 <div class="row">
                     <div class="col-md-4">
                         <ul class="list-inline social-buttons">
-                            <li><a href="http://www.facebook.com.br/mydailytraining"><i class="fa fa-facebook"></i></a>
+                            <li><a href="https://www.facebook.com/mydailytraining"><i class="fa fa-facebook"></i></a>
                             </li>
-                            <li><a href="http://www.instagram.com/mydailytraining"><i class="fa fa-instagram"></i></a>
+                            <li><a href="https://www.instagram.com/mydailytraining_equaltech/"><i class="fa fa-instagram"></i></a>
                             </li>
                         </ul>
                     </div>
