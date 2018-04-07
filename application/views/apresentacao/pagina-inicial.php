@@ -490,7 +490,7 @@
                     </div>
                     <div class="col-md-3">
                         <ul class="list-inline quicklinks">
-                            <li><a href="#">FAQ</a>
+                            <li><a href="<?php echo base_url('faq') ?>">FAQ</a>
                             </li>
                             <li><a href="#">Termos de Uso</a>
                             </li>

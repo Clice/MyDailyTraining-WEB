@@ -12,6 +12,7 @@ $route['translate_uri_dashes'] = FALSE;
 $route['login'] = 'InicialController/vLogin';
 $route['pagina-principal'] = 'PrincipalController';
 $route['recuperar-senha'] = 'InicialController/vRecuperarSenha';
+$route['faq'] = 'InicialController/vFAQ';
 
 // ROTAS PARA O RELATÓRIO, PERFIL E NOTIFICAÇÕES
 $route['relatorio'] = 'PrincipalController/vRelatorio';
