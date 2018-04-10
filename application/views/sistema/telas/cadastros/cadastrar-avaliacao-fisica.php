@@ -1,8 +1,8 @@
 
-<!-- DADOS DO FUNCIONÁRIO -->
+<!-- CADASTRAR AVALIAÇÃO FÍSICA -->
 <div class="app-content content container-fluid">
     <div class="content-wrapper">      
-        <!-- CONTEÚDO DO PÁGINA - DADOS DO FUNCIONÁRIO ESCOLHIDO -->
+        <!-- CONTEÚDO DO PÁGINA -->
         <div class="content-body">
             <section id="basic-form-layouts">
                 <div class="row match-height">
@@ -10,7 +10,7 @@
                         <div class="card">
                             <div class="card-body collapse in">
                                 <div class="card-block">
-                                    <!-- TÍTULO DO PÁGINA - NOME DO FUNCIONÁRIO -->
+                                    <!-- TÍTULO DO PÁGINA -->
                                     <div class="content-header row">
                                         <div class="content-header-left col-md-6 col-xs-12 mb-1">
                                             <h2 class="content-header-title"><?php echo $nomePagina; ?></h2>

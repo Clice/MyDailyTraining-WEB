@@ -34,11 +34,13 @@ class PrincipalController extends CI_Controller {
         $dados['qtdInstBloqueados'] = count($this->InstrutorModel->mQtdInstBloqueados($this->session->userdata('idAcademia')));
         $dados['qtdAlunosAtivos'] = count($this->AlunoModel->mQtdAlunosAtivos($this->session->userdata('idAcademia')));
         $dados['qtdAlunosBloqueados'] = count($this->AlunoModel->mQtdAlunosBloqueados($this->session->userdata('idAcademia')));
+        $dados['aniversariantesFuncionariosMes'] = $this->AcademiaModel->mAniversariantesFuncionariosMes($this->session->userdata('idAcademia'));
+        $dados['aniversariantesAlunosMes'] = $this->AcademiaModel->mAniversariantesAlunosMes($this->session->userdata('idAcademia'));
 
         if ($this->session->userdata('tipoConta') == 4) {
             $dados['chamadosInstrutor'] = $this->InstrutorModel->mListarChamadosInstrutores($this->session->userdata('idUsuario'));
         }
-
+        
         // CARREGANDO AS VIEWS DA PÁGINA
         $this->load->view('sistema/templates/html-header', $dados);
         $this->load->view('sistema/templates/header');

@@ -82,7 +82,7 @@
                                                                         <tr>
                                                                             <td><?php echo $administradorAtivo->nomeUsuario; ?></td>
                                                                             <td><?php echo $administradorAtivo->telefoneUsuario; ?></td>
-                                                                            <td><?php echo $administradorAtivo->enderecoUsuario; ?></td>                                                                            
+                                                                            <td><?php echo $administradorAtivo->enderecoUsuario; ?></td>  
                                                                             <td style="text-align: center;">
                                                                                 <button type="button" class="btn mb-1 btn-success btn-sm" 
                                                                                         onclick="window.location.href = '<?php echo base_url('perfil-administrador/' . md5($administradorAtivo->idUsuario)); ?>'"><i class="icon-eye"></i> Ver Perfil</button>

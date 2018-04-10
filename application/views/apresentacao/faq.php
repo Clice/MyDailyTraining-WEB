@@ -45,7 +45,7 @@
                             <a href="#page-top"></a>
                         </li>
                         <li>
-                            <a class="page-scroll" href="<?php echo base_url('pagina-inicial'); ?>">Voltar para a Página Inicial</a>
+                            <a class="page-scroll" href="<?php echo base_url(); ?>"><i class="fa fa-home"></i> Voltar para a Página Inicial</a>
                         </li>
                     </ul>
                 </div>
@@ -55,26 +55,64 @@
         <!-- FAQ -->
         <section id="faq">
             <div class="container">
+                <!-- NOME DA PÁGINA -->
                 <div class="row">
                     <div class="col-lg-12 text-center">
                         <h2 class="section-heading">Dúvidas?</h2>
-                        <h3 class="section-subheading text-muted">Clique no item para abrir o card.</h3>
+                        <h3 class="section-subheading text-muted">Clique no item para abrir o card e ver a descrição da funcionalidade.</h3>
                     </div>
                 </div>
+
+
+                <!-- LOGIN NO SISTEMA WEB -->
                 <div class="panel-group">
                     <div class="panel panel-default">
-                        <!-- LOGIN WEB -->
                         <div class="panel-heading">
                             <h4 class="panel-title">
-                                <a class="text-center" data-toggle="collapse" href="#collapse1">Efetuar Login no Sistema Web</a>
+                                <a data-toggle="collapse" href="#item1" aria-expanded="true" aria-controls="collapse-example" class="d-block">
+                                    <i class="fa fa-chevron-down pull-right"></i> Efetuar Login no Sistema Web
+                                </a>
                             </h4>
                         </div>
-                        <div id="collapse1" class="panel-collapse collapse">
-                            <div class="panel-body">Panel Body</div>
-                            <div class="panel-footer">Panel Footer</div>
+                        <div id="item1" class="panel-collapse collapse">
+                            <div class="card-body">
+                                <ul>
+                                    <li>1º </li>
+                                    <li>2º </li>
+                                    <li>3º </li>
+                                    <li>4º </li>
+                                    <li>5º </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
+
+                 <!-- LOGIN NO APLICATIVO MOBILE -->
+                <div class="panel-group">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" href="#item2" aria-expanded="true" aria-controls="collapse-example" class="d-block">
+                                    <i class="fa fa-chevron-down pull-right"></i> Efetuar Login no Aplicativo Mobile
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="item2" class="panel-collapse collapse">
+                            <div class="card-body">
+                                <ul>
+                                    <li>1º </li>
+                                    <li>2º </li>
+                                    <li>3º </li>
+                                    <li>4º </li>
+                                    <li>5º </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+               
             </div>
         </section>
 

@@ -70,7 +70,6 @@
                                                                     <tr>
                                                                         <th>Nome</th>
                                                                         <th>Telefone</th>
-                                                                        <th>Endereço</th>
                                                                         <th style="text-align: center;">Opções</th>
                                                                         <?php if ($this->session->userdata('tipoConta') == 2) { ?>
                                                                             <th style="text-align: center;">Bloqueado</th>
@@ -82,7 +81,6 @@
                                                                         <tr>
                                                                             <td><?php echo $instrutorAtivo->nomeUsuario; ?></td>
                                                                             <td><?php echo $instrutorAtivo->telefoneUsuario; ?></td>
-                                                                            <td><?php echo $instrutorAtivo->enderecoUsuario; ?></td>
                                                                             <td style="text-align: center;">
                                                                                 <button type="button" class="btn mb-1 btn-success btn-sm" 
                                                                                         onclick="window.location.href = '<?php echo base_url('perfil-instrutor/' . md5($instrutorAtivo->idUsuario)); ?>'"><i class="icon-eye"></i> Ver Perfil</button>

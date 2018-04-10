@@ -1,6 +1,7 @@
 <?php
 
 defined('BASEPATH') OR exit('No direct script access allowed');
+date_default_timezone_set('America/Fortaleza');
 
 class AcademiaModel extends CI_Model {
 
@@ -119,6 +120,28 @@ class AcademiaModel extends CI_Model {
         $dadosAcademia['qtdLicencasUsadas'] = $qtdLicencasUsadas;
         $this->db->where('idAcademia', $idAcademia);
         return $this->db->update('academias', $dadosAcademia);
+    }
+    
+    // FUNÇÃO PARA PEGAR TODAS AS ACADEMIAS DESBLOQUEADAS
+    public function mAniversariantesFuncionariosMes($idAcademia) {
+        $mesAtual = date('m');
+        $this->db->select('nomeUsuario, dataNascimentoUsuario');
+        $this->db->from('usuarios');
+        $this->db->where('idAcademia', $idAcademia);
+        $this->db->like('dataNascimentoUsuario', $mesAtual);
+        $this->db->order_by('dataNascimentoUsuario', 'ASC');
+        return $this->db->get()->result();
+    }
+    
+    // FUNÇÃO PARA PEGAR TODAS AS ACADEMIAS DESBLOQUEADAS
+    public function mAniversariantesAlunosMes($idAcademia) {
+        $mesAtual = date('m');
+        $this->db->select('nomeAluno, dataNascimentoAluno');
+        $this->db->from('alunos');
+        $this->db->where('idAcademia', $idAcademia);
+        $this->db->like('dataNascimentoAluno', $mesAtual);
+        $this->db->order_by('dataNascimentoAluno', 'ASC');
+        return $this->db->get()->result();
     }
 
 }

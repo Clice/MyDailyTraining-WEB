@@ -91,6 +91,50 @@
                     </div>
                 </div>
             </div>
+
+            <?php if ($this->session->userdata('tipoConta') != 1) { ?>
+                <div class="content-body">
+                    <section id="basic-form-layouts">
+                        <div class="row match-height">
+                            <div class="col-md-12">
+                                <div class="card">
+                                    <div class="card-body collapse in">
+                                        <div class="card-block">
+                                            <!-- TÍTULO DO PÁGINA -->
+                                            <div class="content-header row">
+                                                <div class="content-header-left col-md-6 col-xs-12 mb-1">
+                                                    <h3 class="content-header-title">Aniversariantes do Mês:</h3>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                            <div class="content-body">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label><b>Funcionários:</b></label>
+                                                        <ul>
+                                                            <?php foreach ($aniversariantesFuncionariosMes as $aniversarianteFuncionarioMes) { ?>
+                                                                <li><?php echo $aniversarianteFuncionarioMes->nomeUsuario; ?> - <?php echo formatarData($aniversarianteFuncionarioMes->dataNascimentoUsuario); ?></li>
+                                                            <?php } ?>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <label><b>Alunos:</b></label>
+                                                        <ul>
+                                                            <?php foreach ($aniversariantesAlunosMes as $aniversarianteAluno) { ?>
+                                                                <li><i class="fa fa-birthday-cake"></i> <?php echo $aniversarianteAluno->nomeAluno; ?> - <?php echo formatarData($aniversarianteAluno->dataNascimentoAluno); ?></li>
+                                                                <?php } ?>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            <?php } ?>
         </div>
     </div>
 </div>
