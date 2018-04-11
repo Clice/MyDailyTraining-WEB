@@ -48,7 +48,7 @@ $route['cadastrar-instrutor/(:any)'] = 'InstrutorController/vCadastrarInstrutor/
 $route['cadastrar-treino/(:any)/(:any)'] = 'TreinoController/vCadastrarTreino/$1/$2';
 $route['cadastrar-funcionario/(:any)'] = 'FuncionarioController/vCadastrarFuncionario/$1';
 $route['cadastrar-avaliacao-fisica/(:any)'] = 'AvaliacaoFisicaController/vCadastrarAvaliacaoFisica/$1';
-$route['cadastrar-exercicios-treino/(:any)/(:any)/(:any)'] = 'TreinoController/vCadastrarExerciciosTreino/$1/$2/$3';
+$route['cadastrar-exercicios-treino/(:any)/(:any)/(:any)'] = 'TreinoController/vCadastrarEditarExerciciosTreino/$1/$2/$3';
 $route['cadastrar-administrador/(:any)/(:num)/(:any)'] = 'AdministradorController/vCadastrarEditarAdministrador/$1/$2/$3';
 
 // ROTAS PARA AS EDIÇÕES
@@ -58,5 +58,5 @@ $route['editar-academia/(:any)/(:any)'] = 'AcademiaController/vEditarAcademia/$1
 $route['editar-instrutor/(:any)/(:any)'] = 'InstrutorController/vEditarInstrutor/$1/$2';
 $route['editar-treino/(:any)/(:any)'] = 'TreinoController/vEditarTreino/$1/$2';
 $route['editar-funcionario/(:any)/(:any)'] = 'FuncionarioController/vEditarFuncionario/$1/$2';
-$route['editar-exercicios-treino/(:any)'] = 'TreinoController/vEditarExerciciosTreino/$1';
+$route['editar-exercicios-treino/(:any)'] = 'TreinoController/vCadastrarEditarExerciciosTreino/$1';
 $route['editar-administrador/(:any)/(:num)/(:any)'] = 'AdministradorController/vCadastrarEditarAdministrador/$1/$2/$3';

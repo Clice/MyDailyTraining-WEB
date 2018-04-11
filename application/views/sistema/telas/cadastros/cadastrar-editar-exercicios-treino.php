@@ -271,10 +271,8 @@
         var dados = "idTreino=" + $('#idTreino').val() + "&idExercicioTreino=" + $('#idExercicioTreino' + idExercicio).val() +
                 "&idExercicio=" + idExercicio + "&serieExercicioTreino=" + $('#serieExercicioTreino' + idExercicio).val() +
                 "&cargaExercicioTreino=" + $('#cargaExercicioTreino' + idExercicio).val() +
-                "&tempoExercicioTreino=" + $('#tempoExercicioTreino' + idExercicio).val() +
                 "&descansoExercicioTreino=" + $('#descansoExercicioTreino' + idExercicio).val() +
-                "&repeticoesExercicioTreino=" + $('#repeticoesExercicioTreino' + idExercicio).val() +
-                "&velocidadeExercicioTreino=" + $('#velocidadeExercicioTreino' + idExercicio).val();
+                "&repeticoesExercicioTreino=" + $('#repeticoesExercicioTreino' + idExercicio).val();
 
         $.ajax({
             url: "<?php echo base_url('TreinoController/cCadastrarEditarExercicioTreino') ?>",

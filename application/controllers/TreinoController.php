@@ -19,41 +19,55 @@ class TreinoController extends CI_Controller {
         }
     }
 
-    // FUNÇÃO DE CARREGAMENTO DA VIEW CADASTRAR-EDITAR-TREINO.PHP
-    public function vCadastrarEditarTreino($idAluno, $idTreino) {
+    // FUNÇÃO DE CARREGAMENTO DA VIEW CADASTRAR-TREINO.PHP
+    public function vCadastrarTreino($idAluno, $idTreino) {
         $dadosTreino['perfilAluno'] = $this->AlunoModel->mVisualizarPerfilAluno(md5($idAluno));
         $dadosTreino['diasTreinoAluno'] = explode("|", $dadosTreino['perfilAluno'][0]->diasTreinoAluno);
 
-        // SE UM ID TRIENO FOI PASSADO OU NÃO
-        // PARA REALIZAR A EDIÇÃO DE DADOS DE UM TREINO
-        if ($idTreino != "novo") {
-            $dadosTreino['treino'] = $this->TreinoModel->mVisualizarTreino($idTreino);
-            $dadosTreino['exerciciosTreino'] = $this->ExercicioTreinoModel->mVisualizarExerciciosTreino($idTreino);
-            $dadosTreino['idTreino'] = $dadosTreino['treino'][0]->idTreino;
-            $dadosTreino['statusTreino'] = $dadosTreino['treino'][0]->statusTreino;
-            $dadosTreino['nomePagina'] = 'Editar Academia';
-            $urlPagina = 'editar-treino';
-            $dadosTreino['idExercicio'] = "";
-
-            for ($i = 0; $i < count($dadosTreino['exerciciosTreino']); $i++) {
-                $dadosTreino['idExercicio'] = $dadosTreino['idExercicio'] . "|" . $dadosTreino['exerciciosTreino'][$i]->idExercicio;
-            }
+        if ($this->cVerificarDiasTreino($idAluno, $dadosTreino['diasTreinoAluno']) != "") {
+            $dadosTreino['diasTreinoAluno'] = $this->cVerificarDiasTreino($idAluno, $dadosTreino['diasTreinoAluno']);
         }
-        // PARA REALIZAR O CADASTRO DE UM TREINO
-        else {
-            if ($this->cVerificarDiasTreino($idAluno, $dadosTreino['diasTreinoAluno']) != "") {
-                $dadosTreino['diasTreinoAluno'] = $this->cVerificarDiasTreino($idAluno, $dadosTreino['diasTreinoAluno']);
-            }
 
-            $dadosTreino['nomePagina'] = 'Cadastrar Treino';
-            $dadosTreino['idTreino'] = $idTreino;
-            $dadosTreino['statusTreino'] = false;
-            $urlPagina = 'cadastrar-treino';
+        $dadosTreino['nomePagina'] = 'Cadastrar Treino';
+        $dadosTreino['idTreino'] = $idTreino;
+        $dadosTreino['statusTreino'] = false;
+        $urlPagina = 'cadastrar-treino';
+        $dadosTreino['idAluno'] = $idAluno;
+        $dadosTreino['exercicios'] = $this->ExercicioTreinoModel->mVisualizarExercicios();
+
+        if ($this->session->userdata('tipoConta') == 4) {
+            $dadosTreino['chamadosInstrutor'] = $this->InstrutorModel->mListarChamadosInstrutores($this->session->userdata('idUsuario'));
+        }
+
+        // CARREGANDO AS VIEWS DA PÁGINA
+        $this->load->view('sistema/templates/html-header', $dadosTreino);
+        $this->load->view('sistema/templates/header');
+        $this->load->view('sistema/templates/side-menu');
+        $this->load->view('sistema/telas/cadastros/' . $urlPagina);
+        $this->load->view('sistema/templates/footer');
+        $this->load->view('sistema/templates/html-footer');
+        $this->load->view('sistema/templates/html-footer-treinos');
+    }
+
+     // FUNÇÃO DE CARREGAMENTO DA VIEW EDITAR-TREINO.PHP
+    public function vEditarTreino($idAluno, $idTreino) {
+        $dadosTreino['perfilAluno'] = $this->AlunoModel->mVisualizarPerfilAluno(md5($idAluno));
+        $dadosTreino['diasTreinoAluno'] = explode("|", $dadosTreino['perfilAluno'][0]->diasTreinoAluno);
+
+        $dadosTreino['treino'] = $this->TreinoModel->mVisualizarTreino($idTreino);
+        $dadosTreino['exerciciosTreino'] = $this->ExercicioTreinoModel->mVisualizarExerciciosTreino($idTreino);
+        $dadosTreino['idTreino'] = $dadosTreino['treino'][0]->idTreino;
+        $dadosTreino['statusTreino'] = $dadosTreino['treino'][0]->statusTreino;
+        $dadosTreino['nomePagina'] = 'Editar Academia';
+        $urlPagina = 'editar-treino';
+        $dadosTreino['idExercicio'] = "";
+
+        for ($i = 0; $i < count($dadosTreino['exerciciosTreino']); $i++) {
+            $dadosTreino['idExercicio'] = $dadosTreino['idExercicio'] . "|" . $dadosTreino['exerciciosTreino'][$i]->idExercicio;
         }
 
         $dadosTreino['idAluno'] = $idAluno;
         $dadosTreino['exercicios'] = $this->ExercicioTreinoModel->mVisualizarExercicios();
-
 
         if ($this->session->userdata('tipoConta') == 4) {
             $dadosTreino['chamadosInstrutor'] = $this->InstrutorModel->mListarChamadosInstrutores($this->session->userdata('idUsuario'));
@@ -89,10 +103,8 @@ class TreinoController extends CI_Controller {
                 $dados['exercicios'][$j]['idExercicioTreino'] = "novo";
                 $dados['exercicios'][$j]['serieExercicioTreino'] = "";
                 $dados['exercicios'][$j]['cargaExercicioTreino'] = "";
-                $dados['exercicios'][$j]['tempoExercicioTreino'] = "";
                 $dados['exercicios'][$j]['descansoExercicioTreino'] = "";
                 $dados['exercicios'][$j]['repeticoesExercicioTreino'] = "";
-                $dados['exercicios'][$j]['velocidadeExercicioTreino'] = "";
             }
 
             for ($i = 0; $i < count($dadosExerciciosTreino); $i++) {
@@ -108,10 +120,8 @@ class TreinoController extends CI_Controller {
                 $dados['exercicios'][$i]['idExercicioTreino'] = "novo";
                 $dados['exercicios'][$i]['serieExercicioTreino'] = "";
                 $dados['exercicios'][$i]['cargaExercicioTreino'] = "";
-                $dados['exercicios'][$i]['tempoExercicioTreino'] = "";
                 $dados['exercicios'][$i]['descansoExercicioTreino'] = "";
                 $dados['exercicios'][$i]['repeticoesExercicioTreino'] = "";
-                $dados['exercicios'][$i]['velocidadeExercicioTreino'] = "";
             }
         }
 
@@ -246,10 +256,8 @@ class TreinoController extends CI_Controller {
             'idTreino' => $this->input->post('idTreino'),
             'serieExercicioTreino' => $this->input->post('serieExercicioTreino'),
             'cargaExercicioTreino' => $this->input->post('cargaExercicioTreino'),
-            'tempoExercicioTreino' => $this->input->post('tempoExercicioTreino'),
             'descansoExercicioTreino' => $this->input->post('descansoExercicioTreino'),
-            'repeticoesExercicioTreino' => $this->input->post('repeticoesExercicioTreino'),
-            'velocidadeExercicioTreino' => $this->input->post('velocidadeExercicioTreino')
+            'repeticoesExercicioTreino' => $this->input->post('repeticoesExercicioTreino')
         );
 
         // SE O ID DO EXERCICIO TREINO É NOVO
