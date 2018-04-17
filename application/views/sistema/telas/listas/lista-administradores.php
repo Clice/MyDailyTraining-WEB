@@ -70,7 +70,6 @@
                                                                     <tr>
                                                                         <th>Nome</th>
                                                                         <th>Telefone</th>
-                                                                        <th>Endereço</th>                                                 
                                                                         <th style="text-align: center;">Opções</th>
                                                                         <?php if ($this->session->userdata('tipoConta') < 2) { ?>
                                                                             <th style="text-align: center;">Bloqueado</th>
@@ -82,7 +81,6 @@
                                                                         <tr>
                                                                             <td><?php echo $administradorAtivo->nomeUsuario; ?></td>
                                                                             <td><?php echo $administradorAtivo->telefoneUsuario; ?></td>
-                                                                            <td><?php echo $administradorAtivo->enderecoUsuario; ?></td>  
                                                                             <td style="text-align: center;">
                                                                                 <button type="button" class="btn mb-1 btn-success btn-sm" 
                                                                                         onclick="window.location.href = '<?php echo base_url('perfil-administrador/' . md5($administradorAtivo->idUsuario)); ?>'"><i class="icon-eye"></i> Ver Perfil</button>
@@ -123,7 +121,6 @@
                                                                         <tr>
                                                                             <th>Nome</th>
                                                                             <th>Telefone</th>
-                                                                            <th>Endereço</th>
                                                                             <th style="text-align: center;">Opções</th>
                                                                             <th style="text-align: center;">Bloqueado</th>
                                                                         </tr>
@@ -133,7 +130,6 @@
                                                                             <tr>
                                                                                 <td><?php echo $administradorBloqueado->nomeUsuario; ?></td>
                                                                                 <td><?php echo $administradorBloqueado->telefoneUsuario; ?></td>
-                                                                                <td><?php echo $administradorBloqueado->enderecoUsuario; ?></td>
                                                                                 <td style="text-align: center;">
                                                                                     <button type="button" class="btn mb-1 btn-success btn-sm" 
                                                                                             onclick="window.location.href = '<?php echo base_url('perfil-administrador/' . md5($administradorBloqueado->idUsuario)); ?>'"><i class="icon-eye"></i> Ver Perfil</button>
