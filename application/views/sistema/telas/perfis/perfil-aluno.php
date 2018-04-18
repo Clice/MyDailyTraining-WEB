@@ -1,7 +1,7 @@
 
 <!-- DADOS DO ALUNO -->
 <div class="app-content content container-fluid">
-    <div class="content-wrapper">      
+    <div class="content-wrapper">
         <!-- CONTEÚDO DO PÁGINA - DADOS DO ALUNO ESCOLHIDO -->
         <div class="content-body">
             <section id="basic-form-layouts">
@@ -127,7 +127,7 @@
                                                         <h4><strong>Estado: </strong></h4>
                                                         <h4><?php echo $aluno->estadoAluno; ?></h4>
                                                     </div>
-                                                </div>                                     
+                                                </div>
                                             </div>
                                         </div>
                                         <br>
@@ -217,14 +217,14 @@
                                                         <h4><strong>Doenças Familiares: </strong></h4>
                                                         <h4><?php echo $aluno->doencasFamiliares; ?></h4>
                                                     </div>
-                                                </div>                                   
+                                                </div>
                                             <?php } ?>
                                         </div>
                                         <hr>
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div style="float: right;" class="form-actions">
-                                                    <button type="button"                               
+                                                    <button type="button"
                                                     <?php if ($aluno->statusAluno == 1) { ?>
                                                                 class="btn btn-black"
                                                                 onclick="modalDesBloquearAluno(this, <?php echo $aluno->idAluno; ?>, true);"
@@ -254,8 +254,8 @@
                                 </div>
                             </div>
                         </div>
-                    </div>                    
-                </div>       
+                    </div>
+                </div>
             </section>
 
             <?php if (count($treinosAluno) > 0) { ?>
@@ -287,7 +287,7 @@
                                                                             <?php } ?>
                                                                         </tr>
                                                                     </thead>
-                                                                    <tbody>  
+                                                                    <tbody>
                                                                         <?php foreach ($treinosAluno as $treinoAluno) { ?>
                                                                             <tr>
                                                                                 <td><?php echo $treinoAluno->nomeTreino; ?></td>
@@ -320,7 +320,7 @@
                                                                                         echo "Sábado; ";
                                                                                     }
                                                                                     ?>
-                                                                                </td>  
+                                                                                </td>
                                                                                 <td>
                                                                                     <?php
                                                                                     for ($i = 0; $i < count($exerciciosTreinos); $i++) {
@@ -334,11 +334,11 @@
                                                                                 </td>
                                                                                 <?php if ($this->session->userdata('tipoConta') == 4) { ?>
                                                                                     <td style="text-align: center;">
-                                                                                        <button type="button" class="btn mb-1 btn-success btn-sm" 
+                                                                                        <button type="button" class="btn mb-1 btn-success btn-sm"
                                                                                                 onclick="window.location.href = '<?php echo base_url('perfil-treino/' . md5($treinoAluno->idTreino)); ?>'"><i class="icon-eye"></i> Ver Perfil</button>
-                                                                                        <button type="button" class="btn mb-1 btn-warning btn-sm" 
+                                                                                        <button type="button" class="btn mb-1 btn-warning btn-sm"
                                                                                                 onclick="window.location.href = '<?php echo base_url('editar-treino/' . $aluno->idAluno . '/' . md5($treinoAluno->idTreino)); ?>'"><i class="icon-edit"></i> Editar</button>
-                                                                                        <button type="button" class="btn mb-1 btn-danger btn-sm" 
+                                                                                        <button type="button" class="btn mb-1 btn-danger btn-sm"
                                                                                                 onclick="modalExcluirTreino(<?php echo $treinoAluno->idTreino; ?>);"><i class="icon-trash-o"></i> Excluir</button>
                                                                                     </td>
                                                                                 <?php } ?>
@@ -364,7 +364,7 @@
 </div>
 
 <!-- MODAL - DIAS DE TREINO DO ALUNO COMPLETOS -->
-<div class="modal fade text-xs-left" data-backdrop="static" id="erro-dias-completos" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
+<div class="modal fade text-xs-left" data-backdrop="static" id="erro-dias-completos" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1"
      aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -382,7 +382,7 @@
     function verificarDiasTreinoAluno() {
         var dados = "idAluno=" + document.getElementById('idAluno').value;
         $.ajax({
-            url: "<?php echo base_url('TreinoAlunoController/cVerificarDiasTreinosAluno') ?>",
+            url: "<?php echo base_url('ExercicioTreinoController/cVerificarDiasTreinosAluno') ?>",
             type: "POST",
             data: dados,
             dataType: "JSON",

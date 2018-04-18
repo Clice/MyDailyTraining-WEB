@@ -10,7 +10,7 @@
                         <a class="nav-link nav-menu-main menu-toggle hidden-xs"><i class="icon-menu5 font-large-1"></i></a>
                     </li>
                     <li class="nav-item"><a href="<?php echo base_url('pagina-principal'); ?>" class="navbar-brand nav-link">
-                            <img alt="branding logo" data-expand="<?php echo base_url('assets/imagens/IconNome35px.png'); ?>" 
+                            <img alt="branding logo" data-expand="<?php echo base_url('assets/imagens/IconNome35px.png'); ?>"
                                  data-collapse="<?php echo base_url('assets/imagens/Icon35px.png'); ?>" class="brand-logo">
                         </a>
                     </li>

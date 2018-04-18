@@ -48,4 +48,20 @@ class ExercicioTreinoModel extends CI_Model {
         return $this->db->get()->result();
     }
 
+    ////////// FUNÇÕES PARA OS EXERCÍCIOS TREINO
+    // FUNÇÃO PARA PEGAR OS DADOS DO EXERCÍCIO DO TREINO
+    public function mVisualizarExercicioTreino($idTreino, $idExercicio) {
+        $this->db->select('*');
+        $this->db->from('exerciciostreino');
+        $this->db->where('idExercicio', $idExercicio);
+        $this->db->where('idTreino', $idTreino);
+        return $this->db->get()->result();
+    }
+
+    // FUNÇÃO PARA EXCLUIR OS DADOS DO EXERCÍCIO DO TREINO
+    public function mExcluirExercicioTreino($idExercicioTreino) {
+        $this->db->where('idExercicioTreino', $idExercicioTreino);
+        return $this->db->delete('exerciciostreino');
+    }
+
 }

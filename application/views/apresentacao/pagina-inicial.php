@@ -54,10 +54,16 @@
                             <a class="page-scroll" href="#planos">Planos</a>
                         </li>
                         <li>
+                            <a class="page-scroll" href="#roadmap">Roadmap</a>
+                        </li>
+                        <li>
                             <a class="page-scroll" href="#contatos">Contatos</a>
                         </li>
                         <li>
                             <a class="page-scroll" href="#equaltech">EqualTech</a>
+                        </li>
+                        <li>
+                            <a class="page-scroll" href="#equipe">Equipe</a>
                         </li>
                     </ul>
                 </div>
@@ -325,6 +331,34 @@
             </div>
         </section>
 
+        <!-- SOBRE O ROADMAP -->
+        <section id="roadmap">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <h2 class="section-heading">ROADMAP</h2>
+                        <h3 class="section-subheading text-muted"></h3>
+                    </div>
+                </div>
+                <div class="row">                                          
+                    <div class="col-md-6">
+                        <h3 class="section-heading">2018</h3><br>
+                        <span class="label label-primary fa-2x">Q1</span>
+                        <label style="font-size: 20px;" class="service-heading">JUNHO a AGOSTO</label>
+                        <h4 class="service-heading">Pagamento com PagSeguro</h4>
+                        <p class="text-muted">Academias poderão pagar os planos através da Internet.</p>
+                    </div>
+                    <div class="col-md-6">
+                        <h3 class="section-heading">2018 - 2019</h3><br> 
+                        <span class="label label-primary fa-2x">Q2</span>
+                        <label style="font-size: 20px;" class="service-heading">SETEMBRO a JUNHO</label>
+                        <h4 class="service-heading">Módulo Financeiro</h4>
+                        <p class="text-muted">Manutenção do pagamento e das informações financeiras da academia através do Sistema Web.</p>
+                    </div>  
+                </div>
+            </div>
+        </section>
+
         <!-- CONTATOS DA EMPRESA -->
         <section id="contatos" class="bg-light-blue-mdt">
             <div class="container">
@@ -379,7 +413,7 @@
         </section>
 
         <!-- SOBRE A EQUALTECH -->
-        <section id="equaltech" class="bg-light-gray">
+        <section id="equaltech">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12 text-center">
@@ -404,7 +438,12 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </section>
 
+        <!-- SOBRE A EQUALTECH -->
+        <section id="equipe" class="bg-light-gray">
+            <div class="container">
                 <div class="row">
                     <div class="col-lg-12 text-center">
                         <h2 class="section-heading">Nossa Equipe</h2>

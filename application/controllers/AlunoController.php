@@ -125,6 +125,41 @@ class AlunoController extends CI_Controller {
         $this->pdf->render();
         $this->pdf->stream("Ficha de Treino - " . $dadosAluno['perfilAluno'][0]->nomeAluno . ".pdf", array("Attachment" => false));
     }
+    
+    // FUNÇÃO DE CARREGAMENTO DA VIEW PERFIL-ALUNO.PHP
+    public function vPerfilAluno($idAluno) {
+        $dadosAluno['nomePagina'] = "Perfil do Aluno";
+        $dadosAluno['urlPagina'] = "perfil-aluno";
+        $dadosAluno['perfilAluno'] = $this->AlunoModel->mVisualizarPerfilAluno($idAluno);
+        $dadosAluno['treinosAluno'] = $this->TreinoModel->mEncontrarTreinosAluno($idAluno);
+        $dadosAluno['exerciciosTreino'] = $this->ExercicioTreinoModel->mVisualizarExerciciosTreino($idAluno);
+        $dadosAluno['idAluno'] = $dadosAluno['perfilAluno'][0]->idAluno;
+
+        $i = 0;
+        foreach ($dadosAluno['treinosAluno'] as $treinosAluno) {
+            for ($j = 0; $j < count($this->ExercicioTreinoModel->mVisualizarExerciciosTreino(md5($treinosAluno->idTreino))); $j++) {
+                $dadosAluno['exerciciosTreinos'][$i][$j] = get_object_vars($this->ExercicioTreinoModel->mVisualizarExerciciosTreino(md5($treinosAluno->idTreino))[$j]);
+            }
+            $i++;
+        }
+
+        if ($this->session->userdata('tipoConta') == 4) {
+            $dadosAluno['chamadosInstrutor'] = $this->InstrutorModel->mListarChamadosInstrutores($this->session->userdata('idUsuario'));
+        }
+
+        // CARREGANDO AS VIEWS DA PÁGINA
+        $this->load->view('sistema/templates/html-header', $dadosAluno);
+        $this->load->view('sistema/templates/header');
+        $this->load->view('sistema/templates/side-menu');
+        $this->load->view('sistema/templates/aluno/modals-aluno');
+        $this->load->view('sistema/templates/treino/modals-treino');
+        $this->load->view('sistema/templates/treino/js-treino');
+        $this->load->view('sistema/templates/aluno/js-aluno');
+        $this->load->view('sistema/telas/perfis/perfil-aluno');
+        $this->load->view('sistema/templates/footer');
+        $this->load->view('sistema/templates/html-footer');
+        $this->load->view('sistema/templates/html-footer-alunos');
+    }
 
     // FUNÇÃO CONTROLLER PARA CADASTRAR/EDITAR ALUNO
     public function cCadastrarEditarAluno() {

@@ -31,7 +31,6 @@ class TreinoController extends CI_Controller {
         $dadosTreino['nomePagina'] = 'Cadastrar Treino';
         $dadosTreino['idTreino'] = $idTreino;
         $dadosTreino['statusTreino'] = false;
-        $urlPagina = 'cadastrar-treino';
         $dadosTreino['idAluno'] = $idAluno;
         $dadosTreino['exercicios'] = $this->ExercicioTreinoModel->mVisualizarExercicios();
 
@@ -43,7 +42,7 @@ class TreinoController extends CI_Controller {
         $this->load->view('sistema/templates/html-header', $dadosTreino);
         $this->load->view('sistema/templates/header');
         $this->load->view('sistema/templates/side-menu');
-        $this->load->view('sistema/telas/cadastros/' . $urlPagina);
+        $this->load->view('sistema/telas/cadastros/cadastrar-treino');
         $this->load->view('sistema/templates/footer');
         $this->load->view('sistema/templates/html-footer');
         $this->load->view('sistema/templates/html-footer-treinos');
@@ -52,15 +51,28 @@ class TreinoController extends CI_Controller {
      // FUNÇÃO DE CARREGAMENTO DA VIEW EDITAR-TREINO.PHP
     public function vEditarTreino($idAluno, $idTreino) {
         $dadosTreino['perfilAluno'] = $this->AlunoModel->mVisualizarPerfilAluno(md5($idAluno));
-        $dadosTreino['diasTreinoAluno'] = explode("|", $dadosTreino['perfilAluno'][0]->diasTreinoAluno);
-
+        $diasTreinoAluno = explode("|", $dadosTreino['perfilAluno'][0]->diasTreinoAluno);
         $dadosTreino['treino'] = $this->TreinoModel->mVisualizarTreino($idTreino);
+        $dias = $this->TreinoModel->mDiasAlunoTreino(md5($idAluno));
+
+        $diasAux = $this->cDiasTreino($dias);
+        $diasTreino = $this->cDiasTreino($dadosTreino['treino']);
+
+        $aux = array_diff($diasTreinoAluno, $diasAux);
+
         $dadosTreino['exerciciosTreino'] = $this->ExercicioTreinoModel->mVisualizarExerciciosTreino($idTreino);
         $dadosTreino['idTreino'] = $dadosTreino['treino'][0]->idTreino;
         $dadosTreino['statusTreino'] = $dadosTreino['treino'][0]->statusTreino;
-        $dadosTreino['nomePagina'] = 'Editar Academia';
-        $urlPagina = 'editar-treino';
+        $dadosTreino['nomePagina'] = 'Editar Treino';
         $dadosTreino['idExercicio'] = "";
+
+        for ($i = 0; $i < count($diasTreino); $i++) {
+            $dadosTreino['diasTreinoAluno'][] = $diasTreino[$i];
+        }
+
+        foreach ($aux as $valor) {
+            $dadosTreino['diasTreinoAluno'][] = $valor;
+        }
 
         for ($i = 0; $i < count($dadosTreino['exerciciosTreino']); $i++) {
             $dadosTreino['idExercicio'] = $dadosTreino['idExercicio'] . "|" . $dadosTreino['exerciciosTreino'][$i]->idExercicio;
@@ -77,7 +89,7 @@ class TreinoController extends CI_Controller {
         $this->load->view('sistema/templates/html-header', $dadosTreino);
         $this->load->view('sistema/templates/header');
         $this->load->view('sistema/templates/side-menu');
-        $this->load->view('sistema/telas/cadastros/' . $urlPagina);
+        $this->load->view('sistema/telas/cadastros/editar-treino');
         $this->load->view('sistema/templates/footer');
         $this->load->view('sistema/templates/html-footer');
         $this->load->view('sistema/templates/html-footer-treinos');
@@ -376,6 +388,42 @@ class TreinoController extends CI_Controller {
         }
 
         return $dadosTreino['aux'];
+    }
+
+    public function cDiasTreino($dias) {
+        $diasAux = array();
+
+        for ($i = 0; $i < count($dias); $i++) {
+            if ($dias[$i]->domingo == true) {
+                $diasAux[] = "Domingo";
+            }
+
+            if ($dias[$i]->segunda == true) {
+                $diasAux[] = "Segunda";
+            }
+
+            if ($dias[$i]->terca == true) {
+                $diasAux[] = "Terça";
+            }
+
+            if ($dias[$i]->quarta == true) {
+                $diasAux[] = "Quarta";
+            }
+
+            if ($dias[$i]->quinta == true) {
+                $diasAux[] = "Quinta";
+            }
+
+            if ($dias[$i]->sexta == true) {
+                $diasAux[] = "Sexta";
+            }
+
+            if ($dias[$i]->sabado == true) {
+                $diasAux[] = "Sábado";
+            }
+        }
+
+        return $diasAux;
     }
 
 }

@@ -904,7 +904,6 @@ button:focus {
     margin-bottom: 1.875rem;
     border-radius: 0; }
 .card .card-title {
-    text-transform: capitalize;
     font-weight: 600;
     letter-spacing: 0.4px; }
 .card .card-bordered {

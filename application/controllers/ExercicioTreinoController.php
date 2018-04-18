@@ -2,7 +2,7 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class TreinoAlunoController extends CI_Controller {
+class ExercicioTreinoController extends CI_Controller {
 
     // CONSTRUTOR DO ALUNO CONTROLLER
     public function __construct() {
@@ -13,45 +13,9 @@ class TreinoAlunoController extends CI_Controller {
             $this->load->model('AlunoModel');
             $this->load->model('TreinoModel');
             $this->load->model('ExercicioTreinoModel');
-            $this->load->model('InstrutorModel');
         } else {
             redirect(base_url('404_override'));
         }
-    }
-
-    // FUNÇÃO DE CARREGAMENTO DA VIEW PERFIL-ALUNO.PHP
-    public function vPerfilAluno($idAluno) {
-        $dadosAluno['nomePagina'] = "Perfil do Aluno";
-        $dadosAluno['urlPagina'] = "perfil-aluno";
-        $dadosAluno['perfilAluno'] = $this->AlunoModel->mVisualizarPerfilAluno($idAluno);
-        $dadosAluno['treinosAluno'] = $this->TreinoModel->mEncontrarTreinosAluno($idAluno);
-        $dadosAluno['exerciciosTreino'] = $this->ExercicioTreinoModel->mVisualizarExerciciosTreino($idAluno);
-        $dadosAluno['idAluno'] = $dadosAluno['perfilAluno'][0]->idAluno;
-
-        $i = 0;
-        foreach ($dadosAluno['treinosAluno'] as $treinosAluno) {
-            for ($j = 0; $j < count($this->ExercicioTreinoModel->mVisualizarExerciciosTreino(md5($treinosAluno->idTreino))); $j++) {
-                $dadosAluno['exerciciosTreinos'][$i][$j] = get_object_vars($this->ExercicioTreinoModel->mVisualizarExerciciosTreino(md5($treinosAluno->idTreino))[$j]);
-            }
-            $i++;
-        }
-
-        if ($this->session->userdata('tipoConta') == 4) {
-            $dadosAluno['chamadosInstrutor'] = $this->InstrutorModel->mListarChamadosInstrutores($this->session->userdata('idUsuario'));
-        }
-
-        // CARREGANDO AS VIEWS DA PÁGINA
-        $this->load->view('sistema/templates/html-header', $dadosAluno);
-        $this->load->view('sistema/templates/header');
-        $this->load->view('sistema/templates/side-menu');
-        $this->load->view('sistema/templates/aluno/modals-aluno');
-        $this->load->view('sistema/templates/treino/modals-treino');
-        $this->load->view('sistema/templates/treino/js-treino');
-        $this->load->view('sistema/templates/aluno/js-aluno');
-        $this->load->view('sistema/telas/perfis/perfil-aluno');
-        $this->load->view('sistema/templates/footer');
-        $this->load->view('sistema/templates/html-footer');
-        $this->load->view('sistema/templates/html-footer-alunos');
     }
 
     // FUNÇÃO CONTROLLER PARA VERIFICAR O CPF
@@ -94,6 +58,39 @@ class TreinoAlunoController extends CI_Controller {
             $resposta = array('success' => false);
         } else {
             $resposta = array('success' => true);
+        }
+
+        echo json_encode($resposta);
+    }
+
+    // FUNÇÃO CONTROLLER PARA VERIFICAR O CPF
+    public function cVisualizarExercicio() {
+        $idTreino = $this->input->post('idTreino');
+        $idExercicio = $this->input->post('idExercicio');
+
+        if ($this->ExercicioTreinoModel->mVisualizarExerciciosSelecionados($idExercicio)) {
+            $dadosExercicio = $this->ExercicioTreinoModel->mVisualizarExerciciosSelecionados($idExercicio);
+
+            if (count($this->ExercicioTreinoModel->mVisualizarExercicioTreino($idTreino, $idExercicio)) > 0) {
+                $dadosExercicioTreino = $this->ExercicioTreinoModel->mVisualizarExercicioTreino($idTreino, $idExercicio);
+                $resposta = array(
+                    'success' => true,
+                    'idExercicioTreino' => true,
+                    'nomeExercicio' => $dadosExercicio[0]->nomeExercicio,
+                    'serieExercicioTreino' => $dadosExercicioTreino[0]->serieExercicioTreino,
+                    'repeticoesExercicioTreino' => $dadosExercicioTreino[0]->repeticoesExercicioTreino,
+                    'cargaExercicioTreino' => $dadosExercicioTreino[0]->cargaExercicioTreino,
+                    'descansoExercicioTreino' => $dadosExercicioTreino[0]->descansoExercicioTreino
+                );
+            } else {
+                $resposta = array(
+                    'success' => true,
+                    'idExercicioTreino' => false,
+                    'nomeExercicio' => $dadosExercicio[0]->nomeExercicio
+                );
+            }
+        } else {
+            $resposta = array('success' => false);
         }
 
         echo json_encode($resposta);
