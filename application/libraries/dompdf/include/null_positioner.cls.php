@@ -1,4 +1,5 @@
 <?php
+
 /**
  * DOMPDF - PHP5 HTML to PDF renderer
  *
@@ -36,7 +37,6 @@
  * @package dompdf
 
  */
-
 /* $Id: null_positioner.cls.php 216 2010-03-11 22:49:18Z ryan.masten $ */
 
 /**
@@ -47,10 +47,12 @@
  */
 class Null_Positioner extends Positioner {
 
-  function __construct(Frame_Decorator $frame) {
-    parent::__construct($frame);
-  }
+    function __construct(Frame_Decorator $frame) {
+        parent::__construct($frame);
+    }
 
-  function position() { return; }
-  
+    function position() {
+        return;
+    }
+
 }

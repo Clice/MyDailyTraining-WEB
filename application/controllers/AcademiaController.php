@@ -255,7 +255,7 @@ class AcademiaController extends CI_Controller {
     public function cVerificarQtdAlunos() {
         $idAcademia = $this->input->post('idAcademia');
 
-        $dadosAcademia = $this->AcademiaModel->mVerificarQtdAlunos($idAcademia);       
+        $dadosAcademia = $this->AcademiaModel->mVerificarQtdAlunos($idAcademia);
 
         if ($dadosAcademia[0]->qtdLicencasUsadas < $dadosAcademia[0]->qtdTotalLicencas) {
             $resposta = array('success' => true);
@@ -271,13 +271,13 @@ class AcademiaController extends CI_Controller {
         $idAcademia = $this->input->post('idAcademia');
 
         $dadosAcademia = $this->AcademiaModel->mVerificarQtdAlunos($idAcademia);
-        $qtdLicencasUsadas = $dadosAcademia[0]->qtdLicencasUsadas - 1; 
+        $qtdLicencasUsadas = $dadosAcademia[0]->qtdLicencasUsadas - 1;
 
         if ($this->AcademiaModel->mDiminuirQtdAlunos($idAcademia, $qtdLicencasUsadas)) {
             $resposta = array('success' => true);
         } else {
             $resposta = array('success' => false);
-        } 
+        }
 
         echo json_encode($resposta);
     }

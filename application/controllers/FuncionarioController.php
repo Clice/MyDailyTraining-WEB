@@ -71,7 +71,7 @@ class FuncionarioController extends CI_Controller {
     }
 
     // FUNÇÃO CONTROLLER DE CARREGAMENTO DA VIEW CADASTRAR-EDITAR-FUNCIONARIO.PHP
-    public function vEditarFuncionario($idFuncionario, $voltarPara) {  
+    public function vEditarFuncionario($idFuncionario, $voltarPara) {
         $dadosFuncionario = get_object_vars($this->UsuarioModel->mVisualizarUsuario($idFuncionario)[0]);
         $dadosFuncionario['nomePagina'] = "Editar Funcionário";
         $dadosFuncionario['crefUsuario'] = "";

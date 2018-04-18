@@ -22,7 +22,7 @@ class InicialController extends CI_Controller {
     public function vRecuperarSenha() {
         $this->load->view('apresentacao/recuperar-senha');
     }
-    
+
     // FUNÇÃO CONTROLLER DE CARREGAMENTO DA VIEW FAQ.PHP
     public function vFAQ() {
         $this->load->view('apresentacao/faq');

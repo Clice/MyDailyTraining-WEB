@@ -88,7 +88,7 @@
                     </div>
                 </div>
 
-                 <!-- LOGIN NO APLICATIVO MOBILE -->
+                <!-- LOGIN NO APLICATIVO MOBILE -->
                 <div class="panel-group">
                     <div class="panel panel-default">
                         <div class="panel-heading">
@@ -112,7 +112,7 @@
                     </div>
                 </div>
 
-               
+
             </div>
         </section>
 

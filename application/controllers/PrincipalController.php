@@ -40,7 +40,7 @@ class PrincipalController extends CI_Controller {
         if ($this->session->userdata('tipoConta') == 4) {
             $dados['chamadosInstrutor'] = $this->InstrutorModel->mListarChamadosInstrutores($this->session->userdata('idUsuario'));
         }
-        
+
         // CARREGANDO AS VIEWS DA PÁGINA
         $this->load->view('sistema/templates/html-header', $dados);
         $this->load->view('sistema/templates/header');

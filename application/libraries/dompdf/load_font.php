@@ -37,7 +37,6 @@
  * @package dompdf
 
  */
-
 require_once("dompdf_config.inc.php");
 
 /**
@@ -45,10 +44,9 @@ require_once("dompdf_config.inc.php");
  */
 define("_TTF2AFM", escapeshellarg(TTF2AFM) . " -a -GAef -OW ");
 
-if ( !file_exists(TTF2AFM) ) {
-  die("Unable to locate the ttf2afm / ttf2pt1 executable (checked " . TTF2AFM . ").\n");
+if (!file_exists(TTF2AFM)) {
+    die("Unable to locate the ttf2afm / ttf2pt1 executable (checked " . TTF2AFM . ").\n");
 }
-
 
 /**
  * Display command line usage
@@ -56,7 +54,7 @@ if ( !file_exists(TTF2AFM) ) {
  */
 function usage() {
 
-  echo <<<EOD
+    echo <<<EOD
 
 Usage: {$_SERVER["argv"][0]} font_family [n_file [b_file] [i_file] [bi_file]]
 
@@ -83,12 +81,11 @@ Examples:
 ./load_font.php 'Times New Roman' /mnt/c_drive/WINDOWS/Fonts/times.ttf
 
 EOD;
-
 }
 
-if ( $_SERVER["argc"] < 3 && $_SERVER["argv"][1] != "system_fonts" ) {
-  usage();
-  die();
+if ($_SERVER["argc"] < 3 && $_SERVER["argv"][1] != "system_fonts") {
+    usage();
+    die();
 }
 
 /**
@@ -107,121 +104,117 @@ if ( $_SERVER["argc"] < 3 && $_SERVER["argv"][1] != "system_fonts" ) {
  */
 function install_font_family($fontname, $normal, $bold = null, $italic = null, $bold_italic = null) {
 
-  // Check if the base filename is readable
-  if ( !is_readable($normal) )
-    throw new DOMPDF_Exception("Unable to read '$normal'.");
+    // Check if the base filename is readable
+    if (!is_readable($normal))
+        throw new DOMPDF_Exception("Unable to read '$normal'.");
 
-  $dir = dirname($normal);
-  $basename = basename($normal);
-  $last_dot = strrpos($basename, '.');
-  if ($last_dot !== false) {
-    $file = substr($basename, 0, $last_dot);
-    $ext = strtolower(substr($basename, $last_dot));
-  } else {
-    $file = $basename;
-    $ext = '';
-  }
+    $dir = dirname($normal);
+    $basename = basename($normal);
+    $last_dot = strrpos($basename, '.');
+    if ($last_dot !== false) {
+        $file = substr($basename, 0, $last_dot);
+        $ext = strtolower(substr($basename, $last_dot));
+    } else {
+        $file = $basename;
+        $ext = '';
+    }
 
-  // Try $file_Bold.$ext etc.
-  $path = "$dir/$file";
-  
-  $patterns = array(
-    "bold"        => array("_Bold", "b", "B", "bd", "BD"),
-    "italic"      => array("_Italic", "i", "I"),
-    "bold_italic" => array("_Bold_Italic", "bi", "BI", "ib", "IB"),
-  );
-  
-  foreach ($patterns as $type => $_patterns) {
-    if ( !isset($$type) || !is_readable($$type) ) {
-      foreach($_patterns as $_pattern) {
-        if ( is_readable("$path$_pattern$ext") ) {
-          $$type = "$path$_pattern$ext";
-          break;
+    // Try $file_Bold.$ext etc.
+    $path = "$dir/$file";
+
+    $patterns = array(
+        "bold" => array("_Bold", "b", "B", "bd", "BD"),
+        "italic" => array("_Italic", "i", "I"),
+        "bold_italic" => array("_Bold_Italic", "bi", "BI", "ib", "IB"),
+    );
+
+    foreach ($patterns as $type => $_patterns) {
+        if (!isset($$type) || !is_readable($$type)) {
+            foreach ($_patterns as $_pattern) {
+                if (is_readable("$path$_pattern$ext")) {
+                    $$type = "$path$_pattern$ext";
+                    break;
+                }
+            }
+            if (is_null($$type))
+                echo ("Unable to find $type face file.\n");
         }
-      }
-      if ( is_null($$type) )
-        echo ("Unable to find $type face file.\n");
-    }
-  }
-
-  $fonts = compact("normal", "bold", "italic", "bold_italic");
-  $entry = array();
-
-  if ( $ext === ".pfb" || $ext === ".ttf" || $ext === ".otf" ) {
-
-    // Copy the files to the font directory.
-    foreach ($fonts as $var => $src) {
-      if ( is_null($src) ) {
-        $entry[$var] = DOMPDF_FONT_DIR . basename($normal);
-        continue;
-      }
-
-      // Verify that the fonts exist and are readable
-      if ( !is_readable($src) )
-        throw new DOMPDF_Exception("Requested font '$pathname' is not readable");
-
-      $dest = DOMPDF_FONT_DIR . basename($src);
-      if ( !is_writeable(dirname($dest)) )
-        throw new DOMPDF_Exception("Unable to write to destination '$dest'.");
-
-      echo "Copying $src to $dest...\n";
-
-      if ( !copy($src, $dest) )
-        throw new DOMPDF_Exception("Unable to copy '$src' to '" . DOMPDF_FONT_DIR . "$dest'.");
-
-      $entry[$var] = $dest;
     }
 
-  } else
-    throw new DOMPDF_Exception("Unable to process fonts of type '$ext'.");
+    $fonts = compact("normal", "bold", "italic", "bold_italic");
+    $entry = array();
+
+    if ($ext === ".pfb" || $ext === ".ttf" || $ext === ".otf") {
+
+        // Copy the files to the font directory.
+        foreach ($fonts as $var => $src) {
+            if (is_null($src)) {
+                $entry[$var] = DOMPDF_FONT_DIR . basename($normal);
+                continue;
+            }
+
+            // Verify that the fonts exist and are readable
+            if (!is_readable($src))
+                throw new DOMPDF_Exception("Requested font '$pathname' is not readable");
+
+            $dest = DOMPDF_FONT_DIR . basename($src);
+            if (!is_writeable(dirname($dest)))
+                throw new DOMPDF_Exception("Unable to write to destination '$dest'.");
+
+            echo "Copying $src to $dest...\n";
+
+            if (!copy($src, $dest))
+                throw new DOMPDF_Exception("Unable to copy '$src' to '" . DOMPDF_FONT_DIR . "$dest'.");
+
+            $entry[$var] = $dest;
+        }
+    } else
+        throw new DOMPDF_Exception("Unable to process fonts of type '$ext'.");
 
 
-  // If the extension is a ttf, try and convert the fonts to afm too
-  if ( $ext === ".ttf" || $ext === ".otf" ) {
-    foreach ($fonts as $var => $font) {
-      if ( is_null($font) ) {
-        $entry[$var] = DOMPDF_FONT_DIR . mb_substr(basename($normal), 0, -4);
-        continue;
-      }
-      
-      $dest = DOMPDF_FONT_DIR . mb_substr(basename($font), 0 , -4);
-      $stdout = ( ( strpos(PHP_OS, "WIN") === false ) ? " >/dev/null" : " 2>&1" );
-      $command = _TTF2AFM . " " . escapeshellarg($font) . " " . escapeshellarg($dest) . $stdout;
-      echo "Generating .afm for $font...\n";
-      //echo $command . "\n";
-      exec( $command, $output, $ret );
+    // If the extension is a ttf, try and convert the fonts to afm too
+    if ($ext === ".ttf" || $ext === ".otf") {
+        foreach ($fonts as $var => $font) {
+            if (is_null($font)) {
+                $entry[$var] = DOMPDF_FONT_DIR . mb_substr(basename($normal), 0, -4);
+                continue;
+            }
 
-      $entry[$var] = $dest;
+            $dest = DOMPDF_FONT_DIR . mb_substr(basename($font), 0, -4);
+            $stdout = ( ( strpos(PHP_OS, "WIN") === false ) ? " >/dev/null" : " 2>&1" );
+            $command = _TTF2AFM . " " . escapeshellarg($font) . " " . escapeshellarg($dest) . $stdout;
+            echo "Generating .afm for $font...\n";
+            //echo $command . "\n";
+            exec($command, $output, $ret);
+
+            $entry[$var] = $dest;
+        }
     }
-  }
 
-  // FIXME: how to generate afms from pfb?
+    // FIXME: how to generate afms from pfb?
+    // Store the fonts in the lookup table
+    Font_Metrics::set_font_family($fontname, $entry);
 
-  // Store the fonts in the lookup table
-  Font_Metrics::set_font_family($fontname, $entry);
-
-  // Save the changes
-  Font_Metrics::save_font_families();
+    // Save the changes
+    Font_Metrics::save_font_families();
 }
 
 // If installing system fonts (may take a long time)
-if ( $_SERVER["argv"][1] === "system_fonts" ) {
-  $fonts = Font_Metrics::get_system_fonts();
-  var_dump($fonts);
-  foreach ( $fonts as $family => $files ) {
-    echo " >> Installing '$family'... \n";
-    
-    if ( !isset($files["normal"]) ) {
-      echo "No 'normal' style font file\n";
+if ($_SERVER["argv"][1] === "system_fonts") {
+    $fonts = Font_Metrics::get_system_fonts();
+    var_dump($fonts);
+    foreach ($fonts as $family => $files) {
+        echo " >> Installing '$family'... \n";
+
+        if (!isset($files["normal"])) {
+            echo "No 'normal' style font file\n";
+        } else {
+            install_font_family($family, @$files["normal"], @$files["bold"], @$files["italic"], @$files["bold_italic"]);
+            echo "Done !\n";
+        }
+
+        echo "\n";
     }
-    else {
-      install_font_family( $family, @$files["normal"], @$files["bold"], @$files["italic"], @$files["bold_italic"]);
-      echo "Done !\n";
-    }
-    
-    echo "\n";
-  }
-}
-else {
-  call_user_func_array("install_font_family", array_slice($_SERVER["argv"], 1));
+} else {
+    call_user_func_array("install_font_family", array_slice($_SERVER["argv"], 1));
 }

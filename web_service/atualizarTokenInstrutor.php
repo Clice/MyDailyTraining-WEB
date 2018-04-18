@@ -42,4 +42,3 @@ if ($rsBuscarTokenInstrutor->rowCount() > 0) {
         echo "cadastroTokenError";
     }
 }
-?>

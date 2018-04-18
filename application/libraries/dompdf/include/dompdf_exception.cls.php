@@ -1,4 +1,5 @@
 <?php
+
 /**
  * DOMPDF - PHP5 HTML to PDF renderer
  *
@@ -36,7 +37,6 @@
  * @package dompdf
 
  */
-
 /* $Id: dompdf_exception.cls.php 216 2010-03-11 22:49:18Z ryan.masten $ */
 
 /**
@@ -47,14 +47,14 @@
  */
 class DOMPDF_Exception extends Exception {
 
-  /**
-   * Class constructor
-   *
-   * @param string $message Error message
-   * @param int $code Error code
-   */
-  function __construct($message = NULL, $code = 0) {
-    parent::__construct($message, $code);
-  }
+    /**
+     * Class constructor
+     *
+     * @param string $message Error message
+     * @param int $code Error code
+     */
+    function __construct($message = NULL, $code = 0) {
+        parent::__construct($message, $code);
+    }
 
 }

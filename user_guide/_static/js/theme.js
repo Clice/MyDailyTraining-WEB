@@ -23,26 +23,26 @@ $(document).ready(function () {
         $('#nav').slideToggle();
     });
     $('#closeMe').toggle(
-        function ()
-        {
-            setCookie('ciNav', 'yes', 365);
-            $('#nav2').show();
-            $('#topMenu').remove();
-            $('body').css({background: 'none'});
-            $('.wy-nav-content-wrap').css({background: 'none', 'margin-left': 0});
-            $('.wy-breadcrumbs').append('<div style="float:right;"><div style="float:left;" id="topMenu">' + $('.wy-form').parent().html() + '</div></div>');
-            $('.wy-nav-side').toggle();
-        },
-        function ()
-        {
-            setCookie('ciNav', 'no', 365);
-            $('#topMenu').remove();
-            $('#nav').hide();
-            $('#nav2').hide();
-            $('body').css({background: '#edf0f2;'});
-            $('.wy-nav-content-wrap').css({background: 'none repeat scroll 0 0 #fcfcfc;', 'margin-left': '300px'});
-            $('.wy-nav-side').show();
-        }
+            function ()
+            {
+                setCookie('ciNav', 'yes', 365);
+                $('#nav2').show();
+                $('#topMenu').remove();
+                $('body').css({background: 'none'});
+                $('.wy-nav-content-wrap').css({background: 'none', 'margin-left': 0});
+                $('.wy-breadcrumbs').append('<div style="float:right;"><div style="float:left;" id="topMenu">' + $('.wy-form').parent().html() + '</div></div>');
+                $('.wy-nav-side').toggle();
+            },
+            function ()
+            {
+                setCookie('ciNav', 'no', 365);
+                $('#topMenu').remove();
+                $('#nav').hide();
+                $('#nav2').hide();
+                $('body').css({background: '#edf0f2;'});
+                $('.wy-nav-content-wrap').css({background: 'none repeat scroll 0 0 #fcfcfc;', 'margin-left': '300px'});
+                $('.wy-nav-side').show();
+            }
     );
     if (getCookie('ciNav') == 'yes')
     {
@@ -56,7 +56,7 @@ $(document).ready(function () {
 // Rufnex Cookie functions
 function setCookie(cname, cvalue, exdays) {
     // expire the old cookie if existed to avoid multiple cookies with the same name
-    if  (getCookie(cname)) {
+    if (getCookie(cname)) {
         document.cookie = cname + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
     }
     var d = new Date();
@@ -80,7 +80,7 @@ function getCookie(cname) {
 // End
 
 // resize window
-$(window).on('resize', function(){
+$(window).on('resize', function () {
     // show side nav on small screens when pulldown is enabled
     if (getCookie('ciNav') == 'yes' && $(window).width() <= 768) { // 768px is the tablet size defined by the theme
         $('.wy-nav-side').show();

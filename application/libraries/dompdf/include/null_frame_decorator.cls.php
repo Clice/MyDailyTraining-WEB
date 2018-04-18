@@ -1,4 +1,5 @@
 <?php
+
 /**
  * DOMPDF - PHP5 HTML to PDF renderer
  *
@@ -36,7 +37,6 @@
  * @package dompdf
 
  */
-
 /* $Id: null_frame_decorator.cls.php 216 2010-03-11 22:49:18Z ryan.masten $ */
 
 /**
@@ -47,13 +47,13 @@
  */
 class Null_Frame_Decorator extends Frame_Decorator {
 
-  function __construct(Frame $frame, DOMPDF $dompdf) {
-    parent::__construct($frame, $dompdf);
-    $style = $this->_frame->get_style();
-    $style->width = 0;
-    $style->height = 0;
-    $style->margin = 0;
-    $style->padding = 0;
-  }
+    function __construct(Frame $frame, DOMPDF $dompdf) {
+        parent::__construct($frame, $dompdf);
+        $style = $this->_frame->get_style();
+        $style->width = 0;
+        $style->height = 0;
+        $style->margin = 0;
+        $style->padding = 0;
+    }
 
 }

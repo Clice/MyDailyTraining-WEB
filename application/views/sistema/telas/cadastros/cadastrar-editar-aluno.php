@@ -33,7 +33,7 @@
                                                     <div class="form-group">
                                                         <label>Nome do Aluno:*</label>
                                                         <input type="text" id="nomeAluno" name="nomeAluno" class="form-control" placeholder="Digite o nome do aluno" minlength="5"
-                                                        value="<?php if ($idAluno != "novo") echo $nomeAluno; ?>">
+                                                               value="<?php if ($idAluno != "novo") echo $nomeAluno; ?>">
                                                     </div>
                                                 </div>
                                                 <!-- E-MAIL DO ALUNO -->
@@ -41,7 +41,7 @@
                                                     <div class="form-group">
                                                         <label>E-mail:*</label>
                                                         <input type="email" id="emailAluno" name="emailAluno" minlength="6" class="form-control" placeholder="Digite o e-mail"
-                                                        value="<?php if ($idAluno != "novo") echo $emailAluno; ?>">
+                                                               value="<?php if ($idAluno != "novo") echo $emailAluno; ?>">
                                                     </div>                                                                
                                                 </div>
                                             </div>
@@ -51,7 +51,7 @@
                                                     <div class="form-group">
                                                         <label>CPF:*</label>
                                                         <input type="text" id="cpfUsuario" name="cpfUsuario" maxlength="11" class="form-control" placeholder="Digite o CPF" onchange="verificarCpf();"
-                                                        value="<?php if ($idAluno != "novo") echo $cpfAluno; ?>">
+                                                               value="<?php if ($idAluno != "novo") echo $cpfAluno; ?>">
                                                         <small><span id='msnCPF'></span></small>
                                                     </div>                                                                
                                                 </div>
@@ -60,7 +60,7 @@
                                                     <div class="form-group">
                                                         <label>RG:*</label>
                                                         <input type="text" id="rgAluno" name="rgAluno" maxlength="18" class="form-control" placeholder="Digite o RG"
-                                                        value="<?php if ($idAluno != "novo") echo $rgAluno; ?>">
+                                                               value="<?php if ($idAluno != "novo") echo $rgAluno; ?>">
                                                     </div>                                                                
                                                 </div>
                                                 <!-- DATA NASCIMENTO DO ALUNO -->
@@ -69,7 +69,7 @@
                                                         <label>Data de Nascimento:*</label>
                                                         <div class="position-relative has-icon-left">
                                                             <input type="date" id="dataNascimentoAluno" name="dataNascimentoAluno" class="form-control"
-                                                            value="<?php if ($idAluno != "novo") echo $dataNascimentoAluno; ?>">
+                                                                   value="<?php if ($idAluno != "novo") echo $dataNascimentoAluno; ?>">
                                                             <div class="form-control-position" style="margin-top: 11px;">
                                                                 <i class="icon-calendar5"></i>
                                                             </div>
@@ -83,21 +83,21 @@
                                                         <!-- FEMININO -->
                                                         <label class="display-inline-block custom-control custom-radio">
                                                             <input type="radio" name="sexoAluno" id="sexoFeminino" value="Feminino" onchange="verificarSexoAluno();" class="custom-control-input"
-                                                            <?php if ($sexoAluno == 'Feminino') echo 'checked'; ?>>
+                                                                   <?php if ($sexoAluno == 'Feminino') echo 'checked'; ?>>
                                                             <span class="custom-control-indicator"></span>
                                                             <span class="custom-control-description ml-0">Feminino</span>
                                                         </label>
                                                         <!-- MASCULINO -->
                                                         <label class="display-inline-block custom-control custom-radio">
                                                             <input type="radio" name="sexoAluno" id="sexoMasculino" value="Masculino" onchange="verificarSexoAluno();" class="custom-control-input"
-                                                            <?php if ($sexoAluno == 'Masculino') echo 'checked'; ?>>
+                                                                   <?php if ($sexoAluno == 'Masculino') echo 'checked'; ?>>
                                                             <span class="custom-control-indicator"></span>
                                                             <span class="custom-control-description ml-0">Masculino</span>
                                                         </label>
                                                         <!-- OUTROS -->
                                                         <label class="display-inline-block custom-control custom-radio">
                                                             <input type="radio" name="sexoAluno" id="sexoOutros" value="Outros" onchange="verificarSexoAluno();" class="custom-control-input"
-                                                            <?php if ($sexoAluno == 'Outros') echo 'checked'; ?>>
+                                                                   <?php if ($sexoAluno == 'Outros') echo 'checked'; ?>>
                                                             <span class="custom-control-indicator"></span>
                                                             <span class="custom-control-description ml-0">Outros</span>
                                                         </label>
@@ -110,7 +110,7 @@
                                                     <div class="form-group">
                                                         <label>Endereço:*</label>
                                                         <input type="text" id="enderecoAluno" name="enderecoAluno" class="form-control" placeholder="Digite o endereço"
-                                                        value="<?php if ($idAluno != "novo") echo $enderecoAluno; ?>">
+                                                               value="<?php if ($idAluno != "novo") echo $enderecoAluno; ?>">
                                                     </div>
                                                 </div>
                                                 <!-- TELEFONE DO ALUNO -->
@@ -118,7 +118,7 @@
                                                     <div class="form-group">
                                                         <label>Telefone:*</label>
                                                         <input type="text" id="telefoneUsuario" name="telefoneUsuario" class="form-control" maxlength="15" placeholder="Digite o telefone"
-                                                        value="<?php if ($idAluno != "novo") echo $telefoneAluno; ?>">
+                                                               value="<?php if ($idAluno != "novo") echo $telefoneAluno; ?>">
                                                     </div>
                                                 </div>
                                             </div>
@@ -276,7 +276,7 @@
                                                     <div class="form-group">
                                                         <label>Cidade:*</label>
                                                         <input type="text" id="cidadeAluno" name="cidadeAluno" class="form-control" placeholder="Digite a cidade"
-                                                        value="<?php if ($idAluno != "novo") echo $cidadeAluno; ?>">
+                                                               value="<?php if ($idAluno != "novo") echo $cidadeAluno; ?>">
                                                     </div>
                                                 </div>
                                                 <!-- BAIRRO DO ALUNO -->
@@ -284,7 +284,7 @@
                                                     <div class="form-group">
                                                         <label>Bairro:*</label>
                                                         <input type="text" id="bairroAluno" name="bairroAluno" class="form-control" placeholder="Digite o bairro"
-                                                        value="<?php if ($idAluno != "novo") echo $bairroAluno; ?>">
+                                                               value="<?php if ($idAluno != "novo") echo $bairroAluno; ?>">
                                                     </div>
                                                 </div>
                                                 <!-- CEP DO ALUNO -->
@@ -292,7 +292,7 @@
                                                     <div class="form-group">
                                                         <label>CEP:*</label>
                                                         <input type="text" id="cepAluno" name="cepAluno" class="form-control" maxlength="9" placeholder="Digite o CEP"
-                                                        value="<?php if ($idAluno != "novo") echo $cepAluno; ?>" data-mask="00000-000">
+                                                               value="<?php if ($idAluno != "novo") echo $cepAluno; ?>" data-mask="00000-000">
                                                     </div>
                                                 </div>
                                             </div>
@@ -367,49 +367,49 @@
                                                             <!-- DOMINGO -->
                                                             <label class="display-inline-block custom-control custom-checkbox">
                                                                 <input type="checkbox" name="diasTreinoAluno[]" id="domingo" value="Domingo" class="custom-control-input"
-                                                                <?php if (strstr($diasTreinoAluno, "Domingo")) echo 'checked' ?>>
+                                                                       <?php if (strstr($diasTreinoAluno, "Domingo")) echo 'checked' ?>>
                                                                 <span class="custom-control-indicator"></span>
                                                                 <span class="custom-control-description ml-0">Domingo</span>
                                                             </label>
                                                             <!-- SEGUNDA -->
                                                             <label class="display-inline-block custom-control custom-checkbox">
                                                                 <input type="checkbox" name="diasTreinoAluno[]" id="segunda" value="Segunda" class="custom-control-input"
-                                                                <?php if (strstr($diasTreinoAluno, "Segunda")) echo 'checked'; ?>>
+                                                                       <?php if (strstr($diasTreinoAluno, "Segunda")) echo 'checked'; ?>>
                                                                 <span class="custom-control-indicator"></span>
                                                                 <span class="custom-control-description ml-0">Segunda</span>
                                                             </label>
                                                             <!-- TERÇA -->
                                                             <label class="display-inline-block custom-control custom-checkbox">
                                                                 <input type="checkbox" name="diasTreinoAluno[]" id="terça" value="Terça" class="custom-control-input"
-                                                                <?php if (strstr($diasTreinoAluno, "Terça")) echo 'checked'; ?>>
+                                                                       <?php if (strstr($diasTreinoAluno, "Terça")) echo 'checked'; ?>>
                                                                 <span class="custom-control-indicator"></span>
                                                                 <span class="custom-control-description ml-0">Terça</span>
                                                             </label>
                                                             <!-- QUARTA -->
                                                             <label class="display-inline-block custom-control custom-checkbox">
                                                                 <input type="checkbox" name="diasTreinoAluno[]" id="quarta" value="Quarta" class="custom-control-input"
-                                                                <?php if (strstr($diasTreinoAluno, "Quarta")) echo 'checked'; ?>>
+                                                                       <?php if (strstr($diasTreinoAluno, "Quarta")) echo 'checked'; ?>>
                                                                 <span class="custom-control-indicator"></span>
                                                                 <span class="custom-control-description ml-0">Quarta</span>
                                                             </label>
                                                             <!-- QUINTA -->
                                                             <label class="display-inline-block custom-control custom-checkbox">
                                                                 <input type="checkbox" name="diasTreinoAluno[]" id="quinta" value="Quinta" class="custom-control-input"
-                                                                <?php if (strstr($diasTreinoAluno, "Quinta")) echo 'checked'; ?>>
+                                                                       <?php if (strstr($diasTreinoAluno, "Quinta")) echo 'checked'; ?>>
                                                                 <span class="custom-control-indicator"></span>
                                                                 <span class="custom-control-description ml-0">Quinta</span>
                                                             </label>
                                                             <!-- SEXTA -->
                                                             <label class="display-inline-block custom-control custom-checkbox">
                                                                 <input type="checkbox" name="diasTreinoAluno[]" id="sexta" value="Sexta" class="custom-control-input"
-                                                                <?php if (strstr($diasTreinoAluno, "Sexta")) echo 'checked'; ?>>
+                                                                       <?php if (strstr($diasTreinoAluno, "Sexta")) echo 'checked'; ?>>
                                                                 <span class="custom-control-indicator"></span>
                                                                 <span class="custom-control-description ml-0">Sexta</span>
                                                             </label>
                                                             <!-- SÁBADO -->
                                                             <label class="display-inline-block custom-control custom-checkbox">
                                                                 <input type="checkbox" name="diasTreinoAluno[]" id="sabado" value="Sábado" class="custom-control-input"
-                                                                <?php if (strstr($diasTreinoAluno, "Sábado")) echo 'checked'; ?>>
+                                                                       <?php if (strstr($diasTreinoAluno, "Sábado")) echo 'checked'; ?>>
                                                                 <span class="custom-control-indicator"></span>
                                                                 <span class="custom-control-description ml-0">Sábado</span>
                                                             </label>
@@ -425,35 +425,35 @@
                                                             <!-- HIPERTROFIA -->
                                                             <label class="display-inline-block custom-control custom-radio">
                                                                 <input type="radio" name="objetivoAluno" id="hipertrofia" value="Hipertrofia" class="custom-control-input"
-                                                                onchange="verificarObjetivoAluno();" <?php if ($objetivoAluno == "Hipertrofia") echo 'checked' ?>>
+                                                                       onchange="verificarObjetivoAluno();" <?php if ($objetivoAluno == "Hipertrofia") echo 'checked' ?>>
                                                                 <span class="custom-control-indicator"></span>
                                                                 <span class="custom-control-description ml-0">Hipertrofia</span>
                                                             </label>
                                                             <!-- FORÇA -->
                                                             <label class="display-inline-block custom-control custom-radio">
                                                                 <input type= "radio" name="objetivoAluno" id="forca" value="Força" class="custom-control-input"
-                                                                onchange="verificarObjetivoAluno();" <?php if ($objetivoAluno == "Força") echo 'checked'; ?>>
+                                                                       onchange="verificarObjetivoAluno();" <?php if ($objetivoAluno == "Força") echo 'checked'; ?>>
                                                                 <span class="custom-control-indicator"></span>
                                                                 <span class="custom-control-description ml-0">Força</span>
                                                             </label>
                                                             <!-- QUALI. DE VIDA -->
                                                             <label class="display-inline-block custom-control custom-radio">
                                                                 <input type="radio" name="objetivoAluno" id="qualiDeVida" value="Quali. de Vida" class="custom-control-input"
-                                                                onchange="verificarObjetivoAluno();" <?php if ($objetivoAluno == "Quali. de Vida") echo 'checked'; ?>>
+                                                                       onchange="verificarObjetivoAluno();" <?php if ($objetivoAluno == "Quali. de Vida") echo 'checked'; ?>>
                                                                 <span class="custom-control-indicator"></span>
                                                                 <span class="custom-control-description ml-0">Quali. de Vida</span>
                                                             </label>
                                                             <!-- EMAGRECIMENTO -->
                                                             <label class="display-inline-block custom-control custom-radio">
                                                                 <input type="radio" name="objetivoAluno" id="emagrecimento" value="Emagrecimento" class="custom-control-input"
-                                                                onchange="verificarObjetivoAluno();" <?php if ($objetivoAluno == "Emagrecimento") echo 'checked'; ?>>
+                                                                       onchange="verificarObjetivoAluno();" <?php if ($objetivoAluno == "Emagrecimento") echo 'checked'; ?>>
                                                                 <span class="custom-control-indicator"></span>
                                                                 <span class="custom-control-description ml-0">Emagrecimento</span>
                                                             </label>
                                                             <!-- RES. AERÓBICA -->
                                                             <label class="display-inline-block custom-control custom-radio">
                                                                 <input type="radio" name="objetivoAluno" id="resAerobica" value="Res. Aeróbica" class="custom-control-input"
-                                                                onchange="verificarObjetivoAluno();" <?php if ($objetivoAluno == "Res. Aeróbica") echo 'checked'; ?>>
+                                                                       onchange="verificarObjetivoAluno();" <?php if ($objetivoAluno == "Res. Aeróbica") echo 'checked'; ?>>
                                                                 <span class="custom-control-indicator"></span>
                                                                 <span class="custom-control-description ml-0">Res. Aeróbica</span>
                                                             </label>
@@ -468,7 +468,7 @@
                                                     <div class="form-group">
                                                         <label>Nome do Responsável:</label>
                                                         <input type="text" id="nomeResponsavelAluno" name="nomeResponsavelAluno" class="form-control" placeholder="Digite o nome do responsável" 
-                                                        value="<?php if ($idAluno != "novo") if ($nomeResponsavelAluno != NULL) echo $nomeResponsavelAluno; ?>">
+                                                               value="<?php if ($idAluno != "novo") if ($nomeResponsavelAluno != NULL) echo $nomeResponsavelAluno; ?>">
                                                     </div>
                                                 </div>
                                                 <!-- TELEFONE DO RESPONSÁVEL DO ALUNO -->
@@ -476,7 +476,7 @@
                                                     <div class="form-group">
                                                         <label>Telefone do Responsável:</label>
                                                         <input type="text" id="telefoneResponsavelAluno" name="telefoneResponsavelAluno" class="form-control" maxlength="15"
-                                                        placeholder="Digite o telefone do responsável" value="<?php if ($idAluno != "novo") if ($telefoneResponsavelAluno != NULL) echo $telefoneResponsavelAluno; ?>">
+                                                               placeholder="Digite o telefone do responsável" value="<?php if ($idAluno != "novo") if ($telefoneResponsavelAluno != NULL) echo $telefoneResponsavelAluno; ?>">
                                                     </div>
                                                 </div>
                                             </div>
@@ -487,19 +487,19 @@
                                                 <div class="form-group col-md-6">
                                                     <label>Cirurgias:</label>
                                                     <textarea id="cirurgiasAluno" name="cirurgiasAluno" class="form-control" maxlength="200" placeholder="Descreva as cirurgias que o aluno já foi submetido"  
-                                                    ><?php if ($idAluno != "novo") if ($cirurgias != NULL) echo $cirurgias; ?></textarea>
+                                                              ><?php if ($idAluno != "novo") if ($cirurgias != NULL) echo $cirurgias; ?></textarea>
                                                 </div>
                                                 <!-- MEDICAMENTOS DO ALUNO -->
                                                 <div class="form-group col-md-6">
                                                     <label>Medicamentos:</label>
                                                     <textarea id="medicamentosAluno" name="medicamentosAluno" class="form-control" maxlength="200"
-                                                    placeholder="Descreva os medicamentos usados pelo aluno"><?php if ($idAluno != "novo") if ($medicamentos != NULL) echo $medicamentos; ?></textarea>
+                                                              placeholder="Descreva os medicamentos usados pelo aluno"><?php if ($idAluno != "novo") if ($medicamentos != NULL) echo $medicamentos; ?></textarea>
                                                 </div>
                                                 <!-- DOENÇAS FAMILIARES DO ALUNO -->
                                                 <div class="form-group col-md-12">
                                                     <label>Doenças Familiares:</label>
                                                     <textarea id="doencasFamiliaresAluno" name="doencasFamiliaresAluno" class="form-control" maxlengt="200"
-                                                    placeholder="Descreva as doenças familiares do aluno"><?php if ($idAluno != "novo") if ($doencasFamiliares != NULL) echo $doencasFamiliares; ?></textarea>
+                                                              placeholder="Descreva as doenças familiares do aluno"><?php if ($idAluno != "novo") if ($doencasFamiliares != NULL) echo $doencasFamiliares; ?></textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -526,59 +526,59 @@
 
 <!--MODAL - DADOS OBRIGATÓRIOS NÃO INFORMADOS -->
 <div class="modal fade text-xs-left" data-backdrop="static" id="dados-obrigatorios-aluno" tabindex="-1" role="dialog"
-aria-labelledby="myModalLabel1"
-aria-hidden="true">
-<div class="modal-dialog" role="document">
-    <div class="modal-content">
-        <div class="modal-body">
-            <h4 class="modal-title text-xs-center"><i class="icon-warning2 warning"></i> Dados obrigatórios não informados.</h4>
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+     aria-labelledby="myModalLabel1"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <h4 class="modal-title text-xs-center"><i class="icon-warning2 warning"></i> Dados obrigatórios não informados.</h4>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+            </div>
         </div>
     </div>
-</div>
 </div>
 
 <!--MODAL - CPF CADASTRADO -->
 <div class="modal fade text-xs-left" data-backdrop="static" id="cpf-cadastrado" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1"
-aria-hidden="true">
-<div class="modal-dialog" role="document">
-    <div class="modal-content">
-        <div class="modal-body">
-            <h4 class="modal-title text-xs-center"><i class="icon-warning2 warning"></i> CPF já cadastrado.</h4>
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <h4 class="modal-title text-xs-center"><i class="icon-warning2 warning"></i> CPF já cadastrado.</h4>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+            </div>
         </div>
     </div>
-</div>
 </div>
 
 <!--MODAL - QUATIDADE DE LICENÇAS USADAS -->
 <div class="modal fade text-xs-left" data-backdrop="static" id="qtd-licencas" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1"
-aria-hidden="true">
-<div class="modal-dialog" role="document">
-    <div class="modal-content">
-        <div class="modal-body">
-            <h4 class="modal-title text-xs-center"><i class="icon-warning2 warning"></i> Quantidade máxima permitida de alunos já cadastrados. Se necessitar de mais licenças, entre em contato com o(s) administrador(es) do sistema para maiores informações.</h4>
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <h4 class="modal-title text-xs-center"><i class="icon-warning2 warning"></i> Quantidade máxima permitida de alunos já cadastrados. Se necessitar de mais licenças, entre em contato com o(s) administrador(es) do sistema para maiores informações.</h4>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+            </div>
         </div>
     </div>
-</div>
 </div>
 
 <!--MODAL - DADOS CADASTRADOS/ALTERADOS COM SUCESSO -->
 <div class="modal fade text-xs-left" data-backdrop="static" id="sucesso-aluno" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1"
-aria-hidden="true">
-<div class="modal-dialog" role="document">
-    <div class="modal-content">
-        <div class="modal-body">
-            <h4 class="modal-title text-xs-center"><i class="icon-check-circle success"></i>
-                <?php if ($idAluno != "novo") { ?>  Dados alterados com sucesso.
-                <?php } else { ?> Dados cadastrados com sucesso. <?php } ?></h4>
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <h4 class="modal-title text-xs-center"><i class="icon-check-circle success"></i>
+                    <?php if ($idAluno != "novo") { ?>  Dados alterados com sucesso.
+                    <?php } else { ?> Dados cadastrados com sucesso. <?php } ?></h4>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" onclick="window.location.href = '<?php echo base_url($voltarPara); ?>'">Fechar</button>
@@ -589,13 +589,13 @@ aria-hidden="true">
 
 <!-- MODAL - ERRO AO CADASTRAR/ALTERAR OS DADOS -->
 <div class="modal fade text-xs-left" data-backdrop="static" id="erro-aluno" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
-aria-hidden="true">
-<div class="modal-dialog" role="document">
-    <div class="modal-content">
-        <div class="modal-body">
-            <h4 class="modal-title text-xs-center"><i class="icon-remove danger"></i>
-                <?php if ($idAluno != "novo") { ?> Erro ao alterar os dados.
-                <?php } else { ?> Erro ao cadastrar os dados. <?php } ?></h4>
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <h4 class="modal-title text-xs-center"><i class="icon-remove danger"></i>
+                    <?php if ($idAluno != "novo") { ?> Erro ao alterar os dados.
+                    <?php } else { ?> Erro ao cadastrar os dados. <?php } ?></h4>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
@@ -606,17 +606,17 @@ aria-hidden="true">
 
 <!-- MODAL - FALHA AO SE CONECTAR COM A INTERNET -->
 <div class="modal fade text-xs-left" data-backdrop="static" id="falha-internet" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
-aria-hidden="true">
-<div class="modal-dialog" role="document">
-    <div class="modal-content">
-        <div class="modal-body">
-            <h4 class="modal-title text-xs-center"><i class="icon-warning2 warning"></i> Sem conexão com a Internet.</h4>
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <h4 class="modal-title text-xs-center"><i class="icon-warning2 warning"></i> Sem conexão com a Internet.</h4>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+            </div>
         </div>
     </div>
-</div>
 </div>
 
 <script type="text/javascript">

@@ -23,7 +23,6 @@ $rsBuscarExercicioAluno->bindParam(1, $idAluno);
 $rsBuscarExercicioAluno->execute();
 
 if ($rsBuscarExercicioAluno->rowCount() > 0) {
-
     while ($dadosExercicio = $rsBuscarExercicioAluno->fetch(PDO::FETCH_ASSOC)) {
         $vetor[] = $dadosExercicio['nomeExercicio'];
         $vetor[] = $dadosExercicio['serieExercicioTreino'];

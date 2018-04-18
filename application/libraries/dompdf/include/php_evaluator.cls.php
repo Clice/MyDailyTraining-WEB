@@ -1,4 +1,5 @@
 <?php
+
 /**
  * DOMPDF - PHP5 HTML to PDF renderer
  *
@@ -36,7 +37,6 @@
  * @package dompdf
 
  */
-
 /* $Id: php_evaluator.cls.php 216 2010-03-11 22:49:18Z ryan.masten $ */
 
 /**
@@ -46,31 +46,32 @@
  * @package dompdf
  */
 class PHP_Evaluator {
-  
-  protected $_canvas;
 
-  function __construct(Canvas $canvas) {
-    $this->_canvas = $canvas;
-  }
+    protected $_canvas;
 
-  function evaluate($code, $vars = array()) {
-    if ( !DOMPDF_ENABLE_PHP )
-      return;
-    
-    // Set up some variables for the inline code
-    $pdf = $this->_canvas;
-    $PAGE_NUM = $pdf->get_page_number();
-    $PAGE_COUNT = $pdf->get_page_count();
-    
-    // Override those variables if passed in
-    foreach ($vars as $k => $v) {
-        $$k = $v;
+    function __construct(Canvas $canvas) {
+        $this->_canvas = $canvas;
     }
 
-    eval(utf8_decode($code)); 
-  }
+    function evaluate($code, $vars = array()) {
+        if (!DOMPDF_ENABLE_PHP)
+            return;
 
-  function render($frame) {
-    $this->evaluate($frame->get_node()->nodeValue);
-  }
+        // Set up some variables for the inline code
+        $pdf = $this->_canvas;
+        $PAGE_NUM = $pdf->get_page_number();
+        $PAGE_COUNT = $pdf->get_page_count();
+
+        // Override those variables if passed in
+        foreach ($vars as $k => $v) {
+            $$k = $v;
+        }
+
+        eval(utf8_decode($code));
+    }
+
+    function render($frame) {
+        $this->evaluate($frame->get_node()->nodeValue);
+    }
+
 }

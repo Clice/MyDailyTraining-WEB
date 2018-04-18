@@ -23,4 +23,3 @@ if ($rsAlterarDados) {
 } else {
     echo "error";
 }
-?>

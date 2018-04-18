@@ -107,11 +107,11 @@ class AcademiaModel extends CI_Model {
         $this->db->where('idAcademia', $idAcademia);
         return $this->db->get('academias')->result();
     }
-    
+
     // FUNÇÃO PARA SABER A QUANTIDADE DE ALUNOS DA ACADEMIA
     public function mVerificarQtdAlunos($idAcademia) {
         $this->db->select('qtdTotalLicencas, qtdLicencasUsadas');
-        $this->db->where('idAcademia', $idAcademia); 
+        $this->db->where('idAcademia', $idAcademia);
         return $this->db->get('academias')->result();
     }
 
@@ -121,7 +121,7 @@ class AcademiaModel extends CI_Model {
         $this->db->where('idAcademia', $idAcademia);
         return $this->db->update('academias', $dadosAcademia);
     }
-    
+
     // FUNÇÃO PARA PEGAR TODAS AS ACADEMIAS DESBLOQUEADAS
     public function mAniversariantesFuncionariosMes($idAcademia) {
         $mesAtual = date('m');
@@ -132,7 +132,7 @@ class AcademiaModel extends CI_Model {
         $this->db->order_by('dataNascimentoUsuario', 'ASC');
         return $this->db->get()->result();
     }
-    
+
     // FUNÇÃO PARA PEGAR TODAS AS ACADEMIAS DESBLOQUEADAS
     public function mAniversariantesAlunosMes($idAcademia) {
         $mesAtual = date('m');

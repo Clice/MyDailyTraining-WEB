@@ -15,7 +15,6 @@ $rsListarInstrutores->execute();
 
 if ($rsListarInstrutores) {
     if ($rsListarInstrutores->rowCount() > 0) {
-
         while ($dadosInstrutor = $rsListarInstrutores->fetch(PDO::FETCH_ASSOC)) {
             $vetor[] = $dadosInstrutor['idUsuario'];
             $vetor[] = $dadosInstrutor['nomeUsuario'];

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * DOMPDF - PHP5 HTML to PDF renderer
  *
@@ -49,7 +50,6 @@
  * @version 20090622
  * - don't cache broken image, but refer to original broken image replacement
  */
-
 /* $Id: image_cache.cls.php 354 2011-01-24 21:59:54Z fabien.menager $ */
 
 /**
@@ -61,171 +61,173 @@
  */
 class Image_Cache {
 
-  /**
-   * Array of downloaded images.  Cached so that identical images are
-   * not needlessly downloaded.
-   *
-   * @var array
-   */
-  static protected $_cache = array();
+    /**
+     * Array of downloaded images.  Cached so that identical images are
+     * not needlessly downloaded.
+     *
+     * @var array
+     */
+    static protected $_cache = array();
 
+    /**
+     * Resolve and fetch an image for use.
+     *
+     * @param string $url        The url of the image
+     * @param string $proto      Default protocol if none specified in $url
+     * @param string $host       Default host if none specified in $url
+     * @param string $base_path  Default path if none specified in $url
+     * @return array             An array with two elements: The local path to the image and the image extension
+     */
+    static function resolve_url($url, $proto, $host, $base_path) {
+        global $_dompdf_warnings;
 
-  /**
-   * Resolve and fetch an image for use.
-   *
-   * @param string $url        The url of the image
-   * @param string $proto      Default protocol if none specified in $url
-   * @param string $host       Default host if none specified in $url
-   * @param string $base_path  Default path if none specified in $url
-   * @return array             An array with two elements: The local path to the image and the image extension
-   */
-  static function resolve_url($url, $proto, $host, $base_path) {
-    global $_dompdf_warnings;
+        $parsed_url = explode_url($url);
 
-    $parsed_url = explode_url($url);
-
-    $DEBUGPNG=DEBUGPNG; //=DEBUGPNG; Allow override of global setting for ad hoc debug
-    $full_url_dbg = '';
-    
-    //debugpng
-    if ($DEBUGPNG) print 'resolve_url('.$url.','.$proto.','.$host.','.$base_path.')('.$parsed_url['protocol'].')';
-
-    $remote = ($proto != "" && $proto !== "file://");
-    $remote = $remote || ($parsed_url['protocol'] != "");
-    
-    $datauri = strpos($parsed_url['protocol'], "data:") === 0;
-
-    if ( !DOMPDF_ENABLE_REMOTE && $remote && !$datauri ) {
-      $resolved_url = DOMPDF_LIB_DIR . "/res/broken_image.png";
-      $ext = "png";
-
-      //debugpng
-      if ($DEBUGPNG) $full_url_dbg = '(blockedremote)';
-
-    } 
-    else if ( DOMPDF_ENABLE_REMOTE && $remote || $datauri ) {
-      // Download remote files to a temporary directory
-      $full_url = build_url($proto, $host, $base_path, $url);
-
-      if ( isset(self::$_cache[$full_url]) ) {
-        list($resolved_url,$ext) = self::$_cache[$full_url];
+        $DEBUGPNG = DEBUGPNG; //=DEBUGPNG; Allow override of global setting for ad hoc debug
+        $full_url_dbg = '';
 
         //debugpng
-        if ($DEBUGPNG) $full_url_dbg = $full_url.'(cache)';
+        if ($DEBUGPNG)
+            print 'resolve_url(' . $url . ',' . $proto . ',' . $host . ',' . $base_path . ')(' . $parsed_url['protocol'] . ')';
 
-      } else {
+        $remote = ($proto != "" && $proto !== "file://");
+        $remote = $remote || ($parsed_url['protocol'] != "");
 
-        $resolved_url = tempnam(DOMPDF_TEMP_DIR, "ca_dompdf_img_");
-        //debugpng
-        if ($DEBUGPNG) echo $resolved_url . "\n";
+        $datauri = strpos($parsed_url['protocol'], "data:") === 0;
 
-        if ($datauri) {
-          if ($parsed_data_uri = parse_data_uri($url)) {
-            $image = $parsed_data_uri['data'];
-            list(, $ext) = explode('/', $parsed_data_uri['mime'], 2); 
-          }
+        if (!DOMPDF_ENABLE_REMOTE && $remote && !$datauri) {
+            $resolved_url = DOMPDF_LIB_DIR . "/res/broken_image.png";
+            $ext = "png";
+
+            //debugpng
+            if ($DEBUGPNG)
+                $full_url_dbg = '(blockedremote)';
         }
-        else {
-          $old_err = set_error_handler("record_warnings");
-          $image = file_get_contents($full_url);
-          restore_error_handler();
-        }
+        else if (DOMPDF_ENABLE_REMOTE && $remote || $datauri) {
+            // Download remote files to a temporary directory
+            $full_url = build_url($proto, $host, $base_path, $url);
 
-        if ( strlen($image) == 0 ) {
-          //target image not found
-          $resolved_url = DOMPDF_LIB_DIR . "/res/broken_image.png";
-          $ext = "png";
+            if (isset(self::$_cache[$full_url])) {
+                list($resolved_url, $ext) = self::$_cache[$full_url];
 
-          //debugpng
-          if ($DEBUGPNG) $full_url_dbg = $full_url.'(missing)';
+                //debugpng
+                if ($DEBUGPNG)
+                    $full_url_dbg = $full_url . '(cache)';
+            } else {
 
+                $resolved_url = tempnam(DOMPDF_TEMP_DIR, "ca_dompdf_img_");
+                //debugpng
+                if ($DEBUGPNG)
+                    echo $resolved_url . "\n";
+
+                if ($datauri) {
+                    if ($parsed_data_uri = parse_data_uri($url)) {
+                        $image = $parsed_data_uri['data'];
+                        list(, $ext) = explode('/', $parsed_data_uri['mime'], 2);
+                    }
+                } else {
+                    $old_err = set_error_handler("record_warnings");
+                    $image = file_get_contents($full_url);
+                    restore_error_handler();
+                }
+
+                if (strlen($image) == 0) {
+                    //target image not found
+                    $resolved_url = DOMPDF_LIB_DIR . "/res/broken_image.png";
+                    $ext = "png";
+
+                    //debugpng
+                    if ($DEBUGPNG)
+                        $full_url_dbg = $full_url . '(missing)';
+                } else {
+
+                    file_put_contents($resolved_url, $image);
+
+                    //e.g. fetch.php?media=url.jpg&cache=1
+                    //- Image file name might be one of the dynamic parts of the url, don't strip off!
+                    //  if ( preg_match("/.*\.(\w+)/",$url,$match) ) $ext = $match[1];
+                    //- a remote url does not need to have a file extension at all
+                    //- local cached file does not have a matching file extension
+                    //Therefore get image type from the content
+
+                    $imagedim = dompdf_getimagesize($resolved_url);
+
+                    if ($imagedim[0] && $imagedim[1] &&
+                            in_array($imagedim[2], array(IMAGETYPE_GIF, IMAGETYPE_PNG, IMAGETYPE_JPEG, IMAGETYPE_BMP))) {
+                        //target image is valid
+
+                        $imagetypes = array('', 'gif', 'jpeg', 'png', 'swf', 'psd', 'bmp');
+                        $ext = $imagetypes[$imagedim[2]];
+                        if (rename($resolved_url, $resolved_url . '.' . $ext)) {
+                            $resolved_url .= '.' . $ext;
+                        }
+
+                        //Don't put replacement image into cache - otherwise it will be deleted on cache cleanup.
+                        //Only execute on successfull caching of remote image.
+                        self::$_cache[$full_url] = array($resolved_url, $ext);
+                    } else {
+                        //target image is not valid.
+                        unlink($resolved_url);
+
+                        $resolved_url = DOMPDF_LIB_DIR . "/res/broken_image.png";
+                        $ext = "png";
+                    }
+                }
+            }
         } else {
 
-        file_put_contents($resolved_url, $image);
+            $resolved_url = build_url($proto, $host, $base_path, $url);
+            if ($DEBUGPNG)
+                print 'build_url(' . $proto . ',' . $host . ',' . $base_path . ',' . $url . ')(' . $resolved_url . ')';
 
-		//e.g. fetch.php?media=url.jpg&cache=1
-		//- Image file name might be one of the dynamic parts of the url, don't strip off!
-		//  if ( preg_match("/.*\.(\w+)/",$url,$match) ) $ext = $match[1];
-		//- a remote url does not need to have a file extension at all
-        //- local cached file does not have a matching file extension
-        //Therefore get image type from the content
+            if (!preg_match("/.*\.(\w+)/", $url, $match)) {
+                //debugpng
+                if ($DEBUGPNG)
+                    print '[resolve_url exception ' . $url . ']';
+                throw new DOMPDF_Exception("Unknown image type: $url.");
+            }
 
-        $imagedim = dompdf_getimagesize($resolved_url);
-        
-        if( $imagedim[0] && $imagedim[1] && 
-            in_array($imagedim[2], array(IMAGETYPE_GIF, IMAGETYPE_PNG, IMAGETYPE_JPEG, IMAGETYPE_BMP)) ) {
-        //target image is valid
+            $ext = $match[1];
 
-        $imagetypes = array('','gif','jpeg','png','swf','psd','bmp');
-        $ext = $imagetypes[$imagedim[2]];
-        if ( rename($resolved_url,$resolved_url.'.'.$ext) ) {
-          $resolved_url .= '.'.$ext;
-        }
- 
- 		//Don't put replacement image into cache - otherwise it will be deleted on cache cleanup.
- 		//Only execute on successfull caching of remote image.
-        self::$_cache[$full_url] = array($resolved_url,$ext);
-
-        } else {
-          //target image is not valid.
-          unlink($resolved_url);
-          
-          $resolved_url = DOMPDF_LIB_DIR . "/res/broken_image.png";
-          $ext = "png";
-        }
+            //debugpng
+            if ($DEBUGPNG)
+                $full_url_dbg = '(local)';
         }
 
-      }
+        if (!is_readable($resolved_url) || !filesize($resolved_url)) {
 
-    } else {
+            //debugpng
+            if ($DEBUGPNG)
+                $full_url_dbg .= '(nocache' . $resolved_url . ')';
 
-      $resolved_url = build_url($proto, $host, $base_path, $url);
-      if ($DEBUGPNG) print 'build_url('.$proto.','.$host.','.$base_path.','.$url.')('.$resolved_url.')';
-
-      if ( !preg_match("/.*\.(\w+)/",$url,$match) ) {
-        //debugpng
-        if ($DEBUGPNG) print '[resolve_url exception '.$url.']';
-          throw new DOMPDF_Exception("Unknown image type: $url.");
+            $_dompdf_warnings[] = "File " . $resolved_url . " is not readable or is an empty file.\n";
+            $resolved_url = DOMPDF_LIB_DIR . "/res/broken_image.png";
+            $ext = "png";
         }
-
-        $ext = $match[1];
 
         //debugpng
-        if ($DEBUGPNG) $full_url_dbg = '(local)';
+        if ($DEBUGPNG)
+            print '[resolve_url ' . $url . '|' . $full_url_dbg . '|' . $resolved_url . '|' . $ext . ']';
 
+        return array($resolved_url, $ext);
     }
 
-    if ( !is_readable($resolved_url) || !filesize($resolved_url) ) {
-
-      //debugpng
-      if ($DEBUGPNG) $full_url_dbg .= '(nocache'.$resolved_url.')';
-
-      $_dompdf_warnings[] = "File " .$resolved_url . " is not readable or is an empty file.\n";
-      $resolved_url = DOMPDF_LIB_DIR . "/res/broken_image.png";
-      $ext = "png";
+    /**
+     * Unlink all cached images (i.e. temporary images either downloaded
+     * or converted)
+     */
+    static function clear() {
+        if (count(self::$_cache)) {
+            while ($entry = array_shift(self::$_cache)) {
+                list($file, $ext) = $entry;
+                //debugpng
+                if (DEBUGPNG)
+                    print '[clear unlink ' . $file . ']';
+                if (!DEBUGKEEPTEMP)
+                //XXX: Should we have some kind of fallback or warning if unlink() fails?
+                    unlink($file);
+            }
+        }
     }
-
-    //debugpng
-    if ($DEBUGPNG) print '[resolve_url '.$url.'|'.$full_url_dbg.'|'.$resolved_url.'|'.$ext.']';
-
-    return array($resolved_url, $ext);
-  }
-
-  /**
-   * Unlink all cached images (i.e. temporary images either downloaded
-   * or converted)
-   */
-  static function clear() {
-    if ( count(self::$_cache) ) {
-      while ($entry = array_shift(self::$_cache)) {
-        list($file, $ext) = $entry;
-        //debugpng
-        if (DEBUGPNG) print '[clear unlink '.$file.']';
-        if (!DEBUGKEEPTEMP)
-          //XXX: Should we have some kind of fallback or warning if unlink() fails?
-          unlink($file);
-      }
-    }
-  }
 
 }

@@ -48,7 +48,7 @@ class TreinoController extends CI_Controller {
         $this->load->view('sistema/templates/html-footer-treinos');
     }
 
-     // FUNÇÃO DE CARREGAMENTO DA VIEW EDITAR-TREINO.PHP
+    // FUNÇÃO DE CARREGAMENTO DA VIEW EDITAR-TREINO.PHP
     public function vEditarTreino($idAluno, $idTreino) {
         $dadosTreino['perfilAluno'] = $this->AlunoModel->mVisualizarPerfilAluno(md5($idAluno));
         $diasTreinoAluno = explode("|", $dadosTreino['perfilAluno'][0]->diasTreinoAluno);

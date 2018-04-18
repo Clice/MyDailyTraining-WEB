@@ -1,4 +1,5 @@
 <?php
+
 /**
  * DOMPDF - PHP5 HTML to PDF renderer
  *
@@ -36,7 +37,6 @@
  * @package dompdf
 
  */
-
 /* $Id: positioner.cls.php 283 2010-07-19 17:57:40Z fabien.menager $ */
 
 /**
@@ -48,24 +48,24 @@
  * @package dompdf
  */
 abstract class Positioner {
-  
-  // protected members
-  protected $_frame;
-  
-  //........................................................................
 
-  function __construct(Frame_Decorator $frame) {
-    $this->_frame = $frame;
-  }
-  
-  /**
-   * Class destructor
-   */
-  function __destruct() {
-  	clear_object($this);
-  }
-  //........................................................................
+    // protected members
+    protected $_frame;
 
-  abstract function position();
-  
+    //........................................................................
+
+    function __construct(Frame_Decorator $frame) {
+        $this->_frame = $frame;
+    }
+
+    /**
+     * Class destructor
+     */
+    function __destruct() {
+        clear_object($this);
+    }
+
+    //........................................................................
+
+    abstract function position();
 }

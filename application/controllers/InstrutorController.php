@@ -53,7 +53,7 @@ class InstrutorController extends CI_Controller {
         $dadosInstrutor['crefUsuario'] = "";
         $dadosInstrutor['estadoUsuario'] = "";
         $dadosInstrutor['statusConta'] = true;
-        $dadosInstrutor['tipoConta'] = 4;        
+        $dadosInstrutor['tipoConta'] = 4;
 
         $dadosInstrutor['voltarPara'] = 'lista-instrutores';
 

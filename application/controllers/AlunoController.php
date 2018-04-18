@@ -46,7 +46,7 @@ class AlunoController extends CI_Controller {
     }
 
     // FUNÇÃO CONTROLLER DE CARREGAMENTO DA VIEW CADASTRAR-EDITAR-ALUNO.PHP
-    public function vCadastrarAluno($idAluno) {        
+    public function vCadastrarAluno($idAluno) {
         $dadosAluno['idAluno'] = "novo";
         $dadosAluno['nomePagina'] = "Cadastrar Aluno";
         $dadosAluno['idAcademia'] = $this->session->userdata('idAcademia');
@@ -125,7 +125,7 @@ class AlunoController extends CI_Controller {
         $this->pdf->render();
         $this->pdf->stream("Ficha de Treino - " . $dadosAluno['perfilAluno'][0]->nomeAluno . ".pdf", array("Attachment" => false));
     }
-    
+
     // FUNÇÃO DE CARREGAMENTO DA VIEW PERFIL-ALUNO.PHP
     public function vPerfilAluno($idAluno) {
         $dadosAluno['nomePagina'] = "Perfil do Aluno";

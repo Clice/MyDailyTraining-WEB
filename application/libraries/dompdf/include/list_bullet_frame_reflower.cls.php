@@ -1,4 +1,5 @@
 <?php
+
 /**
  * DOMPDF - PHP5 HTML to PDF renderer
  *
@@ -36,7 +37,6 @@
  * @package dompdf
 
  */
-
 /* $Id: list_bullet_frame_reflower.cls.php 357 2011-01-30 20:56:46Z fabien.menager $ */
 
 /**
@@ -47,20 +47,22 @@
  */
 class List_Bullet_Frame_Reflower extends Frame_Reflower {
 
-  function __construct(Frame_Decorator $frame) { parent::__construct($frame); }
-    
-  //........................................................................
-
-  function reflow(Frame_Decorator $block = null) {
-    $style = $this->_frame->get_style();
-
-    $style->width = $this->_frame->get_width();
-    $this->_frame->position();
-
-    if ( $style->list_style_position === "inside" ) {
-      $p = $this->_frame->find_block_parent();
-      $p->add_frame_to_line($this->_frame);
+    function __construct(Frame_Decorator $frame) {
+        parent::__construct($frame);
     }
 
-  }
+    //........................................................................
+
+    function reflow(Frame_Decorator $block = null) {
+        $style = $this->_frame->get_style();
+
+        $style->width = $this->_frame->get_width();
+        $this->_frame->position();
+
+        if ($style->list_style_position === "inside") {
+            $p = $this->_frame->find_block_parent();
+            $p->add_frame_to_line($this->_frame);
+        }
+    }
+
 }

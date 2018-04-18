@@ -79,11 +79,11 @@
                             <a href="#" data-toggle="dropdown" class="dropdown-toggle nav-link dropdown-user-link">
                                 <span class="avatar avatar-online">
                                     <?php if ($this->session->userdata('sexoUsuario') == "Masculino") { ?>
-                                        <img src="<?php echo base_url('assets/imagens/user_male.png'); ?>" alt="avatar"><i></i>
+                                        <img src="<?php echo base_url('assets/imagens/user_male.png'); ?>" alt="avatar">
                                     <?php } else if ($this->session->userdata('sexoUsuario') == "Feminino") { ?>
-                                        <img src="<?php echo base_url('assets/imagens/user_female.png'); ?>" alt="avatar"><i></i>
+                                        <img src="<?php echo base_url('assets/imagens/user_female.png'); ?>" alt="avatar">
                                     <?php } else if ($this->session->userdata('sexoUsuario') == "Outro") { ?>
-                                        <img src="<?php echo base_url('assets/imagens/ic_user.png'); ?>" alt="avatar"><i></i>
+                                        <img src="<?php echo base_url('assets/imagens/ic_user.png'); ?>" alt="avatar">
                                     <?php } ?>
                                 </span>
                                 <span class="user-name"><?php echo $this->session->userdata('nomeUsuario'); ?></span></a>

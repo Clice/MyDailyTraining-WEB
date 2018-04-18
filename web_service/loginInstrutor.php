@@ -20,7 +20,6 @@ $rsLogin->bindParam(2, $senhaUsuario);
 $rsLogin->execute();
 
 if ($rsLogin->rowCount() > 0) {
-
     while ($dados = $rsLogin->fetch(PDO::FETCH_ASSOC)) {
         $idInstrutor = $dados['idUsuario'];
         $idAcademia = $dados['idAcademia'];
@@ -46,4 +45,3 @@ if ($rsLogin->rowCount() > 0) {
 } else {
     echo "loginErro";
 }
-?>

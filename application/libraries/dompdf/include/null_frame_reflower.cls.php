@@ -1,4 +1,5 @@
 <?php
+
 /**
  * DOMPDF - PHP5 HTML to PDF renderer
  *
@@ -36,7 +37,6 @@
  * @package dompdf
 
  */
-
 /* $Id: null_frame_reflower.cls.php 357 2011-01-30 20:56:46Z fabien.menager $ */
 
 /**
@@ -47,8 +47,12 @@
  */
 class Null_Frame_Reflower extends Frame_Reflower {
 
-  function __construct(Frame $frame) { parent::__construct($frame); }
+    function __construct(Frame $frame) {
+        parent::__construct($frame);
+    }
 
-  function reflow(Frame_Decorator $block = null) { return; }
-  
+    function reflow(Frame_Decorator $block = null) {
+        return;
+    }
+
 }

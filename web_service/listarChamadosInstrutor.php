@@ -20,7 +20,6 @@ $rsListarChamados->execute();
 
 if ($rsListarChamados) {
     if ($rsListarChamados->rowCount() > 0) {
-
         while ($dadosChamado = $rsListarChamados->fetch(PDO::FETCH_ASSOC)) {
             $vetor[] = $dadosChamado['nomeAluno'];
             $vetor[] = $dadosChamado['horarioChamado'];
@@ -43,4 +42,3 @@ if ($rsListarChamados) {
 } else {
     echo "error";
 }
-?>
