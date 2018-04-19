@@ -18,7 +18,7 @@
         <link href="<?php echo base_url('assets/css/apresentacao/planos.css'); ?>" rel="stylesheet">
 
         <!-- FONTES -->
-        <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
         <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
@@ -343,14 +343,14 @@
                 <div class="row">                                          
                     <div class="col-md-6">
                         <h3 class="section-heading">2018</h3><br>
-                        <span class="label label-primary fa-2x">Q1</span>
+                        <span class="label label-primary">Q1</span>
                         <label style="font-size: 20px;" class="service-heading">JUNHO a AGOSTO</label>
                         <h4 class="service-heading">Pagamento com PagSeguro</h4>
                         <p class="text-muted">Academias poderão pagar os planos através da Internet.</p>
                     </div>
                     <div class="col-md-6">
                         <h3 class="section-heading">2018 - 2019</h3><br> 
-                        <span class="label label-primary fa-2x">Q2</span>
+                        <span class="label label-primary">Q2</span>
                         <label style="font-size: 20px;" class="service-heading">SETEMBRO a JUNHO</label>
                         <h4 class="service-heading">Módulo Financeiro</h4>
                         <p class="text-muted">Manutenção do pagamento e das informações financeiras da academia através do Sistema Web.</p>

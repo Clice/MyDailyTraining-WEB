@@ -1,11 +1,11 @@
 <!-- MODAL - DADOS OBRIGATÓRIOS NÃO INFORMADOS -->
-<div class="modal fade text-xs-left" data-backdrop="static" id="dados-obrigatorios" tabindex="-1" role="dialog" 
-     aria-labelledby="myModalLabel1" 
+<div class="modal fade text-xs-left" data-backdrop="static" id="dados-obrigatorios" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel1"
      aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-body">
-                <h4 class="modal-title text-xs-center"><i class="icon-warning2 warning"></i> Dados obrigatórios não informados.</h4>
+                <h4 class="modal-title text-xs-center"><i class="icon-warning2 warning"></i> Dado(s) obrigatório(s) não informado(s).</h4>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
@@ -15,7 +15,7 @@
 </div>
 
 <!-- MODAL - SENHAS DIFERENTES -->
-<div class="modal fade text-xs-left" data-backdrop="static" id="senhas-diferentes" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
+<div class="modal fade text-xs-left" data-backdrop="static" id="senhas-diferentes" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1"
      aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -30,7 +30,7 @@
 </div>
 
 <!-- MODAL - CPF CADASTRADO -->
-<div class="modal fade text-xs-left" data-backdrop="static" id="cpf-cadastrado" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
+<div class="modal fade text-xs-left" data-backdrop="static" id="cpf-cadastrado" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1"
      aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -45,7 +45,7 @@
 </div>
 
 <!-- MODAL - LOGIN CADASTRADO -->
-<div class="modal fade text-xs-left" data-backdrop="static" id="login-cadastrado" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
+<div class="modal fade text-xs-left" data-backdrop="static" id="login-cadastrado" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1"
      aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -61,12 +61,12 @@
 
 
 <!-- MODAL - DADOS CADASTRADOS/ALTERADOS COM SUCESSO -->
-<div class="modal fade text-xs-left" data-backdrop="static" id="cadastrar-editar-sucesso" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
+<div class="modal fade text-xs-left" data-backdrop="static" id="cadastrar-editar-sucesso" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1"
      aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-body">
-                <h4 class="modal-title text-xs-center"><i class="icon-check-circle success"></i><?php if ($idUsuario !== "novo") { ?> Dados alterados com sucesso. 
+                <h4 class="modal-title text-xs-center"><i class="icon-check-circle success"></i><?php if ($idUsuario !== "novo") { ?> Dados alterados com sucesso.
                     <?php } else { ?> Dados cadastrados com sucesso. <?php } ?></h4>
             </div>
             <div class="modal-footer">
@@ -77,12 +77,12 @@
 </div>
 
 <!-- MODAL - ERRO AO CADASTRAR/ALTERAR OS DADOS -->
-<div class="modal fade text-xs-left" data-backdrop="static" id="cadastrar-editar-erro" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
+<div class="modal fade text-xs-left" data-backdrop="static" id="cadastrar-editar-erro" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1"
      aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-body">
-                <h4 class="modal-title text-xs-center"><i class="icon-remove danger"></i> <?php if ($idUsuario !== "novo") { ?> Erro ao alterar os dados.  
+                <h4 class="modal-title text-xs-center"><i class="icon-remove danger"></i> <?php if ($idUsuario !== "novo") { ?> Erro ao alterar os dados.
                     <?php } else { ?> Erro ao cadastrar os dados. <?php } ?></h4>
             </div>
             <div class="modal-footer">
@@ -93,7 +93,7 @@
 </div>
 
 <!-- MODAL - FALHA AO SE CONECTAR COM A INTERNET -->
-<div class="modal fade text-xs-left" data-backdrop="static" id="falha-internet" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
+<div class="modal fade text-xs-left" data-backdrop="static" id="falha-internet" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1"
      aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">

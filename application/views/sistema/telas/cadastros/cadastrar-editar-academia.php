@@ -1,7 +1,7 @@
 
 <!-- FORM DE CADASTRO DA ACADEMIA -->
 <div class="app-content content container-fluid">
-    <div class="content-wrapper">      
+    <div class="content-wrapper">
         <!-- CONTEÚDO DA PÁGINA - CAMPOS DE PREENCHIMENTO -->
         <div class="content-body">
             <section id="basic-form-layouts">
@@ -29,7 +29,7 @@
                                             <input type="hidden" name="statusAcademia" id="statusAcademia" value="<?php if ($idAcademia != "novo") echo $statusAcademia; ?>">
                                             <input type="hidden" name="qtdLicencasUsadas" id="qtdLicencasUsadas" value="<?php echo $qtdLicencasUsadas; ?>">
                                             <input type="hidden" name="valorTotal" id="valorTotal" value="<?php echo $valorTotal; ?>">
-                                            <input type="hidden" name="valorPago" id="valorPago" value="<?php echo $valorPago; ?>">                                            
+                                            <input type="hidden" name="valorPago" id="valorPago" value="<?php echo $valorPago; ?>">
                                             <input type="hidden" name="qtdTotalLicencas" id="qtdTotalLicencas" value="<?php echo $qtdTotalLicencas; ?>">
                                             <input type="hidden" name="qtdParcelas" id="qtdParcelas" value="<?php echo $qtdParcelas; ?>">
                                             <div class="row">
@@ -37,7 +37,7 @@
                                                 <div class="col-md-9">
                                                     <div class="form-group">
                                                         <label>Nome da Academia:*</label>
-                                                        <input type="text" id="nomeAcademia" class="form-control" 
+                                                        <input type="text" id="nomeAcademia" class="form-control"
                                                                placeholder="Digite o nome da academia" name="nomeAcademia" value="<?php if ($idAcademia != "novo") echo $nomeAcademia; ?>">
                                                     </div>
                                                 </div>
@@ -45,10 +45,10 @@
                                                 <div class="col-md-3">
                                                     <div class="form-group">
                                                         <label>CNPJ:*</label>
-                                                        <input type="text" id="cnpjAcademia" maxlength="18" class="form-control" value="<?php if ($idAcademia != "novo") echo $cnpjAcademia; ?>" 
+                                                        <input type="text" id="cnpjAcademia" maxlength="18" class="form-control" value="<?php if ($idAcademia != "novo") echo $cnpjAcademia; ?>"
                                                                placeholder="Digite o CNPJ" name="cnpjAcademia" onchange="verificarCnpj();">
                                                         <small><span id='msnCNPJ'></span></small>
-                                                    </div> 
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="row">
@@ -56,7 +56,7 @@
                                                 <div class="col-md-9">
                                                     <div class="form-group">
                                                         <label>Endereço:*</label>
-                                                        <input type="text" id="enderecoAcademia" class="form-control" 
+                                                        <input type="text" id="enderecoAcademia" class="form-control"
                                                                placeholder="Digite o endereço" name="enderecoAcademia" value="<?php if ($idAcademia != "novo") echo $enderecoAcademia; ?>">
                                                     </div>
                                                 </div>
@@ -64,7 +64,7 @@
                                                 <div class="col-md-3">
                                                     <div class="form-group">
                                                         <label>Telefone:*</label>
-                                                        <input type="text" id="telefoneUsuario" class="form-control" 
+                                                        <input type="text" id="telefoneUsuario" class="form-control"
                                                                placeholder="Digite o telefone" name="telefoneAcademia" maxlength="15" value="<?php if ($idAcademia != "novo") echo $telefoneAcademia; ?>">
                                                     </div>
                                                 </div>
@@ -222,7 +222,7 @@
                                                 <div class="col-md-3">
                                                     <div class="form-group">
                                                         <label>Cidade:*</label>
-                                                        <input type="text" id="cidadeAcademia" class="form-control" 
+                                                        <input type="text" id="cidadeAcademia" class="form-control"
                                                                placeholder="Digite a cidade" name="cidadeAcademia" value="<?php if ($idAcademia != "novo") echo $cidadeAcademia; ?>">
                                                     </div>
                                                 </div>
@@ -230,7 +230,7 @@
                                                 <div class="col-md-3">
                                                     <div class="form-group">
                                                         <label>Bairro:*</label>
-                                                        <input type="text" id="bairroAcademia" class="form-control" 
+                                                        <input type="text" id="bairroAcademia" class="form-control"
                                                                placeholder="Digite o bairro" name="bairroAcademia" value="<?php
                                                                if ($idAcademia != "novo") {
                                                                    echo $bairroAcademia;
@@ -253,7 +253,7 @@
                                                     <div class="form-group">
                                                         <label for="projectinput3">Nome do Responsável:*</label>
                                                         <input type="text" id="nomeResponsavelAcademia" class="form-control"
-                                                               placeholder="Digite o nome do responsável da academia" 
+                                                               placeholder="Digite o nome do responsável da academia"
                                                                name="nomeResponsavelAcademia" value="<?php if ($idAcademia != "novo") echo $nomeResponsavelAcademia; ?>">
                                                     </div>
                                                 </div>
@@ -261,17 +261,17 @@
                                                 <div class="col-md-3">
                                                     <div class="form-group">
                                                         <label>E-mail:*</label>
-                                                        <input type="e-mail" id="emailAcademia" class="form-control" 
+                                                        <input type="e-mail" id="emailAcademia" class="form-control"
                                                                placeholder="Digite o e-mail" name="emailAcademia" value="<?php if ($idAcademia != "novo") echo $emailAcademia; ?>">
                                                     </div>
                                                 </div>
-                                            </div>                                            
+                                            </div>
                                             <div class="row">
                                                 <!-- MENSALIDADE DA ACADEMIA -->
                                                 <div class="col-md-3">
                                                     <div class="form-group">
                                                         <label>Mensalidade da academia:*</label>
-                                                        <input type="text" id="mensalidadeAcademia" class="form-control" 
+                                                        <input type="text" id="mensalidadeAcademia" class="form-control"
                                                                placeholder="Digite a mensalidade" name="mensalidadeAcademia" value="<?php if ($idAcademia != "novo") echo $mensalidadeAcademia; ?>">
                                                     </div>
                                                 </div>
@@ -361,7 +361,7 @@
                                                             </label>
                                                             <!-- NENHUM -->
                                                             <label class="display-inline-block custom-control custom-radio">
-                                                                <input <?php if (($idPacote !== '1') && ($idPacote !== '2') && ($idPacote !== '3') && ($idPacote !== '4') && ($idPacote === '5')) echo 'checked'; ?> 
+                                                                <input <?php if (($idPacote !== '1') && ($idPacote !== '2') && ($idPacote !== '3') && ($idPacote !== '4') && ($idPacote === '5')) echo 'checked'; ?>
                                                                     type="radio" name="pacotes" id="nenhum" value="" class="custom-control-input" onchange="valorPlanoPacote();">
                                                                 <span class="custom-control-indicator"></span>
                                                                 <span class="custom-control-description ml-0">Nenhum</span>
@@ -369,7 +369,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>  
+                                            </div>
                                             <div class="row">
                                                 <!-- PLANO DA ACADEMIA -->
                                                 <div class="col-md-4">
@@ -472,17 +472,17 @@
                                                             ?></label>
                                                     </div>
                                                 </div>
-                                            </div> 
+                                            </div>
                                             <div class="row">
                                                 <!-- MENSALIDADE DA ACADEMIA -->
                                                 <div class="col-md-3">
                                                     <div class="form-group">
                                                         <label>Dia do pagamento:*</label>
-                                                        <input type="text" id="diaPagamentoAcademia" class="form-control" 
+                                                        <input type="text" id="diaPagamentoAcademia" class="form-control"
                                                                placeholder="Digite o dia do pagamento" maxlength="2" name="diaPagamentoAcademia" value="<?php if ($idAcademia != "novo") echo $diaPagamentoAcademia; ?>">
                                                     </div>
                                                 </div>
-                                            </div>                                      
+                                            </div>
                                         </div>
                                     </form>
                                     <hr>
@@ -498,7 +498,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>                    
+                    </div>
                 </div>
             </section>
         </div>
@@ -506,13 +506,13 @@
 </div>
 
 <!-- MODAL - DADOS OBRIGATÓRIOS NÃO INFORMADOS -->
-<div class="modal fade text-xs-left" data-backdrop="static" id="dados-obrigatorios-academia" tabindex="-1" role="dialog" 
-     aria-labelledby="myModalLabel1" 
+<div class="modal fade text-xs-left" data-backdrop="static" id="dados-obrigatorios-academia" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel1"
      aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-body">
-                <h4 class="modal-title text-xs-center"><i class="icon-warning2 warning"></i> Dados obrigatórios não informados.</h4>
+                <h4 class="modal-title text-xs-center"><i class="icon-warning2 warning"></i> Dado(s) obrigatório(s) não informado(s).</h4>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
@@ -522,7 +522,7 @@
 </div>
 
 <!-- MODAL - CNPJ CADASTRADO -->
-<div class="modal fade text-xs-left" data-backdrop="static" id="cnpj-cadastrado" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
+<div class="modal fade text-xs-left" data-backdrop="static" id="cnpj-cadastrado" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1"
      aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -537,12 +537,12 @@
 </div>
 
 <!-- MODAL - DADOS CADASTRADOS/ALTERADOS COM SUCESSO -->
-<div class="modal fade text-xs-left" data-backdrop="static" id="sucesso-academia" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
+<div class="modal fade text-xs-left" data-backdrop="static" id="sucesso-academia" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1"
      aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-body">
-                <h4 class="modal-title text-xs-center"><i class="icon-check-circle success"></i> <?php if ($idAcademia !== "novo") { ?> Dados alterados com sucesso. 
+                <h4 class="modal-title text-xs-center"><i class="icon-check-circle success"></i> <?php if ($idAcademia !== "novo") { ?> Dados alterados com sucesso.
                     <?php } else { ?> Dados cadastrados com sucesso. <?php } ?></h4>
             </div>
             <div class="modal-footer">
@@ -553,12 +553,12 @@
 </div>
 
 <!-- MODAL - ERRO AO CADASTRAR/ALTERAR OS DADOS -->
-<div class="modal fade text-xs-left" data-backdrop="static" id="erro-academia" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
+<div class="modal fade text-xs-left" data-backdrop="static" id="erro-academia" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1"
      aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-body">
-                <h4 class="modal-title text-xs-center"><i class="icon-remove danger"></i> <?php if ($idAcademia !== "novo") { ?> Erro ao cadastrar os dados. 
+                <h4 class="modal-title text-xs-center"><i class="icon-remove danger"></i> <?php if ($idAcademia !== "novo") { ?> Erro ao cadastrar os dados.
                     <?php } else { ?> Erro ao alterar os dados. <?php } ?></h4>
             </div>
             <div class="modal-footer">
@@ -569,7 +569,7 @@
 </div>
 
 <!-- MODAL - FALHA AO SE CONECTAR COM A INTERNET -->
-<div class="modal fade text-xs-left" data-backdrop="static" id="falha-internet" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
+<div class="modal fade text-xs-left" data-backdrop="static" id="falha-internet" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1"
      aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">

@@ -1,7 +1,7 @@
 
 <!-- FORM DE CADASTRO DO ALUNO -->
 <div class="app-content content container-fluid">
-    <div class="content-wrapper">      
+    <div class="content-wrapper">
         <!-- CONTEÚDO DA PÁGINA - CAMPOS DE PREENCHIMENTO -->
         <div class="content-body">
             <section id="basic-form-layouts">
@@ -42,7 +42,7 @@
                                                         <label>E-mail:*</label>
                                                         <input type="email" id="emailAluno" name="emailAluno" minlength="6" class="form-control" placeholder="Digite o e-mail"
                                                                value="<?php if ($idAluno != "novo") echo $emailAluno; ?>">
-                                                    </div>                                                                
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="row">
@@ -53,7 +53,7 @@
                                                         <input type="text" id="cpfUsuario" name="cpfUsuario" maxlength="11" class="form-control" placeholder="Digite o CPF" onchange="verificarCpf();"
                                                                value="<?php if ($idAluno != "novo") echo $cpfAluno; ?>">
                                                         <small><span id='msnCPF'></span></small>
-                                                    </div>                                                                
+                                                    </div>
                                                 </div>
                                                 <!-- RG DO ALUNO -->
                                                 <div class="col-md-3">
@@ -61,7 +61,7 @@
                                                         <label>RG:*</label>
                                                         <input type="text" id="rgAluno" name="rgAluno" maxlength="18" class="form-control" placeholder="Digite o RG"
                                                                value="<?php if ($idAluno != "novo") echo $rgAluno; ?>">
-                                                    </div>                                                                
+                                                    </div>
                                                 </div>
                                                 <!-- DATA NASCIMENTO DO ALUNO -->
                                                 <div class="col-md-3">
@@ -467,7 +467,7 @@
                                                 <div class="col-md-8">
                                                     <div class="form-group">
                                                         <label>Nome do Responsável:</label>
-                                                        <input type="text" id="nomeResponsavelAluno" name="nomeResponsavelAluno" class="form-control" placeholder="Digite o nome do responsável" 
+                                                        <input type="text" id="nomeResponsavelAluno" name="nomeResponsavelAluno" class="form-control" placeholder="Digite o nome do responsável"
                                                                value="<?php if ($idAluno != "novo") if ($nomeResponsavelAluno != NULL) echo $nomeResponsavelAluno; ?>">
                                                     </div>
                                                 </div>
@@ -486,7 +486,7 @@
                                                 <!-- CIRURGIAS DO ALUNO -->
                                                 <div class="form-group col-md-6">
                                                     <label>Cirurgias:</label>
-                                                    <textarea id="cirurgiasAluno" name="cirurgiasAluno" class="form-control" maxlength="200" placeholder="Descreva as cirurgias que o aluno já foi submetido"  
+                                                    <textarea id="cirurgiasAluno" name="cirurgiasAluno" class="form-control" maxlength="200" placeholder="Descreva as cirurgias que o aluno já foi submetido"
                                                               ><?php if ($idAluno != "novo") if ($cirurgias != NULL) echo $cirurgias; ?></textarea>
                                                 </div>
                                                 <!-- MEDICAMENTOS DO ALUNO -->
@@ -531,7 +531,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-body">
-                <h4 class="modal-title text-xs-center"><i class="icon-warning2 warning"></i> Dados obrigatórios não informados.</h4>
+                <h4 class="modal-title text-xs-center"><i class="icon-warning2 warning"></i> Dado(s) obrigatório(s) não informado(s).</h4>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
@@ -588,7 +588,7 @@
 </div>
 
 <!-- MODAL - ERRO AO CADASTRAR/ALTERAR OS DADOS -->
-<div class="modal fade text-xs-left" data-backdrop="static" id="erro-aluno" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
+<div class="modal fade text-xs-left" data-backdrop="static" id="erro-aluno" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1"
      aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -605,7 +605,7 @@
 </div>
 
 <!-- MODAL - FALHA AO SE CONECTAR COM A INTERNET -->
-<div class="modal fade text-xs-left" data-backdrop="static" id="falha-internet" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
+<div class="modal fade text-xs-left" data-backdrop="static" id="falha-internet" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1"
      aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">

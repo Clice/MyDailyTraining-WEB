@@ -18,7 +18,7 @@ body{overflow-x:hidden;font-family:"Roboto Slab","Helvetica Neue",Helvetica,Aria
 
 .bg-dark-blue-mdt{background-color: #185b88}
 
-.label-primary{background-color: #209AED}
+.label-primary{background-color: #209AED; font-size:2em}
 
 .btn-primary{color:#fff;background-color:#209AED;border-color:#209AED}
 
