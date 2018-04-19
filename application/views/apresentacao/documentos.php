@@ -57,7 +57,7 @@
                 <!-- NOME DA PÁGINA -->
                 <div class="row">
                     <div class="col-lg-12 text-center">
-                        <h2 class="section-heading">Dúvidas?</h2>
+                        <h2 class="section-heading">Documentos</h2>
                         <h3 class="section-subheading text-muted">Clique no item para abrir o card e ver a descrição da funcionalidade.</h3>
                     </div>
                 </div>
@@ -132,7 +132,7 @@
                     </div>
                     <div class="col-md-3">
                         <ul class="list-inline quicklinks">
-                            <li><a href="<?php echo base_url('documentos'); ?>">Documentos</a></li>
+                            <li><a href="<?php echo base_url('faq'); ?>">FAQ</a></li>
                             <li><a href="<?php echo base_url('termos-de-uso') ?>">Termos de Uso</a></li>
                         </ul>
                     </div>
@@ -147,6 +147,6 @@
         <script src="<?php echo base_url('assets/layout/js/jqBootstrapValidation.js'); ?>"></script>
         <script src="<?php echo base_url('assets/layout/js/validarContato.js'); ?>"></script>
         <script src="<?php echo base_url('assets/layout/js/FAQ.js'); ?>"></script>
-
+        
     </body>
 </html>

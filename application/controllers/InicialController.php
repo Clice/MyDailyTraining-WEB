@@ -28,6 +28,16 @@ class InicialController extends CI_Controller {
         $this->load->view('apresentacao/faq');
     }
 
+    // FUNÇÃO CONTROLLER DE CARREGAMENTO DA VIEW DOCUMENTOS.PHP
+    public function vDocumentos() {
+        $this->load->view('apresentacao/documentos');
+    }
+
+    // FUNÇÃO CONTROLLER DE CARREGAMENTO DA VIEW TERMOS-DE-USO.PHP
+    public function vTermosDeUso() {
+        $this->load->view('apresentacao/termos-de-uso');
+    }
+
     // FUNÇÃO CONTROLLER DE CARREGAMENTO DA VIEW RECUPERAR-SENHA.PHP
     public function vError404() {
         $dados['nomePagina'] = "Erro 404";
@@ -77,12 +87,12 @@ class InicialController extends CI_Controller {
         echo json_encode($resposta);
     }
 
-    // FUNÇÃO CONTROLLER PARA AUXILIAR PARA REALIZAR O LOGIN DOS USUÁRIOS 
+    // FUNÇÃO CONTROLLER PARA AUXILIAR PARA REALIZAR O LOGIN DOS USUÁRIOS
     // CUJOS TIPO DE CONTA SEJA DIFERENTES DE 1
     public function cVerificarDadosUsuario($dadosUsuario) {
         $this->load->model('UsuarioModel');
 
-        // VERIFICANDO SE O STATUS DA ACADEMIA ESTÁ TRUE 
+        // VERIFICANDO SE O STATUS DA ACADEMIA ESTÁ TRUE
         // PARA QUE O USUÁRIO POSSA LOGAR
         $dadosAux = $this->UsuarioModel->mVerificarStatusAcademia($dadosUsuario['idAcademia']);
         $dadosAcademia = get_object_vars($dadosAux[0]);

@@ -220,22 +220,21 @@
                         <h2 class="section-heading">PLANOS</h2>
                     </div>
                 </div>
-                <br>
                 <div class="pricing-plans">
                     <div class="wrap">
-                        <div class="pricing-grids" style="margin-top: 0px;">
+                        <div class="pricing-grids">
 
                             <!-- PLANO SIMPLES -->
                             <div class="pricing-grid1" style="box-shadow: 5px 5px 5px rgba(0,0,0,0.5);">
                                 <div class="price-value">
                                     <h4 style="font-size: 1em;"><a href="">SIMPLES</a></h4>
-                                    <h5 style="font-size: 0.7em; font-weight: normal;"><span>R$ 50,00 / mês ou<br>R$ 600,00 / ano<br></span></h5>
+                                    <h5 style="font-size: 0.7em; font-weight: normal;"><span>R$ 50,00 / mês* ou<br>R$ 560,00 / ano**<br></span></h5>
                                 </div>
                                 <div class="price-bg">
                                     <br>
                                     <ul style="line-height: 35px;">
                                         <li>Sistema Web (R$ 40,00)</li>
-                                        <li>+ 150 Licenças</li>
+                                        <li>+ 150 Licenças*** (R$ 10,00)</li>
                                     </ul>
                                     <br>
                                     <ul>
@@ -255,13 +254,13 @@
                             <div class="pricing-grid2" style="box-shadow: 5px 5px 5px rgba(0,0,0,0.5);">
                                 <div class="price-value two">
                                     <h4  style="font-size: 1em;"><a href="">MÉDIO</a></h4>
-                                    <h5 style="font-size: 0.7em; font-weight: normal;"><span>R$ 70,00 / mês ou <br>R$ 840,00 / ano</span></h5>
+                                    <h5 style="font-size: 0.7em; font-weight: normal;"><span>R$ 70,00 / mês* ou <br>R$ 756,00 / ano**</span></h5>
                                 </div>
                                 <div class="price-bg">
                                     <br>
                                     <ul style="line-height: 35px;">
                                         <li>Sistema Web (R$ 40,00)</li>
-                                        <li>+ 300 Licenças</li>
+                                        <li>+ 300 Licenças*** (R$ 30,00)</li>
                                     </ul>
                                     <br>
                                     <ul>
@@ -281,13 +280,13 @@
                             <div class="pricing-grid3" style="box-shadow: 5px 5px 5px rgba(0,0,0,0.5);">
                                 <div class="price-value three">
                                     <h4 style="font-size: 1em;"><a href="">PRO</a></h4>
-                                    <h5 style="font-size: 0.7em; font-weight: normal;"><span>R$ 90,00/mês ou <br>R$ 1080,00 / ano</span></h5>
+                                    <h5 style="font-size: 0.7em; font-weight: normal;"><span>R$ 90,00 / mês* ou <br>R$ 972,00 / ano**</span></h5>
                                 </div>
                                 <div class="price-bg">
                                     <br>
                                     <ul style="line-height: 35px;">
                                         <li>Sistema Web (R$ 40,00)</li>
-                                        <li>+ 600 Licenças</li>
+                                        <li>+ 600 Licenças*** (R$ 50,00)</li>
                                     </ul>
                                     <br>
                                     <ul>
@@ -311,10 +310,10 @@
                                 <div class="price-bg">
                                     <br>
                                     <ul style="line-height: 35px;">
-                                        <li>Pacote A: 50 Licenças (R$ 10,00)</li>
-                                        <li>Pacote B: 100 Licenças (R$ 17,00)</li>
-                                        <li>Pacote C: 150 Licenças (R$ 25,00)</li>
-                                        <li>Pacote D: 200 Licenças (R$ 30,00)</li>
+                                        <li>Pacote A: 50 Licenças*** (R$ 10,00)</li>
+                                        <li>Pacote B: 100 Licenças*** (R$ 17,00)</li>
+                                        <li>Pacote C: 150 Licenças*** (R$ 25,00)</li>
+                                        <li>Pacote D: 200 Licenças*** (R$ 30,00)</li>
                                     </ul>
                                     <div style="height: 30px;">
 
@@ -324,8 +323,17 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="clear"> </div>
                         </div>
+                    </div>
+                </div>
+                <div class="row text-center">
+                    <div class="col-lg-12">
+                        <p style="margin-top: 20px;">* Os valores integrais anuais dos Planos Simples, Médio e Pro, são respectivamente:
+                            R$ 600,00, R$ 840,00 e R$ 1080,00. </p>
+                        <p>** Ao optar pelo pagamento do valor anual dos Planos Simples, Médio e Pro haverá um desconto de 10% no valor integral
+                            dos planos.</p>
+                        <p>*** As licenças são equivalentes a quantidade de alunos que uma academia poderá cadastrar no sistema e
+                            são para uso do Aplicativo Mobile pelos alunos.</p>
                     </div>
                 </div>
             </div>
@@ -340,7 +348,7 @@
                         <h3 class="section-subheading text-muted"></h3>
                     </div>
                 </div>
-                <div class="row">                                          
+                <div class="row">
                     <div class="col-md-6">
                         <h3 class="section-heading">2018</h3><br>
                         <span class="label label-primary">Q1</span>
@@ -348,13 +356,14 @@
                         <h4 class="service-heading">Pagamento com PagSeguro</h4>
                         <p class="text-muted">Academias poderão pagar os planos através da Internet.</p>
                     </div>
+                    <br>
                     <div class="col-md-6">
-                        <h3 class="section-heading">2018 - 2019</h3><br> 
+                        <h3 class="section-heading">2018 - 2019</h3><br>
                         <span class="label label-primary">Q2</span>
                         <label style="font-size: 20px;" class="service-heading">SETEMBRO a JUNHO</label>
                         <h4 class="service-heading">Módulo Financeiro</h4>
                         <p class="text-muted">Manutenção do pagamento e das informações financeiras da academia através do Sistema Web.</p>
-                    </div>  
+                    </div>
                 </div>
             </div>
         </section>
@@ -529,10 +538,9 @@
                     </div>
                     <div class="col-md-3">
                         <ul class="list-inline quicklinks">
-                            <li><a href="<?php echo base_url('faq') ?>">FAQ</a>
-                            </li>
-                            <li><a href="#">Termos de Uso</a>
-                            </li>
+                            <li><a href="<?php echo base_url('faq'); ?>">FAQ</a></li>
+                            <li><a href="<?php echo base_url('documentos'); ?>">Documentos</a></li>
+                            <li><a href="<?php echo base_url('termos-de-uso'); ?>">Termos de Uso</a></li>
                         </ul>
                     </div>
                 </div>
