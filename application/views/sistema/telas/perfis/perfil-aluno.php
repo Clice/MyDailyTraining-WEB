@@ -3,36 +3,35 @@
 <div class="app-content content container-fluid">
     <div class="content-wrapper">
         <!-- CONTEÚDO DO PÁGINA - DADOS DO ALUNO ESCOLHIDO -->
-        <div class="content-body">
-            <section id="basic-form-layouts">
-                <div class="row match-height">
-                    <div class="col-md-12">
-                        <div class="card">
-                            <div class="card-body collapse in">
-                                <div class="card-block">
-                                    <!-- TÍTULO DO PÁGINA - NOME DO ALUNO -->
-                                    <?php foreach ($perfilAluno as $aluno) { ?>
+
+        <?php foreach ($perfilAluno as $aluno) { ?>
+            <div class="content-body">
+                <section id="basic-form-layouts">
+                    <div class="row match-height">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-body collapse in">
+                                    <div class="card-block">
+                                        <!-- TÍTULO DO PÁGINA - NOME DO ALUNO -->
                                         <div class="content-header row">
                                             <div class="content-header-left col-md-5 mb-1">
                                                 <h2 class="content-header-title"><?php echo $aluno->nomeAluno; ?></h2>
                                             </div>
                                             <!-- BOTÕES -->
                                             <div style="float: right;" class="form-actions">
-                                                <?php if ($this->session->userdata('tipoConta') == 4) { ?>
-                                                    <button type="button" class="btn btn-indigo" onclick="verificarDiasTreinoAluno();">
-                                                        <i class="icon-IcoMoon"></i> Definir Treino
-                                                    </button>
-                                                    <?php if ($aluno->statusAluno != 0) { ?>
-                                                        <button type="button" class="btn btn-blue" onclick="window.location.href = '<?php echo base_url('cadastrar-avaliacao-fisica/' . md5($aluno->idAluno)); ?>'">
-                                                            <i class="icon-user5"></i> Realizar Avaliação Física
+                                                <?php if ($aluno->statusAluno != 0) { ?>
+                                                    <?php if ($this->session->userdata('tipoConta') == 4 && ($aluno->statusAluno != 0)) { ?>
+                                                        <button type="button" class="btn btn-indigo" onclick="verificarDiasTreinoAluno();">
+                                                            <i class="icon-IcoMoon"></i> Definir Treino
                                                         </button>
-                                                        <?php
-                                                    }
-                                                }
-                                                ?>
-                                                <button type="button" class="btn btn-green" onclick="window.location.href = '<?php echo base_url('imprimir-ficha/' . md5($aluno->idAluno)); ?>'">
-                                                    <i class="icon-print"></i> Imprimir Ficha
-                                                </button>
+                                                    <?php } ?>
+                                                    <button type="button" class="btn btn-blue" onclick="window.location.href = '<?php echo base_url('cadastrar-avaliacao-fisica/' . md5($aluno->idAluno)); ?>'">
+                                                        <i class="icon-user5"></i> Realizar Avaliação Física
+                                                    </button>
+                                                    <button type="button" class="btn btn-green" onclick="window.location.href = '<?php echo base_url('imprimir-ficha/' . md5($aluno->idAluno)); ?>'">
+                                                        <i class="icon-print"></i> Imprimir Ficha
+                                                    </button>
+                                                <?php } ?>
                                             </div>
                                         </div>
                                         <hr>
@@ -168,7 +167,7 @@
                                         <div class="row">
                                             <?php
                                             if ($aluno->nomeResponsavelAluno != NULL || $aluno->cirurgias != NULL ||
-                                                    $aluno->medicamentos != NULL || $aluno->doencasFamiliares != NULL) {
+                                            $aluno->medicamentos != NULL || $aluno->doencasFamiliares != NULL) {
                                                 ?>
                                                 <h4 style="margin-left: 14px;"><strong>Observações:</strong></h4>
                                                 <br>
@@ -226,31 +225,30 @@
                                                 <div style="float: right;" class="form-actions">
                                                     <button type="button"
                                                     <?php if ($aluno->statusAluno == 1) { ?>
-                                                                class="btn btn-black"
-                                                                onclick="modalDesBloquearAluno(this, <?php echo $aluno->idAluno; ?>, true);"
-                                                            <?php } else { ?>
-                                                                class="btn btn-blue"
-                                                                onclick="modalDesBloquearAluno(this, <?php echo $aluno->idAluno; ?>, false);"
-                                                            <?php } ?>
-                                                            ><i <?php if ($aluno->statusAluno == 1) { ?>
-                                                                class="icon-lock"
-                                                            <?php } else { ?>
-                                                                class="icon-unlock"
-                                                            <?php } ?>></i><?php if ($aluno->statusAluno) { ?> Bloquear <?php } else { ?> Desbloquear <?php } ?>
-                                                    </button>
-                                                    <button type="button" class="btn btn-warning" onclick="window.location.href = '<?php echo base_url('editar-aluno/' . md5($aluno->idAluno) . '/perfil-aluno'); ?>'">
-                                                        <i class="icon-edit"></i> Editar
-                                                    </button>
-                                                    <button type="button" class="btn btn-danger" onclick="modalExcluirAluno(<?php echo $aluno->idAluno; ?>);">
-                                                        <i class="icon-trash"></i> Excluir
-                                                    </button>
-                                                    <button type="button" class="btn btn-default" onclick="window.location.href = '<?php echo base_url('lista-alunos'); ?>'">
-                                                        <i class="icon-chevron-left2"></i> Voltar
-                                                    </button>
-                                                </div>
+                                                        class="btn btn-black"
+                                                        onclick="modalDesBloquearAluno(this, <?php echo $aluno->idAluno; ?>, true);"
+                                                    <?php } else { ?>
+                                                        class="btn btn-blue"
+                                                        onclick="modalDesBloquearAluno(this, <?php echo $aluno->idAluno; ?>, false);"
+                                                    <?php } ?>
+                                                    ><i <?php if ($aluno->statusAluno == 1) { ?>
+                                                        class="icon-lock"
+                                                    <?php } else { ?>
+                                                        class="icon-unlock"
+                                                    <?php } ?>></i><?php if ($aluno->statusAluno) { ?> Bloquear <?php } else { ?> Desbloquear <?php } ?>
+                                                </button>
+                                                <button type="button" class="btn btn-warning" onclick="window.location.href = '<?php echo base_url('editar-aluno/' . md5($aluno->idAluno) . '/perfil-aluno'); ?>'">
+                                                    <i class="icon-edit"></i> Editar
+                                                </button>
+                                                <button type="button" class="btn btn-danger" onclick="modalExcluirAluno(<?php echo $aluno->idAluno; ?>);">
+                                                    <i class="icon-trash"></i> Excluir
+                                                </button>
+                                                <button type="button" class="btn btn-default" onclick="window.location.href = '<?php echo base_url('lista-alunos'); ?>'">
+                                                    <i class="icon-chevron-left2"></i> Voltar
+                                                </button>
                                             </div>
                                         </div>
-                                    <?php } ?>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -258,7 +256,7 @@
                 </div>
             </section>
 
-            <?php if (count($treinosAluno) > 0) { ?>
+            <?php if ((count($treinosAluno) > 0) && ($aluno->statusAluno != 0)) { ?>
                 <section id="basic-form-layouts">
                     <div class="row match-height">
                         <div class="col-xl-12">
@@ -292,61 +290,60 @@
                                                                             <tr>
                                                                                 <td><?php echo $treinoAluno->nomeTreino; ?></td>
                                                                                 <td><?php
-                                                                                    if ($treinoAluno->domingo == true) {
-                                                                                        echo "Domingo; ";
-                                                                                    }
+                                                                                if ($treinoAluno->domingo == true) {
+                                                                                    echo "Domingo; ";
+                                                                                }
 
-                                                                                    if ($treinoAluno->segunda == true) {
-                                                                                        echo "Segunda; ";
-                                                                                    }
+                                                                                if ($treinoAluno->segunda == true) {
+                                                                                    echo "Segunda; ";
+                                                                                }
 
-                                                                                    if ($treinoAluno->terca == true) {
-                                                                                        echo "Terça; ";
-                                                                                    }
+                                                                                if ($treinoAluno->terca == true) {
+                                                                                    echo "Terça; ";
+                                                                                }
 
-                                                                                    if ($treinoAluno->quarta == true) {
-                                                                                        echo "Quarta; ";
-                                                                                    }
+                                                                                if ($treinoAluno->quarta == true) {
+                                                                                    echo "Quarta; ";
+                                                                                }
 
-                                                                                    if ($treinoAluno->quinta == true) {
-                                                                                        echo "Quinta; ";
-                                                                                    }
+                                                                                if ($treinoAluno->quinta == true) {
+                                                                                    echo "Quinta; ";
+                                                                                }
 
-                                                                                    if ($treinoAluno->sexta == true) {
-                                                                                        echo "Sexta; ";
-                                                                                    }
+                                                                                if ($treinoAluno->sexta == true) {
+                                                                                    echo "Sexta; ";
+                                                                                }
 
-                                                                                    if ($treinoAluno->sabado == true) {
-                                                                                        echo "Sábado; ";
-                                                                                    }
-                                                                                    ?>
-                                                                                </td>
-                                                                                <td>
-                                                                                    <?php
-                                                                                    for ($i = 0; $i < count($exerciciosTreinos); $i++) {
-                                                                                        for ($j = 0; $j < count($exerciciosTreinos[$i]); $j++) {
-                                                                                            if ($exerciciosTreinos[$i][$j]['idTreino'] == $treinoAluno->idTreino) {
-                                                                                                echo $exerciciosTreinos[$i][$j]['nomeExercicio'] . "; ";
-                                                                                            }
+                                                                                if ($treinoAluno->sabado == true) {
+                                                                                    echo "Sábado; ";
+                                                                                }
+                                                                                ?>
+                                                                            </td>
+                                                                            <td>
+                                                                                <?php
+                                                                                for ($i = 0; $i < count($exerciciosTreinos); $i++) {
+                                                                                    for ($j = 0; $j < count($exerciciosTreinos[$i]); $j++) {
+                                                                                        if ($exerciciosTreinos[$i][$j]['idTreino'] == $treinoAluno->idTreino) {
+                                                                                            echo $exerciciosTreinos[$i][$j]['nomeExercicio'] . "; ";
                                                                                         }
                                                                                     }
-                                                                                    ?>
+                                                                                }
+                                                                                ?>
+                                                                            </td>
+                                                                            <?php if ($this->session->userdata('tipoConta') == 4) { ?>
+                                                                                <td style="text-align: center;">
+                                                                                    <button type="button" class="btn mb-1 btn-success btn-sm"
+                                                                                    onclick="window.location.href = '<?php echo base_url('perfil-treino/' . md5($treinoAluno->idTreino)); ?>'"><i class="icon-eye"></i> Ver Perfil</button>
+                                                                                    <button type="button" class="btn mb-1 btn-warning btn-sm"
+                                                                                    onclick="window.location.href = '<?php echo base_url('editar-treino/' . $aluno->idAluno . '/' . md5($treinoAluno->idTreino)); ?>'"><i class="icon-edit"></i> Editar</button>
+                                                                                    <button type="button" class="btn mb-1 btn-danger btn-sm"
+                                                                                    onclick="modalExcluirTreino(<?php echo $treinoAluno->idTreino; ?>);"><i class="icon-trash-o"></i> Excluir</button>
                                                                                 </td>
-                                                                                <?php if ($this->session->userdata('tipoConta') == 4) { ?>
-                                                                                    <td style="text-align: center;">
-                                                                                        <button type="button" class="btn mb-1 btn-success btn-sm"
-                                                                                                onclick="window.location.href = '<?php echo base_url('perfil-treino/' . md5($treinoAluno->idTreino)); ?>'"><i class="icon-eye"></i> Ver Perfil</button>
-                                                                                        <button type="button" class="btn mb-1 btn-warning btn-sm"
-                                                                                                onclick="window.location.href = '<?php echo base_url('editar-treino/' . $aluno->idAluno . '/' . md5($treinoAluno->idTreino)); ?>'"><i class="icon-edit"></i> Editar</button>
-                                                                                        <button type="button" class="btn mb-1 btn-danger btn-sm"
-                                                                                                onclick="modalExcluirTreino(<?php echo $treinoAluno->idTreino; ?>);"><i class="icon-trash-o"></i> Excluir</button>
-                                                                                    </td>
-                                                                                <?php } ?>
-                                                                            </tr>
-                                                                        <?php } ?>
-                                                                    </tbody>
-                                                                </table>
-                                                            </div>
+                                                                            <?php } ?>
+                                                                        </tr>
+                                                                    <?php } ?>
+                                                                </tbody>
+                                                            </table>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -357,45 +354,47 @@
                             </div>
                         </div>
                     </div>
-                </section>
-            <?php } ?>
-        </div>
-    </div>
+                </div>
+            </section>
+        <?php } ?>
+    <?php } ?>
+</div>
+</div>
 </div>
 
 <!-- MODAL - DIAS DE TREINO DO ALUNO COMPLETOS -->
 <div class="modal fade text-xs-left" data-backdrop="static" id="erro-dias-completos" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1"
-     aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-body">
-                <h4 class="modal-title text-xs-center"><i class="icon-remove danger"></i> Dias de treino do aluno completos.</h4>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-            </div>
+aria-hidden="true">
+<div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-body">
+            <h4 class="modal-title text-xs-center"><i class="icon-remove danger"></i> Dias de treino do aluno completos.</h4>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
         </div>
     </div>
 </div>
+</div>
 
 <script>
-    function verificarDiasTreinoAluno() {
-        var dados = "idAluno=" + document.getElementById('idAluno').value;
-        $.ajax({
-            url: "<?php echo base_url('ExercicioTreinoController/cVerificarDiasTreinosAluno') ?>",
-            type: "POST",
-            data: dados,
-            dataType: "JSON",
-            success: function (data) {
-                if (data.success) {
-                    window.location.href = '<?php echo base_url('cadastrar-treino/' . $idAluno . '/novo'); ?>';
-                } else {
-                    $('#erro-dias-completos').modal('show');
-                }
-            },
-            error: function (request, status, error) {
-                alert("Erro: " + request.responseText);
+function verificarDiasTreinoAluno() {
+    var dados = "idAluno=" + document.getElementById('idAluno').value;
+    $.ajax({
+        url: "<?php echo base_url('ExercicioTreinoController/cVerificarDiasTreinosAluno') ?>",
+        type: "POST",
+        data: dados,
+        dataType: "JSON",
+        success: function (data) {
+            if (data.success) {
+                window.location.href = '<?php echo base_url('cadastrar-treino/' . $idAluno . '/novo'); ?>';
+            } else {
+                $('#erro-dias-completos').modal('show');
             }
-        });
-    }
+        },
+        error: function (request, status, error) {
+            alert("Erro: " + request.responseText);
+        }
+    });
+}
 </script>

@@ -129,7 +129,7 @@ class AlunoController extends CI_Controller {
     // FUNÇÃO DE CARREGAMENTO DA VIEW PERFIL-ALUNO.PHP
     public function vPerfilAluno($idAluno) {
         $dadosAluno['nomePagina'] = "Perfil do Aluno";
-        $dadosAluno['urlPagina'] = "perfil-aluno";
+        $dadosAluno['urlPagina'] = "perfil-aluno/" . $idAluno;
         $dadosAluno['perfilAluno'] = $this->AlunoModel->mVisualizarPerfilAluno($idAluno);
         $dadosAluno['treinosAluno'] = $this->TreinoModel->mEncontrarTreinosAluno($idAluno);
         $dadosAluno['exerciciosTreino'] = $this->ExercicioTreinoModel->mVisualizarExerciciosTreino($idAluno);
@@ -163,7 +163,7 @@ class AlunoController extends CI_Controller {
 
     // FUNÇÃO CONTROLLER PARA CADASTRAR/EDITAR ALUNO
     public function cCadastrarEditarAluno() {
-        // PEGANDO OS VALORES PASSADOS PELO CADASTRAR-EDITAR-ALUNO.PHP     
+        // PEGANDO OS VALORES PASSADOS PELO CADASTRAR-EDITAR-ALUNO.PHP
         $dadosAluno = array(
             'idAluno' => $this->input->post('idAluno'),
             'idAcademia' => $this->input->post('idAcademia'),

@@ -28,7 +28,7 @@ function verificarDadosAluno() {
     if ((idAluno === "") || (idAcademia === "") || (nomeAluno === "") || (dataNascimentoAluno === "") || (cpfAluno === "") ||
             (rgAluno === "") || (emailAluno === "") || (sexoAluno === "") || (telefoneAluno === "") || (enderecoAluno === "") ||
             (estadoAluno === "") || (cidadeAluno === "") || (bairroAluno === "") || (cepAluno === "") || (objetivoAluno === "") ||
-            (diaValidadeExame === "Selecione o dia") || (diaPagamentoAluno === "Selecione o dia")) {
+            (diaValidadeExame === "Selecione o dia") || (diaPagamentoAluno === "Selecione o dia") || (emailAluno.indexOf("@") === -1)) {
         $('#dados-obrigatorios-aluno').modal('show');
     } else {
         if (msnCPF === "CPF válido!") {

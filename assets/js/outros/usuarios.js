@@ -25,8 +25,8 @@ function verificarDadosUsuario() {
 
     var msnCPF = $('#msnCPF').val();
 
-    if ((idUsuario === "") || (nomeUsuario === "") || (loginUsuario === "") || (senhaUsuario === "") ||
-            (emailUsuario === "") || (cpfUsuario === "") || (rgUsuario === "") || (dataNascimentoUsuario === "") ||
+    if ((idUsuario === "") || (nomeUsuario === "") || (loginUsuario === "") || (senhaUsuario === "") || (emailUsuario === "") ||
+            (emailUsuario.indexOf("@") === -1) || (cpfUsuario === "") || (rgUsuario === "") || (dataNascimentoUsuario === "") ||
             (enderecoUsuario === "") || (estadoUsuario === "") || (cidadeUsuario === "") || (bairroUsuario === "") ||
             (sexoUsuario === "") || (cepUsuario === "") || (telefoneUsuario === "")) {
         if (tipoConta > 1) {
@@ -142,7 +142,7 @@ function pesquisarEqualTech() {
 }
 
 // FUNÇÃO PARA CONTROLE DOS PLANOS E PACOTES DA EMPRESA
-// CONTROLANDO OS INPUTS RADIOS PARA QUE O USUÁRIO ESCOLHA CORRETAMENTE AS OPÇÕES 
+// CONTROLANDO OS INPUTS RADIOS PARA QUE O USUÁRIO ESCOLHA CORRETAMENTE AS OPÇÕES
 function verificarSexoUsuario() {
     // SE O SEXO FOR FEMININO
     if (document.getElementById('sexoFeminino').checked) {
