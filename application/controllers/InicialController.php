@@ -34,8 +34,8 @@ class InicialController extends CI_Controller {
     }
 
     // FUNÇÃO CONTROLLER DE CARREGAMENTO DA VIEW TERMOS-DE-USO.PHP
-    public function vTermosDeUso() {
-        $this->load->view('apresentacao/termos-de-uso');
+    public function vTermoDeUso() {
+        $this->load->view('apresentacao/termo-de-uso');
     }
 
     // FUNÇÃO CONTROLLER DE CARREGAMENTO DA VIEW RECUPERAR-SENHA.PHP
@@ -121,7 +121,7 @@ class InicialController extends CI_Controller {
     // FUNÇÃO CONTROLLER PARA REALIZAR O LOGOUT DO USUÁRIO
     public function cLogoutUsuario() {
         $this->session->sess_destroy();
-        redirect(base_url());
+        redirect(base_url('login'));
     }
 
     public function cEnviarEmailContato() {

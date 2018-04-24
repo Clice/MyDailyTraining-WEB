@@ -133,7 +133,7 @@
                     <div class="col-md-3">
                         <ul class="list-inline quicklinks">
                             <li><a href="<?php echo base_url('documentos'); ?>">Documentos</a></li>
-                            <li><a href="<?php echo base_url('termos-de-uso') ?>">Termos de Uso</a></li>
+                            <li><a href="<?php echo base_url('termo-de-uso') ?>">Termos de Uso</a></li>
                         </ul>
                     </div>
                 </div>

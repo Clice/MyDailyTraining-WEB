@@ -10,7 +10,7 @@
         <link rel="shortcut icon" href="<?php echo base_url('assets/imagens/Icon.png'); ?>">
 
         <!-- TÍTULO DA PÁGINA -->
-        <title>MyDailyTraining - Página de Ajuda</title>
+        <title>MyDailyTraining - Termo de Uso</title>
 
         <!-- CSS -->
         <link href="<?php echo base_url('assets/layout/vendor/bootstrap/css/bootstrap.min.css'); ?>" rel="stylesheet">
@@ -57,8 +57,8 @@
                 <!-- NOME DA PÁGINA -->
                 <div class="row">
                     <div class="col-lg-12 text-center">
-                        <h2 class="section-heading">Termos de Uso</h2>
-                        <h3 class="section-subheading text-muted">Clique no item para abrir o card e ver a descrição da funcionalidade.</h3>
+                        <h2 class="section-heading">Termo de Uso</h2>
+                        <h3 class="section-subheading text-muted">Clique no item para abrir o card e ver os termo de uso.</h3>
                     </div>
                 </div>
 
@@ -68,54 +68,35 @@
                         <div class="panel-heading">
                             <h4 class="panel-title">
                                 <a data-toggle="collapse" href="#item1" aria-expanded="true" aria-controls="collapse-example" class="d-block">
-                                    <i class="fa fa-chevron-down pull-right"></i> Efetuar Login no Sistema Web
+                                    <i class="fa fa-chevron-down pull-right"></i> Termo de Uso do MyDailyTraining
                                 </a>
                             </h4>
                         </div>
                         <div id="item1" class="panel-collapse collapse">
                             <div class="card-body">
                                 <ul>
-                                    <li>1º </li>
-                                    <li>2º </li>
-                                    <li>3º </li>
-                                    <li>4º </li>
-                                    <li>5º </li>
+                                    <br>
+                                    <li>O(s) usuário(s) concorda(m) que o uso do MYDAILYTRAINING não significa, nem significará qualquer outro direito sobre o mesmo, não podendo explorá-lo comercialmente ou comercializá-lo como está definido na Lei nº 9.609, de 19 de fevereiro de 1998.</li>
+                                    <br>
+                                    <li>O(s) usuário(s) compromete(m)-se ainda a não copiar, modificar, revender ou fazer propaganda enganosa sobre o mesmo e declara estar ciente de que o MYDAILYTRAINING contém informações confidenciais protegidas pela Lei sobre proteção de propriedade intelectual e por direitos autorais, segundo a LEI Nº 9.610, DE 19 DE FEVEREIRO DE 1998.</li>
+                                    <br>
+                                    <li>Os termos e condições poderão ser atualizados e modificados a qualquer tempo, independente de notificação prévia, cabendo ao(s) usuário(s) manter(em)-se atualizado(s) através do endereço https://www.mydailytraining.com.br/termos-de-uso.</li>
+                                    <br>
+                                    <li> MYDAILYTRAINING poderá sofrer atualizações caso haja a necessidade de correções de falhas.</li>
+                                    <br>
+                                    <li>O(s) usuário(s) concorda(m) em receber, via e-mail, informativos do MYDAILYTRAINING e da EQUALTECH.</li>
+                                    <br>
+                                    <li>O(s) usuário(s) aceita(m) que a EQUALTECH poderá, ao seu critério, alterar a prestação de serviços, interromper temporariamente ou definitivamente, mediante aviso prévio.</li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <!-- LOGIN NO APLICATIVO MOBILE -->
-                <div class="panel-group">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">
-                                <a data-toggle="collapse" href="#item2" aria-expanded="true" aria-controls="collapse-example" class="d-block">
-                                    <i class="fa fa-chevron-down pull-right"></i> Efetuar Login no Aplicativo Mobile
-                                </a>
-                            </h4>
-                        </div>
-                        <div id="item2" class="panel-collapse collapse">
-                            <div class="card-body">
-                                <ul>
-                                    <li>1º </li>
-                                    <li>2º </li>
-                                    <li>3º </li>
-                                    <li>4º </li>
-                                    <li>5º </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
             </div>
         </section>
 
         <!-- FOOTER -->
-        <footer>
+        <footer class="footer footer-static">
             <div class="container">
                 <div class="row">
                     <div class="col-md-4">

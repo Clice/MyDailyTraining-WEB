@@ -14,7 +14,7 @@ $route['pagina-principal'] = 'PrincipalController';
 $route['recuperar-senha'] = 'InicialController/vRecuperarSenha';
 $route['faq'] = 'InicialController/vFAQ';
 $route['documentos'] = 'InicialController/vDocumentos';
-$route['termos-de-uso'] = 'InicialController/vTermosDeUso';
+$route['termo-de-uso'] = 'InicialController/vTermoDeUso';
 
 // ROTAS PARA O RELATÓRIO, PERFIL E NOTIFICAÇÕES
 $route['relatorio'] = 'PrincipalController/vRelatorio';

@@ -32,7 +32,7 @@ class InstrutorController extends CI_Controller {
             $dadosInstrutor['chamadosInstrutor'] = $this->InstrutorModel->mListarChamadosInstrutores($this->session->userdata('idUsuario'));
         }
 
-        // CARREGANDO AS VIEWS DA PÁGINA 
+        // CARREGANDO AS VIEWS DA PÁGINA
         $this->load->view('sistema/templates/html-header', $dadosInstrutor);
         $this->load->view('sistema/templates/header');
         $this->load->view('sistema/templates/side-menu');
@@ -61,7 +61,7 @@ class InstrutorController extends CI_Controller {
             $dadosInstrutor['chamadosInstrutor'] = $this->InstrutorModel->mListarChamadosInstrutores($this->session->userdata('idUsuario'));
         }
 
-        // CARREGANDO AS VIEWS DA PÁGINA 
+        // CARREGANDO AS VIEWS DA PÁGINA
         $this->load->view('sistema/templates/html-header', $dadosInstrutor);
         $this->load->view('sistema/templates/header');
         $this->load->view('sistema/templates/side-menu');
@@ -90,7 +90,7 @@ class InstrutorController extends CI_Controller {
             $dadosInstrutor['chamadosInstrutor'] = $this->InstrutorModel->mListarChamadosInstrutores($this->session->userdata('idUsuario'));
         }
 
-        // CARREGANDO AS VIEWS DA PÁGINA 
+        // CARREGANDO AS VIEWS DA PÁGINA
         $this->load->view('sistema/templates/html-header', $dadosInstrutor);
         $this->load->view('sistema/templates/header');
         $this->load->view('sistema/templates/side-menu');
@@ -132,6 +132,7 @@ class InstrutorController extends CI_Controller {
 
         // PEGANDO AS INFORMAÇÕES DO INSTRUTOR PARA OS CHAMADOS
         $dadosInstrutor['chamadosInstrutor'] = $this->InstrutorModel->mListarChamadosInstrutores($idInstrutor);
+        $dadosInstrutor['listaChamadosInstrutor'] = $this->InstrutorModel->mListaChamadosInstrutores($this->session->userdata('idUsuario'));
 
         // CARREGANDO AS VIEWS DA PÁGINA
         $this->load->view('sistema/templates/html-header', $dadosInstrutor);

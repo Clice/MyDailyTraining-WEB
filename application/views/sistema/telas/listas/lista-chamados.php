@@ -3,7 +3,7 @@
         <div class="content-body">
             <div class="row">
                 <div class="col-xl-12">
-                    <div class="card">        
+                    <div class="card">
                         <div class="card-header">
                             <div class="content-header row">
                                 <div class="content-header-left col-md-6 col-xs-12 mb-1">
@@ -17,10 +17,10 @@
                                             <li class="mb-1">
                                                 <button type="button" class="btn btn-secondary btn-block" onclick="window.location.reload()">
                                                     <i class="icon-refresh"></i> Atualizar</button>
-                                            </li>                                            
+                                            </li>
                                         </ul>
                                     </div>
-                                </div>                                
+                                </div>
                             </div>
                         </div>
                         <div class="card-body">
@@ -39,12 +39,12 @@
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
-                                                                <?php foreach ($chamadosInstrutor as $chamadoInstrutor) { ?>
+                                                                <?php foreach ($listaChamadosInstrutor as $chamadoInstrutor) { ?>
                                                                     <tr>
                                                                         <td><?php echo $chamadoInstrutor->nomeAluno; ?></td>
                                                                         <td style="text-align: center;"><?php echo $chamadoInstrutor->horarioChamado; ?></td>
                                                                     </tr>
-                                                                <?php } ?> 
+                                                                <?php } ?>
                                                             </tbody>
                                                         </table>
                                                     </div>

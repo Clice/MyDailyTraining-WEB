@@ -43,7 +43,16 @@
                                     }
                                     ?>
                                     <span class="tag tag-pill tag-default tag-danger tag-default tag-up">
-                                        <?php echo $qtdNotificacoes; ?></span>
+                                        <?php
+                                        if ($qtdNotificacoes == 1) {
+                                          echo $qtdNotificacoes;
+                                        } else if ($qtdNotificacoes == 2) {
+                                          echo $qtdNotificacoes;
+                                        } else if ($qtdNotificacoes == 3) {
+                                          echo $qtdNotificacoes;
+                                        } else if ($qtdNotificacoes > 3) {
+                                          echo "+3";
+                                        } ?></span>
                                 </a>
                                 <!-- CORPO DO SINO DE NOTIFICAÇÃO DOS CHAMADOS -->
                                 <ul class="dropdown-menu dropdown-menu-media dropdown-menu-right">

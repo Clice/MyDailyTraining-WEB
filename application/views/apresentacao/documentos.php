@@ -58,53 +58,129 @@
                 <div class="row">
                     <div class="col-lg-12 text-center">
                         <h2 class="section-heading">Documentos</h2>
-                        <h3 class="section-subheading text-muted">Clique no item para abrir o card e ver a descrição da funcionalidade.</h3>
+                        <h3 class="section-subheading text-muted">Clique no item para abrir o card e baixar uma versão do documento.</h3>
                     </div>
                 </div>
 
-                <!-- LOGIN NO SISTEMA WEB -->
+                <!-- DOCUMENTO DE VISÃO -->
                 <div class="panel-group">
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h4 class="panel-title">
                                 <a data-toggle="collapse" href="#item1" aria-expanded="true" aria-controls="collapse-example" class="d-block">
-                                    <i class="fa fa-chevron-down pull-right"></i> Efetuar Login no Sistema Web
+                                    <i class="fa fa-chevron-down pull-right"></i> Documento de Visão
                                 </a>
                             </h4>
                         </div>
                         <div id="item1" class="panel-collapse collapse">
                             <div class="card-body">
+                                <br>
                                 <ul>
-                                    <li>1º </li>
-                                    <li>2º </li>
-                                    <li>3º </li>
-                                    <li>4º </li>
-                                    <li>5º </li>
+                                    <li>
+                                        <div class="col-lg-10">Versão: 0.15</div>
+                                        <div class="col-lg-2">
+                                            <a href="#">
+                                                <button type="button" class="btn btn-primary">
+                                                    <i class="fa fa-download"></i> Download
+                                                </button>
+                                            </a>
+                                        </div>
+                                    </li>
                                 </ul>
+                                <br>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- LOGIN NO APLICATIVO MOBILE -->
+                <!-- DOCUMENTO DE REQUISITOS -->
                 <div class="panel-group">
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h4 class="panel-title">
                                 <a data-toggle="collapse" href="#item2" aria-expanded="true" aria-controls="collapse-example" class="d-block">
-                                    <i class="fa fa-chevron-down pull-right"></i> Efetuar Login no Aplicativo Mobile
+                                    <i class="fa fa-chevron-down pull-right"></i> Documento de Requisitos
                                 </a>
                             </h4>
                         </div>
                         <div id="item2" class="panel-collapse collapse">
                             <div class="card-body">
+                                <br>
                                 <ul>
-                                    <li>1º </li>
-                                    <li>2º </li>
-                                    <li>3º </li>
-                                    <li>4º </li>
-                                    <li>5º </li>
+                                    <li>
+                                        <div class="col-lg-10">Versão: 0.15</div>
+                                        <div class="col-lg-2">
+                                            <a href="#">
+                                                <button type="button" class="btn btn-primary">
+                                                    <i class="fa fa-download"></i> Download
+                                                </button>
+                                            </a>
+                                        </div>
+                                    </li>
                                 </ul>
+                                <br>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DOCUMENTO DE ARQUITETURA -->
+                <div class="panel-group">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" href="#item3" aria-expanded="true" aria-controls="collapse-example" class="d-block">
+                                    <i class="fa fa-chevron-down pull-right"></i> Documento de Arquitetura
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="item3" class="panel-collapse collapse">
+                            <div class="card-body">
+                                <br>
+                                <ul>
+                                    <li>
+                                        <div class="col-lg-10">Versão: 0.15</div>
+                                        <div class="col-lg-2">
+                                            <a href="#">
+                                                <button type="button" class="btn btn-primary">
+                                                    <i class="fa fa-download"></i> Download
+                                                </button>
+                                            </a>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <br>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DOCUMENTO DE TESTE -->
+                <div class="panel-group">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" href="#item4" aria-expanded="true" aria-controls="collapse-example" class="d-block">
+                                    <i class="fa fa-chevron-down pull-right"></i> Documento de Teste
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="item4" class="panel-collapse collapse">
+                            <div class="card-body">
+                                <br>
+                                <ul>
+                                    <li>
+                                        <div class="col-lg-10">Versão: 0.15</div>
+                                        <div class="col-lg-2">
+                                            <a href="#">
+                                                <button type="button" class="btn btn-primary">
+                                                    <i class="fa fa-download"></i> Download
+                                                </button>
+                                            </a>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <br>
                             </div>
                         </div>
                     </div>
@@ -133,7 +209,7 @@
                     <div class="col-md-3">
                         <ul class="list-inline quicklinks">
                             <li><a href="<?php echo base_url('faq'); ?>">FAQ</a></li>
-                            <li><a href="<?php echo base_url('termos-de-uso') ?>">Termos de Uso</a></li>
+                            <li><a href="<?php echo base_url('termo-de-uso') ?>">Termos de Uso</a></li>
                         </ul>
                     </div>
                 </div>
@@ -147,6 +223,6 @@
         <script src="<?php echo base_url('assets/layout/js/jqBootstrapValidation.js'); ?>"></script>
         <script src="<?php echo base_url('assets/layout/js/validarContato.js'); ?>"></script>
         <script src="<?php echo base_url('assets/layout/js/FAQ.js'); ?>"></script>
-        
+
     </body>
 </html>
