@@ -30,15 +30,15 @@ if ($rsLogin->rowCount() > 0) {
         $loginAluno = base64_decode($dados['loginAluno']);
         $senhaAluno = base64_decode($dados['senhaAluno']);
         $enderecoAluno = $dados['enderecoAluno'];
+        $cidadeAluno = $dados['cidadeAluno'];
+        $bairroAluno = $dados['bairroAluno'];
+        $cepAluno = $dados['cepAluno'];
+        $estadoAluno = $dados['estadoAluno'];
         $telefoneAluno = $dados['telefoneAluno'];
         $statusAluno = $dados['statusAluno'];
         $statusAcademia = $dados['statusAcademia'];
         $sexoAluno = $dados['sexoAluno'];
     }
-
-    echo $statusAluno;
-    echo "";
-    echo $statusAcademia;
 
     if ($statusAcademia == 0) {
         echo "academiaBloqueada";
@@ -47,7 +47,7 @@ if ($rsLogin->rowCount() > 0) {
     } else {
 
         echo "loginSucesso" . "/" . $idAluno . "/" . $idAcademia . "/" . $nomeAluno . "/" . $emailAluno . "/" . $loginAluno . "/" . $senhaAluno .
-        "/" . $enderecoAluno . "/" . $telefoneAluno . "/" . $sexoAluno;
+        "/" . $enderecoAluno . "/" . $cidadeAluno . "/" . $bairroAluno . "/" . $cepAluno . "/" . $estadoAluno . "/" . $telefoneAluno . "/" . $sexoAluno;
     }
 } else {
     echo "loginErro";

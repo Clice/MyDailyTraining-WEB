@@ -58,7 +58,7 @@ class AcademiaModel extends CI_Model {
 
     // FUNÇÃO PARA PEGAR TODAS AS ACADEMIAS DESBLOQUEADAS
     public function mListarAcademiasAtivas() {
-        $this->db->select('idAcademia, nomeAcademia, enderecoAcademia, 
+        $this->db->select('idAcademia, nomeAcademia, enderecoAcademia,
             telefoneAcademia, cnpjAcademia');
         $this->db->from('academias');
         $this->db->where('statusAcademia', true);
@@ -67,7 +67,7 @@ class AcademiaModel extends CI_Model {
 
     // FUNÇÃO PARA PEGAR TODAS AS ACADEMIAS BLOQUEADAS
     public function mListarAcademiasBloqueadas() {
-        $this->db->select('idAcademia, nomeAcademia, enderecoAcademia, 
+        $this->db->select('idAcademia, nomeAcademia, enderecoAcademia,
             telefoneAcademia, cnpjAcademia');
         $this->db->from('academias');
         $this->db->where('statusAcademia', false);
@@ -100,7 +100,7 @@ class AcademiaModel extends CI_Model {
         return $this->db->get('academias')->result();
     }
 
-    // FUNÇÃO PARA SABER A QUANTIDADE DE ACADEMIAS QUE A 
+    // FUNÇÃO PARA SABER A QUANTIDADE DE ACADEMIAS QUE A
     // ACADEMIA POSSUI E QUANTAS JÁ FORAM USADAS
     public function mQtdLicencasTotaisEUsadas($idAcademia) {
         $this->db->select('idAcademia, qtdTotalLicencas, qtdLicencasUsadas');
@@ -124,7 +124,7 @@ class AcademiaModel extends CI_Model {
 
     // FUNÇÃO PARA PEGAR TODAS AS ACADEMIAS DESBLOQUEADAS
     public function mAniversariantesFuncionariosMes($idAcademia) {
-        $mesAtual = date('m');
+        $mesAtual = date('-m-');
         $this->db->select('nomeUsuario, dataNascimentoUsuario');
         $this->db->from('usuarios');
         $this->db->where('idAcademia', $idAcademia);
@@ -135,7 +135,7 @@ class AcademiaModel extends CI_Model {
 
     // FUNÇÃO PARA PEGAR TODAS AS ACADEMIAS DESBLOQUEADAS
     public function mAniversariantesAlunosMes($idAcademia) {
-        $mesAtual = date('m');
+        $mesAtual = date('-m-');
         $this->db->select('nomeAluno, dataNascimentoAluno');
         $this->db->from('alunos');
         $this->db->where('idAcademia', $idAcademia);

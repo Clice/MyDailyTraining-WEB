@@ -52,7 +52,9 @@
                                           echo $qtdNotificacoes;
                                         } else if ($qtdNotificacoes > 3) {
                                           echo "+3";
-                                        } ?></span>
+                                        } else {
+                                          echo $qtdNotificacoes;
+                                        }?></span>
                                 </a>
                                 <!-- CORPO DO SINO DE NOTIFICAÇÃO DOS CHAMADOS -->
                                 <ul class="dropdown-menu dropdown-menu-media dropdown-menu-right">

@@ -263,7 +263,7 @@
                 <h4 class="modal-title text-xs-center"><i class="icon-check-circle success"></i> Dados cadastrados com sucesso.</h4>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" onclick="window.location.href = '<?php echo base_url('lista-alunos'); ?>'">Fechar</button>
+                <button type="button" class="btn btn-secondary" onclick="window.location.href = '<?php echo base_url('perfil-aluno/' . $idAluno); ?>'">Fechar</button>
             </div>
         </div>
     </div>

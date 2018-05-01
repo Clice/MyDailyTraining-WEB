@@ -540,7 +540,7 @@
                         <ul class="list-inline quicklinks">
                             <li><a href="<?php echo base_url('faq'); ?>">FAQ</a></li>
                             <li><a href="<?php echo base_url('documentos'); ?>">Documentos</a></li>
-                            <li><a href="<?php echo base_url('termo-de-uso'); ?>">Termos de Uso</a></li>
+                            <li><a href="<?php echo base_url('termo-de-uso'); ?>">Termo de Uso</a></li>
                         </ul>
                     </div>
                 </div>
