@@ -158,6 +158,23 @@ function verificarSexoUsuario() {
     }
 }
 
+// FUNÇÃO PARA VERIFICAR SE O CREF DO USUÁRIO FOI INFORMADO
+function verificarCREF() {
+    // SE O USUÁRIO TEM CREF
+    if (document.getElementById("simCREF").checked) {
+        document.getElementById('crefResposta').value = "Sim";
+        document.getElementById('naoCREF').checked = false;
+        document.getElementById('crefUsuario').disabled = false;
+    }
+    // SE O USUÁRIO NÃO TEM CREF
+    else if (document.getElementById("naoCREF").checked) {
+        document.getElementById('crefResposta').value = "Não";
+        document.getElementById('crefUsuario').value = "";
+        document.getElementById('simCREF').checked = false;
+        document.getElementById('crefUsuario').disabled = true;
+    }
+}
+
 // FUNÇÃO PARA VERIFICAR OS DADOS SELECIONADOS PARA GERAR O RELATÓRIO
 function verificarDadosRelatorio() {
     var tipoConta = $('#tipoConta').val();

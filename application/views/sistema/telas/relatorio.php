@@ -1,7 +1,7 @@
 
 <!-- RELATÓRIO -->
 <div class="app-content content container-fluid">
-    <div class="content-wrapper">      
+    <div class="content-wrapper">
         <!-- CONTEÚDO DA PÁGINA -->
         <div class="content-body">
             <section id="basic-form-layouts">
@@ -33,7 +33,7 @@
                                                             <option value="3">Funcionários</option>
                                                         </select>
                                                     </div>
-                                                </div>   
+                                                </div>
                                                 <div class="col-md-4">
                                                     <div class="form-group">
                                                         <label>Status:*</label>
@@ -44,7 +44,7 @@
                                                             <option value="false">Bloqueados</option>
                                                         </select>
                                                     </div>
-                                                </div>                                                
+                                                </div>
                                             </div>
                                         </div>
                                     </form>
@@ -76,38 +76,6 @@
         <div class="modal-content">
             <div class="modal-body">
                 <h4 class="modal-title text-xs-center"><i class="icon-warning2 warning"></i> Dados obrigatórios não informados.</h4>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- MODAL - ERRO AO CADASTRAR/ALTERAR OS DADOS -->
-<div class="modal fade text-xs-left" data-backdrop="static" id="erro-relatorio" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
-     aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-body">
-                <h4 class="modal-title text-xs-center"><i class="icon-remove danger"></i>
-                    <?php if (isset($idAluno)) { ?> Erro ao alterar os dados.
-                    <?php } else { ?> Erro ao cadastrar os dados. <?php } ?></h4>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- MODAL - FALHA AO SE CONECTAR COM A INTERNET -->
-<div class="modal fade text-xs-left" data-backdrop="static" id="falha-internet" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
-     aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-body">
-                <h4 class="modal-title text-xs-center"><i class="icon-warning2 warning"></i> Sem conexão com a Internet.</h4>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>

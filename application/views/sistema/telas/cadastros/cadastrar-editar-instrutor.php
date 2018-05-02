@@ -1,6 +1,6 @@
 <!-- FORM DE CADASTRO DO INSTRUTOR -->
 <div class="app-content content container-fluid">
-    <div class="content-wrapper">      
+    <div class="content-wrapper">
         <!-- CONTEÚDO DA PÁGINA - CAMPOS DE PREENCHIMENTO -->
         <div class="content-body">
             <section id="basic-form-layouts">
@@ -30,7 +30,7 @@
                                                 <div class="col-md-7">
                                                     <div class="form-group">
                                                         <label>Nome do Instrutor:*</label>
-                                                        <input type="text" id="nomeUsuario" class="form-control" 
+                                                        <input type="text" id="nomeUsuario" class="form-control"
                                                                placeholder="Digite o nome do instrutor" name="nomeUsuario" value="<?php if ($idUsuario != "novo") echo $nomeUsuario; ?>" minlength="5">
                                                     </div>
                                                 </div>
@@ -38,45 +38,62 @@
                                                 <div class="col-md-5">
                                                     <div class="form-group">
                                                         <label>E-mail:*</label>
-                                                        <input type="email" id="emailUsuario" minlength="6" class="form-control" value="<?php if ($idUsuario != "novo") echo $emailUsuario; ?>" 
+                                                        <input type="email" id="emailUsuario" minlength="6" class="form-control" value="<?php if ($idUsuario != "novo") echo $emailUsuario; ?>"
                                                                placeholder="Digite o e-mail" name="emailUsuario">
-                                                    </div>                                                                
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <!-- LOGIN DO INSTRUTOR -->
-                                                <div class="col-md-3">
+                                                <div class="col-md-4">
                                                     <div class="form-group">
                                                         <label>Login:*</label>
                                                         <input type="text" id="loginUsuario" minlength="6" class="form-control" value="<?php if ($idUsuario != "novo") echo base64_decode($loginUsuario); ?>"
                                                                placeholder="Digite o login" name="loginUsuario">
-                                                    </div>                                                                
+                                                    </div>
                                                 </div>
                                                 <!-- SENHA DO INSTRUTOR -->
-                                                <div class="col-md-3">
+                                                <div class="col-md-4">
                                                     <div class="form-group">
                                                         <label>Senha:*</label>
-                                                        <input type="password" id="senhaUsuario" minlength="6" class="form-control" value="<?php if ($idUsuario != "novo") echo base64_decode($senhaUsuario); ?>" 
+                                                        <input type="password" id="senhaUsuario" minlength="6" class="form-control" value="<?php if ($idUsuario != "novo") echo base64_decode($senhaUsuario); ?>"
                                                                placeholder="Digite a senha" name="senhaUsuario" onchange="verificarTamanhoSenha();">
                                                         <small><span id='msnSenha'></span></small>
-                                                    </div>                                                                
+                                                    </div>
                                                 </div>
                                                 <!-- CONFIRMA SENHA DO INSTRUTOR -->
-                                                <div class="col-md-3">
+                                                <div class="col-md-4">
                                                     <div class="form-group">
                                                         <label>Confirme a Senha:*</label>
-                                                        <input type="password" id="confirmarSenha" minlength="6" class="form-control" value="<?php if ($idUsuario != "novo") echo base64_decode($senhaUsuario); ?>" 
+                                                        <input type="password" id="confirmarSenha" minlength="6" class="form-control" value="<?php if ($idUsuario != "novo") echo base64_decode($senhaUsuario); ?>"
                                                                placeholder="Digite a senha novamente" name="confirmarSenha" onchange="verificarSenhasIguais();">
                                                         <small><span id='msnSenhasIguais'></span></small>
-                                                    </div>                                                                
+                                                    </div>
                                                 </div>
+                                            </div>
+                                            <div class="row">
                                                 <!-- CREF DO INSTRUTOR -->
-                                                <div class="col-md-3">
+                                                <div class="col-md-4">
                                                     <div class="form-group">
-                                                        <label>CREF:*</label>
-                                                        <input type="text" id="crefUsuario" maxlength="11" class="form-control" value="<?php if ($idUsuario != "novo") echo $crefUsuario; ?>" data-mask="000000-A/AA"
+                                                        <label>CREF:</label>
+                                                        <input type="hidden" name="crefResposta" id="crefResposta">
+                                                        <div class="input-group" style="margin-top: 13px">
+                                                            <!-- SIM -->
+                                                            <label class="display-inline-block custom-control custom-radio">
+                                                                <input type="radio" name="CREF" id="simCREF" value="Sim" onchange="verificarCREF();" class="custom-control-input" <?php if ($crefUsuario != "") echo 'checked'; ?>>
+                                                                <span class="custom-control-indicator"></span>
+                                                                <span class="custom-control-description ml-0">Sim</span>
+                                                            </label>
+                                                            <!-- NÃO -->
+                                                            <label class="display-inline-block custom-control custom-radio">
+                                                                <input type="radio" name="CREF" id="naoCREF" value="Não" onchange="verificarCREF();" class="custom-control-input" <?php if ($crefUsuario === "") echo 'checked'; ?>>
+                                                                <span class="custom-control-indicator"></span>
+                                                                <span class="custom-control-description ml-0">Não</span>
+                                                            </label>
+                                                        </div>
+                                                        <input type="text" <?php if ($crefUsuario == "") echo 'disabled'; ?> id="crefUsuario" maxlength="11" class="form-control" value="<?php if ($idUsuario !== "novo") echo $crefUsuario; ?>" data-mask="000000-A/AA"
                                                                placeholder="Digite o CREF" name="crefUsuario">
-                                                    </div>                                                                
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="row">
@@ -84,10 +101,10 @@
                                                 <div class="col-md-2">
                                                     <div class="form-group">
                                                         <label>CPF:*</label>
-                                                        <input type="text" id="cpfUsuario" maxlength="11" class="form-control" value="<?php if ($idUsuario != "novo") echo $cpfUsuario; ?>" 
+                                                        <input type="text" id="cpfUsuario" maxlength="11" class="form-control" value="<?php if ($idUsuario != "novo") echo $cpfUsuario; ?>"
                                                                placeholder="Digite o CPF" name="cpfUsuario" onchange="verificarCpf();">
                                                         <small><span id='msnCPF'></span></small>
-                                                    </div>                                                                
+                                                    </div>
                                                 </div>
                                                 <!-- RG DO INSTRUTOR -->
                                                 <div class="col-md-3">
@@ -95,14 +112,14 @@
                                                         <label>RG:*</label>
                                                         <input type="text" id="rgUsuario" maxlength="18" class="form-control" value="<?php if ($idUsuario != "novo") echo $rgUsuario; ?>"
                                                                placeholder="Digite o RG" name="rgUsuario">
-                                                    </div>                                                                
+                                                    </div>
                                                 </div>
                                                 <!-- DATA NASCIMENTO DO INSTRUTOR -->
                                                 <div class="col-md-3">
                                                     <div class="form-group has-icon-left">
                                                         <label>Data de Nascimento:*</label>
                                                         <div class="position-relative has-icon-left">
-                                                            <input type="date" id="dataNascimentoUsuario" name="dataNascimentoUsuario" value="<?php if ($idUsuario != "novo") echo $dataNascimentoUsuario; ?>" 
+                                                            <input type="date" id="dataNascimentoUsuario" name="dataNascimentoUsuario" value="<?php if ($idUsuario != "novo") echo $dataNascimentoUsuario; ?>"
                                                                    class="form-control">
                                                             <div class="form-control-position" style="margin-top: 11px;">
                                                                 <i class="icon-calendar5"></i>
@@ -140,7 +157,7 @@
                                                 <div class="col-md-9">
                                                     <div class="form-group">
                                                         <label>Endereço:*</label>
-                                                        <input type="text" id="enderecoUsuario" class="form-control" 
+                                                        <input type="text" id="enderecoUsuario" class="form-control"
                                                                placeholder="Digite o endereço" name="enderecoUsuario" value="<?php if ($idUsuario != "novo") echo $enderecoUsuario; ?>">
                                                     </div>
                                                 </div>
@@ -306,7 +323,7 @@
                                                 <div class="col-md-3">
                                                     <div class="form-group">
                                                         <label>Cidade:*</label>
-                                                        <input type="text" id="cidadeUsuario" class="form-control" 
+                                                        <input type="text" id="cidadeUsuario" class="form-control"
                                                                placeholder="Digite a cidade" name="cidadeUsuario" value="<?php if ($idUsuario != "novo") echo $cidadeUsuario; ?>">
                                                     </div>
                                                 </div>
@@ -314,7 +331,7 @@
                                                 <div class="col-md-3">
                                                     <div class="form-group">
                                                         <label>Bairro:*</label>
-                                                        <input type="text" id="bairroUsuario" class="form-control" 
+                                                        <input type="text" id="bairroUsuario" class="form-control"
                                                                placeholder="Digite o bairro" name="bairroUsuario" value="<?php if ($idUsuario != "novo") echo $bairroUsuario; ?>">
                                                     </div>
                                                 </div>
@@ -322,7 +339,7 @@
                                                 <div class="col-md-3">
                                                     <div class="form-group">
                                                         <label>CEP:*</label>
-                                                        <input type="text" id="cepUsuario" class="form-control" 
+                                                        <input type="text" id="cepUsuario" class="form-control"
                                                                placeholder="Digite o CEP" name="cepUsuario" value="<?php if ($idUsuario != "novo") echo $cepUsuario; ?>" data-mask="00000-000">
                                                     </div>
                                                 </div>
@@ -342,7 +359,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>                    
+                    </div>
                 </div>
             </section>
         </div>

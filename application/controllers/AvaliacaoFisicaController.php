@@ -23,6 +23,7 @@ class AvaliacaoFisicaController extends CI_Controller {
         $dadosAluno['nomePagina'] = "Cadastrar Avaliação Física do Aluno";
         $dadosAluno['dataDia'] = formatarData(date('Y-m-d'));
         $dadosAluno['idUsuario'] = $this->session->userdata('idUsuario');
+        $dadosAluno['idAluno'] = $idAluno;
 
         // PEGANDO OS DADOS DO ALUNO PARA A AVALIAÇÃO FÍSICA
         $dadosAluno['dadosAluno'] = $this->AlunoModel->mVisualizarPerfilAluno($idAluno);
@@ -43,7 +44,7 @@ class AvaliacaoFisicaController extends CI_Controller {
 
     // FUNÇÃO CONTROLLER PARA CADASTRAR A AVALIAÇÃO FÍSICA
     public function cCadastrarAvaliacaoFisica() {
-        // PEGANDO OS VALORES PASSADOS PELO CADASTRAR-EDITAR-ALUNO.PHP     
+        // PEGANDO OS VALORES PASSADOS PELO CADASTRAR-EDITAR-ALUNO.PHP
         $dadosAvaliacao = array(
             'idAluno' => $this->input->post('idAluno'),
             'dataAvaliacaoFisica' => date('Y-m-d'),

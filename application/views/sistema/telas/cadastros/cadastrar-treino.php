@@ -183,6 +183,21 @@
     </div>
 </div>
 
+<!-- MODAL - ERRO CADASTRAR TREINO -->
+<div class="modal fade text-xs-left" data-backdrop="static" id="erro-continuar-treino" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <h4 class="modal-title text-xs-center"><i class="icon-warning2 warning"></i> Erro ao continuar com o treino.</h4>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- MODAL - SELECIONE AO MENOS UM EXERCÍCIO ANTES DE CONTINUAR -->
 <div class="modal fade text-xs-left" data-backdrop="static" id="dados-obrigatorios" tabindex="-1" role="dialog"
      aria-labelledby="myModalLabel1"
@@ -191,6 +206,21 @@
         <div class="modal-content">
             <div class="modal-body">
                 <h4 class="modal-title text-xs-center"><i class="icon-warning2 warning"></i> Dado(s) obrigatório(s) não informado(s).</h4>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL - FALHA AO SE CONECTAR COM A INTERNET -->
+<div class="modal fade text-xs-left" data-backdrop="static" id="falha-internet" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <h4 class="modal-title text-xs-center"><i class="icon-warning2 warning"></i> Sem conexão com a Internet.</h4>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
@@ -227,11 +257,11 @@
                             document.getElementById('idAluno').value + "/" + data.idTreino + "/" +
                             data.idTreinoN + document.getElementById('idExercicio').value;
                 } else {
-                    alert('entrou erro');
+                    $('erro-continuar-treino').modal('show');
                 }
             },
             error: function (request, status, error) {
-                alert("Erro: " + request.responseText);
+                $('#falha-internet').modal('show');
             }
         });
     }

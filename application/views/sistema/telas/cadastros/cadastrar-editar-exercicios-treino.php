@@ -243,6 +243,21 @@
     </div>
 </div>
 
+<!-- MODAL - FALHA AO SE CONECTAR COM A INTERNET -->
+<div class="modal fade text-xs-left" data-backdrop="static" id="falha-internet" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <h4 class="modal-title text-xs-center"><i class="icon-warning2 warning"></i> Sem conexão com a Internet.</h4>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script>
     function cardCadEditarExercicio(idExercicio) {
         var dados = 'idExercicio=' + idExercicio + '&idTreino=' + $('#idTreino').val();
@@ -272,7 +287,7 @@
                 }
             },
             error: function (request, status, error) {
-                alert("Erro: " + request.responseText);
+                $('#falha-internet').modal('show');
             }
         });
     }
@@ -293,7 +308,7 @@
                 }
             },
             error: function (request, status, error) {
-                alert("Erro: " + request.responseText);
+                $('#falha-internet').modal('show');
             }
         });
     }
@@ -310,11 +325,11 @@
                 if (data.success) {
                     $('#sucesso-treino').modal('show');
                 } else {
-                    alert('entrou erro');
+                    $('erro-treino').modal('show');
                 }
             },
             error: function (request, status, error) {
-                alert("Erro: " + request.responseText);
+                $('#falha-internet').modal('show');
             }
         });
     }

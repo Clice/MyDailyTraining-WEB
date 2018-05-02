@@ -5,7 +5,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title text-xs-center"><i class="icon-warning2 warning"></i> Deseja excluir o treino?</h4>
-                <div class="modal-footer">                
+                <div class="modal-footer">
                     <button type="button" class="btn btn-primary" onclick="excluirTreino();">Sim</button>
                     <button type="button" class="btn grey btn-secondary" data-dismiss="modal">Não</button>
                 </div>
@@ -15,7 +15,7 @@
 </div>
 
 <!-- MODAL - ALUNO EXCLUÍDO COM SUCESSO -->
-<div class="modal fade text-xs-left" data-backdrop="static" id="excluir-sucesso-treino" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
+<div class="modal fade text-xs-left" data-backdrop="static" id="excluir-sucesso-treino" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1"
      aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -30,12 +30,27 @@
 </div>
 
 <!-- MODAL - ERRO AO EXCLUIR O ALUNO -->
-<div class="modal fade text-xs-left" data-backdrop="static" id="excluir-erro-treino" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
+<div class="modal fade text-xs-left" data-backdrop="static" id="excluir-erro-treino" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1"
      aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-body">
                 <h4 class="modal-title text-xs-center"><i class="icon-remove danger"></i> Erro ao excluir o treino</h4>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL - FALHA AO SE CONECTAR COM A INTERNET -->
+<div class="modal fade text-xs-left" data-backdrop="static" id="falha-internet" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <h4 class="modal-title text-xs-center"><i class="icon-warning2 warning"></i> Sem conexão com a Internet.</h4>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>

@@ -1,7 +1,7 @@
 
 <!-- DADOS DO INSTRUTOR -->
 <div class="app-content content container-fluid">
-    <div class="content-wrapper">      
+    <div class="content-wrapper">
         <!-- CONTEÚDO DO PÁGINA - DADOS DO INSTRUTOR ESCOLHIDO -->
         <div class="content-body">
             <section id="basic-form-layouts">
@@ -44,6 +44,15 @@
                                                         <h4><?php echo $instrutor->emailUsuario; ?></h4>
                                                     </div>
                                                 </div>
+                                                <?php if ($instrutor->crefUsuario != "") { ?>
+                                                    <!-- CREF DO INSTRUTOR -->
+                                                    <div class="col-md-3">
+                                                        <div class="form-group">
+                                                            <h4><strong>CREF: </strong></h4>
+                                                            <h4><?php echo $instrutor->crefUsuario; ?></h4>
+                                                        </div>
+                                                    </div>
+                                                <?php } ?>
                                                 <!-- TELEFONE DO INSTRUTOR -->
                                                 <div class="col-md-3">
                                                     <div class="form-group">
@@ -109,7 +118,7 @@
                                                         <h4><strong>Estado: </strong></h4>
                                                         <h4><?php echo $instrutor->estadoUsuario; ?></h4>
                                                     </div>
-                                                </div>                                     
+                                                </div>
                                             </div>
                                         </div>
                                         <hr>
@@ -118,7 +127,7 @@
                                             <div class="col-md-12">
                                                 <div style="float: right;" class="form-actions">
                                                     <?php if ($this->session->userdata('tipoConta') == 2) { ?>
-                                                        <button type="button"                               
+                                                        <button type="button"
                                                         <?php if ($instrutor->statusConta == 1) { ?>
                                                                     class="btn btn-black"
                                                                     onclick="modalDesBloquearUsuario(this, <?php echo $instrutor->idUsuario; ?>, true);"
@@ -146,216 +155,16 @@
                                                     <button type="button" class="btn btn-default" onclick="window.location.href = '<?php echo base_url('lista-instrutores'); ?>'">
                                                         <i class="icon-chevron-left2"></i> Voltar
                                                     </button>
-                                                </div> 
+                                                </div>
                                             </div>
                                         </div>
                                     <?php } ?>
                                 </div>
                             </div>
                         </div>
-                    </div>                    
-                </div>       
+                    </div>
+                </div>
             </section>
         </div>
     </div>
 </div>
-
-<!-- MODAL - DESEJA EXCLUIR O INSTRUTOR? -->
-<div class="modal fade text-xs-left" id="excluir-instrutor" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title text-xs-center"><i class="icon-warning"></i> Deseja excluir o(a) instrutor(a)?</h4>
-                <div class="modal-footer">                
-                    <button type="button" class="btn btn-primary" onclick="excluirInstrutor();">Sim</button>
-                    <button type="button" class="btn grey btn-secondary" data-dismiss="modal">Não</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- MODAL - INSTRUTOR EXCLUÍDO COM SUCESSO -->
-<div class="modal fade text-xs-left" data-backdrop="static" id="excluir-sucesso-instrutor" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
-     aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-body">
-                <h4 class="modal-title text-xs-center"><i class="icon-check-circle"></i> Instrutor(a) excluído(a) com sucesso</h4>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="window.location.href = '<?php echo base_url('lista-instrutores'); ?>'">Fechar</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- MODAL - ERRO AO EXCLUIR O INSTRUTOR -->
-<div class="modal fade text-xs-left" data-backdrop="static" id="excluir-erro-instrutor" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
-     aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-body">
-                <h4 class="modal-title text-xs-center"><i class="icon-remove"></i> Erro ao excluir o(a) instrutor(a)</h4>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- MODAL - DESEJA BLOQUEAR O INSTRUTOR? -->
-<div class="modal fade text-xs-left" id="bloquear-instrutor" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title text-xs-center">Deseja bloquear o(a) instrutor(a)?</h4>
-                <div class="modal-footer">                
-                    <button type="button" class="btn btn-primary" id="bloqueia-instrutor">Sim</button>
-                    <button type="button" class="btn grey btn-secondary" data-dismiss="modal" id="nao-bloqueia-instrutor">Não</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- MODAL - INSTRUTOR BLOQUEADO COM SUCESSO -->
-<div class="modal fade text-xs-left" data-backdrop="static" id="bloquear-sucesso-instrutor" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
-     aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-body">
-                <h4 class="modal-title text-xs-center"><i class="icon-check-circle"></i> Instrutor(a) bloqueado(a) com sucesso</h4>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="window.location.href = '<?php echo base_url('lista-instrutores'); ?>'">Fechar</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- MODAL - ERRO AO BLOQUEAR O INSTRUTOR -->
-<div class="modal fade text-xs-left" data-backdrop="static" id="bloquear-erro-instrutor" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
-     aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-body">
-                <h4 class="modal-title text-xs-center"><i class="icon-remove"></i> Erro ao bloquear o(a) instrutor(a)</h4>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="window.location.href = '<?php echo base_url('lista-instrutores'); ?>'">Fechar</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- MODAL - DESEJA DESBLOQUEAR O INSTRUTOR? -->
-<div class="modal fade text-xs-left" data-backdrop="static" id="desbloquear-instrutor" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title text-xs-center">Deseja desbloquear o(a) instrutor(a)?</h4>
-                <div class="modal-footer">                
-                    <button type="button" class="btn btn-primary" id="desbloqueia-instrutor">Sim</button>
-                    <button type="button" class="btn grey btn-secondary" data-dismiss="modal" id="nao-desbloqueia-instrutor">Não</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- MODAL - INSTRUTOR DESBLOQUEADO COM SUCESSO -->
-<div class="modal fade text-xs-left" data-backdrop="static" id="desbloquear-sucesso-instrutor" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
-     aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-body">
-                <h4 class="modal-title text-xs-center"><i class="icon-check-circle"></i> Instrutor(a) desbloqueado(a) com sucesso</h4>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="window.location.href = '<?php echo base_url('lista-instrutores'); ?>'">Fechar</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- MODAL - ERRO AO DESBLOQUEAR O INSTRUTOR -->
-<div class="modal fade text-xs-left" data-backdrop="static" id="desbloquear-erro-instrutor" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
-     aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-body">
-                <h4 class="modal-title text-xs-center"><i class="icon-remove"></i> Erro ao desbloquear o(a) instrutor(a)</h4>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="window.location.href = '<?php echo base_url('lista-instrutores'); ?>'">Fechar</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- FUNÇÕES EM JAVASCRIPT -->
-<script type="text/javascript">
-    function excluirInstrutor() {
-
-        var dados = "idUsuario=" + $('#idUsuario').val();
-        $.ajax({
-            url: "<?php echo base_url('sistema/InstrutorController/cExcluirInstrutor'); ?>",
-            type: "POST",
-            data: dados,
-            dataType: 'json',
-            success: function (data) {
-                $('#excluir-instrutor').modal('hide');
-                if (data.success) {
-                    $('#excluir-sucesso-instrutor').modal('show');
-                } else {
-                    $('#excluir-erro-instrutor').modal('show');
-                }
-            },
-            error: function (request, status, error) {
-                alert("Erro: " + request.responseText);
-            }
-        });
-    }
-
-    function bloquearInstrutor(dados) {
-        $.ajax({
-            type: 'POST',
-            url: "<?php echo base_url('sistema/InstrutorController/cBloquearInstrutor'); ?>",
-            dataType: 'json',
-            data: dados,
-            success: function (data) {
-                $('#bloquear-instrutor').modal("hide");
-                if (data.success) {
-                    $('#bloquear-sucesso-instrutor').modal("show");
-                } else {
-                    $('#bloquear-erro-instrutor').modal("show");
-                }
-            },
-            error: function (request, status, error) {
-                alert("Erro: " + request.responseText);
-            }
-        });
-    }
-
-    function desbloquearInstrutor(dados) {
-        $.ajax({
-            type: 'POST',
-            url: "<?php echo base_url('sistema/InstrutorController/cDesbloquearInstrutor'); ?>",
-            dataType: 'json',
-            data: dados,
-            success: function (data) {
-                $('#desbloquear-instrutor').modal("hide");
-                if (data.success) {
-                    $('#desbloquear-sucesso-instrutor').modal("show");
-                } else {
-                    $('#desbloquear-erro-instrutor').modal("show");
-                }
-            },
-            error: function (request, status, error) {
-                alert("Erro: " + request.responseText);
-            }
-        });
-    }
-</script>

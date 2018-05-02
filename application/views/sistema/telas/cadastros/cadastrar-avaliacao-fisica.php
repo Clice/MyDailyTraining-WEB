@@ -231,12 +231,10 @@
                         </div>
                     </div>
                 </div>
+            </section>
         </div>
-        </section>
     </div>
 </div>
-</div>
-
 
 <!--MODAL - DADOS OBRIGATÓRIOS NÃO INFORMADOS -->
 <div class="modal fade text-xs-left" data-backdrop="static" id="dados-obrigatorios" tabindex="-1" role="dialog"
@@ -284,6 +282,21 @@
     </div>
 </div>
 
+<!-- MODAL - FALHA AO SE CONECTAR COM A INTERNET -->
+<div class="modal fade text-xs-left" data-backdrop="static" id="falha-internet" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <h4 class="modal-title text-xs-center"><i class="icon-warning2 warning"></i> Sem conexão com a Internet.</h4>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script type="text/javascript">
     function cadAvaliacaoFisicaAluno() {
         $.ajax({
@@ -299,7 +312,7 @@
                 }
             },
             error: function (request, status, error) {
-                alert("Erro: " + request.responseText);
+                $('#falha-internet').modal('show');
             }
         });
     }
