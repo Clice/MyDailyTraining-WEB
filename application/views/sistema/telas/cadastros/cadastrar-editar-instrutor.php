@@ -24,6 +24,7 @@
                                             <input type="hidden" name="sexoUsuario" id="sexoUsuario" value="<?php echo $sexoUsuario; ?>">
                                             <input type="hidden" name="statusConta" id="statusConta" value="<?php echo $statusConta; ?>">
                                             <input type="hidden" name="tipoConta" id="tipoConta" value="<?php echo $tipoConta; ?>">
+                                            <input type="hidden" name="crefAuxUsuario" id="crefAuxUsuario" value="<?php echo $crefUsuario; ?>">
 
                                             <div class="row">
                                                 <!-- NOME DO INSTRUTOR -->

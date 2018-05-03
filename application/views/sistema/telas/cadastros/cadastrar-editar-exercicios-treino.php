@@ -72,7 +72,7 @@
                                                                         ?></td>
                                                                     <td style="text-align: center;">
                                                                         <button type="button" class="btn mb-1 btn-warning btn-sm"
-                                                                                onclick="cardCadEditarExercicio(<?php echo $exercicios[$indice]['idExercicio']; ?>)"><i class="icon-edit"></i> Editar</button>
+                                                                                onclick="modalEditarExercicio(<?php echo $exercicios[$indice]['idExercicio']; ?>)"><i class="icon-edit"></i> Editar</button>
                                                                     </td>
                                                                     </tr>
                                                                 <?php } ?>
@@ -84,86 +84,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section id="card-actions" class="hidden">
-                <div class="row">
-                    <div class="col-xs-12">
-                        <div class="card">
-                            <div class="card-header bg-blue white">
-                                <h4 class="card-title white" id="nomeExercicio"></h4>
-                                <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
-                            </div>
-                            <div class="card-body collapse in">
-                                <div class="card-block">
-                                    <form name="formCadastrarEditarExercicioTreino" id="formCadastrarEditarExercicioTreino">
-                                        <input type="hidden" id="idExercicio" name="idExercicio">
-                                        <div class="row">
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <label>Séries:</label>
-                                                    <input type="text" id="serieExercicioTreino" name="serieExercicioTreino" class="form-control"
-                                                           placeholder="Digite a quantidade de séries">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <label>Repetições:</label>
-                                                    <input type="text" id="repeticoesExercicioTreino"
-                                                           name="repeticoesExercicioTreino" class="form-control" placeholder="Digite a quantidade de repetições">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <label>Carga:</label>
-                                                    <input type="text" id="cargaExercicioTreino" name="cargaExercicioTreino"
-                                                           class="form-control" placeholder="Digite a carga (kg)">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <label>Tempo de Descanso:</label>
-                                                    <input type="text" id="descansoExercicioTreino" name="descansoExercicioTreino"
-                                                           class="form-control" placeholder="Digite em segundos o tempo">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </form>
-                                    <div class="row">
-                                        <div class="col-md-12 ">
-                                            <button style="float: right;" type="submit" class="btn btn-primary" onclick="cadEditExercicio()">
-                                                <i class="icon-plus4"></i> Adicionar
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section id="basic-form-layouts">
-                <div class="row match-height">
-                    <div class="col-xl-12">
-                        <div class="card">
-                            <div class="card-body collapse in">
-                                <div class="card-block-cadastro">
-                                    <div class="row">
-                                        <div class="col-md-12 ">
-                                            <label>Observações:</label>
-                                            <div class="form-group">
-                                                <textarea type="text" class="form-control" name="observacoesTreino"
-                                                          id="observacoesTreino"></textarea>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <hr>
                                     <div class="row">
                                         <div class="col-md-12 ">
                                             <div style="float: right;" class="form-actions">
@@ -179,6 +99,66 @@
                     </div>
                 </div>
             </section>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL - EXERCÍCIO ADICIONADO COM SUCESSO -->
+<div class="modal fade text-xs-left" data-backdrop="static" id="editar-exercicio" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1"
+     aria-hidden="true">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title text-xs-center" id="nomeExercicioAux"></h4>
+            </div>
+            <div class="modal-body">
+                <form name="formCadastrarEditarExercicioTreino" id="formCadastrarEditarExercicioTreino">
+                    <input type="hidden" id="idExercicio" name="idExercicio">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Séries:</label>
+                                <input type="text" id="serieExercicioTreino" name="serieExercicioTreino" class="form-control"
+                                       placeholder="Digite a quantidade de séries">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Repetições:</label>
+                                <input type="text" id="repeticoesExercicioTreino"
+                                       name="repeticoesExercicioTreino" class="form-control" placeholder="Digite a quantidade de repetições">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Carga:</label>
+                                <input type="text" id="cargaExercicioTreino" name="cargaExercicioTreino"
+                                       class="form-control" placeholder="Digite a carga (kg)">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Tempo de Descanso:</label>
+                                <input type="text" id="descansoExercicioTreino" name="descansoExercicioTreino"
+                                       class="form-control" placeholder="Digite em segundos o tempo">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary" onclick="cadEditExercicio()">
+                    <i class="icon-plus4"></i> Adicionar
+                </button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                onclick="window.location.href = '<?php echo base_url('cadastrar-exercicios-treino/' . $urlPagina); ?>';">Fechar</button>
+            </div>
         </div>
     </div>
 </div>
@@ -259,7 +239,7 @@
 </div>
 
 <script>
-    function cardCadEditarExercicio(idExercicio) {
+    function modalEditarExercicio(idExercicio) {
         var dados = 'idExercicio=' + idExercicio + '&idTreino=' + $('#idTreino').val();
         $.ajax({
             url: "<?php echo base_url('ExercicioTreinoController/cVisualizarExercicio') ?>",
@@ -269,7 +249,7 @@
             success: function (data) {
                 if (data.success) {
                     document.getElementById('idExercicio').value = idExercicio;
-                    document.getElementById('nomeExercicio').innerHTML = data.nomeExercicio;
+                    document.getElementById('nomeExercicioAux').innerHTML = data.nomeExercicio;
                     if (data.idExercicioTreino) {
                         document.getElementById('serieExercicioTreino').value = data.serieExercicioTreino;
                         document.getElementById('repeticoesExercicioTreino').value = data.repeticoesExercicioTreino;
@@ -281,7 +261,8 @@
                         document.getElementById('cargaExercicioTreino').value = '';
                         document.getElementById('descansoExercicioTreino').value = '';
                     }
-                    $('#card-actions').removeClass('hidden');
+                    //$('#card-actions').removeClass('hidden');
+                    $('#editar-exercicio').modal('show');
                 } else {
 
                 }
@@ -301,6 +282,7 @@
             data: $('#formCadastrarEditarExercicioTreino').serialize() + dados,
             dataType: "JSON",
             success: function (data) {
+                $('#editar-exercicio').modal('hide');
                 if (data.success) {
                     $('#sucesso-exercicio').modal('show');
                 } else {

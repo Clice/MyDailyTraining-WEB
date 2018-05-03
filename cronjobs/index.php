@@ -4,17 +4,17 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-        <link rel="shortcut icon" href="./imagens/Icon.png">
+        <link rel="shortcut icon" href="../assets/imagens/Icon.png">
 
         <title>MyDailyTraining - Erro 404</title>
 
-        <link rel="stylesheet" type="text/css" href="./css/sistema/bootstrap.css">
-        <link rel="stylesheet" type="text/css" href="./fonts/icomoon.css">
-        <link rel="stylesheet" type="text/css" href="./css/sistema/bootstrap-extended.css">
-        <link rel="stylesheet" type="text/css" href="./css/sistema/app.css">
-        <link rel="stylesheet" type="text/css" href="./css/sistema/colors.css">
-        <link rel="stylesheet" type="text/css" href="./css/sistema/vertical-menu.css">
-        <link rel="stylesheet" type="text/css" href="./css/sistema/error.css">
+        <link rel="stylesheet" type="text/css" href="../assets/css/sistema/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="../assets/fonts/icomoon.css">
+        <link rel="stylesheet" type="text/css" href="../assets/css/sistema/bootstrap-extended.css">
+        <link rel="stylesheet" type="text/css" href="../assets/css/sistema/app.css">
+        <link rel="stylesheet" type="text/css" href="../assets/css/sistema/colors.css">
+        <link rel="stylesheet" type="text/css" href="../assets/css/sistema/vertical-menu.css">
+        <link rel="stylesheet" type="text/css" href="../assets/css/sistema/error.css">
 
     </head>
 
@@ -55,14 +55,14 @@
         <!-- ////////////////////////////////////////////////////////////////////////////-->
 
         <!-- JS-->
-        <script src="./js/sistema/jquery.min.js" type="text/javascript"></script>
-        <script src="./js/sistema/bootstrap.min.js" type="text/javascript"></script>
-        <script src="./js/sistema/unison.min.js" type="text/javascript"></script>
-        <script src="./js/sistema/chart.min.js" type="text/javascript"></script>
-        <script src="./js/sistema/app-menu.js" type="text/javascript"></script>
-        <script src="<./js/sistema/app.js" type="text/javascript"></script>
-        <script src="./js/sistema/dashboard-2.js" type="text/javascript"></script>
-        <script src="./js/sistema/locastyle.js" type="text/javascript"></script>
+        <script src="../assets/js/sistema/jquery.min.js" type="text/javascript"></script>
+        <script src="../assets/js/sistema/bootstrap.min.js" type="text/javascript"></script>
+        <script src="../assets/js/sistema/unison.min.js" type="text/javascript"></script>
+        <script src="../assets/js/sistema/chart.min.js" type="text/javascript"></script>
+        <script src="../assets/js/sistema/app-menu.js" type="text/javascript"></script>
+        <script src="../assets/js/sistema/app.js" type="text/javascript"></script>
+        <script src="../assets/js/sistema/dashboard-2.js" type="text/javascript"></script>
+        <script src="../assets/js/sistema/locastyle.js" type="text/javascript"></script>
         <!-- ---------- FIM - JAVASCRIPT ---------- -->
 
     </body>

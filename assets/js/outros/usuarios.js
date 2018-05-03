@@ -160,9 +160,11 @@ function verificarSexoUsuario() {
 
 // FUNÇÃO PARA VERIFICAR SE O CREF DO USUÁRIO FOI INFORMADO
 function verificarCREF() {
+    var crefAuxUsuario = $('#crefAuxUsuario').val();
     // SE O USUÁRIO TEM CREF
     if (document.getElementById("simCREF").checked) {
         document.getElementById('crefResposta').value = "Sim";
+        document.getElementById('crefUsuario').value = crefAuxUsuario;
         document.getElementById('naoCREF').checked = false;
         document.getElementById('crefUsuario').disabled = false;
     }
