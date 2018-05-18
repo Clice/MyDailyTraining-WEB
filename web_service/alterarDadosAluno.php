@@ -5,20 +5,31 @@ require 'conexao.php';
 
 $idAluno = $_POST['idAluno'];
 $emailAluno = $_POST['emailAluno'];
-$senhaAluno = base64_encode($_POST['senhaAluno']);
 $enderecoAluno = $_POST['enderecoAluno'];
 $telefoneAluno = $_POST['telefoneAluno'];
+$cidadeAluno = $_POST['cidadeAluno'];
+$cepAluno = $_POST['cepAluno'];
+$bairroAluno = $_POST['bairroAluno'];
+$estadoAluno = $_POST['estadoAluno'];
 
-$alterarDados = "UPDATE alunos SET emailAluno = ?, senhaAluno = ?, enderecoAluno = ?, telefoneAluno = ? WHERE idAluno = ?";
+$endereco = utf8_encode($enderecoAluno);
+$cidade = utf8_encode($cidadeAluno);
+$bairro = utf8_encode($bairroAluno);
+$estado = utf8_encode($estadoAluno);
+
+$alterarDados = "UPDATE alunos SET emailAluno = ?, enderecoAluno = ?, telefoneAluno = ?, cidadeAluno = ?, cepAluno = ?, bairroAluno = ?, estadoAluno = ? WHERE idAluno = ?";
 $rsAlterarDados = $PDO->prepare($alterarDados);
 $rsAlterarDados->bindParam(1, $emailAluno);
-$rsAlterarDados->bindParam(2, $senhaAluno);
-$rsAlterarDados->bindParam(3, $enderecoAluno);
-$rsAlterarDados->bindParam(4, $telefoneAluno);
-$rsAlterarDados->bindParam(5, $idAluno);
+$rsAlterarDados->bindParam(2, $endereco);
+$rsAlterarDados->bindParam(3, $telefoneAluno);
+$rsAlterarDados->bindParam(4, $cidade);
+$rsAlterarDados->bindParam(5, $cepAluno);
+$rsAlterarDados->bindParam(6, $bairro);
+$rsAlterarDados->bindParam(7, $estado);
+$rsAlterarDados->bindParam(8, $idAluno);
 $rsAlterarDados->execute();
 
-if ($rsAlterarDados) {
+if ($rsAlterarDados->rowCount() > 0) {
     echo "success";
 } else {
     echo "error";

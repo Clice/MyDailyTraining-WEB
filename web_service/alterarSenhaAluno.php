@@ -13,7 +13,7 @@ $rsAlterarSenha->bindParam(1, $senhaCriptografada);
 $rsAlterarSenha->bindParam(2, $idAluno);
 $rsAlterarSenha->execute();
 
-if ($rsAlterarSenha) {
+if ($rsAlterarSenha->rowCount() > 0) {
     echo "success";
 } else {
     echo "error";
