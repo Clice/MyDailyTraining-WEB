@@ -53,7 +53,9 @@
                                                                    name="senhaUsuario">
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-12 col-xs-12 text-xs-center text-md-right" data-toggle="modal" data-target="#bloqueado">
+                                                    <div class="col-md-6 col-xs-6 text-xs-center text-md-left" data-toggle="modal" data-target="#bloqueado">
+                                                        <a class="blue" href="<?php echo base_url(); ?>">Voltar para a Página Inicial</a></div>
+                                                    <div class="col-md-6 col-xs-6 text-xs-center text-md-right" data-toggle="modal" data-target="#bloqueado">
                                                         <a class="blue" href="<?php echo base_url('recuperar-senha'); ?>">Esqueceu a senha?</a></div>
                                                 </div>
                                             </div>
