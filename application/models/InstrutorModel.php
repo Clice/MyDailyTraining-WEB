@@ -42,7 +42,7 @@ class InstrutorModel extends CI_Model {
         $this->db->where('idUsuario', $this->session->userdata('idUsuario'));
         $this->db->where('dataChamado', $dataAtual);
         $this->db->join('alunos', 'chamados.idAluno = alunos.idAluno');
-        $this->db->order_by('horarioChamado', 'ASC');
+        $this->db->order_by('horarioChamado', 'DESC');
         $this->db->limit(5);
         return $this->db->get()->result();
     }
