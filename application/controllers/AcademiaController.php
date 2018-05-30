@@ -192,11 +192,15 @@ class AcademiaController extends CI_Controller {
     public function cExcluirAcademia() {
         $idAcademia = $this->input->post('idAcademia');
 
-        // PARA EXCLUIR UMA ACADEMIA DO BANCO TEM QUE EXCLUIR OS ALUNOS E USUÁRIOS
-        if ($this->AcademiaModel->mExcluirTodosAlunos($idAcademia)) {
-            if ($this->AcademiaModel->mExcluirTodosUsuarios($idAcademia)) {
-                if ($this->AcademiaModel->mExcluirAcademia($idAcademia)) {
-                    $resposta = array('success' => true);
+        // PARA EXCLUIR UMA ACADEMIA DO BANCO TEM QUE EXCLUIR OS TREINOS, OS ALUNOS E USUÁRIOS
+        if ($this->AcademiaModel->mExcluirTodosTreinos($idAcademia)) {
+            if ($this->AcademiaModel->mExcluirTodosAlunos($idAcademia)) {
+                if ($this->AcademiaModel->mExcluirTodosUsuarios($idAcademia)) {
+                    if ($this->AcademiaModel->mExcluirAcademia($idAcademia)) {
+                        $resposta = array('success' => true);
+                    } else {
+                        $resposta = array('success' => false);
+                    }
                 } else {
                     $resposta = array('success' => false);
                 }

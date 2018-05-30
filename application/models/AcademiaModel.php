@@ -34,6 +34,12 @@ class AcademiaModel extends CI_Model {
         return $this->db->delete('usuarios');
     }
 
+    // FUNÇÃO PARA EXCLUIR TODOS OS TREINOS DOS ALUNOS DA ACADEMIA
+    public function mExcluirTodosTreinos($idAcademia) {
+        $this->db->where('idAcademia', $idAcademia);
+        return $this->db->delete('treinos');
+    }
+
     // FUNÇÃO PARA BLOQUEAR UMA ACADEMIA
     public function mBloquearAcademia($idAcademia) {
         $dadosAcademia['statusAcademia'] = false;
