@@ -7,7 +7,7 @@
             <section id="basic-form-layouts">
                 <div class="row match-height">
                     <div class="col-md-12">
-                        <div class="card">
+                        <div class="card hidden">
                             <div class="card-body collapse in">
                                 <div class="card-block">
                                     <!-- TÍTULO DO PÁGINA - NOME DO USUÁRIO -->

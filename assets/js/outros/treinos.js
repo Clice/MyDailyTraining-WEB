@@ -1,9 +1,63 @@
 // FUNÇÃO PARA VERIFICAR OS DADOS DO TREINO
 function verificarDadosTreino() {
+    var idTreino = $('#idTreino').val();
     var nomeTreino = $('#nomeTreino').val();
     var idExercicio = $('#idExercicio').val();
 
+    var domingo = false;
+    var segunda = false;
+    var terca = false;
+    var quarta = false;
+    var quinta = false;
+    var sexta = false;
+    var sabado = false;
+
+    if ($('#domingo').length) {
+        if (document.getElementById('domingo').checked) {
+            domingo = true;
+        }
+    }
+
+    if ($('#segunda').length) {
+        if (document.getElementById('segunda').checked) {
+            segunda = true;
+        }
+    } 
+
+    if ($('#terca').length) {
+        if (document.getElementById('terca').checked) {
+            terca = true;
+        }
+    }
+
+    if ($('#quarta').length) {
+        if (document.getElementById('quarta').checked) {
+            quarta = true;
+        }
+    }
+
+    if ($('#quinta').length) {
+        if (document.getElementById('quinta').checked) {
+            quinta = true;
+        }
+    }
+
+    if ($('#sexta').length) {
+        if (document.getElementById('sexta').checked) {
+            sexta = true;
+        }
+    }
+
+    if ($('#sabado').length) {
+        if (document.getElementById('sabado').checked) {
+            sabado = true;
+        }
+    }
+
     if ((nomeTreino === "") || (idExercicio === "")) {
+        $('#dados-obrigatorios').modal('show');
+    } else if ((domingo === false) && (segunda === false) && (terca === false) && (quarta === false) && (quinta === false) &&
+            (sexta === false) && (sabado === false)) {
         $('#dados-obrigatorios').modal('show');
     } else {
         cadEditTreino();
@@ -14,28 +68,6 @@ function verificarDadosTreino() {
 function modalExcluirTreino(idTreino) {
     $('#excluir-treino').modal('show');
     document.getElementById('idTreino').value = idTreino;
-}
-
-// FUNÇÃO PARA PESQUISAR OS TREINOS CADASTRADOS
-function pesquisarTreino() {
-    var entrada, filtro, i;
-    var tabelaTreinos, trA, tdA;
-
-    entrada = document.getElementById('pesquisarTreino');
-    filtro = entrada.value.toUpperCase();
-
-    tabelaTreinos = document.getElementById('tabelaTreinos');
-    trA = tabelaTreinos.getElementsByTagName('tr');
-    for (i = 0; i < trA.length; i++) {
-        tdA = trA[i].getElementsByTagName('td')[0];
-        if (tdA) {
-            if (tdA.innerHTML.toUpperCase().indexOf(filtro) > -1) {
-                trA[i].style.display = "";
-            } else {
-                trA[i].style.display = "none";
-            }
-        }
-    }
 }
 
 // FUNÇÃO PARA PESQUISAR OS EXERCÍCIOS CADASTRADOS
@@ -57,43 +89,5 @@ function pesquisarExercicio() {
                 trA[i].style.display = "none";
             }
         }
-    }
-}
-
-function selecionarTreino(obj, idTreino) {
-    var nomeTreino = $('#nomeTreino' + idTreino).val();
-    var strAux = "|" + idTreino;
-    var strIdTreino = document.getElementById('idTreino').value;
-
-    if (obj.checked) {
-        $("#" + idTreino).removeClass("hidden");
-        document.getElementById('nomeCard' + idTreino).innerHTML = nomeTreino;
-        strIdTreino += strAux;
-    } else {
-        $("#" + idTreino).addClass("hidden");
-        if (strIdTreino.search(idTreino) > 0) {
-            strIdTreino = strIdTreino.replace(strAux, "");
-        }
-    }
-
-    document.getElementById('idTreino').value = strIdTreino;
-}
-
-function verificarTreinoAluno(idTreino) {
-    var diasTreino = "";
-    var diasTreinoAluno = document.getElementById('diasTreinoAluno').value;
-
-    var arrayDiasTreinoAluno = diasTreinoAluno.split("|");
-
-    for (var i = 0; i < arrayDiasTreinoAluno.length; i++) {
-        if (document.getElementById(arrayDiasTreinoAluno[i] + idTreino).checked) {
-            diasTreino += "|" + document.getElementById(arrayDiasTreinoAluno[i] + idTreino).value;
-        }
-    }
-
-    if (diasTreino === "") {
-        $('#dados-obrigatorios').modal('show');
-    } else {
-        cadastrarEditarTreinoAluno(idTreino);
     }
 }

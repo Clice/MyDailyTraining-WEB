@@ -355,8 +355,8 @@
                         <label style="font-size: 20px;" class="service-heading">JUNHO a AGOSTO</label>
                         <h4 class="service-heading">Pagamento com PagSeguro</h4>
                         <p class="text-muted">Academias poderão pagar os planos através da Internet.</p>
+                        <br>
                     </div>
-                    <br>
                     <div class="col-md-6">
                         <h3 class="section-heading">2018 - 2019</h3><br>
                         <span class="label label-primary">Q2</span>
@@ -510,9 +510,47 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
                 <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2 text-center">
-                        <p class="large text-muted text-center"><i>"Não é o mais forte que sobrevive, nem o mais inteligente.<br>Quem sobrevive é o mais disposto à mudança."</i><br>Charles Darwin.</p>
+                    <div class="col-lg-12 text-center">
+                        <h2 class="section-heading">Parceiros</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 col-sm-6">
+                    </div>
+                    <div class="col-md-3 col-sm-6" style="margin-left: 75px;">
+                        <a href="https://www.petaf.com.br">
+                            <img src="<?php echo base_url('assets/imagens/apresentacao/parceiros/petaf100x100aux.jpg'); ?>"
+                                 class="img-responsive img-circle" alt="Petaf">
+                        </a>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <a href="https://www.4code.net.br">
+                            <img src="<?php echo base_url('assets/imagens/apresentacao/parceiros/idsoft100x100.jpg'); ?>"
+                                 class="img-responsive img-circle" alt="IDSoft">
+                        </a>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SOBRE A EQUALTECH -->
+        <section id="equipe" class="bg-light-gray">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <div class="row">
+                            <div class="col-lg-8 col-lg-offset-2 text-center">
+                                <p class="large text-muted text-center"><i>"Não é o mais forte que sobrevive, nem o mais inteligente.<br>Quem sobrevive é o mais disposto à mudança."</i><br>Charles Darwin.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -10,7 +10,7 @@
         <link rel="shortcut icon" href="<?php echo base_url('assets/imagens/Icon.png'); ?>">
 
         <!-- TÍTULO DA PÁGINA -->
-        <title>MyDailyTraining - Página de Ajuda</title>
+        <title>MyDailyTraining - Documentos</title>
 
         <!-- CSS -->
         <link href="<?php echo base_url('assets/layout/vendor/bootstrap/css/bootstrap.min.css'); ?>" rel="stylesheet">
@@ -66,28 +66,24 @@
                 <div class="panel-group">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h4 class="panel-title">
+                            <h4 class="panel-heading">
                                 <a data-toggle="collapse" href="#item1" aria-expanded="true" aria-controls="collapse-example" class="d-block">
                                     <i class="fa fa-chevron-down pull-right"></i> Documento de Visão
                                 </a>
                             </h4>
                         </div>
                         <div id="item1" class="panel-collapse collapse">
-                            <div class="card-body">
-                                <br>
-                                <ul>
-                                    <li>
-                                        <div class="col-lg-10">Versão: 0.15</div>
-                                        <div class="col-lg-2">
-                                            <a href="#">
-                                                <button type="button" class="btn btn-primary">
-                                                    <i class="fa fa-download"></i> Download
-                                                </button>
-                                            </a>
-                                        </div>
-                                    </li>
-                                </ul>
-                                <br>
+                            <div class="panel-body">
+                                <div class="row panel-heading">
+                                    <div class="col-lg-10"><h4>Versão 1.02</h4></div>
+                                    <div class="col-lg-2">
+                                        <a href="https://drive.google.com/open?id=1n5ZZfOkA7csWyDIuk_mKt19LWkxugCLF">
+                                            <button type="button" class="btn btn-primary">
+                                                <i class="fa fa-download"></i> Download
+                                            </button>
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -97,7 +93,7 @@
                 <div class="panel-group">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h4 class="panel-title">
+                            <h4 class="panel-heading">
                                 <a data-toggle="collapse" href="#item2" aria-expanded="true" aria-controls="collapse-example" class="d-block">
                                     <i class="fa fa-chevron-down pull-right"></i> Documento de Requisitos
                                 </a>
@@ -105,20 +101,18 @@
                         </div>
                         <div id="item2" class="panel-collapse collapse">
                             <div class="card-body">
-                                <br>
-                                <ul>
-                                    <li>
-                                        <div class="col-lg-10">Versão: 0.15</div>
+                                <div class="panel-body">
+                                    <div class="row panel-heading">
+                                        <div class="col-lg-10"><h4>Versão 1.13</h4></div>
                                         <div class="col-lg-2">
-                                            <a href="#">
+                                            <a href="https://drive.google.com/open?id=1KFVNPg7bGc4Djka6R9o_Iwvc0PvwFde0">
                                                 <button type="button" class="btn btn-primary">
                                                     <i class="fa fa-download"></i> Download
                                                 </button>
                                             </a>
                                         </div>
-                                    </li>
-                                </ul>
-                                <br>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -128,7 +122,7 @@
                 <div class="panel-group">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h4 class="panel-title">
+                            <h4 class="panel-heading">
                                 <a data-toggle="collapse" href="#item3" aria-expanded="true" aria-controls="collapse-example" class="d-block">
                                     <i class="fa fa-chevron-down pull-right"></i> Documento de Arquitetura
                                 </a>
@@ -136,10 +130,9 @@
                         </div>
                         <div id="item3" class="panel-collapse collapse">
                             <div class="card-body">
-                                <br>
-                                <ul>
-                                    <li>
-                                        <div class="col-lg-10">Versão: 0.15</div>
+                                <div class="panel-body">
+                                    <div class="row panel-heading">
+                                        <div class="col-lg-10"><h4>Versão 1.11</h4></div>
                                         <div class="col-lg-2">
                                             <a href="#">
                                                 <button type="button" class="btn btn-primary">
@@ -147,9 +140,8 @@
                                                 </button>
                                             </a>
                                         </div>
-                                    </li>
-                                </ul>
-                                <br>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -159,7 +151,7 @@
                 <div class="panel-group">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h4 class="panel-title">
+                            <h4 class="panel-heading">
                                 <a data-toggle="collapse" href="#item4" aria-expanded="true" aria-controls="collapse-example" class="d-block">
                                     <i class="fa fa-chevron-down pull-right"></i> Documento de Teste
                                 </a>
@@ -167,10 +159,9 @@
                         </div>
                         <div id="item4" class="panel-collapse collapse">
                             <div class="card-body">
-                                <br>
-                                <ul>
-                                    <li>
-                                        <div class="col-lg-10">Versão: 0.15</div>
+                                <div class="panel-body">
+                                    <div class="row panel-heading">
+                                        <div class="col-lg-10"><h4>Versão 1.10</h4></div>
                                         <div class="col-lg-2">
                                             <a href="#">
                                                 <button type="button" class="btn btn-primary">
@@ -178,9 +169,37 @@
                                                 </button>
                                             </a>
                                         </div>
-                                    </li>
-                                </ul>
-                                <br>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PlANO DE NEGÓCIO -->
+                <div class="panel-group">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-heading">
+                                <a data-toggle="collapse" href="#item3" aria-expanded="true" aria-controls="collapse-example" class="d-block">
+                                    <i class="fa fa-chevron-down pull-right"></i> Plano de Negócio
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="item3" class="panel-collapse collapse">
+                            <div class="card-body">
+                                <div class="panel-body">
+                                    <div class="row panel-heading">
+                                        <div class="col-lg-10"><h4>Versão 1.0</h4></div>
+                                        <div class="col-lg-2">
+                                            <a href="#">
+                                                <button type="button" class="btn btn-primary">
+                                                    <i class="fa fa-download"></i> Download
+                                                </button>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -220,8 +239,6 @@
         <script src="<?php echo base_url('assets/layout/vendor/jquery/jquery.min.js'); ?>"></script>
         <script src="<?php echo base_url('assets/layout/vendor/bootstrap/js/bootstrap.min.js'); ?>"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-        <script src="<?php echo base_url('assets/layout/js/jqBootstrapValidation.js'); ?>"></script>
-        <script src="<?php echo base_url('assets/layout/js/validarContato.js'); ?>"></script>
         <script src="<?php echo base_url('assets/layout/js/FAQ.js'); ?>"></script>
 
     </body>

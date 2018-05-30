@@ -204,16 +204,6 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <br>
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <div class="form-group">
-                                                        <label>Observações:</label>
-                                                        <textarea id="observacoesAluno" name="observacoesAluno" rows="4" class="form-control" maxlengt="200">
-                                                        </textarea>
-                                                    </div>
-                                                </div>
-                                            </div>
                                         </div>
                                     </form>
                                     <hr>

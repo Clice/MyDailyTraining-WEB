@@ -182,7 +182,14 @@ class TreinoController extends CI_Controller {
             'idAluno' => $this->input->post('idAluno'),
             'idAcademia' => $this->session->userdata('idAcademia'),
             'nomeTreino' => $this->input->post('nomeTreino'),
-            'statusTreino' => $this->input->post('statusTreino')
+            'statusTreino' => $this->input->post('statusTreino'),
+            'domingo' => false,
+            'segunda' => false,
+            'terca' => false,
+            'quarta' => false,
+            'quinta' => false,
+            'sexta' => false,
+            'sabado' => false
         );
 
         $diasTreinoAluno = $this->input->post('diasTreinoAluno');
@@ -247,7 +254,6 @@ class TreinoController extends CI_Controller {
     public function cEditarTreino() {
         $dadosTreino = array(
             'idTreino' => $this->input->post('idTreino'),
-            'observacoesTreino' => $this->input->post('observacoesTreino'),
             'statusTreino' => $this->input->post('statusTreino')
         );
 

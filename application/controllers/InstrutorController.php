@@ -27,7 +27,6 @@ class InstrutorController extends CI_Controller {
         $dadosInstrutor['instrutoresAtivos'] = $this->InstrutorModel->mListarInstrutoresAtivos();
         $dadosInstrutor['instrutoresBloqueados'] = $this->InstrutorModel->mListarInstrutoresBloqueados();
 
-
         if ($this->session->userdata('tipoConta') == 4) {
             $dadosInstrutor['chamadosInstrutor'] = $this->InstrutorModel->mListarChamadosInstrutores($this->session->userdata('idUsuario'));
         }

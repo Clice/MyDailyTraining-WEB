@@ -4,7 +4,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-        <link rel="shortcut icon" href="<?php echo base_url('assets/imagens/Icon.png'); ?>">     
+        <link rel="shortcut icon" href="<?php echo base_url('assets/imagens/Icon.png'); ?>">
 
         <title>MyDailyTraining - Recuperar Senha</title>
 
@@ -22,7 +22,7 @@
         <!-- CORPO DA PÁGINA - LOGIN -->
         <div class="app-content content container-fluid">
             <div class="content-wrapper">
-                <div class="content-body">                    
+                <div class="content-body">
                     <section class="flexbox-container">
                         <div style="box-shadow: 10px 10px 10px rgba(0,0,0,0.5); border-radius: 10px;" class="col-md-4 offset-md-4 col-xs-10 offset-xs-1 p-0">
                             <div class="card border-grey border-lighten-3 m-0">
@@ -34,7 +34,7 @@
                                     <h4 class="card-subtitle text-xs-center pt-2" id="nomeRecuperarSenha"><span>Recuperar senha</span></h4>
                                     <h4 class="card-subtitle text-xs-center pt-2" id="nomeAlterarSenha"><span>Alterar Senha</span></h4>
                                 </div>
-                                <!-- CORPO DO LOGIN -->           
+                                <!-- CORPO DO LOGIN -->
                                 <div class="card-body collapse in">
                                     <div class="card-block">
                                         <form class="form" id="formRecuperarSenha" name="formRecuperarSenha">
@@ -43,7 +43,7 @@
                                                     <div class="col-md-12" >
                                                         <div class="offset-md-1 col-md-10" id="recuperarSenha">
                                                             <label style="text-align: center">Digite o CPF para verificar a conta e recuperar a senha.</label>
-                                                            <input class="form-control" type="text" id="cpfUsuario" maxlength="11" value="" 
+                                                            <input class="form-control" type="text" id="cpfUsuario" maxlength="11" value=""
                                                                    placeholder="Digite o CPF" name="cpfUsuario" onchange="verificarCpf();" autofocus="">
                                                             <small><span id='msnCPF'></span></small>
                                                             <br>
@@ -51,13 +51,13 @@
                                                         <div class="offset-md-1 col-md-10" id="alterarSenha">
                                                             <!-- NOVA SENHA -->
                                                             <label>Digite a nova senha:</label>
-                                                            <input type="password" id="senhaUsuario" minlength="6" class="form-control" value="" 
+                                                            <input type="password" id="senhaUsuario" minlength="6" class="form-control" value=""
                                                                    placeholder="Digite a senha" name="senhaUsuario" onchange="verificarTamanhoSenha();">
                                                             <small><span id='msnSenha'></span></small>
                                                             <br>
                                                             <!-- CONFIRMA NOVA SENHA -->
                                                             <label>Confirme a Senha:</label>
-                                                            <input type="password" id="confirmarSenha" minlength="6" class="form-control" value="" 
+                                                            <input type="password" id="confirmarSenha" minlength="6" class="form-control" value=""
                                                                    placeholder="Digite a senha novamente" name="confirmarSenha" onchange="verificarSenhasIguais();">
                                                             <small><span id='msnSenhasIguais'></span></small>
                                                             <br>
@@ -85,7 +85,7 @@
         </div>
 
         <!-- MODAL - NENHUM USUÁRIO ENCONTRADO -->
-        <div class="modal fade text-xs-left" data-backdrop="static" id="usuario-nao-encontrado" name="usuario-nao-encontrado" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
+        <div class="modal fade text-xs-left" data-backdrop="static" id="usuario-nao-encontrado" name="usuario-nao-encontrado" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1"
              aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -100,7 +100,7 @@
         </div>
 
         <!-- MODAL - SENHAS DIFERENTES -->
-        <div class="modal fade text-xs-left" data-backdrop="static" id="senhas-diferentes" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
+        <div class="modal fade text-xs-left" data-backdrop="static" id="senhas-diferentes" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1"
              aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -115,7 +115,7 @@
         </div>
 
         <!-- MODAL - NENHUM USUÁRIO ENCONTRADO -->
-        <div class="modal fade text-xs-left" data-backdrop="static" id="alterar-senha-sucesso" name="alterar-senha-sucesso" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
+        <div class="modal fade text-xs-left" data-backdrop="static" id="alterar-senha-sucesso" name="alterar-senha-sucesso" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1"
              aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -130,7 +130,7 @@
         </div>
 
         <!-- MODAL - NENHUM USUÁRIO ENCONTRADO -->
-        <div class="modal fade text-xs-left" data-backdrop="static" id="alterar-senha-erro" name="alterar-senha-erro" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
+        <div class="modal fade text-xs-left" data-backdrop="static" id="alterar-senha-erro" name="alterar-senha-erro" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1"
              aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -145,7 +145,7 @@
         </div>
 
         <!-- MODAL - FALHA AO SE CONECTAR COM A INTERNET -->
-        <div class="modal fade text-xs-left" data-backdrop="static" id="falha-internet" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" 
+        <div class="modal fade text-xs-left" data-backdrop="static" id="falha-internet" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1"
              aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">

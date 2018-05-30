@@ -67,8 +67,7 @@ class AvaliacaoFisicaController extends CI_Controller {
             'panturrilhaEsqAluno' => str_replace(",", ".", $this->input->post('panturrilhaEsquerdaAluno')),
             'panturrilhaDirAluno' => str_replace(",", ".", $this->input->post('panturrilhaDireitaAluno')),
             'pernaEsqAluno' => str_replace(",", ".", $this->input->post('pernaEsquerdaAluno')),
-            'pernaDirAluno' => str_replace(",", ".", $this->input->post('pernaDireitaAluno')),
-            'observacoes' => $this->input->post('observacoesAluno')
+            'pernaDirAluno' => str_replace(",", ".", $this->input->post('pernaDireitaAluno'))
         );
 
         $peso = $dadosAvaliacao['pesoAluno'];
