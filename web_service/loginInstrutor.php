@@ -4,13 +4,9 @@ ini_set('default_charset', 'UTF-8');
 require 'conexao.php';
 
 $loginUsuario = $_POST['loginUsuario'];
-//$loginUsuario = str_replace(array(".","-"), '', $loginUsuario);
-//$loginUsuario = base64_encode($loginUsuario);
 $senhaUsuario = base64_encode($_POST['senhaUsuario']);
 
-//$loginUsuario = '748.671.329-26';
-//$loginUsuario = str_replace(array(".","-"), '', $loginUsuario);
-//$loginUsuario = base64_encode($loginUsuario);
+//$loginUsuario = '180.486.853-10';
 //$senhaUsuario = base64_encode('111111');
 
 $sqlUsuario = "SELECT * FROM usuarios INNER JOIN academias ON usuarios.idAcademia = academias.idAcademia WHERE usuarios.cpfUsuario = ? AND usuarios.senhaUsuario = ?";
@@ -28,6 +24,10 @@ if ($rsLogin->rowCount() > 0) {
         $loginInstrutor = base64_decode($dados['loginUsuario']);
         $senhaInstrutor = base64_decode($dados['senhaUsuario']);
         $enderecoInstrutor = $dados['enderecoUsuario'];
+        $cidadeInstrutor = $dados['cidadeUsuario'];
+        $bairroInstrutor = $dados['bairroUsuario'];
+        $cepInstrutor = $dados['cepUsuario'];
+        $estadoInstrutor = $dados['estadoUsuario'];
         $telefoneInstrutor = $dados['telefoneUsuario'];
         $statusInstrutor = $dados['statusUsuario'];
         $statusAcademia = $dados['statusAcademia'];
@@ -39,8 +39,20 @@ if ($rsLogin->rowCount() > 0) {
     } else if ($statusInstrutor == 1) {
         echo "instrutorBloqueado";
     } else {
-
-        echo "loginSucesso" . "/" . $idInstrutor . "/" . $idAcademia . "/" . $nomeInstrutor . "/" . $emailInstrutor . "/" . $loginInstrutor . "/" . $senhaInstrutor . "/" . $enderecoInstrutor . "/" . $telefoneInstrutor . "/" . $sexoInstrutor;
+        echo "loginSucesso" . "/" 
+        . $idInstrutor . "/" 
+        . $idAcademia . "/" 
+        . $nomeInstrutor . "/" 
+        . $emailInstrutor . "/" 
+        . $loginInstrutor . "/" 
+        . $senhaInstrutor . "/" 
+        . $enderecoInstrutor . "/" 
+        . $cidadeInstrutor . "/" 
+        . $bairroInstrutor . "/" 
+        . $cepInstrutor . "/" 
+        . $estadoInstrutor . "/" 
+        . $telefoneInstrutor . "/" 
+        . $sexoInstrutor;
     }
 } else {
     echo "loginErro";

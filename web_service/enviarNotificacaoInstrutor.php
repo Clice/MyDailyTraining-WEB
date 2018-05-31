@@ -18,10 +18,18 @@ while ($dadosToken = $rsBuscarTokenInstrutor->fetch(PDO::FETCH_ASSOC)) {
 
 define('API_ACCESS_KEY', 'AIzaSyBzpNepTsuoPrlxk79DOi54WfHjwo_QDto');
 
-//$tokenInstrutor = "davl59DDSrE:APA91bHH96Yap7PBjG06P1K3joMvKEiZfXyZ4X8sExynfBNw8wkfrQ-yET4mlHVbsVPD9L_jBfznsKx9YF3ZSSgXQsMt07mTl9MfXf6JyDE1J-b3UTttrSAS9L_raSlwOwkMgyUhpmf5";
-//$nomeAluno = "Lucas";
-$nomeAluno = $_POST['nomeAluno'];
-//$tokenInstrutor = $_POST['tokenInstrutor'];
+$idAluno = $_POST['idAluno'];
+
+$buscarNomeAluno = "SELECT nomeAluno FROM alunos WHERE idAluno = ?";
+$rsBuscarNomeAluno = $PDO->prepare($buscarNomeAluno);
+$rsBuscarNomeAluno->bindParam(1, $idAluno);
+$rsBuscarNomeAluno->execute();
+
+while ($dadosAluno = $rsBuscarNomeAluno->fetch(PDO::FETCH_ASSOC)) {
+    $nomeAluno = $dadosAluno['nomeAluno'];
+}
+
+
 
 $registrationIds = ["$tokenInstrutor"];
 
