@@ -134,7 +134,7 @@
                                     <div class="row panel-heading">
                                         <div class="col-lg-10"><h4>Versão 1.11</h4></div>
                                         <div class="col-lg-2">
-                                            <a href="#">
+                                            <a href="https://drive.google.com/open?id=1APe3aiNQacawmKpRNHNtd42dZOXH3L3P">
                                                 <button type="button" class="btn btn-primary">
                                                     <i class="fa fa-download"></i> Download
                                                 </button>
@@ -161,9 +161,9 @@
                             <div class="card-body">
                                 <div class="panel-body">
                                     <div class="row panel-heading">
-                                        <div class="col-lg-10"><h4>Versão 1.10</h4></div>
+                                        <div class="col-lg-10"><h4>Versão 1.13</h4></div>
                                         <div class="col-lg-2">
-                                            <a href="#">
+                                            <a href="https://drive.google.com/open?id=1gn7_tBuVrCz9i8rvxPG7mZeBlHtq6iDd">
                                                 <button type="button" class="btn btn-primary">
                                                     <i class="fa fa-download"></i> Download
                                                 </button>
@@ -181,18 +181,18 @@
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h4 class="panel-heading">
-                                <a data-toggle="collapse" href="#item3" aria-expanded="true" aria-controls="collapse-example" class="d-block">
+                                <a data-toggle="collapse" href="#item5" aria-expanded="true" aria-controls="collapse-example" class="d-block">
                                     <i class="fa fa-chevron-down pull-right"></i> Plano de Negócio
                                 </a>
                             </h4>
                         </div>
-                        <div id="item3" class="panel-collapse collapse">
+                        <div id="item5" class="panel-collapse collapse">
                             <div class="card-body">
                                 <div class="panel-body">
                                     <div class="row panel-heading">
                                         <div class="col-lg-10"><h4>Versão 1.0</h4></div>
                                         <div class="col-lg-2">
-                                            <a href="#">
+                                            <a href="https://drive.google.com/open?id=1kQsTofjIgKVfrDQb6FUohlqsmNGedg3k">
                                                 <button type="button" class="btn btn-primary">
                                                     <i class="fa fa-download"></i> Download
                                                 </button>

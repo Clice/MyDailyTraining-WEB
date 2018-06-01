@@ -9,7 +9,7 @@
         <title>MyDailyTraining - Recuperar Senha</title>
 
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/sistema/bootstrap.css'); ?>">
-        <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/fonts/fonts/icomoon.css'); ?>">
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/fonts/icomoon.css'); ?>">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/sistema/bootstrap-extended.css'); ?>">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/sistema/app.css'); ?>">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/sistema/colors.css'); ?>">

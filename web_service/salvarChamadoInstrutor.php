@@ -10,12 +10,6 @@ $idInstrutor = $_POST['idUsuario'];
 $dataChamado = date("Y-m-d");
 $horarioChamado = date("H:i:s");
 
-//$idAluno = 3;
-//$idAcademia = 2;
-//$idInstrutor = $_POST['idUsuario'];
-//$dataChamado = date("Y-m-d");
-//$horarioChamado = date("H:i:s");
-
 $salvarChamado = "INSERT INTO chamados (idAluno,idUsuario,idAcademia,dataChamado,horarioChamado) VALUES (?,?,?,?,?)";
 $rsSalvarChamado = $PDO->prepare($salvarChamado);
 $rsSalvarChamado->bindParam(1, $idAluno);

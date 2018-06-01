@@ -1,11 +1,10 @@
 <?php
 
 require 'conexao.php';
+
 ini_set('default_charset', 'UTF-8');
 
 $idInstrutor = $_POST['idInstrutor'];
-
-//$idInstrutor = 66;
 
 $buscarTokenInstrutor = "SELECT tokenUsuario FROM tokens WHERE idUsuario = ?";
 $rsBuscarTokenInstrutor = $PDO->prepare($buscarTokenInstrutor);
@@ -28,8 +27,6 @@ $rsBuscarNomeAluno->execute();
 while ($dadosAluno = $rsBuscarNomeAluno->fetch(PDO::FETCH_ASSOC)) {
     $nomeAluno = $dadosAluno['nomeAluno'];
 }
-
-
 
 $registrationIds = ["$tokenInstrutor"];
 

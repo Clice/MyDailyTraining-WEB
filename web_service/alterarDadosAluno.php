@@ -1,6 +1,7 @@
 <?php
 
 ini_set('default_charset', 'UTF-8');
+
 require 'conexao.php';
 
 $idAluno = $_POST['idAluno'];
@@ -17,7 +18,8 @@ $cidade = utf8_encode($cidadeAluno);
 $bairro = utf8_encode($bairroAluno);
 $estado = utf8_encode($estadoAluno);
 
-$alterarDados = "UPDATE alunos SET emailAluno = ?, enderecoAluno = ?, telefoneAluno = ?, cidadeAluno = ?, cepAluno = ?, bairroAluno = ?, estadoAluno = ? WHERE idAluno = ?";
+$alterarDados = "UPDATE alunos SET emailAluno = ?, enderecoAluno = ?, telefoneAluno = ?, cidadeAluno = ?, cepAluno = ?, "
+        . "bairroAluno = ?, estadoAluno = ? WHERE idAluno = ?";        
 $rsAlterarDados = $PDO->prepare($alterarDados);
 $rsAlterarDados->bindParam(1, $emailAluno);
 $rsAlterarDados->bindParam(2, $endereco);

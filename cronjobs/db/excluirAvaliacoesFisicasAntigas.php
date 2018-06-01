@@ -1,6 +1,6 @@
 <?php
 
-require './conexao.php';
+require '../conexao.php';
 
 $quatroMesesAtras = date("m") - 4;
 
