@@ -62,53 +62,123 @@
                     </div>
                 </div>
 
-                <!-- LOGIN NO SISTEMA WEB -->
+
+                <!-- SISTEMA WEB -->
                 <div class="panel-group">
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h4 class="panel-title">
-                                <a data-toggle="collapse" href="#item1" aria-expanded="true" aria-controls="collapse-example" class="d-block">
-                                    <i class="fa fa-chevron-down pull-right"></i> Efetuar Login no Sistema Web
+                                <a data-toggle="collapse" href="#sistemaWeb" aria-expanded="true" aria-controls="collapse-example" class="d-block">
+                                    <i class="fa fa-chevron-down pull-right"></i> Sistema Web
                                 </a>
                             </h4>
                         </div>
-                        <div id="item1" class="panel-collapse collapse">
+                        <div id="sistemaWeb" class="panel-collapse collapse">
                             <div class="card-body">
-                                <ul>
-                                    <li>1º </li>
-                                    <li>2º </li>
-                                    <li>3º </li>
-                                    <li>4º </li>
-                                    <li>5º </li>
-                                </ul>
+
+                                <!-- LOGIN NO SISTEMA WEB -->
+                                <br>
+                                <div class="panel-group">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">
+                                                <a data-toggle="collapse" href="#item1" aria-expanded="true" aria-controls="collapse-example" class="d-block">
+                                                    <i class="fa fa-chevron-down pull-right"></i> Efetuar Login no Sistema Web
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="item1" class="panel-collapse collapse">
+                                            <div class="card-body">
+                                                <ul>
+                                                    <li>1º - Digite o seu login no campo;</li>
+                                                    <li>2º - Digite a sua senha no campo;</li>
+                                                    <li>3º - Depois clique no botão "Login."</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- CRIAR TREINO DO ALUNO NO SISTEMA WEB -->
+                                <div class="panel-group">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">
+                                                <a data-toggle="collapse" href="#item2" aria-expanded="true" aria-controls="collapse-example" class="d-block">
+                                                    <i class="fa fa-chevron-down pull-right"></i> Definir Treino do Aluno
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="item2" class="panel-collapse collapse">
+                                            <div class="card-body">
+                                                <ul>
+                                                    <li>1º - Acesse a lista de alunos da sua academia;</li>
+                                                    <li>2º - Selecione o aluno clicando em "Ver Perfil";</li>
+                                                    <li>3º - Depois clique no botão "Definir Treino";</li>
+                                                    <li>4º - Insira uma descrição para o treino;</li>
+                                                    <li>5º - Depois clique no botão "Definir Treino";</li>
+                                                    <li>6º - Depois selecione o dias que o aluno vai realizar aquele treino;</li>
+                                                    <li>7º - Após isso, selecione os exercícios para o aluno e clique em "Continuar";</li>
+                                                    <li>8º - Defina os detalhes como Série, Repetições, Carga, Descanso de cada exercício clicando em "Editar";</li>
+                                                    <li>9º - Para finalizar clique em "Salvar".</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- REALIZAR AVALIAÇÃO FÍSICA NO SISTEMA WEB -->
+                                <div class="panel-group">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">
+                                                <a data-toggle="collapse" href="#item3" aria-expanded="true" aria-controls="collapse-example" class="d-block">
+                                                    <i class="fa fa-chevron-down pull-right"></i> Realizar Avaliação Física do Aluno
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="item3" class="panel-collapse collapse">
+                                            <div class="card-body">
+                                                <ul>
+                                                    <li>1º - Acesse a lista de alunos da sua academia;</li>
+                                                    <li>2º - Selecione o aluno clicando em "Ver Perfil";</li>
+                                                    <li>3º - Depois clique no botão "Realizar Avaliação Física";</li>
+                                                    <li>4º - Insira os valores obtidos na avaliação do aluno;</li>
+                                                    <li>5º - Para finalizar clique em "Salvar".</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- REALIZAR AVALIAÇÃO FÍSICA NO SISTEMA WEB -->
+                                <div class="panel-group">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">
+                                                <a data-toggle="collapse" href="#item4" aria-expanded="true" aria-controls="collapse-example" class="d-block">
+                                                    <i class="fa fa-chevron-down pull-right"></i> Imprimir Ficha de Treino do Aluno
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="item4" class="panel-collapse collapse">
+                                            <div class="card-body">
+                                                <ul>
+                                                    <li>1º - Acesse a lista de alunos da sua academia;</li>
+                                                    <li>2º - Selecione o aluno clicando em "Ver Perfil";</li>
+                                                    <li>3º - Depois clique no botão "Imprimir Ficha";</li>
+                                                    <li>4º - Após a ficha ser gerada, você pode imprimir ou baixar ela em um arquivo PDF.</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- LOGIN NO APLICATIVO MOBILE -->
-                <div class="panel-group">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">
-                                <a data-toggle="collapse" href="#item2" aria-expanded="true" aria-controls="collapse-example" class="d-block">
-                                    <i class="fa fa-chevron-down pull-right"></i> Efetuar Login no Aplicativo Mobile
-                                </a>
-                            </h4>
-                        </div>
-                        <div id="item2" class="panel-collapse collapse">
-                            <div class="card-body">
-                                <ul>
-                                    <li>1º </li>
-                                    <li>2º </li>
-                                    <li>3º </li>
-                                    <li>4º </li>
-                                    <li>5º </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+               
             </div>
         </section>
 
