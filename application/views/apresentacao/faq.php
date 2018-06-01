@@ -62,7 +62,6 @@
                     </div>
                 </div>
 
-
                 <!-- SISTEMA WEB -->
                 <div class="panel-group">
                     <div class="panel panel-default">
@@ -178,7 +177,116 @@
                     </div>
                 </div>
 
-               
+                 <!-- APLICATIVO MOBILE -->
+                <div class="panel-group">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" href="#aplicativoMobile" aria-expanded="true" aria-controls="collapse-example" class="d-block">
+                                    <i class="fa fa-chevron-down pull-right"></i> Sistema Web
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="aplicativoMobile" class="panel-collapse collapse">
+                            <div class="card-body">
+
+                                <!-- LOGIN NO APLICATIVO MOBILE -->
+                                <br>
+                                <div class="panel-group">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">
+                                                <a data-toggle="collapse" href="#item5" aria-expanded="true" aria-controls="collapse-example" class="d-block">
+                                                    <i class="fa fa-chevron-down pull-right"></i> Efetuar Login no Sistema Web
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="item5" class="panel-collapse collapse">
+                                            <div class="card-body">
+                                                <ul>
+                                                    <li>1º - Escolha o seu tipo de conta, se você é Aluno ou Instrutor;</li>
+                                                    <li>2º - Digite o seu login no campo;</li>
+                                                    <li>3º - Digite a sua senha no campo;</li>
+                                                    <li>4º - Clique na opção "Lembrar de mim" se você quiser que seu login e senha fiquem salvos;</li>
+                                                    <li>5º - Depois clique no botão "Login."</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- GERENCIAR TREINO DO ALUNO NO APLICATIVO MOBILE -->
+                                <div class="panel-group">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">
+                                                <a data-toggle="collapse" href="#item6" aria-expanded="true" aria-controls="collapse-example" class="d-block">
+                                                    <i class="fa fa-chevron-down pull-right"></i> Gerenciar Treino do Aluno
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="item6" class="panel-collapse collapse">
+                                            <div class="card-body">
+                                                <ul>
+                                                    <li>1º - Acesse o Menu Principal;</li>
+                                                    <li>2º - Depois clique no ícone do "Gerenciar Treino";</li>
+                                                    <li>3º - Serão mostrados todos os exercícios que você vai realizar no dia;</li>
+                                                    <li>4º - Clicando em um exercício, você pode marcar ele como realizado.</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- ACOMPANHAR DESEMPENHO DO ALUNO NO APLICATIVO MOBILE -->
+                                <div class="panel-group">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">
+                                                <a data-toggle="collapse" href="#item7" aria-expanded="true" aria-controls="collapse-example" class="d-block">
+                                                    <i class="fa fa-chevron-down pull-right"></i> Acompanhar Desempenho do Aluno
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="item7" class="panel-collapse collapse">
+                                            <div class="card-body">
+                                                <ul>
+                                                    <li>1º - Acesse o Menu Principal;</li>
+                                                    <li>2º - Depois clique no ícone do "Acompanhar Desempenho";</li>
+                                                    <li>3º - Escolha qual dado você quer o desempenho;</li>
+                                                    <li>4º - Após escolher o dado, será mostrado um gráfico com as quatro últimas avaliações físicas realizadas.</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- CHAMAR INSTRUTOR NO APLICATIVO MOBILE -->
+                                <div class="panel-group">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">
+                                                <a data-toggle="collapse" href="#item8" aria-expanded="true" aria-controls="collapse-example" class="d-block">
+                                                    <i class="fa fa-chevron-down pull-right"></i> Chamar Instrutor
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="item8" class="panel-collapse collapse">
+                                            <div class="card-body">
+                                                <ul>
+                                                    <li>1º - Acesse o Menu Principal;</li>
+                                                    <li>2º - Depois clique no botão com ícone de um sino;</li>
+                                                    <li>3º - Será mostrada uma lista com os instrutores disponíveis na academia;</li>
+                                                    <li>4º - Clique no instrutor que você quer chamar.</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
