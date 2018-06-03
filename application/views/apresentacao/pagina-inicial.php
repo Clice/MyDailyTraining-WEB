@@ -521,21 +521,29 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-3 col-sm-6">
+                    <div class="col-sm-4">
+                        <div class="team-member">
+                            <a href="https://www.petaf.com.br">
+                                <img src="<?php echo base_url('assets/imagens/apresentacao/parceiros/petaf100x100aux.jpg'); ?>"
+                                     class="img-responsive img-circle" alt="Petaf">
+                            </a>
+                        </div>
                     </div>
-                    <div class="col-md-3 col-sm-6" style="margin-left: 75px;">
-                        <a href="https://www.petaf.com.br">
-                            <img src="<?php echo base_url('assets/imagens/apresentacao/parceiros/petaf100x100aux.jpg'); ?>"
-                                 class="img-responsive img-circle" alt="Petaf">
-                        </a>
+                    <div class="col-sm-4">
+                        <div class="team-member">
+                            <a href="https://www.4code.net.br">
+                                <img src="<?php echo base_url('assets/imagens/apresentacao/parceiros/idsoft100x100.jpg'); ?>"
+                                     class="img-responsive img-circle" alt="IDSoft">
+                            </a>
+                        </div>
                     </div>
-                    <div class="col-md-3 col-sm-6">
-                        <a href="https://www.4code.net.br">
-                            <img src="<?php echo base_url('assets/imagens/apresentacao/parceiros/idsoft100x100.jpg'); ?>"
-                                 class="img-responsive img-circle" alt="IDSoft">
-                        </a>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
+                    <div class="col-sm-4">
+                        <div class="team-member">
+                            <a href="https://play.google.com/store">
+                                <img src="<?php echo base_url('assets/imagens/apresentacao/parceiros/start_programy_1_100x100.png'); ?>"
+                                     class="img-responsive img-circle" alt="IDSoft">
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
