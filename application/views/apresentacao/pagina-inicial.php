@@ -541,7 +541,7 @@
                         <div class="team-member">
                             <a href="https://play.google.com/store">
                                 <img src="<?php echo base_url('assets/imagens/apresentacao/parceiros/start_programy_1_100x100.png'); ?>"
-                                     class="img-responsive img-circle" alt="IDSoft">
+                                     class="img-responsive img-circle" alt="StartProgramy">
                             </a>
                         </div>
                     </div>
