@@ -1,13 +1,13 @@
 
-<!-- DADOS DO USUÁRIO LOGADO -->
+<!-- MEUS DADOS -->
 <div class="app-content content container-fluid">
     <div class="content-wrapper">
-        <!-- CONTEÚDO DO PÁGINA - DADOS DO USUÁRIO LOGADO -->
+        <!-- CONTEÚDO DA PÁGINA -->
         <div class="content-body">
             <section id="basic-form-layouts">
                 <div class="row match-height">
-                    <div class="col-md-12">
-                        <div class="card hidden">
+                    <div class="col-xl-12">
+                        <div class="card">
                             <div class="card-body collapse in">
                                 <div class="card-block">
                                     <!-- TÍTULO DO PÁGINA - NOME DO USUÁRIO -->
