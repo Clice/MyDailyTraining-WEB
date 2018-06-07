@@ -183,7 +183,7 @@
                         <div class="panel-heading">
                             <h4 class="panel-title">
                                 <a data-toggle="collapse" href="#aplicativoMobile" aria-expanded="true" aria-controls="collapse-example" class="d-block">
-                                    <i class="fa fa-chevron-down pull-right"></i> Sistema Web
+                                    <i class="fa fa-chevron-down pull-right"></i> Aplicativo Mobile
                                 </a>
                             </h4>
                         </div>
@@ -197,7 +197,7 @@
                                         <div class="panel-heading">
                                             <h4 class="panel-title">
                                                 <a data-toggle="collapse" href="#item5" aria-expanded="true" aria-controls="collapse-example" class="d-block">
-                                                    <i class="fa fa-chevron-down pull-right"></i> Efetuar Login no Sistema Web
+                                                    <i class="fa fa-chevron-down pull-right"></i> Efetuar Login no Aplicativo Mobile
                                                 </a>
                                             </h4>
                                         </div>
